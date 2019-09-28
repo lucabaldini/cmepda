@@ -1,0 +1,70 @@
+\mode<presentation>
+
+
+% http://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch
+% Not sure whether this should be defbeamertemplate or setbeamertemplate, need
+% to think about it.
+
+%
+% Frame title
+%
+\defbeamertemplate*{frametitle}{compi}[1][]{
+  \pgfmathsetmacro{\h}{1.35} % Title height.
+  \pgfmathsetmacro{\l}{1.80} % Length of the left part.
+  \pgfmathsetmacro{\s}{0.05} % Separation between left and right parts.
+  \pgfmathsetmacro{\p}{0.35} % Text padding.
+  \vspace*{-1pt}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\h cm]{frametitle}
+    \begin{tikzpicture}
+      \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth, \h);
+      \node[anchor=south west, white, font=\large,
+        inner sep=0pt] at (\p, 0) {\includegraphics[width=35pt]{logo_unipi}};
+      \fill[compicolor2] (\l+0.5*\s, 0) rectangle(\the\paperwidth, \h);
+      \ifx\insertframesubtitle\@empty{
+        \node[anchor=west, white,
+          font=\large] at (\l+\p, 0.5*\h) {\insertframetitle};
+      } \else {
+        \node[anchor= west, white,
+          font=\large] at (\l+\p, 0.65*\h) {\insertframetitle};
+        \node[anchor= west, white,
+          font=\footnotesize] at (\l+\p, 0.28*\h){\insertframesubtitle};
+      }%
+      \fi
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+
+%
+% Footer.
+%
+\defbeamertemplate*{footline}{compi} {
+  \pgfmathsetmacro{\h}{0.45} % Footer height.
+  \pgfmathsetmacro{\l}{11.2} % Length of the left part.
+  \pgfmathsetmacro{\s}{0.05} % Separation between left and right parts.
+  \pgfmathsetmacro{\p}{0.10} % Text padding.
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\h cm]{footline} 
+    \begin{tikzpicture}
+      \useasboundingbox[fill=white](0, 0) rectangle(\the\paperwidth, \h);
+      \fill[compicolor2] (0, 0) rectangle(\l-0.5*\s, \h);
+      \fill[compicolor2] (\l+0.5*\s, 0) rectangle(\the\paperwidth, \h); 
+      \usebeamerfont{date in head/foot}
+      \node[anchor=west, white] at (\p, 0.5*\h) {
+        \insertshortauthor~(\insertshortinstitute)
+      };
+      \node[anchor=east, white] at (\l-\s-\p, 0.5*\h) {
+        \insertshortdate
+      };
+      \node[anchor=west, white] at (\l+\s+\p, 0.5*\h) {
+        Page~\insertframenumber{}/\inserttotalframenumber
+      };
+      
+    \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+
+% http://tex.stackexchange.com/questions/93874/where-can-i-find-a-list-of-itemize-bullet-shapes-in-latex-beamer
+\setbeamertemplate{itemize items}{$\rhd$}
+
+\mode<all>

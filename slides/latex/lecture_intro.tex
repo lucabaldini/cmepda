@@ -1,0 +1,238 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\title{\scriptsize Computing Methods for Experimental Physics and Data Analysis}
+\subtitle{Introduction}
+\date{\today}
+\author{L. Baldini, G. Lamanna, A. Manfreda, A. Retico, A. Rizzi}
+\institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
+\email{luca.baldini@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+\begin{frame}
+  \frametitle{Goals and prerequisites}
+  \begin{itemize}
+  \item What is this all about?
+    \begin{itemize}
+    \item Automating repetitive tasks
+    \item Python basics, standard library and scientific ecosystem
+    \item Collaborative code development and best practices
+    \item Algorithms and data structures
+    \item Machine learning
+    \item Specific tools for high-energy physics or medical physics
+    \end{itemize}
+  \item \alert{This is not so much about Python or C++---it is about how to
+    write code for effective data analysis}
+  \item Will I be a professional data scientist at the end of the semester?
+    \begin{itemize}
+    \item No, but hopefully you'll be able to poke around and find the right
+      tool for the job at hand
+    \end{itemize}
+  \item What do I need to know in advance?
+    \begin{itemize}
+    \item Have a vague idea of how a computer operates
+    \item If you have ever programmed before that would be
+      great!
+    \end{itemize}
+  \item \alert{This is our first round: we will adjust along the way}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Basic structure of the course}
+  \begin{cmepdapicture}
+    \pgfmathsetmacro{\y}{0.90}
+    \pgfmathsetmacro{\dy}{0.25}
+    \pgfmathsetmacro{\mw}{90pt}
+    \node[cmepdadiagblock, name=basic, minimum width=\mw] at (0.5, \y) {
+      Basic module\\[2pt](Sep. 23--Oct. 21)
+    };
+    \node[cmepdadiagblock, name=advanced, minimum width=\mw] at (0.5, \y-\dy) {
+      Advanced module\\[2pt](Oct. 24--Nov. 21)
+    };
+    \node[cmepdadiagblock, name=hep, minimum width=\mw] at (0.25, \y-2*\dy) {
+      Fundamental Interactions\\[2pt](Nov. 25--Dec. 19)
+    };
+    \node[cmepdadiagblock, name=med, minimum width=\mw] at (0.75, \y-2*\dy) {
+      Medical Physics\\[2pt](Nov. 25--Dec. 19)
+    };
+    \draw[arrow] (basic.south) to (advanced.north);
+    \draw[arrow, out=-90, in=90] (advanced.south) to (hep.north);
+    \draw[arrow, out=-90, in=90] (advanced.south) to (med.north);
+
+    \cmepdaminipagenode[anchor=north]{0.5, 0.20}{\textwidth}{
+      \begin{itemize}
+      \item Modularity and standard paths:
+        \begin{itemize}
+        \item Each module is worth 3 credits
+        \item 6 credits: basic + advanced
+        \item 9 credits: basic + advanced + fundamental interactions
+        \item 9 credits: basic + advanced + medical physics
+        \end{itemize}
+      \end{itemize}
+    }
+  \end{cmepdapicture}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Basic module}
+  \framesubtitle{L. Baldini and A. Manfreda}
+  \begin{itemize}
+  \item Collaborative tools
+    \begin{itemize}
+    \item Version control, development workflow, development platforms
+    \end{itemize}
+  \item Python basics
+    \begin{itemize}
+    \item Coding conventions, structuring a package
+    \item Variables, native types, functions
+    \item The Python standard library
+    \end{itemize}
+  \item Algorithms and data structures
+    \begin{itemize}
+    \item Complexity and asymptotic running time
+    \item Python data structures and native algorithms
+    \end{itemize}
+  \item Object-Oriented Programming (OOP)
+    \begin{itemize}
+    \item Classes, inheritance, composition
+    \item Operator overload and emulation of Python builtin types
+    \end{itemize}
+  \item The Python computing ecosystem
+    \begin{itemize}
+    \item numpy: arrays, functions, broadasting
+    \item Vectorization
+    \item Scipy: plotting and fitting
+    \item Pandas
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Advanced module}
+  \framesubtitle{L. Baldini, G. Lamanna, A. Manfreda, A. Rizzi}
+  \begin{itemize}
+  \item Advanced code development
+    \begin{itemize}
+    \item Unit testing, continuous integration, static analysis, documentation
+    \end{itemize}
+  \item Advanced Python
+    \begin{itemize}
+    \item Errors, exceptions, iterators and generators, decorators
+    \item Profiling and optimization
+    \end{itemize}
+  \item Parallel computing
+    \begin{itemize}
+    \item Computer architectures, memory, scaling laws, CPUs and GPUs
+    \item Parallel programming: concurrency and parallelism, threading in Python
+    \end{itemize}
+  \item Machine learning
+    \begin{itemize}
+    \item Classification and regression: boosted decision trees and
+      multilayer perceptrons
+    \item Deep learning: neural networks, the keras library
+    \item Supervised and unsupervised training, reinforcement learning
+    \item Tensorflow
+    \end{itemize}    
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fundamental Interactions}
+  \framesubtitle{G. Lamanna, A. Rizzi}
+  \begin{itemize}
+  \item Introduction to C++
+    \begin{itemize}
+    \item Coding style and organization, declaration of interfaces
+    \item Classes: constructors, virtual functions, private and public,
+      abstract classes, inheritance
+    \item References, pointers, dynamic memory allocation, memory ownership,
+      smart pointers
+    \item Templates, standard template library
+    \item C++11 and C++14: lambda functions, auto variables
+    \end{itemize}
+  \item More parallel computing
+    \begin{itemize}
+    \item Cuda and OpenCL
+    \item Examples of algorithms for HEP
+    \item GPU in HEP Data Analysis
+    \end{itemize}
+  \item The ROOT data analysis framework
+    \begin{itemize}
+    \item ROOT toolkit
+    \item PyROOT, root-numpy, RDataFrame
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Medical Physics}
+  \framesubtitle{A. Retico}
+  \begin{itemize}
+  \item Medical data processing and feature extraction (python/MATLAB)%
+    \begin{itemize}
+    \item Tools for handling standard-format medical data (DICOM)
+    \item Data anonymization and visualization
+    \item Deriving features form images, image segmentation
+    \item Data quality control pipelines: outlier removal, dimensionality
+      reduction
+    \end{itemize}
+  \item Data analysis and classification (python/MATLAB)
+    \begin{itemize}
+    \item Performance evaluations: figures of merit, cross-validation schemes,
+      permutation test
+    \item Machine-learning and deep-learning tools for segmentation and
+      classification
+    \item Data augmentation, transfer learning, retrieving localization
+      information.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Logistics}
+  \framesubtitle{Timetable and final exam}
+  \begin{itemize}
+  \item Timetable
+    \begin{itemize}
+    \item Monday, 09:00--11:00 (room G1)
+    \item Monday, 16:00--18:00 (room H)
+    \item Thursday, 09:00--11:00 (room M)
+    \end{itemize}
+  \item Lectures on Monday morning and Thursday morning ($2 \times 2$~hours)
+    \begin{itemize}
+    \item Tentative idea: 1~hour with slides and $1$~hour at the computer
+    \item (Actual mileage might vary)
+    \end{itemize}
+  \item ``Lab'' on Monday afternoon
+    \begin{itemize}
+    \item Attack a small project each week in a 2--3~hour session
+    \item (Bring your own laptop!)
+    \end{itemize}
+  \item \alert{And, of course, the final exam}
+    \begin{itemize}
+    \item Development of a specific, reasonable-size software project
+      (related to the topics covered in the course)
+    \item Two-page description of the project and source code made
+      available in advance
+    \item Oral exam (starting from the discussion of the project)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}

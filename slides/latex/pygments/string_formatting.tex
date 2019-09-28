@@ -1,0 +1,23 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/string\_formatting.py}},commandchars=\\\{\}]
+\PY{n}{name} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Luca}\PY{l+s+s1}{\PYZsq{}}
+\PY{n}{age} \PY{o}{=} \PY{l+m+mi}{42}
+
+\PY{c+c1}{\PYZsh{} The ugly way.}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{My name is }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n}{name} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ I am }\PY{l+s+s1}{\PYZsq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{age}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ year(s) old.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} The old way (\PYZpc{} operator)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{My name is }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s1}{ I am }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{ year(s) old.}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{n}{age}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} The new way (.format)}
+\PY{c+c1}{\PYZsh{} This is actually *much* more powerful and flexible than implied here.}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{My name is \PYZob{}\PYZcb{} I am \PYZob{}\PYZcb{} year(s) old.}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{name}\PY{p}{,} \PY{n}{age}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} The newer way\PYZhy{}\PYZhy{}\PYZhy{}new in Python 3.6. This is awesome!}
+\PY{k}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{My name is \PYZob{}name\PYZcb{} I am \PYZob{}age\PYZcb{} year(s) old.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+[Output]
+My name is Luca I am 42 year(s) old.
+My name is Luca I am 42 year(s) old.
+My name is Luca I am 42 year(s) old.
+My name is Luca I am 42 year(s) old.
+\end{Verbatim}

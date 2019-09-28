@@ -1,0 +1,333 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\title{Python Basics (1/2)}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{L. Baldini}
+\institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
+\email{luca.baldini@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+\begin{frame}
+  \frametitle{Python 3 vs. Python 2}
+  \begin{itemize}
+  \item You might have heard about the Python 2 vs. Python 3 diatribe
+  \item What's new in Python 3?
+    \begin{itemize}
+    \item print() is a function (vs. a statement)
+    \item Integer division returns a float (hurray!)
+    \item But really, \alert{the big change is the implementation of
+      unicode support}
+      \begin{itemize}
+      \item Although you probably don't care that much if you are a data
+        scientist
+      \end{itemize}
+    \end{itemize}
+  \item Python 3 is the future!
+    \begin{itemize}
+    \item Python 2 EOL (End Of Life) is January 1, 2020
+    \item Hundreds of features introduced in Python 3 and not backported to
+      Python 2
+    \item All third-party modules worth mentioning support both Python 2 and
+      Python 3, these days
+    \end{itemize}
+  \item \alert{One-line summary: we shall be using Python 3}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{The zen of Python}
+  \framesubtitle{See PEP 20, \url{https://www.python.org/dev/peps/pep-0020/}}
+  \begin{Verbatim}
+[lbaldini@nbbaldini slides]$ python
+Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+[GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+  \end{Verbatim}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Coding conventions?}
+  \framesubtitle{\url{https://www.python.org/dev/peps/pep-0008/}}
+  \begin{itemize}
+  \item \emph{Coding conventions} are guidelines about how to write code
+    \begin{itemize}
+    \item Different for different languages
+    \item i.e., you are encouraged to stick to them, but your code will
+      happily run if you don't
+    \end{itemize}
+  \item \alert{Then why should I care?}
+  \item Code is read much more often than it is written
+    \begin{itemize}
+    \item Readability counts (the zen of Python)
+    \end{itemize}
+  \item One-line summary: \alert{think about it but don't be obsessed by it}
+  \item There are automatic tools out there to help you
+    \begin{itemize}
+    \item https://github.com/PyCQA/pycodestyle
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Variables and basic types}
+  \input{pygments/basic_types}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Digression: string formatting}
+  \input{pygments/string_formatting}
+  \begin{itemize}
+  \item String formatting in a nutshell:
+    \begin{itemize}
+    \item Never add strings
+    \item Try and avoid using the \texttt{\%} operator
+    \item Go for format(), and use f-strings if you can
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Defining functions}
+  \framesubtitle{\url{https://en.wikipedia.org/wiki/Don\%27t_repeat_yourself}}
+  \begin{itemize}
+  \item\alert{DRY (Don't Repeat Yourself) is better than WET (Write Every Time)}
+  \end{itemize}
+
+  \bigskip
+
+  \input{pygments/func1}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Variadic functions}
+  \begin{itemize}
+  \item Variadic functions accept a variable number of arguments
+    \begin{itemize}
+    \item More elegant than passing a list or a tuple of arguments
+    \item How the heck is \emph{that} implemented?
+    \end{itemize}
+  \end{itemize}
+
+  \bigskip
+
+  \input{pygments/func_variadic1}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Arbitrary argument lists}
+  \input{pygments/func_variadic2}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A real life example}
+  \input{pygments/func_variadic_fit}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Keyword arguments}
+  \input{pygments/func_kwargs}
+  
+  %\begin{itemize}
+  %\item
+  %\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Basic control flow}
+  \input{pygments/control_flow}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Advanced iteration}
+  \input{pygments/iteration}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Challenge of the day}
+  \begin{Verbatim}
+[lbaldini@nbbaldini slides]$ python
+Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+[GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 0.1 + 0.2 == 0.3
+False
+>>> 0.2 + 0.2 == 0.4
+True
+  \end{Verbatim}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item \alert{What the hell?}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Floating point representation}
+  \framesubtitle{IEEE 754 standard}
+  \centering\includegraphics[width=0.7\textwidth]{float_representation}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item Floating-point number representation from left to right
+    \begin{itemize}
+    \item \alert{sign} ($s$, 1 bit, $0 \rightarrow -$, $1 \rightarrow +$)
+    \item \alert{exponent} ($e$, 8 or 11 bit)
+    \item \alert{significand} or \alert{mantissa} ($m$, 23 or 52 bit)
+    \end{itemize}
+  \item The exponent does not have a sign
+    \begin{itemize}
+    \item An exponent bias $b$ is subtracted from it (127 or 1023)
+    \end{itemize}
+  \item The significand MSB is assumed to be $1$, unless the exponent is 0
+  \end{itemize}
+
+  \begin{align}
+    x = s \times m \times 2^{e - b}
+  \end{align}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{A simple example}
+  \framesubtitle{\url{https://babbage.cs.qc.cuny.edu/IEEE-754/index.xhtml}}
+  \begin{itemize}
+  \item Take a floating-point number with an exact binary representation
+  \end{itemize}
+  \begin{align}
+    0.75_{10} = 0.11_{2} = 0 \times 2 + 1 \times 2^{-1} + 1 \times 2^{-2} =
+    \frac{1}{2} + \frac{1}{4} = 1.5 \times 2^{-1}
+  \end{align}
+
+  \begin{Verbatim}
+0.75 -> 0x3F400000 = 0b|0|01111110|10000000000000000000000
+sign = 0b0 = 0 -> +
+exponent = 0b01111110 = 126 -> 126 - 127 = -1
+significand = 0b(1)10000000000000000000000 = 12582912 -> 0b1.1 = 1.5
+  \end{Verbatim}  
+  \begin{itemize}
+  \item The representation of any floating point number is equivalent to the
+    ratio of two integers, where the denominator is a power of 2
+  \end{itemize}
+
+  \begin{align}
+    x = \frac{m}{2^{23 - e}} = \frac{12582912}{2^{24}} = \frac{3}{4} = 0.75
+  \end{align}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Floating point representation in Python}
+  \input{pygments/float}
+
+  \begin{itemize}
+  \item as\_integer\_ratio() returns the internal representation of a float
+  \item Mind this is not guaranteed to be the closest rational approximation
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Floating point representation}
+  \framesubtitle{IEEE 754 standard}
+  \begin{itemize}
+  \item Good properties:
+    \begin{itemize}
+    \item numbers at wildly different magnitudes
+    \item same relative accuracy at all magnitudes
+    \item allow calculations across magnitudes
+    \end{itemize}
+  \item Dynamic range dictated by the number $n_e$ of bits in the exponent
+    \begin{itemize}
+    \item[] Range: $2^{2^{n_e - 1}}$
+    \end{itemize}
+  \item Precision dictated by the number $n_s$ of bits in the significand
+    \begin{itemize}
+    \item[] Precision: $log_{10} (2^{n_s + 1})$
+    \end{itemize}
+  \end{itemize}
+
+  \bigskip
+  
+  \centering\begin{tabular}{llll}
+    \hline
+    Precision & Bits & Dynamic range & Digits of precision\\
+    \hline
+    \hline
+    Single & $1 + 8 + 23 = 32$ & $\approx 2^{128} \text{ or } 10^{38}$ &
+    7 \\
+    Double & $1 + 11 + 52 = 64$ & $\approx 2^{1024} \text{ or } 10^{308}$ &
+    15 \\
+    \hline
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{References}
+  \scriptsize
+  \begin{itemize}
+  \item\url{https://scipy-lectures.org/}
+  \item\url{https://docs.quantifiedcode.com/python-anti-patterns/}
+  \item\url{https://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html}
+  \item\url{https://www.python.org/dev/peps/pep-0020/}
+  \item\url{https://www.python.org/dev/peps/pep-0008/}
+  \item\url{https://docs.python-guide.org/writing/style/}
+  \item\url{https://docs.python.org/3/library/stdtypes.html}
+  \item\url{https://docs.python.org/3/tutorial/controlflow.html\#defining-functions}
+  \item\url{https://docs.python.org/3/tutorial/floatingpoint.html}
+  \item\url{https://floating-point-gui.de/}
+  \item\url{https://www.itu.dk/~sestoft/bachelor/IEEE754_article.pdf}
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}

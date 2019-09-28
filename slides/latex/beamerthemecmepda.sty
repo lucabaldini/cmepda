@@ -1,0 +1,114 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,fit,calc}
+
+% Path to figures.
+\graphicspath{{./figures/}}
+
+% New command for the email.
+\def\email{\@dblarg\beamer@email}
+\long\def\beamer@email[#1]#2{%
+  \def\insertemail{#2}%
+}
+\email{}
+
+% Fancy fonts.
+\usepackage{bookman} 
+
+% Settings
+\useinnertheme{cmepda}
+\useoutertheme{cmepda}
+\usecolortheme{cmepda}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamerfont{date in head/foot}{size=\fontsize{5.5}{6}\selectfont}
+
+%
+% New environment for manual positioning. This is defining a tikzpicture
+% spanning the entrire useful area in the slide where the bounding
+% box is running from the bottom-left to the top-right corners.
+%
+\newenvironment{cmepdapicture}{%
+  \begin{tikzpicture}[x=\textwidth, y=0.85\textheight]
+    \useasboundingbox (0, 0) rectangle (1, 1);}{%
+  \end{tikzpicture}%
+}
+
+
+%
+% Node for positioning minipages within an cmepdapicture. The signature is
+% \cmepdaminpagenode[\node opts]{pos}{width}{contents}
+%
+\newcommand{\cmepdaminipagenode}[4][]{%
+  \node[#1] at (#2) {%
+    \begin{minipage}{#3}
+      \vspace*{-12pt}{#4}\vspace*{-8pt}
+    \end{minipage}%
+  };
+}
+
+
+%
+% Node for positioning images within an cmepdapicture. The signature is
+% \cmepdaimgnode[\node opts]{pos}{\includegraphics opts}{filename}
+%
+\newcommand{\cmepdaimgnode}[4][]{%
+  \node[#1] at (#2) {\includegraphics[#3]{#4}};
+}
+
+
+%
+% Basic style for the block diagrams.
+%
+\tikzstyle{cmepdadiagblock} = [rectangle, minimum height=13pt,
+  minimum width=55pt,
+  rounded corners=1mm, draw=gray, top color=white, bottom color=black!15,
+  font=\scriptsize, align=center, node distance=8pt and 10pt, auto]
+
+\tikzstyle{infndiagblock} = [style=cmepdadiagblock, bottom color=infn]
+
+\tikzstyle{iapsdiagblock} = [style=cmepdadiagblock, bottom color=iaps,
+  text=white]
+
+\tikzstyle{primediagblock} = [style=cmepdadiagblock, bottom color=prime]
+
+\tikzstyle{connector} = [line width = 0.5pt, draw=nicegray]
+
+\tikzstyle{arrow} = [->, line width = 0.5pt, draw=nicegray]
+
+\tikzstyle{appdiagblock} = [ellipse, minimum height=13pt, minimum width=60pt,
+  rounded corners=1mm, draw=orange, top color=white, bottom color=app,
+  font=\scriptsize, align=center, node distance=8pt and 10pt, auto, text=black,
+  inner sep=2pt]
+
+\tikzstyle{filediagblock} = [style=cmepdadiagblock, bottom color=file,
+  text=black]
+
+\tikzstyle{diagblocklabel} = [font=\tiny, align=center,
+  node distance=-1pt, auto, text=gray]
+
+\tikzstyle{frame} = [draw=gray, inner sep=2.5pt, rounded corners=2,
+  densely dotted]
+
+%
+% Miscellanea
+%
+\newcommand{\paper}[5]{#1, #2~{\bfseries #3}, #4~(#5)}
+\newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1}}
+
+\usepackage{pifont}
+\newcommand{\ok}{\textcolor{darkgreen}{\ding{51}}}
+\newcommand{\ko}{\textcolor{darkred}{\ding{56}}}
+
+% Stuff for the code snippets
+\usepackage{fancyvrb}
+\fvset{frame=single, numbers=left, numbersep=5pt, fontsize=\scriptsize,
+       baselinestretch=1.0, rulecolor=\color{lightgray}, framesep=5pt}
+\input{pygments}
+
+
+\mode<all>

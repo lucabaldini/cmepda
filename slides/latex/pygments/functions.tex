@@ -1,0 +1,33 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/functions.py}},commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Plain}
+\PY{k}{def} \PY{n+nf}{square}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Return the square of x.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{n}{x} \PY{o}{*} \PY{n}{x}
+
+\PY{c+c1}{\PYZsh{} Default return value is None}
+\PY{c+c1}{\PYZsh{}def }
+
+\PY{c+c1}{\PYZsh{} More args}
+\PY{c+c1}{\PYZsh{}def }
+
+\PY{c+c1}{\PYZsh{} Default arguments}
+\PY{c+c1}{\PYZsh{}def}
+
+\PY{c+c1}{\PYZsh{} Variadic functions}
+\PY{k}{def} \PY{n+nf}{concatenate}\PY{p}{(}\PY{o}{*}\PY{n}{items}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Concatenate the string representations of a series of objects.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n}{item}\PY{p}{)} \PY{k}{for} \PY{n}{item} \PY{o+ow}{in} \PY{n}{items}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{square}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{concatenate}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{concatenate}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{U}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{concatenate}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{How}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ are}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ you?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+
+[Output]
+4
+
+U2
+How are you?
+\end{Verbatim}

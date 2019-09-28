@@ -1,0 +1,59 @@
+\mode<presentation>
+
+% See https://joerglenhard.wordpress.com/2011/08/01/beamer-customization-colors/
+% fg sets the foreground color. The other option is bg for background.
+% The command also comes in a starred version, \setbeamercolor*, which is useful
+% if there are cummulative calls of the command for the same beamer element.
+% The starred version first resets all configurations to their default values,
+% while the non-starred version only changes the specified configurations. So,
+% to change the color for the same element multiple times without side effects,
+% use \setbeamercolor*.
+
+% See http://pastebin.com/nK3BWG5v for a full list of items whose color
+% can be changed.
+
+%
+% Define a few colors.
+%
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{firebrick}{rgb}{0.7, 0.13, 0.13}
+\definecolor{palecopper}{rgb}{0.85, 0.54, 0.4}
+\definecolor{nicegray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{niceacqua}{rgb}{0.36, 0.54, 0.66}
+\definecolor{darkgreen}{RGB}{34, 139, 34}
+\definecolor{darkred}{RGB}{178, 34, 34}
+\definecolor{darkyellow}{rgb}{1.0, 0.75, 0.0}
+\colorlet{infn}{darkgreen}
+\colorlet{iaps}{niceacqua}
+\colorlet{prime}{darkyellow}
+\colorlet{app}{darkyellow}
+\colorlet{file}{darkgreen}
+\colorlet{mastertext}{black}
+
+% Original theme.
+%\colorlet{compicolor1}{brown}
+%\colorlet{compicolor2}{niceacqua}
+%\colorlet{compicolor3}{nicegray}
+
+% Cold theme.
+\colorlet{compicolor1}{brown}
+\colorlet{compicolor2}{niceacqua}
+\colorlet{compicolor3}{nicegray}
+
+% Warm theme.
+%\colorlet{compicolor1}{palecopper}
+%\colorlet{compicolor2}{firebrick}
+%\colorlet{compicolor3}{nicegray}
+
+
+\setbeamercolor*{title page header}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+% structure refers to elements such as bullet points
+\setbeamercolor*{structure}{fg=compicolor3} 
+\setbeamercolor*{normal text}{fg=compicolor3}
+\setbeamercolor*{alerted text}{fg=compicolor1}
+
+
+
+\mode<all>

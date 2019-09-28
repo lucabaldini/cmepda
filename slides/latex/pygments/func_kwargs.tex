@@ -1,0 +1,19 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/func\_kwargs.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{func}\PY{p}{(}\PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{print}\PY{p}{(}\PY{n}{kwargs}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{verbose}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+nb+bp}{False}\PY{p}{)}\PY{p}{)}
+
+
+\PY{n}{func}\PY{p}{(}\PY{p}{)}
+\PY{n}{func}\PY{p}{(}\PY{n}{verbose}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+\PY{n}{func}\PY{p}{(}\PY{n}{verbose}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+\PY{n}{func}\PY{p}{(}\PY{n}{verbose}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{num\PYZus{}events}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+\PY{n}{func}\PY{p}{(}\PY{n+nb+bp}{True}\PY{p}{)}
+
+[Output]
+Traceback (most recent call last):
+  File "snippets/func_kwargs.py", line 11, in <module>
+    func(True)
+TypeError: func() takes 0 positional arguments but 1 was given
+\end{Verbatim}

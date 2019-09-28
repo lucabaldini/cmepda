@@ -1,0 +1,21 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/func\_variadic1.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{os}
+
+\PY{n}{p1} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{path}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{to}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{my}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{file}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{p2} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{howdy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{partner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{p1}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{p2}\PY{p}{)}
+
+\PY{n}{s1} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{n}{s2} \PY{o}{=} \PY{n+nb}{sum}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{s1}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{s2}\PY{p}{)}
+
+[Output]
+path/to/my/file
+howdy/partner
+3
+15
+\end{Verbatim}

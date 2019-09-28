@@ -1,0 +1,51 @@
+\mode<presentation>
+
+
+%
+% Background.
+%
+\setbeamertemplate{background}{}
+
+
+%
+% Title page.
+%
+\defbeamertemplate*{title page}{ixpe}[1][] {
+  \begin{tikzpicture}[x=\textwidth, y=\textheight]
+    \useasboundingbox (0, 0) rectangle(1, 1);
+    \node[text=mastertext] at (0.3, 0.80) {
+      \usebeamerfont{title}\inserttitle
+    };
+    \node[text=mastertext] at (0.45, 0.72) {
+      \usebeamerfont{subtitle}\insertsubtitle};
+    \node[text=mastertext, anchor=east] at (1.02, 0.25) {
+      \usebeamerfont{author}\insertauthor
+    };
+    \node[text=mastertext, anchor=east] at (1.02, 0.20) {
+      \scriptsize\insertemail
+    };
+    \node[text=mastertext, anchor=east] at (1.02, 0.12) {
+      \usebeamerfont{author}\insertinstitute
+    };
+    \node[text=mastertext, anchor=east] at (1.02, 0.01) {
+      \scriptsize\insertdate
+    };
+  \end{tikzpicture}
+}
+
+
+%
+% New command for the master slide.
+% 
+\newcommand{\titleframe} {{
+    \setbeamertemplate{footline}{}
+    \usebackgroundtemplate{
+      %\includegraphics[height=\paperheight]{ixpe_concept_1}
+    }
+    \begin{frame}[label=intro,noframenumbering]
+      \titlepage
+    \end{frame}
+}}
+
+
+\mode<all>

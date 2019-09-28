@@ -1,0 +1,49 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\title{A \LaTeX\ template}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{Luca Baldini}
+\institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
+\email{luca.baldini@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+
+\begin{frame}
+  \frametitle{Title}
+  \framesubtitle{Subtitle}
+  \begin{itemize}
+  \item This is a bullet.
+    \begin{itemize}
+    \item And this is a sub-bullet.
+    \end{itemize}
+  \item This is another bullet.
+  \end{itemize}
+  \begin{enumerate}
+  \item And you can do numbered lists too\ldots
+  \item (Like this.)
+  \item<2> All basic beamer overaly mechanisms work.
+  \item<2> In normal frame mode \LaTeX\ takes care of the positioning.
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Code snippets}
+  \framesubtitle{An example}
+
+  \input{pygments/hello_world}
+\end{frame}
+
+
+\end{document}

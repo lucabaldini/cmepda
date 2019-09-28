@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/iteration.py}},commandchars=\\\{\}]
+\PY{n}{list1} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\PY{n}{list2} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{11}\PY{p}{,} \PY{l+m+mi}{12}\PY{p}{]}
+
+\PY{c+c1}{\PYZsh{} Horrible (and very un\PYZhy{}Pythonic, too)!}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{list1}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{list1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Nice\PYZhy{}looking.}
+\PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{item} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{list1}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{item}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Zipping iterables}
+\PY{k}{for} \PY{n}{item1}\PY{p}{,} \PY{n}{item2} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{list1}\PY{p}{,} \PY{n}{list2}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{item1}\PY{p}{,} \PY{n}{item2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} List comprehension}
+\PY{k}{print}\PY{p}{(}\PY{p}{[}\PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{list2}\PY{p}{]}\PY{p}{)}
+
+[Output]
+0 a
+1 b
+2 c
+0 a
+1 b
+2 c
+a 10
+b 11
+c 12
+[100, 121, 144]
+\end{Verbatim}

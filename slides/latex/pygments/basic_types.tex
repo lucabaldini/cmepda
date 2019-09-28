@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/basic\_types.py}},commandchars=\\\{\}]
+\PY{n}{i} \PY{o}{=} \PY{l+m+mi}{3}
+\PY{n}{x} \PY{o}{=} \PY{l+m+mf}{3.0}
+\PY{k}{print}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{s} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hi there!}\PY{l+s+s1}{\PYZsq{}}
+\PY{k}{print}\PY{p}{(}\PY{n}{s}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{l} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a string}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n}{l}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{l}\PY{p}{)}\PY{p}{,} \PY{n}{l}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{t} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a string}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{d} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{key1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{key2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{2}\PY{p}{\PYZcb{}}
+\PY{k}{print}\PY{p}{(}\PY{n}{d}\PY{p}{,} \PY{n+nb}{type}\PY{p}{(}\PY{n}{d}\PY{p}{)}\PY{p}{,} \PY{n}{d}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{key1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+
+[Output]
+3 <class 'int'>
+3.0 <class 'float'>
+Hi there! <class 'str'>
+[1, 2, 'a string'] <class 'list'> 1
+(1, 2, 'a string') <class 'tuple'> 1
+{'key1': 1, 'key2': 2} <class 'dict'> 1
+\end{Verbatim}
