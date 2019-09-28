@@ -6,3 +6,6 @@ clean:
 
 cleanall: clean
 	rm -f *.pdf
+
+copypdf:
+	cp *.pdf ../pdf
