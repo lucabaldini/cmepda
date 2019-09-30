@@ -1,0 +1,237 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\title{Python Basics (2/2)}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{L. Baldini}
+\institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
+\email{luca.baldini@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+\begin{frame}
+  \frametitle{What is the Python standard library?}
+  \begin{itemize}
+  \item Three levels hierarchy:
+    \begin{itemize}
+    \item The Python core language (all you get at the interpreter startup)
+    \item The Python standard library (e.g., \texttt{math})
+    \item An enourmous number of third-party packages (e.g., \texttt{numpy})
+    \end{itemize}
+  \item The standard library is included in every Python distribution
+    \begin{itemize}
+    \item And it is (slowly) evolving with time
+    \end{itemize}
+  \item With third-party packages you are on your own
+    \begin{itemize}
+    \item Although Anaconda solves many of the issues
+    \item And if you are using GNU-Linux your package manager is probably
+      taking care of everything for you
+    \end{itemize}
+  \item (Well---and of course there are your own modules, too\ldots)
+  \item \alert{Anything that is out of the core is loaded in memory via an
+    \texttt{import} statement}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Digression: the import system}
+  \framesubtitle{Basics and best practices}
+  \begin{Verbatim}
+from math import *
+[...]
+# Terrible: where the hell is sqrt coming from?
+x = sqrt(2.)
+
+from math import sqrt
+[...]
+# Better: if you haven't redefined sqrt this is from the math library
+x = sqrt(2.)
+
+import math
+[...]
+# Best: five more characters, but at least is clear where sqrt is coming from
+x = math.sqrt(2.)
+  \end{Verbatim}
+  \begin{itemize}
+  \item The \texttt{\$PYTHONPATH} environmental variables is your friend
+    to control where you want to import modules from
+    \begin{itemize}
+    \item You will need to tweak it when you start writing your own packages
+    \end{itemize}
+  \item You will need suitable \texttt{\_\_init\_\_.py} files to navigate
+    directories
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{More on the import system}
+  \begin{itemize}
+  \item The import system is fairly flexible
+    \begin{itemize}
+    \item Take advantage of it but don't abuse it
+    \end{itemize}
+  \item This is ok\ldots
+  \end{itemize}
+
+  \medskip
+  \input{pygments/import1}
+
+  \begin{itemize}
+  \item \ldots and this is a catastrophe!
+  \end{itemize}
+
+  \medskip
+  \input{pygments/import2}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{time}, \texttt{datetime} and \texttt{calendar}}
+  \begin{itemize}
+  \item Collections of facilities related to date and time
+    \begin{itemize}
+    \item Measure the execution time of your scripts
+    \item Convert from time to date and vice-versa
+    \end{itemize}
+  \item This is all but trivial!
+    \begin{itemize}
+    \item Ever heard of UNIX time? And UTC? And time zones?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{math}}
+  \begin{Verbatim}
+Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+[GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import math
+>>> dir(math)
+['__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__',
+'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'copysign',
+'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs',
+'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf',
+'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 'lgamma', 'log', 'log10',
+'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 'radians', 'remainder', 'sin',
+'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']
+>>>
+  \end{Verbatim}
+
+  \medskip
+
+  \begin{itemize}
+  \item If you work a lot with arrays you will end up using mostly
+    \texttt{numpy}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{random}}
+  \begin{Verbatim}
+Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+[GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import random
+>>> print(dir(random))
+['BPF', 'LOG4', 'NV_MAGICCONST', 'RECIP_BPF', 'Random', 'SG_MAGICCONST',
+'SystemRandom', 'TWOPI', '_BuiltinMethodType', '_MethodType', '_Sequence',
+'_Set', '__all__', '__builtins__', '__cached__', '__doc__', '__file__',
+'__loader__', '__name__', '__package__', '__spec__', '_acos', '_bisect', '_ceil',
+'_cos', '_e', '_exp', '_inst', '_itertools', '_log', '_os', '_pi', '_random',
+'_sha512', '_sin', '_sqrt', '_test', '_test_generator', '_urandom', '_warn',
+'betavariate', 'choice', 'choices', 'expovariate', 'gammavariate', 'gauss',
+'getrandbits', 'getstate', 'lognormvariate', 'normalvariate', 'paretovariate',
+'randint', 'random', 'randrange', 'sample', 'seed', 'setstate', 'shuffle',
+'triangular', 'uniform', 'vonmisesvariate', 'weibullvariate']
+>>>     
+  \end{Verbatim}
+
+  \medskip
+  
+  \begin{itemize}
+  \item Likewise: if you work a lot with arrays you will end up using mostly
+    \texttt{numpy}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{os}, \texttt{os.path}, \texttt{glob} and
+    \texttt{shutil}}
+  \begin{itemize}
+  \item Miscellaneous operating system interfaces
+    \begin{itemize}
+    \item Access filesystem (access, create and copy files and directories)
+    \item List directory content
+    \item Environmental variables
+    \item Absolute and relative paths
+    \item Exec OS commands
+    \end{itemize}
+  \item \alert{All of this in a cross-platform fashion}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{argparse}}
+  \begin{itemize}
+  \item \alert{Parser for command-line options---this is an important one!}
+  \item Ever found yourself modifying the source code and running your
+    program with different parameters?
+    \begin{itemize}
+    \item This is a terribly bad practice!
+    \item And git will complain about modified files :-)
+    \end{itemize}
+  \item Keep the argparse documentation under your pillow!
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Overview of the standard library}
+  \framesubtitle{\texttt{logging}}
+  \begin{itemize}
+  \item Ever found yourself inserting debug print() statements in the code
+    when needed?
+    \begin{itemize}
+    \item This is another terrible bad practice!
+    \item (In general you should )
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{References}
+  \scriptsize
+  \begin{itemize}
+  \item \url{https://docs.python.org/3/library/}
+  \item \url{https://pypi.org/}
+  \item \url{https://docs.python.org/3/reference/import.html}
+  \item \url{https://docs.python-guide.org/}
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}

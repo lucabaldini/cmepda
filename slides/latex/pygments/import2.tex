@@ -1,0 +1,14 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/import2.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{math} \PY{k+kn}{import} \PY{o}{*}
+\PY{k+kn}{import} \PY{n+nn}{logging} \PY{k+kn}{as} \PY{n+nn}{log}
+
+\PY{c+c1}{\PYZsh{} ... 1000 lines of code in the middle}
+
+\PY{n}{x} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)}
+
+[Output]
+Traceback (most recent call last):
+  File "snippets/import2.py", line 6, in <module>
+    x = log(2.)
+TypeError: 'module' object is not callable
+\end{Verbatim}
