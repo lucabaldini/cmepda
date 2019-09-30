@@ -215,12 +215,56 @@ Type "help", "copyright", "credits" or "license" for more information.
     when needed?
     \begin{itemize}
     \item This is another terrible bad practice!
-    \item (In general you should )
+    \item And git will complain about modified files :-)
     \end{itemize}
+  \item Imagine if there was a thing that:
+    \begin{itemize}
+    \item allowed to label messages with different levels of severity
+      (e.g., debug, info, warning, error)
+    \item dynamically set a global filter on the severity level
+      (e.g., do not print debug messages)
+    \end{itemize}
+  \item This thing exists and is called \texttt{logging}
+  \item \alert{Always prefer \texttt{logging} over \texttt{print}}
   \end{itemize}
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Typical layout of a Python package}
+  \framesubtitle{Say you have a project called sample}
+  \begin{Verbatim}
+README.rst
+LICENSE
+setup.py
+requirements.txt
+sample/__init__.py
+sample/core.py
+sample/helpers.py
+docs/conf.py
+docs/index.rst
+tests/test_basic.py
+tests/test_advanced.py    
+  \end{Verbatim}
+
+  \medskip
+
+  \begin{itemize}
+  \item Here is how the repository layout might look like:
+    \begin{itemize}
+    \item README.rst
+    \item LICENSE (when in doubt use GPL v3)
+    \item requirements.txt (dependencies, for pip)
+    \item sample (actual python code, note it's the same name as the project)
+    \item docs (documentation)
+    \item tests (unit tests)
+    \end{itemize}
+  \item We shall talk a lot about installation, documentation and unit tests
+    in the second part of the course (advanced Python)
+  \end{itemize}
+\end{frame}
+
+  
 \begin{frame}
   \frametitle{References}
   \scriptsize
@@ -229,6 +273,7 @@ Type "help", "copyright", "credits" or "license" for more information.
   \item \url{https://pypi.org/}
   \item \url{https://docs.python.org/3/reference/import.html}
   \item \url{https://docs.python-guide.org/}
+  \item \url{https://docs.quantifiedcode.com/python-anti-patterns/}
   \end{itemize}
 \end{frame}
 
