@@ -1,0 +1,16 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/find\_max.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{find\PYZus{}maximum}\PY{p}{(}\PY{n}{list\PYZus{}}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Find the biggest element in a list.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{maximum} \PY{o}{=} \PY{n}{list\PYZus{}}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{k}{for} \PY{n}{value} \PY{o+ow}{in} \PY{n}{list\PYZus{}}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{:}
+        \PY{k}{if} \PY{n}{value} \PY{o}{\PYZgt{}} \PY{n}{maximum}\PY{p}{:}
+            \PY{n}{maximum} \PY{o}{=} \PY{n}{value}
+    \PY{k}{return} \PY{n}{maximum}
+
+\PY{n}{l} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{98}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1672}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{34}\PY{p}{,} \PY{l+m+mi}{651}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n}{find\PYZus{}maximum}\PY{p}{(}\PY{n}{l}\PY{p}{)}\PY{p}{)}
+
+[Output]
+1672
+\end{Verbatim}

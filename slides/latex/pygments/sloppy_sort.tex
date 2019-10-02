@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/sloppy\_sort.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{sloppy\PYZus{}sort}\PY{p}{(}\PY{n}{list\PYZus{}}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Poor man\PYZsq{}s implementation of a sorting algorithm.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{sorted\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+    \PY{k}{for} \PY{n}{item} \PY{o+ow}{in} \PY{n}{list\PYZus{}}\PY{p}{:}
+        \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{sorted\PYZus{}list}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
+            \PY{n}{sorted\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{item}\PY{p}{)}
+        \PY{k}{else}\PY{p}{:}
+            \PY{k}{if} \PY{n}{item} \PY{o}{\PYZlt{}} \PY{n}{sorted\PYZus{}list}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{:}
+                \PY{n}{sorted\PYZus{}list}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{item}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{sorted\PYZus{}item} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{sorted\PYZus{}list}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{if} \PY{n}{item} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{n}{sorted\PYZus{}item}\PY{p}{:}
+                        \PY{n}{sorted\PYZus{}list}\PY{o}{.}\PY{n}{insert}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{item}\PY{p}{)}
+                        \PY{k}{break}
+    \PY{k}{return} \PY{n}{sorted\PYZus{}list}
+
+\PY{n}{l} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{9}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n}{l}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{sloppy\PYZus{}sort}\PY{p}{(}\PY{n}{l}\PY{p}{)}\PY{p}{)}
+
+[Output]
+[10, 1, 5, 2, 7, 3, 9, 4]
+[1, 2, 3, 4, 5, 7, 9, 10]
+\end{Verbatim}
