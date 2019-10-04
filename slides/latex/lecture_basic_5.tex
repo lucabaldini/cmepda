@@ -7,7 +7,7 @@
 \graphicspath{{figures/}} 
 
 
-\title{OOP introduction}
+\title{OOP introduction (1/2)}
 \subtitle{Computing Methods for Experimental Physics and Data Analysis}
 \date{Compiled on \today}
 \author{Alberto Manfreda}
@@ -55,7 +55,7 @@
 
 
 \begin{frame}
-  \frametitle{A bit of history (pu not intended)}
+  \frametitle{A bit of history (pun not intended)}
   \framesubtitle{Mostly stuff from Wikipedia you could probably have found by yourself}
   \begin{itemize}
     \item First (experimental) objected-oriented language was \alert{Simula 67}, created by \emph{Kristen Nygaard} and \emph{Ole-Johan Dahl}
@@ -72,11 +72,12 @@
     \bigskip
     \item First widespread object-oriented language was \alert{Smalltalk} (1970)
     \smallskip
-    \item The creator (Alan Kay) also invented the expression 'object-oriented'
+    \item The creator (\emph{Alan Kay}) also invented the expression 'object-oriented'
     \smallskip
-    \item Rather surprisingly (for me) Smalltalk is still actively used
+    \item Rather surprisingly (at least for me) Smalltalk is still actively used
   \end{itemize}
 \end{frame}
+
 
 \begin{frame}
   \frametitle{OOP todays}
@@ -100,15 +101,66 @@
     \smallskip
     \item and of course Python!
     \bigskip
-    \item Unsurprisingly, OOP is very often adopted for modelling systems that are naturally
+    \item As the mane suggest, OOP is very often adopted for modelling systems that are naturally
           described in terms of objects  
     \begin{itemize}
+      \smallskip
       \item Physical simulations
       \smallskip
       \item Graphical engines
       \smallskip
       \item Graphical User Interfaces (GUI) 
     \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{That's cool, but why should I care?}
+  
+  \begin{itemize}
+    \item Object-oriented programming is one of the most widely used paradigm today
+    \smallskip
+    \item That doesn't necessarily mean it is the best one -- nor the right tool for any job \\
+    \tiny
+    \url{https://en.wikipedia.org/wiki/Object-oriented_programming\#Criticism}
+    \normalsize
+    \smallskip
+        
+    \item There is a number of famous programmers which really dislike it (e.g. \emph{Linus Torvalds})
+    \medskip
+    \item Still, it is something you definitely want in your toolbox
+    \medskip
+    \item And there is a fairly good chance that you will have to interact with some OOP
+          code in your life
+    \smallskip
+
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A good reason for learning OOP}
+  
+  \begin{itemize}
+    \item (Almost) every popular languages nowadays is OO
+  \end{itemize}
+  
+  \smallskip
+  
+  \centering\includegraphics[width=0.9\textwidth]{thiobe.png}
+  
+  \smallskip
+  
+  \tiny \url{https://www.tiobe.com/tiobe-index/} \normalsize
+  
+  \smallskip
+  
+  \begin{itemize}
+    \item Besides C of course!
   \end{itemize}
   
 \end{frame}
@@ -225,85 +277,34 @@
 \end{frame}
 
 
-
-\begin{frame}
-  \frametitle{That's cool, but why should I care?}
-  
-  \begin{itemize}
-    \item Object-oriented programming is one of the most widely used paradigm today
-    \smallskip
-    \item That doesn't necessarily mean it is the best one -- nor the right tool for any job \\
-    \tiny
-    \url{https://en.wikipedia.org/wiki/Object-oriented_programming\#Criticism}
-    \normalsize
-    \smallskip
-        
-    \item There is a number of famous programmers which really dislike it (e.g. \emph{Linus Torvalds})
-    \medskip
-    \item Still, it is something you definitely want in your toolbox
-    \medskip
-    \item And there is a fairly good chance that you will have to interact with some OOP
-          code in your life
-    \smallskip
-
-    
-  \end{itemize}
-  
-\end{frame}
+%\begin{frame}
+%  \frametitle{Reasons for learning OOP (2)}
+%  \framesubtitle{In Python everything is an object of some class!}
+%
+%  \input{pygments/everything_is_a_class}
+%\end{frame}
 
 
-\begin{frame}
-  \frametitle{Reasons for learning OOP (1)}
-  
-  \begin{itemize}
-    \item (Almost) every popular languages nowadays is OO
-  \end{itemize}
-  
-  \smallskip
-  
-  \centering\includegraphics[width=0.9\textwidth]{thiobe.png}
-  
-  \smallskip
-  
-  \tiny \url{https://www.tiobe.com/tiobe-index/} \normalsize
-  
-  \smallskip
-  
-  \begin{itemize}
-    \item Besides C of course!
-  \end{itemize}
-  
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Reasons for learning OOP (2)}
-  \framesubtitle{In Python everything is an object of some class!}
-
-  \input{pygments/everything_is_a_class}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Reasons for learning OOP (2)}
-  
-  \begin{itemize}
-    \item To be completely honest, the last point could be intepreted in the
-          opposite sense:
-    \medskip
-    \item "Since in Python the most useful objects (and many others) are already
-           implemented, I can just use them like usual variables and forget
-           about OOP"
-    \medskip
-    \item That's fair: OOP is a tool and you should not use it for everything
-          just because you can
-    \medskip
-    \item However, knowing how things work behind the scene can 
-          prove helpful when doing more advanced stuff with the Python 
-          language
-  \end{itemize}
-  
-\end{frame}
+%\begin{frame}
+%  \frametitle{Reasons for learning OOP (2)}
+%  
+%  \begin{itemize}
+%    \item To be completely honest, the last point could be intepreted in the
+%          opposite sense:
+%    \medskip
+%    \item "Since in Python the most useful objects (and many others) are already
+%           implemented, I can just use them like usual variables and forget
+%           about OOP"
+%    \medskip
+%    \item That's fair: OOP is a tool and you should not use it for everything
+%          just because you can
+%    \medskip
+%    \item However, knowing how things work behind the scene can 
+%          prove helpful when doing more advanced stuff with the Python 
+%          language
+%  \end{itemize}
+%  
+%\end{frame}
 
 
 \begin{frame}
@@ -333,10 +334,10 @@
           assignment expression wherever in the code (even outside the class
           - though you normally shouldn't)
     \medskip
-    \item You just need to specify that the variable 
-          belong to the \emph{namespace} of that specific object with the 'dot' operator
-          (see next slide).
-    \medskip
+    \item You just need to specify that the variable belongs to the 
+          \emph{namespace} of that specific object, again using the '.' (dot) operator
+          (as shown in the next example)
+    \bigskip
     \item Note: each instance of the class \emph{gets its own copy of the member variables}
     \smallskip
     \item If you change a member variable for one instance the others will remain unaffected
@@ -359,22 +360,22 @@
     \small
     \item Adding members like that would be crazy\dots what would happen if I forgot
           to call the 'add\_a\_class\_member()' method in the previous example?
-    \smallskip
+    \medskip
     \item Luckily there is a solution for that: the class \alert{constructor}
-    \smallskip
+    \medskip
     \item The constructor is a special method that is called automatically each time
           a class istance is created
-    \smallskip
+    \medskip
     \item A specificity of the constructor is that it cannot return anything
-    \smallskip
+    \medskip
     \item In Python the constructor is the \emph{\_\_init\_\_()} method%
           \footnote{Actually the real constructor -- that is the function responsible for 
                     creating the class instances -- is the \emph{\_\_new\_\_()} operator, but 99\% of the time you don't need
                     to define that, as all classes have a default one which does the job for you}           
-    \smallskip
+    \medskip
     \item Class methods like \emph{\_\_init\_\_()}, with the name surronded by two underscores,
           are called \alert{special} methods or \alert{dunder} methods.
-    \smallskip
+    \medskip
     \item Is is good practice to define all your class members inside the constructor!
 
   \end{itemize}
@@ -394,16 +395,16 @@
   \begin{itemize}
     \small
     \item Sometimes you would like to share one copy of a variable for all the instances of a class
-    \smallskip
+    \medskip
     \item Let's say, for example, that all the isntances of the Television class have the same number of channels
-    \smallskip
+    \medskip
     \item Conceptually it would make sense to store that number in one single variable, not in one for each instance
-    \smallskip
+    \medskip
     \item That can be made using \emph{class attributes}
-    \smallskip
+    \medskip
     \item Class attributes are definied inside the class body but outside any method and they live
-          in the namespace of the class, not of the isntance
-    \smallskip
+          in the namespace of the class, not of the instances
+    \medskip
     \item Since they are not related to a specific instance, they can be accessed without creating one!
   \end{itemize}
 
@@ -417,7 +418,7 @@
 
 
 \begin{frame}
-  \frametitle{Class attributes funny behaviour}
+  \frametitle{Class attributes and their strange behaviour}
   \input{pygments/class_attributes_funny}
 \end{frame}
 
@@ -750,8 +751,8 @@
     \item The concept of interface does not just apply to the program as a whole:
           every significant portion of code (function, class) has its interface
     \medskip
-    \item The interface of a class in Python is made by all its "public" attributes (methids and members)
-          without an underscore at the beginning of their name
+    \item The interface of a class in Python is made by all its "public" attributes (methods and members)
+          -- i.e. those without an underscore at the beginning of their name
     \medskip
     \item Changing the interface may break every other piece of code that uses it.
           You want to do that \emph{as less as possible}
@@ -920,9 +921,9 @@
   \frametitle{Composition vs Inheritance}
     
   \begin{itemize}
-    \item Composition maps a 'has-a' relation in the real world: a Car has a Engine
+    \item Composition models a \alert{'has-a'} relation in the real world: a Car \emph{has} a Engine
     \medskip
-    \item Inheritance maps a 'is-a' relation in the real world: an Electron is a Particle
+    \item Inheritance models a \alert{'is-a'} relation in the real world: an Electron \emph{is} a Particle
     \medskip
     \item It may not always be obvious which one to use in your specific case: choose wisely!
   \end{itemize}
@@ -935,18 +936,21 @@
   \frametitle{Pitfalls of Inerithance}
     
   \begin{itemize}
-    \item Inheritance is a wild best. There are entire libraries written about how and when (not) to use it
+    \item Inheritance is a wild beast. There are entire libraries written about how and when (not) to use it
+    
+    \bigskip
+    
     \item Question for you: should a Square inherits from a Rectangle?
-    \item Seems legit: a Square \emph{is} a Rectangle
+    \item Seems legit: a Square \emph{is} a specialized Rectangle
     \item But what happens if the Rectangle class has a changeHeight() method?
     \bigskip
     
     \bigskip
     
-    \item \alert{Liskov Substition Principle}: you should always be able to use
+    \item \alert{Liskov Substitution Principle}: you should always be able to use
           a derived class instead of a base class in your code
     \item In other words: a derived class should always extend or specialize
-          the functionalities of the base class, never restric them!
+          the functionalities of the base class, never restrict them!
    \end{itemize}
   
 \end{frame}
@@ -957,7 +961,17 @@
   \frametitle{Short summary (3)}
     
   \begin{itemize}
-    \item To be filled
+    \item Class can inherits funcionalities from one or more other classes (Inheritance)
+    \smallskip
+    \item The class that inherits is call Derived (or Child) class the inherited one is the Base (or Parent) class
+    \smallskip
+    \item Inheritance models an \emph{is-a} relationship
+    \smallskip
+    \item Class can also incorporate other objects as class members (Compisition)
+    \smallskip
+    \item Composition models an \emph{has-a} relationship
+    \smallskip
+    \item Inheritance is tricky: use it with care!
    \end{itemize}
   
 \end{frame}

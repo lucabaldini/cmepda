@@ -14,7 +14,7 @@ class Cat(Animal):
 
 class SilentAnimal(Animal):
     pass # I make no sound
-#         
+     
 animals = [Animal(), Cat(), Dog(), SilentAnimal()]
 for animal in animals:
     print(animal.sound())
