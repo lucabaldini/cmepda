@@ -1,0 +1,967 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{figures/}} 
+
+
+\title{OOP introduction}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{Alberto Manfreda}
+\institute[INFN]{INFN--Pisa}
+\email{alberto.manfreda@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+
+\begin{frame}
+  \frametitle{Object Oriented Programming (OOP)}
+  
+  \begin{itemize}
+    \item Programming paradigm based on \emph{objects}
+    \medskip
+    \item An object is a code entity that has:
+    \smallskip
+    \begin{itemize}
+      \item \alert{State} $\rightarrow$ data (usually called \emph{member variables} or simply \emph{members})
+      \smallskip
+      \item \alert{Behaviour} $\rightarrow$ functions (usually called \emph{member functions} or \emph{methods})
+    \end{itemize}
+    \smallskip
+    \item A program can be thought as the result of the interaction of many obects
+    \smallskip
+    \item (If this sounds rather abstract don't worry: we will get concrete soon!)
+    \medskip
+
+    \medskip
+    \item The idea is: keep together the data and the code that manipulates it
+    \smallskip
+    \begin{itemize}
+      \item Improve the logical cohesion of the code
+      \smallskip
+      \item Make the code feel more `natural', since we tend to see the world 
+            in terms of `objects' (a tree, a house, a phone, a person, etc\dots) 
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A bit of history (pu not intended)}
+  \framesubtitle{Mostly stuff from Wikipedia you could probably have found by yourself}
+  \begin{itemize}
+    \item First (experimental) objected-oriented language was \alert{Simula 67}, created by \emph{Kristen Nygaard} and \emph{Ole-Johan Dahl}
+    \smallskip
+    \item You can probably infer what it was originally developed for: simulations
+    \smallskip
+    \item More specifically: simulations of \emph{exploding ships}
+    %\smallskip
+    %\item "Each ship type would have its own class, and the class would generate its unique behavior and data" (\emph{Nirmala Reddy})
+    \smallskip
+    \item You can also probably guess when\dots
+    \smallskip
+    \item Implication: OOP is quite old!
+    \bigskip
+    \item First widespread object-oriented language was \alert{Smalltalk} (1970)
+    \smallskip
+    \item The creator (Alan Kay) also invented the expression 'object-oriented'
+    \smallskip
+    \item Rather surprisingly (for me) Smalltalk is still actively used
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{OOP todays}
+  \framesubtitle{}
+  \begin{itemize}
+    \item Anyway, when we talk about OOP languages, the real stars (at least historically) are:
+    \smallskip
+    \begin{itemize}
+      \item C++
+      \smallskip
+      \item Java
+    \end{itemize}
+    \smallskip
+    \item Which made the OOP paradigm popular in the 80's and 90's
+    
+    \medskip
+    \item But the list of languages supporting OOP is long: Ruby, JavaScript, C\#, Delphi, Lisp, Cobol, Julia, Rust, Scala, MATLAB\dots \\
+    \tiny
+    \url{https://en.wikipedia.org/wiki/List_of_object-oriented_programming_languages}
+    \normalsize
+    \smallskip
+    \item and of course Python!
+    \bigskip
+    \item Unsurprisingly, OOP is very often adopted for modelling systems that are naturally
+          described in terms of objects  
+    \begin{itemize}
+      \item Physical simulations
+      \smallskip
+      \item Graphical engines
+      \smallskip
+      \item Graphical User Interfaces (GUI) 
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{OOP: Classes and Objects}
+  
+  \begin{itemize}
+  \item Basic defnitions:
+    \begin{itemize}
+    \item A \alert{class} is a blueprint for creating objects
+    \item An \alert{object} is a concrete relization of a class
+    \end{itemize}
+
+  \smallskip
+  
+  \item You can imagine a class like a project, which is used to
+        describe how objects are built and how they works
+
+  \smallskip
+
+  \item You can have multiple objects of the same class
+  
+  \smallskip
+  
+  \item The relationship is similar to the one between types and variables:
+    \begin{itemize} 
+    \item A type is an abstract concept, describing how a varibale is
+          represented in memory
+    \item A variable is a concrete realization of it
+    \item You can have several variables of the same type (like several integers
+          or several strings)
+    \end{itemize}
+  
+  \smallskip
+  
+  \item Indeed, to some extent, a class is the generalization of the concept of
+        type. It specifies not only how an object \emph{is made} but also how \emph{it behaves}.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{OOP: an example}
+  \centering\includegraphics[width=0.2\textwidth]{television.png}
+  
+  \medskip
+  
+  \begin{itemize}
+  \item Let's consider a familiar object, like a television. It has:
+    \smallskip
+    \begin{itemize}
+    \item A state
+      \begin{itemize}
+      \item On/off (and possibly standby)
+      \item Currently displayed channel
+      \item Volume
+      \item Brightness, contrast, etc\dots
+      \end{itemize}
+
+    \medskip
+    
+    \item A behaviour
+      \smallskip
+      \begin{itemize}
+      \item Pressing the `power' button will turn ON/OFF
+      \item Rotating the volume knob will increase/decrease the volumne
+      \item Using the buttons on the remote control will change displayed 
+            channel, brightness, contrast etc\dots
+      \item And don't forget you need to plug-in before use!
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{OOP: an example}
+ 
+  \begin{itemize}
+    \item How would that be represented in the code?
+    \smallskip
+      \begin{itemize}
+      \item The state can be represented by some member variables:
+      \begin{itemize}
+        \item A boolean can represent the ON/OFF state
+        \item For the currently displayed channel you can use an integer
+        \item Volume, contrast, luminosity etc\dots they all get their own variable(s)
+      \end{itemize}
+
+      \medskip
+    
+      \item The behaviour will be represented by the methods:
+      \smallskip
+      \begin{itemize}
+        \item For example the turn\_on() and turn\_off() functions may change the value of the variable
+              and also produce all the related changes (i.e. start/stop video and audio) 
+        \item You will probably have the netx\_channel() and previous\_channel() functions for zapping and so on\dots
+        \item Of course it can be much more complex than that!
+      \end{itemize}
+    \end{itemize}
+    
+    \medskip
+    
+    \item Members and methods are collectively called \alert{attributes} of the class
+    \medskip
+    \item Each object of a specific class is an \alert{instance} of that class
+  \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{That's cool, but why should I care?}
+  
+  \begin{itemize}
+    \item Object-oriented programming is one of the most widely used paradigm today
+    \smallskip
+    \item That doesn't necessarily mean it is the best one -- nor the right tool for any job \\
+    \tiny
+    \url{https://en.wikipedia.org/wiki/Object-oriented_programming\#Criticism}
+    \normalsize
+    \smallskip
+        
+    \item There is a number of famous programmers which really dislike it (e.g. \emph{Linus Torvalds})
+    \medskip
+    \item Still, it is something you definitely want in your toolbox
+    \medskip
+    \item And there is a fairly good chance that you will have to interact with some OOP
+          code in your life
+    \smallskip
+
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reasons for learning OOP (1)}
+  
+  \begin{itemize}
+    \item (Almost) every popular languages nowadays is OO
+  \end{itemize}
+  
+  \smallskip
+  
+  \centering\includegraphics[width=0.9\textwidth]{thiobe.png}
+  
+  \smallskip
+  
+  \tiny \url{https://www.tiobe.com/tiobe-index/} \normalsize
+  
+  \smallskip
+  
+  \begin{itemize}
+    \item Besides C of course!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reasons for learning OOP (2)}
+  \framesubtitle{In Python everything is an object of some class!}
+
+  \input{pygments/everything_is_a_class}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Reasons for learning OOP (2)}
+  
+  \begin{itemize}
+    \item To be completely honest, the last point could be intepreted in the
+          opposite sense:
+    \medskip
+    \item "Since in Python the most useful objects (and many others) are already
+           implemented, I can just use them like usual variables and forget
+           about OOP"
+    \medskip
+    \item That's fair: OOP is a tool and you should not use it for everything
+          just because you can
+    \medskip
+    \item However, knowing how things work behind the scene can 
+          prove helpful when doing more advanced stuff with the Python 
+          language
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Python classes}
+  \input{pygments/class_tv_basic}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class methods}
+  \input{pygments/class_tv_methods}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class members}
+  
+  \begin{itemize}
+    \small
+    \item The case of class members is slightly more complex
+    \medskip
+    \item Differently from other languages, that require you to declare the member
+          variables explicitly in the class body (e.g. C++), Python is more free
+          in this respect
+    \medskip
+    \item You can add a variable to an instance of a class with a simple 
+          assignment expression wherever in the code (even outside the class
+          - though you normally shouldn't)
+    \medskip
+    \item You just need to specify that the variable 
+          belong to the \emph{namespace} of that specific object with the 'dot' operator
+          (see next slide).
+    \medskip
+    \item Note: each instance of the class \emph{gets its own copy of the member variables}
+    \smallskip
+    \item If you change a member variable for one instance the others will remain unaffected
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class members}
+  \input{pygments/class_tv_members}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Constructor}
+  
+  \begin{itemize}
+    \small
+    \item Adding members like that would be crazy\dots what would happen if I forgot
+          to call the 'add\_a\_class\_member()' method in the previous example?
+    \smallskip
+    \item Luckily there is a solution for that: the class \alert{constructor}
+    \smallskip
+    \item The constructor is a special method that is called automatically each time
+          a class istance is created
+    \smallskip
+    \item A specificity of the constructor is that it cannot return anything
+    \smallskip
+    \item In Python the constructor is the \emph{\_\_init\_\_()} method%
+          \footnote{Actually the real constructor -- that is the function responsible for 
+                    creating the class instances -- is the \emph{\_\_new\_\_()} operator, but 99\% of the time you don't need
+                    to define that, as all classes have a default one which does the job for you}           
+    \smallskip
+    \item Class methods like \emph{\_\_init\_\_()}, with the name surronded by two underscores,
+          are called \alert{special} methods or \alert{dunder} methods.
+    \smallskip
+    \item Is is good practice to define all your class members inside the constructor!
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Constructor}
+  \input{pygments/class_tv_constructor}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{More on members: class attributes vs instance attributes}
+  
+  \begin{itemize}
+    \small
+    \item Sometimes you would like to share one copy of a variable for all the instances of a class
+    \smallskip
+    \item Let's say, for example, that all the isntances of the Television class have the same number of channels
+    \smallskip
+    \item Conceptually it would make sense to store that number in one single variable, not in one for each instance
+    \smallskip
+    \item That can be made using \emph{class attributes}
+    \smallskip
+    \item Class attributes are definied inside the class body but outside any method and they live
+          in the namespace of the class, not of the isntance
+    \smallskip
+    \item Since they are not related to a specific instance, they can be accessed without creating one!
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class attributes}
+  \input{pygments/class_attributes}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class attributes funny behaviour}
+  \input{pygments/class_attributes_funny}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Short summary}
+  
+  \begin{itemize}
+    \footnotesize
+    \item Object Oriented Programming (OOP) is a widespread programming paradigm,
+          supported by many programming languages (old and modern), including Python
+    \medskip
+    \item An object has a state and a behaviour, represented by member variables
+          and member functions (or methods) respectively
+    \medskip
+    \item A class is a blueprint for creating objects, each object is an instance of a class
+    \medskip
+    \item In Python classes are defined with the 'class' keyword and instanciated with the '()' operator
+    \medskip
+    \item Class members and methods (globally called attributes) are accessed through the '.' operator
+    \medskip
+    \item All the class methods get the object istance as their first argument (usually named 'self')
+    \medskip
+    \item You should declare class members in the constructor a.k.a. the \emph{\_\_init\_\_()} function
+    \medskip
+    \item Instance attributes are not shared: each instance has its own copy of the data
+    \medskip
+    \item Class attributes are declared outside methods and are shared among all the instances of a class
+  \end{itemize}
+  
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Cool, but I still can do the same without classes...}
+  \input{pygments/non_oop_example}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{OOP vs non OOP}
+  
+  \begin{itemize}
+    \item Imagine that at some point you want to add the following feature: 
+          a tv can be shared bewteen multiple owners
+    \bigskip
+    \item Sure, you can still do that with a single string: \\owner = 'Alberto;VanRossum;Mickey Mouse'
+    \bigskip
+    \item But a list would be much better! (no complex parsing, easy to iterate, has len() etc\dots)
+    \bigskip
+    \item And I also want to change the name to 'owners', because it's more expressive of the fact that there can be many of them
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{OOP vs non OOP}
+  
+  \begin{itemize}
+    \item Both in OOP and non OOP case I have to change my \emph{print\_info()} function 
+    \bigskip
+    \item But in the latter the function can be anywhere!
+    \bigskip
+    \item How do I know if other functions are relying on the specific 'owner' variable? Imagine if your project has tens or hundreds of files\dots
+    \bigskip
+    \item In OOP we are in a much better situation: all the functions that I have to change are inside the class body!
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Encapsulation}
+  
+  \begin{itemize}
+    \item This leads us to the concept of \alert{encapsulation} 
+    \bigskip
+    \begin{itemize}
+      \item \emph{The state of an object should only be accessed and altered through its own methods}
+    \end{itemize}
+    \bigskip
+    \item That way it is easier to find bugs: you know that, if something is wrong
+          with an object, the problem lays inside the class code
+    \bigskip
+    \item That way you can also \emph{enforce behaviour}: for example you can
+          prevent from changing the channel if the TV is off
+    
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Enforcing behaviour}
+  \input{pygments/class_tv_zapping}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Encapsulation - hidden state}
+  \framesubtitle{Back to the TV example}
+  
+  \centering\includegraphics[width=0.2\textwidth]{television.png}
+  
+  \bigskip
+  
+  \begin{itemize}
+  \item Note that part of the state may be hidden from the user:
+    \begin{itemize}
+    \item E.g. internal switches, transistors, etc\dots
+    \end{itemize}
+  \smallskip
+  \item You do not need to know what's going on inside the case to operate a TV!
+  \smallskip
+  \item All you need to know is how to use the \alert{interface} (the remote
+        control, the knobs, the power button, the plug\dots)
+  \smallskip
+  \item The \alert{implementation} details are hidden: only the TV producer cares about
+        them, not the user. 
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Advantages of encapsulation}
+  
+  \begin{itemize}
+    \item This is a good idea for several reasons:
+    
+    \medskip
+    
+    \begin{itemize}
+      \item The development of a part (e.g. `the television') is clearly separated
+            from the rest of the project (e.g. `the dvd reader')
+      \medskip
+      \item An object can be reused in different contexts: you can easily connect
+            the same TV to the dvd reader, the game consol or the VHS, 
+            provided that the required interface (port + cable) is the same
+      \medskip
+      \item You can even change your object, for example buy a new model,
+            and, as long as the interfaces are the same, you will still be able 
+            to use it in the same way!
+    \end{itemize}
+    
+    \medskip
+  
+    \item These advantages may be extremely important for large-scale project!
+
+  \end{itemize}
+
+\end{frame}
+
+
+%\begin{frame}
+%  \frametitle{Encapsulation and Abstraction}
+%  
+%  \begin{itemize}
+%    \item Some computer scientist actually like to make a conceptual distinction:
+%    \medskip
+%    \begin{itemize}
+%      \item Hiding all or part of the state is the actual \alert{Encapsulation}
+%      \medskip
+%      \item Hiding the implementation and exposing only the interface is called \alert{Abstraction}
+%    \end{itemize}
+%    \bigskip
+%    \item Naming is not really important - but knowing the language is useful (e.g. when searching online)
+%  \end{itemize}
+%\end{frame}
+
+
+\begin{frame}
+  \frametitle{Challenge: how do you get \emph{real} encapsulation?}
+  \begin{itemize}
+    \item At this point you may be wondering: I can read and modify any class member 
+          from outside the class using the '.' (dot) operator! 
+          Doesn't that break encapsulation?
+          
+    \bigskip
+    
+    \item Answer: Yes it does - but there are ways to fix it!
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How do you get \emph{real} encapsulation?}
+  \framesubtitle{Digression - the boring languages}
+  
+  \begin{itemize}
+    \item In languages like C++ you can explicitly declare that some class
+          members (and methods) are \emph{private}
+    \medskip
+    \item Private attributes cannot be accessed outside the class - the compiler enforce that!
+    \medskip
+    \item There is this sort of common wisdom that dictates that \emph{all} class data should be private
+    \medskip
+    \item If you really want to provide access to some of them, you can use the infamous 'getters' and 'setters' methods
+    \medskip
+    \item That's a lot of code to write - plus, it's not the pythonic way!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pythonic encapsulation}
+  
+  \begin{itemize}
+    \item In Python there is no concept of \emph{enforced} private attributes
+    \medskip
+    \item However, there exists a convention that any member/method name prepended by one or two underscore(s) should be considered "private"
+    \medskip
+    \item It's like a warning for the class user: you should never access that directly!
+    \medskip
+    \item In the case of two underscores Python will actually do a subtle thing to help keeping the data private -- it will 
+          prepend \_\emph{classname} to the actual attribute name (see next example)
+    \medskip
+    \item However, not everyone in the Python community loves that
+    \medskip
+    \item "Never, ever use two leading underscore. This is annoyngly private"\\
+           \vspace{0.02\textheight}
+           \footnotesize [\emph{Alex Martelli}, member of the Python Software Foundation, author of 'Python in a Nutshell' and co-author of 'The Python cookbook']
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{"Private" attributes in Python}
+  \input{pygments/class_tv_private}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Pythonic encapsulation}
+  
+  \begin{itemize}
+    \small
+    \item The possibility of making variables "private" (enforced or not) is not enough of course,
+          because sometimes we still want to let the user read or even modify the value of the attribute
+    \bigskip
+    \item The "old" solution for that is providing getters/setters
+    \bigskip
+    \item But the awsome solution is using \alert{properties} (since Python 2.2)
+    \bigskip
+    \item Properties look similar to getters and setters, but with a twist: you keep
+          accessing the member variable with the dot operator
+    \bigskip
+    \item That is a \emph{huge} advantage: it means you can start without them, and add the code only if really needed!
+    \bigskip
+    \item Let's compare the two methods in the following example
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Example of a class without encapsulation}
+  \input{pygments/class_tv_encapsulation_none}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Old-style encapsulation: never do that!}
+  \input{pygments/class_tv_encapsulation_old}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Pythonic encapsulation with properties}
+  \input{pygments/class_tv_encapsulation_properties_verbose}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Even more pythonic encapsulation}
+  \input{pygments/class_tv_encapsulation_properties}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Interface vs implementation mindset}
+  \framesubtitle{physicists vs programmers}
+  
+  \begin{itemize}
+    
+    \item A physicist thinks:
+        
+    \medskip
+      
+    \begin{itemize}
+      \item "I have this super-cool algorithm to solve the problem I am working on:
+             I will code it carefully, than put together quickly some basic 
+             interface to pass data to it and write results to screen / file.
+             I need the results quickly for my paper; I can always improve the 
+             interface later, right?"
+    \end{itemize}
+    \medskip
+      
+    \item A programmer thinks:
+    
+    \medskip
+    
+    \begin{itemize}
+      \item "I will create a nice interface for the user to handle input/output
+             in different formats and I will try to keep it as stable as 
+             possible in the future.
+             I will start with no algorithm at all -- I will just use random
+             numbers to test the interface. I can always implement the
+             actual algorithm later, right?"
+    \end{itemize}
+
+  \end{itemize}
+
+\end{frame}
+ 
+ 
+\begin{frame}
+  \frametitle{Interfaces}
+    
+  \begin{itemize}
+    \item You don't need to think like a programmer - doing physics is your goal - but
+          remember that \alert{interfaces are important}
+    \medskip
+    \item The concept of interface does not just apply to the program as a whole:
+          every significant portion of code (function, class) has its interface
+    \medskip
+    \item The interface of a class in Python is made by all its "public" attributes (methids and members)
+          without an underscore at the beginning of their name
+    \medskip
+    \item Changing the interface may break every other piece of code that uses it.
+          You want to do that \emph{as less as possible}
+    \medskip
+    \item You should not access "private" members directly - even if you can. Always
+          pass through the interface
+    
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Short summary (2)}
+    
+  \begin{itemize}
+    \small
+    \item Encapsulation is the technique of hiding part of all the class state to the user; 
+          he can only access and modify that through the class methods
+    \medskip
+    \item Encapsulation helps debugging by limiting the number of places in the code
+          that can mutate the state of an object
+    \medskip
+    \item It can also be useful to enforce behaviour  
+    \medskip
+    \item Encapsulation in Python is not enforced by the language, but rather relies on conventions
+    \medskip
+    \item Class attributes with an underscore at the beginning of their name are
+          considered 'private' and should not be accessed directly oustide the class
+    \smallskip
+    \item You can use properties to encapsulate your data at any moment in time - never use 'getters' and 'setters'
+    \medskip
+    \item Interfaces should not change frequently!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Inerithance}
+  \framesubtitle{What and Why}
+    
+  \begin{itemize}
+    \small
+    \item Suppose for a moment that you are coding the Monte Carlo for a physics experiment
+    \medskip
+    \item You want to simulate interactions of charged particles in some detector using OOP paradigm
+    \medskip
+    \item You may have a class Detetctor and a class for each particle that you need to simulate
+    \medskip
+    \item Let's say you have a class Electron, a class Positron, a class Proton and a class Alpha
+    \medskip
+    \item If you think about it, these classes will have a lot of code in common
+    \medskip
+    \item For example they all need to store their mass, charge, position, velocitiy (or momentum), possibly spin etc\dots
+    \medskip
+    \item They may also have similar behaviour, though that is less obvious
+    \medskip
+    \item We know that duplicate code is evil (DRY): how do we avoid that?
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Inerithance}
+  \framesubtitle{What and Why}
+    
+  \begin{itemize}
+    \small
+    \item Many languages - including Python offer a solution for that: \alert{inheritance}
+    \medskip
+    \item A class can inherit from another one, automatically obtaining all its functionalities (members and methods) and
+          then extending or specialyzing them
+    \medskip
+    \item The class which we inherit from is called \emph{Base} class, \emph{Parent} class or (in Python) \emph{Superclass}
+    \medskip
+    \item The class inheriting is called \emph{Derived} class or \emph{Child} class
+    \medskip
+    \item In our problem we can imagine to have a base class 'Particle' and many specialized classes inheriting from it
+    \medskip
+    \item Inheritance is transtive: if class C inherits from class B, and class B inherits from class A, then 
+          class C is also a child of class A (and posses all its functionalities)
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Inheritance: a basic example}
+  \input{pygments/inheritance}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Overload}
+  \input{pygments/overload}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Multiple inheritance}
+  \input{pygments/multiple_inheritance}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Inerithance}
+  \framesubtitle{Infernus Linnaei}
+  
+  \centering
+  \includegraphics[width=0.40\textwidth]{linneo.jpg}~\quad%
+  \includegraphics[width=0.55\textwidth]{tassonomy.jpg}
+  
+  \bigskip
+    
+  \begin{itemize}
+    \item Don't abuse inheritance!
+    \medskip
+    \item Though bringing order to the World may look appealing\dots
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Inerithance}
+  \framesubtitle{A real case example}
+  
+  \centering
+  \includegraphics[width=0.8\textwidth]{tk-widgets.png}
+   
+  \tiny \url{https://wiki.python.org/moin/TkInter} \normalsize
+    
+  \smallskip
+  \begin{itemize}
+    \item {\dots}the result may be more complicated than you expect!
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Composition}
+    
+  \begin{itemize}
+    \item \alert{Composition} is a different technique for sharing functionalities
+    \medskip
+    \item The concept is simple: just use an object of some class as the member of a different one
+    \medskip
+    \item For example we can create the classes 'Enigne' and 'Wheel' and than the class 'Car' will have
+          a member of type Engine and 4 members of type Wheel
+    \medskip
+    \item A class like 'Car' in the example is sometimes called an \alert{aggregate} class
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Composition}
+  \input{pygments/composition}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Composition vs Inheritance}
+    
+  \begin{itemize}
+    \item Composition maps a 'has-a' relation in the real world: a Car has a Engine
+    \medskip
+    \item Inheritance maps a 'is-a' relation in the real world: an Electron is a Particle
+    \medskip
+    \item It may not always be obvious which one to use in your specific case: choose wisely!
+  \end{itemize}
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Pitfalls of Inerithance}
+    
+  \begin{itemize}
+    \item Inheritance is a wild best. There are entire libraries written about how and when (not) to use it
+    \item Question for you: should a Square inherits from a Rectangle?
+    \item Seems legit: a Square \emph{is} a Rectangle
+    \item But what happens if the Rectangle class has a changeHeight() method?
+    \bigskip
+    
+    \bigskip
+    
+    \item \alert{Liskov Substition Principle}: you should always be able to use
+          a derived class instead of a base class in your code
+    \item In other words: a derived class should always extend or specialize
+          the functionalities of the base class, never restric them!
+   \end{itemize}
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Short summary (3)}
+    
+  \begin{itemize}
+    \item To be filled
+   \end{itemize}
+  
+\end{frame}
+
+
+
+\end{document}
