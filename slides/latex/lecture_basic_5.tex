@@ -25,8 +25,9 @@
   \frametitle{Object Oriented Programming (OOP)}
   
   \begin{itemize}
+    \small
     \item Programming paradigm based on \emph{objects}
-    \medskip
+    \bigskip
     \item An object is a code entity that has:
     \smallskip
     \begin{itemize}
@@ -34,20 +35,21 @@
       \smallskip
       \item \alert{Behaviour} $\rightarrow$ functions (usually called \emph{member functions} or \emph{methods})
     \end{itemize}
-    \smallskip
-    \item A program can be thought as the result of the interaction of many obects
-    \smallskip
-    \item (If this sounds rather abstract don't worry: we will get concrete soon!)
     \medskip
-
-    \medskip
+    \item A program can be thought as the result of the interaction of many obects \\
+          (If this sounds rather abstract don't worry: we will get concrete soon!)
+    \bigskip
     \item The idea is: keep together the data and the code that manipulates it
-    \smallskip
+    \bigskip
+    \item As the name suggests, OOP is very often adopted for modelling systems that are naturally
+          described in terms of objects  
     \begin{itemize}
-      \item Improve the logical cohesion of the code
       \smallskip
-      \item Make the code feel more `natural', since we tend to see the world 
-            in terms of `objects' (a tree, a house, a phone, a person, etc\dots) 
+      \item Physical simulations
+      \smallskip
+      \item Graphical engines
+      \smallskip
+      \item Graphical User Interfaces (GUI) 
     \end{itemize}
 
   \end{itemize}
@@ -59,60 +61,25 @@
   \framesubtitle{Mostly stuff from Wikipedia you could probably have found by yourself}
   \begin{itemize}
     \item First (experimental) objected-oriented language was \alert{Simula 67}, created by \emph{Kristen Nygaard} and \emph{Ole-Johan Dahl}
-    \smallskip
-    \item You can probably infer what it was originally developed for: simulations
-    \smallskip
-    \item More specifically: simulations of \emph{exploding ships}
-    %\smallskip
-    %\item "Each ship type would have its own class, and the class would generate its unique behavior and data" (\emph{Nirmala Reddy})
-    \smallskip
-    \item You can also probably guess when\dots
-    \smallskip
-    \item Implication: OOP is quite old!
-    \bigskip
-    \item First widespread object-oriented language was \alert{Smalltalk} (1970)
+    \medskip
+    \item But the first real object-oriented language was \alert{Smalltalk} (1970)
     \smallskip
     \item The creator (\emph{Alan Kay}) also invented the expression 'object-oriented'
-    \smallskip
-    \item Rather surprisingly (at least for me) Smalltalk is still actively used
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{OOP todays}
-  \framesubtitle{}
-  \begin{itemize}
-    \item Anyway, when we talk about OOP languages, the real stars (at least historically) are:
-    \smallskip
+    \medskip
+    \item Anyway, when we talk about OOP languages, the stars (at least historically) are:
     \begin{itemize}
       \item C++
       \smallskip
       \item Java
     \end{itemize}
     \smallskip
-    \item Which made the OOP paradigm popular in the 80's and 90's
-    
-    \medskip
     \item But the list of languages supporting OOP is long: Ruby, JavaScript, C\#, Delphi, Lisp, Cobol, Julia, Rust, Scala, MATLAB\dots \\
     \tiny
     \url{https://en.wikipedia.org/wiki/List_of_object-oriented_programming_languages}
     \normalsize
     \smallskip
     \item and of course Python!
-    \bigskip
-    \item As the mane suggest, OOP is very often adopted for modelling systems that are naturally
-          described in terms of objects  
-    \begin{itemize}
-      \smallskip
-      \item Physical simulations
-      \smallskip
-      \item Graphical engines
-      \smallskip
-      \item Graphical User Interfaces (GUI) 
-    \end{itemize}
   \end{itemize}
-  
 \end{frame}
 
 
@@ -134,11 +101,9 @@
     \medskip
     \item And there is a fairly good chance that you will have to interact with some OOP
           code in your life
-    \smallskip
-
-    
+    \smallskip   
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -279,14 +244,6 @@
 
 %\begin{frame}
 %  \frametitle{Reasons for learning OOP (2)}
-%  \framesubtitle{In Python everything is an object of some class!}
-%
-%  \input{pygments/everything_is_a_class}
-%\end{frame}
-
-
-%\begin{frame}
-%  \frametitle{Reasons for learning OOP (2)}
 %  
 %  \begin{itemize}
 %    \item To be completely honest, the last point could be intepreted in the
@@ -314,6 +271,13 @@
 
 
 \begin{frame}
+  \frametitle{Bonus}
+  \framesubtitle{In Python everything is an object of some class!}
+  \input{pygments/everything_is_a_class}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Class methods}
   \input{pygments/class_tv_methods}
 \end{frame}
@@ -321,27 +285,48 @@
 
 \begin{frame}
   \frametitle{Class members}
+  \framesubtitle{Digression - namespaces}
   
   \begin{itemize}
     \small
-    \item The case of class members is slightly more complex
+    \item 'Namespaces are one honking great idea -- let's do more of those!'
+            (\emph{Tim Peters - The Zen of Python})
     \medskip
+    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one
+          referncing an object (which can be anything: a variable, a function, a class etc\dots)
+    \medskip
+    \item The '.' (dot) operator is used to access objects in that namespace (\emph{scope resolution})
+    \medskip
+    \item Each class has a namespace. Plus, each istance of the class get its own additional namespace
+    \medskip
+    \item The class namespace is automatically visible from each instance namespace, but not the opposite
+    \medskip
+    \item You can see what's inside a namespace using the dir() built-in function
+  \end{itemize}
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Class members}
+  \framesubtitle{class attributes vs instance attributes}
+  
+  \begin{itemize}
+    \small
     \item Differently from other languages, that require you to declare the member
-          variables explicitly in the class body (e.g. C++), Python is more free
-          in this respect
+          variables explicitly in the class body (e.g. C++), in Python you can
+          just do an assignment in that namespace, everywhere in the code
     \medskip
-    \item You can add a variable to an instance of a class with a simple 
-          assignment expression wherever in the code (even outside the class
-          - though you normally shouldn't)
+    \item You can even add class members outside the class code, though that is
+          not generally a good idea
     \medskip
-    \item You just need to specify that the variable belongs to the 
-          \emph{namespace} of that specific object, again using the '.' (dot) operator
-          (as shown in the next example)
-    \bigskip
-    \item Note: each instance of the class \emph{gets its own copy of the member variables}
-    \smallskip
-    \item If you change a member variable for one instance the others will remain unaffected
-    
+    \item An attribute in an instance namesespace is an \alert{instance attribute}, and cannot be seen or modified
+          by other instances of the class
+    \medskip
+    \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
+    \medskip
+    \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
   \end{itemize}
   
 \end{frame}
@@ -349,7 +334,8 @@
 
 \begin{frame}
   \frametitle{Class members}
-  \input{pygments/class_tv_members}
+  \framesubtitle{Instance attributes}
+  \input{pygments/class_members}
 \end{frame}
 
 
@@ -390,36 +376,9 @@
 
 
 \begin{frame}
-  \frametitle{More on members: class attributes vs instance attributes}
-  
-  \begin{itemize}
-    \small
-    \item Sometimes you would like to share one copy of a variable for all the instances of a class
-    \medskip
-    \item Let's say, for example, that all the isntances of the Television class have the same number of channels
-    \medskip
-    \item Conceptually it would make sense to store that number in one single variable, not in one for each instance
-    \medskip
-    \item That can be made using \emph{class attributes}
-    \medskip
-    \item Class attributes are definied inside the class body but outside any method and they live
-          in the namespace of the class, not of the instances
-    \medskip
-    \item Since they are not related to a specific instance, they can be accessed without creating one!
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Class attributes}
+  \frametitle{Class members}
+  \framesubtitle{Class attributes and their strange behaviour}
   \input{pygments/class_attributes}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Class attributes and their strange behaviour}
-  \input{pygments/class_attributes_funny}
 \end{frame}
 
 
@@ -521,7 +480,7 @@
 
 
 \begin{frame}
-  \frametitle{Encapsulation - hidden state}
+  \frametitle{Encapsulation - hidden state and interfaces}
   \framesubtitle{Back to the TV example}
   
   \centering\includegraphics[width=0.2\textwidth]{television.png}
