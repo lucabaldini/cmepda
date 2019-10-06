@@ -54,11 +54,10 @@ def run_snippet(file_path):
     cmd = 'python %s' % file_path
     with subprocess.Popen(cmd, **PROC_KWARGS) as process:
         error = process.stderr.read()
+        output = process.stdout.read()
         if error:
             print(error)
-            output = error
-        else:
-            output = process.stdout.read()
+            output += error
         return output
 
 def run_pygmentize(file_path, label=True):
