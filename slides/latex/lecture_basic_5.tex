@@ -39,7 +39,7 @@
     \item A program can be thought as the result of the interaction of many obects \\
           (If this sounds rather abstract don't worry: we will get concrete soon!)
     \bigskip
-    \item The idea is: keep together the data and the code that manipulates it
+    \item The idea is: keep together the variables and the code that manipulates them
     \bigskip
     \item As the name suggests, OOP is very often adopted for modelling systems that are naturally
           described in terms of objects  
@@ -242,28 +242,6 @@
 \end{frame}
 
 
-%\begin{frame}
-%  \frametitle{Reasons for learning OOP (2)}
-%  
-%  \begin{itemize}
-%    \item To be completely honest, the last point could be intepreted in the
-%          opposite sense:
-%    \medskip
-%    \item "Since in Python the most useful objects (and many others) are already
-%           implemented, I can just use them like usual variables and forget
-%           about OOP"
-%    \medskip
-%    \item That's fair: OOP is a tool and you should not use it for everything
-%          just because you can
-%    \medskip
-%    \item However, knowing how things work behind the scene can 
-%          prove helpful when doing more advanced stuff with the Python 
-%          language
-%  \end{itemize}
-%  
-%\end{frame}
-
-
 \begin{frame}
   \frametitle{Python classes}
   \input{pygments/class_tv_basic}
@@ -279,62 +257,12 @@
 
 \begin{frame}
   \frametitle{Class methods}
-  \input{pygments/class_tv_methods}
+  \input{pygments/class_methods}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Class members}
-  \framesubtitle{Digression - namespaces}
-  
-  \begin{itemize}
-    \small
-    \item 'Namespaces are one honking great idea -- let's do more of those!'
-            (\emph{Tim Peters - The Zen of Python})
-    \medskip
-    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one
-          referncing an object (which can be anything: a variable, a function, a class etc\dots)
-    \medskip
-    \item The '.' (dot) operator is used to access objects in that namespace (\emph{scope resolution})
-    \medskip
-    \item Each class has a namespace. Plus, each istance of the class get its own additional namespace
-    \medskip
-    \item The class namespace is automatically visible from each instance namespace, but not the opposite
-    \medskip
-    \item You can see what's inside a namespace using the dir() built-in function
-  \end{itemize}
-  
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{Class members}
-  \framesubtitle{class attributes vs instance attributes}
-  
-  \begin{itemize}
-    \small
-    \item Differently from other languages, that require you to declare the member
-          variables explicitly in the class body (e.g. C++), in Python you can
-          just do an assignment in that namespace, everywhere in the code
-    \medskip
-    \item You can even add class members outside the class code, though that is
-          not generally a good idea
-    \medskip
-    \item An attribute in an instance namesespace is an \alert{instance attribute}, and cannot be seen or modified
-          by other instances of the class
-    \medskip
-    \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
-    \medskip
-    \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
-  \end{itemize}
-  
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Class members}
-  \framesubtitle{Instance attributes}
   \input{pygments/class_members}
 \end{frame}
 
@@ -371,13 +299,62 @@
 
 \begin{frame}
   \frametitle{Constructor}
-  \input{pygments/class_tv_constructor}
+  \input{pygments/class_constructor}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Class members}
-  \framesubtitle{Class attributes and their strange behaviour}
+  \frametitle{Digression - namespaces}
+  
+  \begin{itemize}
+    \small
+    \item 'Namespaces are one honking great idea -- let's do more of those!'
+            (\emph{Tim Peters - The Zen of Python})
+    \medskip
+    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one
+          associated to an object (which can be anything: a variable, a function, a class etc\dots)
+    \medskip
+  \end{itemize}
+  
+  \centering\includegraphics[width=0.25\textwidth]{types_namespace.png}
+  
+  \begin{itemize}
+    \small
+    \item Python creates separate namespace for many things: for example each time a function is
+          called a namespace for local variables is created
+    \medskip 
+    \item You can access objects in the local namespace (and those above -- see picture) just with their name(s);
+          for others you need  the '.' (dot) operator
+    \medskip
+    \item You can see what's inside a namespace using the dir() built-in function
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Instance attributes vs class attributes}
+  
+  \begin{itemize}
+    \small
+    \item Each class has a namespace. Plus, each istance of the class get its own additional namespace
+    \medskip
+    \item The class namespace is automatically visible from each instance namespace, but not the opposite
+    \medskip
+    \item An attribute in an instance namesespace is an \alert{instance attribute}, and cannot be seen or modified
+          by other instances of the class
+    \medskip
+    \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
+    \medskip
+    \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class attributes}
+  \framesubtitle{(And their strange behaviour)}
   \input{pygments/class_attributes}
 \end{frame}
 
