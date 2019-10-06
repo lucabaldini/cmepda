@@ -95,7 +95,7 @@
     \item In Python there is a tool that allows you to do just that: \alert{special methods}
     \medskip
     \item Last lesson we saw that special methods (or dunder methods) are
-          methods like \emph{\_\_init\_\_()} and got a special treatment 
+          methods like \emph{\_\_init\_\_} and got a special treatment 
           by the Python interpeter
     \medskip
     \item Let's see how they work
@@ -116,15 +116,16 @@
   
   \begin{itemize}
     \item And what about \emph{print()}?
-    \item There are actually two special methods used for that: \emph{\_\_str\_\_()} and \emph{\_\_repr\_\_()}
+    \item There are actually two special methods used for that: \emph{\_\_str\_\_} and \emph{\_\_repr\_\_}
     \medskip
-    \item \emph{\_\_str\_\_()} is meant to return a concise string for the user; it is called with \emph{str()}
+    \item \emph{\_\_str\_\_} is meant to return a concise string for the user; it is called with \emph{str()}
     \medskip
-    \item \emph{\_\_repr\_\_()} is meant to return a richer output for debug. It is called with \emph{repr()}
+    \item \emph{\_\_repr\_\_} is meant to return a richer output for debug. It is called with \emph{repr()}
     \medskip
-    \item \emph{print()} automatically tries to get a string out of the object using \emph{str()}. If there is
-          no \emph{\_\_str\_\_} method, it search for \emph{\_\_repr\_\_()}. A defealut \emph{\_\_repr\_\_()}
-          is automatically created for you, if you haven't defined one 
+    \item \emph{print()} automatically tries to get a string out of the object using \emph{\_\_str\_\_}
+    \medskip
+    \item If there isn't one, it searches for \emph{\_\_repr\_\_}. A defealut \emph{\_\_repr\_\_}
+          is automatically generated for you, if you haven't defined one
   \end{itemize}
   
 \end{frame}
