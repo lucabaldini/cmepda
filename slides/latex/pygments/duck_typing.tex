@@ -1,0 +1,30 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/duck\_typing.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Duck}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a duck \PYZhy{} it quacks\PYZdq{}\PYZdq{}\PYZdq{}}
+    
+    \PY{k}{def} \PY{n+nf}{quack}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+\PY{k}{class} \PY{n+nc}{Goose}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a goose \PYZhy{} it quacks too\PYZdq{}\PYZdq{}\PYZdq{}}
+    
+    \PY{k}{def} \PY{n+nf}{quack}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{k}{class} \PY{n+nc}{Penguin}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a penguin \PYZhy{}\PYZhy{} I don\PYZsq{}t quack!\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{pass} 
+
+\PY{n}{birds} \PY{o}{=} \PY{p}{[}\PY{n}{Duck}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Goose}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Penguin}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+
+\PY{k}{for} \PY{n}{bird} \PY{o+ow}{in} \PY{n}{birds}\PY{p}{:}
+    \PY{n}{bird}\PY{o}{.}\PY{n}{quack}\PY{p}{(}\PY{p}{)}
+
+[Output]
+Quack!
+Quack!
+Traceback (most recent call last):
+  File "snippets/duck_typing.py", line 20, in <module>
+    bird.quack()
+AttributeError: 'Penguin' object has no attribute 'quack'
+\end{Verbatim}

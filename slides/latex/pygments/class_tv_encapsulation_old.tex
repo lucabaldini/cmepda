@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/class\_tv\_encapsulation\_old.py}},commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Now we want prevent the owner from being changed using old\PYZhy{}style }
+\PY{l+s+sd}{encapsulation, with setters and getters\PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{k}{class} \PY{n+nc}{Television}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{owner}\PY{p}{)}\PY{p}{:}
+       \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+       \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner} \PY{o}{=} \PY{n}{owner}
+    
+    \PY{k}{def} \PY{n+nf}{get\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style getter.\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner}
+        
+    \PY{k}{def} \PY{n+nf}{set\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style setter to control access \PYZhy{} in this case preventing the }
+\PY{l+s+sd}{        attribute from being changed.\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope \PYZob{}\PYZcb{}. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{)}
+    
+\PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Batman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} In the following lines we had to change the code!}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{n}{tv}\PY{o}{.}\PY{n}{set\PYZus{}owner}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Joker}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+
+[Output]
+This tv belongs to Batman
+Nope Joker. Do you want to steal my tv?
+This tv belongs to Batman
+\end{Verbatim}

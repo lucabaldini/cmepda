@@ -1,0 +1,28 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/class\_constructor.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Television}\PY{p}{:}  
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{owner}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} The special method \PYZus{}\PYZus{}init\PYZus{}\PYZus{} is called each time a class istance is}
+\PY{l+s+sd}{        created.  We can pass arguments to the constructor, just like any }
+\PY{l+s+sd}{        function.\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Creating a television instance...}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sv32X\PYZhy{}553T}\PY{l+s+s1}{\PYZsq{}} \PY{c+c1}{\PYZsh{} This class member is hard\PYZhy{}coded}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{owner} \PY{o}{=} \PY{n}{owner} \PY{c+c1}{\PYZsh{} This is set to the value of the argument}
+    
+    \PY{k}{def} \PY{n+nf}{print\PYZus{}info}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} Let\PYZsq{}s see}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Print the model and owner\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n}{message} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This is television model \PYZob{}\PYZcb{}, owned by \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}
+        \PY{k}{print}\PY{p}{(}\PY{n}{message}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{model}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{owner}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{my\PYZus{}television} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Alberto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{my\PYZus{}television}\PY{o}{.}\PY{n}{print\PYZus{}info}\PY{p}{(}\PY{p}{)}
+\PY{n}{batman\PYZus{}television} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Batman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{batman\PYZus{}television}\PY{o}{.}\PY{n}{print\PYZus{}info}\PY{p}{(}\PY{p}{)}
+
+[Output]
+Creating a television instance...
+This is television model Sv32X-553T, owned by Alberto
+Creating a television instance...
+This is television model Sv32X-553T, owned by Batman
+\end{Verbatim}

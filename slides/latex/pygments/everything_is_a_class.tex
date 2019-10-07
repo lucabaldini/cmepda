@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/everything\_is\_a\_class.py}},commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Create an integer variable}
+\PY{n}{this\PYZus{}is\PYZus{}an\PYZus{}int} \PY{o}{=} \PY{l+m+mi}{5}
+\PY{c+c1}{\PYZsh{} Now check its type}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{this\PYZus{}is\PYZus{}an\PYZus{}int}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Same with a string}
+\PY{n}{this\PYZus{}is\PYZus{}a\PYZus{}string} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello world!}\PY{l+s+s1}{\PYZsq{}} 
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{this\PYZus{}is\PYZus{}a\PYZus{}string}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Same with a list}
+\PY{n}{this\PYZus{}is\PYZus{}a\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frodo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Samvise}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Meriadoc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Peregrino}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{this\PYZus{}is\PYZus{}a\PYZus{}list}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} And even a function!}
+\PY{k}{def} \PY{n+nf}{this\PYZus{}is\PYZus{}a\PYZus{}function}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{l+m+mi}{0}
+    
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{type}\PY{p}{(}\PY{n}{this\PYZus{}is\PYZus{}a\PYZus{}function}\PY{p}{)}\PY{p}{)}
+
+[Output]
+<class 'int'>
+<class 'str'>
+<class 'list'>
+<class 'function'>
+\end{Verbatim}

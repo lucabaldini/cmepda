@@ -1,0 +1,25 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/composition.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Engine}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a fuel engine}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf}{start}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Start the engine \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Broom broom!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{k}{class} \PY{n+nc}{Car}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Class describing a car.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{engine} \PY{o}{=} \PY{n}{Engine}\PY{p}{(}\PY{p}{)}
+      
+    \PY{k}{def} \PY{n+nf}{drive}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Start the car \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{engine}\PY{o}{.}\PY{n}{start}\PY{p}{(}\PY{p}{)}
+    
+
+\PY{n}{ferrari} \PY{o}{=} \PY{n}{Car}\PY{p}{(}\PY{p}{)}
+\PY{n}{ferrari}\PY{o}{.}\PY{n}{drive}\PY{p}{(}\PY{p}{)}
+
+[Output]
+Broom broom!
+\end{Verbatim}

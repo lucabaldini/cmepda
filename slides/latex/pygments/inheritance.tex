@@ -1,0 +1,30 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/inheritance.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{math}
+
+\PY{k}{class} \PY{n+nc}{Particle}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a generic particle.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{mass}\PY{p}{,} \PY{n}{charge}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,} \PY{n}{momentum}\PY{o}{=}\PY{l+m+mf}{0.}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{mass} \PY{o}{=} \PY{n}{mass} \PY{c+c1}{\PYZsh{} in MeV}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{charge} \PY{o}{=} \PY{n}{charge} \PY{c+c1}{\PYZsh{} in e}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{n}{name}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{momentum} \PY{o}{=} \PY{n}{momentum} \PY{c+c1}{\PYZsh{} in MeV/c}
+    
+    \PY{k}{def} \PY{n+nf}{energy}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Return the energy of the particle in MeV/c\PYZca{}2\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{momentum}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{mass}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.}\PY{p}{)}
+ 
+\PY{k}{class} \PY{n+nc}{Electron}\PY{p}{(}\PY{n}{Particle}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing an electron. We inherit from Particle}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{momentum}\PY{o}{=}\PY{l+m+mf}{0.}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Derived class constructor. We call the base class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n}{Particle}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{l+m+mf}{0.511}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{e\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{momentum}\PY{p}{)}
+        
+\PY{n}{el} \PY{o}{=} \PY{n}{Electron}\PY{p}{(}\PY{n}{momentum}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Energy of \PYZob{}\PYZcb{} is \PYZob{}:.4f\PYZcb{} MeV/c\PYZca{}2}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{el}\PY{o}{.}\PY{n}{name}\PY{p}{,} \PY{n}{el}\PY{o}{.}\PY{n}{energy}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+
+[Output]
+Energy of e- is 1.1230 MeV/c^2
+\end{Verbatim}

@@ -1,0 +1,18 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/non\_oop\_example.py}},commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Non OOP example}
+
+\PY{k}{def} \PY{n+nf}{create\PYZus{}television}\PY{p}{(}\PY{n}{owner}\PY{p}{)}\PY{p}{:}
+    \PY{n}{television} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{model}\PY{l+s+s1}{\PYZsq{}} \PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Sv32X\PYZhy{}553T}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{owner}\PY{l+s+s1}{\PYZsq{}} \PY{p}{:} \PY{n}{owner}\PY{p}{\PYZcb{}}
+    \PY{k}{return} \PY{n}{television}
+                  
+\PY{k}{def} \PY{n+nf}{print\PYZus{}info}\PY{p}{(}\PY{n}{television}\PY{p}{)}\PY{p}{:}
+    \PY{n}{message} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This is television model \PYZob{}\PYZcb{}, owned by \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}
+    \PY{k}{print}\PY{p}{(}\PY{n}{message}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{television}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{model}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{television}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{owner}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{my\PYZus{}tv} \PY{o}{=} \PY{n}{create\PYZus{}television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Alberto}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{print\PYZus{}info}\PY{p}{(}\PY{n}{my\PYZus{}tv}\PY{p}{)}
+
+[Output]
+This is television model Sv32X-553T, owned by Alberto
+\end{Verbatim}
