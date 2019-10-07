@@ -1,5 +1,3 @@
-import math
-
 class Vector2d:
     """ Class representing a Vector2d """   
     def __init__(self, x, y):

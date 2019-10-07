@@ -22,48 +22,7 @@
 
 
 \begin{frame}
-  \frametitle{Duck typing}
-  
-  \centering
-  \includegraphics[width=0.7\textwidth]{quack.png}  
-  
-  \bigskip
-  
-  \centering
-  "If it looks like a duck and quacks like a duck, it must be a duck."
-  
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Duck typing}
-  \input{pygments/duck_typing}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Polymorphism}
-  
-  \begin{itemize}
-    \item Reuse the same code for different things
-    \medskip
-    \item In statically typed languages this is tipically done with inheritance,
-          e.g. we make Duck and Goose inherits from a base class QuackingBird()
-          or something like that
-    \medskip
-    \item Python is dynamical, so we can use duck typing for that.
-          We just need to implment the quack() method for both Ducks() and Goose() 
-          and we are done
-    \medskip
-    \item In other words we obtain polymorphism just by satsisfying the required \alert{interface}
-          (in this case the quack() function)
-  \end{itemize}
-  
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{The vector problem}
+  \frametitle{Introducing the Vector2d class}
   
   \begin{itemize}
     \item Suppose we want to create a class for managing 2D vectors
@@ -75,7 +34,7 @@
 
 
 \begin{frame}
-  \frametitle{Meet the Vector2d class}
+  \frametitle{Introducing the Vector2d class}
   \framesubtitle{Naive version}
   \input{pygments/vector2d_1}
 \end{frame}
@@ -135,6 +94,68 @@
   \frametitle{Vector2d}
   \framesubtitle{\emph{\_\_str\_\_} and \emph{\_\_repr\_\_}}
   \input{pygments/vector2d_3}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{Mathematical operations}
+  \input{pygments/vector2d_4}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{In-place operations}
+  \input{pygments/vector2d_5}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{Comparisons}
+  \input{pygments/vector2d_6}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Duck typing}
+  
+  \centering
+  \includegraphics[width=0.7\textwidth]{quack.png}  
+  
+  \bigskip
+  
+  \centering
+  "If it looks like a duck and quacks like a duck, it must be a duck."
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Duck typing}
+  \input{pygments/duck_typing}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polymorphism}
+  
+  \begin{itemize}
+    \item Reuse the same code for different things
+    \medskip
+    \item In statically typed languages this is tipically done with inheritance,
+          e.g. we make Duck and Goose inherits from a base class QuackingBird()
+          or something like that
+    \medskip
+    \item Python is dynamical, so we can use duck typing for that.
+          We just need to implment the quack() method for both Ducks() and Goose() 
+          and we are done
+    \medskip
+    \item In other words we obtain polymorphism just by satsisfying the required \alert{interface}
+          (in this case the quack() function)
+  \end{itemize}
+  
 \end{frame}
 
 

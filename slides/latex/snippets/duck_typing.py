@@ -11,7 +11,7 @@ class Goose:
         print('Quack!')
 
 class Penguin:
-    """ This is a penguin -- I don't quack!"""
+    """ This is a penguin -- He doesn't quack!"""
     pass 
 
 birds = [Duck(), Goose(), Penguin()]
