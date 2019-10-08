@@ -14,7 +14,7 @@ class Television:
 
     @owner.setter
     def owner(self, new_owner):
-       """ Actually this function can have any name  - we never see that"""
+       """ This function must be called 'owner'"""
        print('Nope {}. Do you want to steal my tv?'.format(new_owner))
  
 tv = Television('Batman')
