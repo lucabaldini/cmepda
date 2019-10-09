@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/crazy\_iterator.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{random}
+
+\PY{k}{class} \PY{n+nc}{CrazyIterator}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class implementing a crazy iterator\PYZdq{}\PYZdq{}\PYZdq{}}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{container}\PY{p}{)}\PY{p}{:}
+        \PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}container} \PY{o}{=} \PY{n}{container}
+    
+    \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}next\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{try}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} We get one possibility out of len(self.\PYZus{}container) to exit}
+            \PY{n}{index} \PY{o}{=} \PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}container}\PY{p}{)}\PY{p}{)}
+            \PY{n}{item} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}container}\PY{p}{[}\PY{n}{index}\PY{p}{]}
+        \PY{k}{except} \PY{n+ne}{IndexError}\PY{p}{:}
+            \PY{k}{raise} \PY{n+ne}{StopIteration}
+        \PY{k}{return} \PY{n}{item}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}iter\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}
+
+\PY{k}{class} \PY{n+nc}{CrazyIterable}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Similar to a simple iterable, but with a twist... \PYZdq{}\PYZdq{}\PYZdq{}}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{o}{*}\PY{n}{elements}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}elements} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{elements}\PY{p}{)}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}iter\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n}{CrazyIterator}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}elements}\PY{p}{)}
+\end{Verbatim}

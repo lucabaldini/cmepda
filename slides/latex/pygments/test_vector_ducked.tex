@@ -1,0 +1,21 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/test\_vector\_ducked.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{vector\PYZus{}ducked} \PY{k+kn}{import} \PY{n}{Vector}
+       
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{]}\PY{p}{)}
+\PY{n}{t} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{,} \PY{l+m+mf}{4.}\PY{p}{]}\PY{p}{)}
+\PY{n}{z} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{5.}\PY{p}{]}\PY{p}{)}
+\PY{n}{u} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{]}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v} \PY{o}{==} \PY{n}{t}\PY{p}{,} \PY{n}{v} \PY{o}{==} \PY{n}{z}\PY{p}{,} \PY{n}{v} \PY{o}{==} \PY{n}{u}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{+}\PY{n}{z}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{+}\PY{n}{t}\PY{p}{)} \PY{c+c1}{\PYZsh{} Note the result: this is due to the behaviour of zip()!}
+
+[Output]
+(1.0, 2.0, 3.0)
+3.7416573867739413
+False False True
+(2.0, 4.0, 8.0)
+(2.0, 4.0, 6.0)
+\end{Verbatim}

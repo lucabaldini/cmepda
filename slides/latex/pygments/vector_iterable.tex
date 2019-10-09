@@ -1,0 +1,24 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/vector\_iterable.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{math}
+\PY{k+kn}{from} \PY{n+nn}{array} \PY{k+kn}{import} \PY{n}{array}
+
+\PY{k}{class} \PY{n+nc}{Vector}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}    
+    \PY{n}{typecode} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{components}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{typecode}\PY{p}{,} \PY{n}{components}\PY{p}{)}
+        
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}iter\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} We don\PYZsq{}t need to code anything... an array is already iterable!\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{return} \PY{n+nb}{iter}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
+    
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{5.1}\PY{p}{,} \PY{l+m+mf}{3.7}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{25.}\PY{p}{]}\PY{p}{)}
+\PY{k}{for} \PY{n}{component} \PY{o+ow}{in} \PY{n}{v}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{component}\PY{p}{)}
+
+[Output]
+5.1
+3.7
+-25.0
+\end{Verbatim}

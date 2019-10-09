@@ -1,0 +1,17 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/test\_crazy\_iterator.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{crazy\PYZus{}iterator} \PY{k+kn}{import} \PY{n}{CrazyIterable}
+   
+\PY{n}{my\PYZus{}iterable} \PY{o}{=} \PY{n}{CrazyIterable}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{A}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{D}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{E}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{k}{for} \PY{n}{element} \PY{o+ow}{in} \PY{n}{my\PYZus{}iterable}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{element}\PY{p}{)}
+
+[Output]
+B
+E
+A
+C
+A
+D
+D
+D
+\end{Verbatim}

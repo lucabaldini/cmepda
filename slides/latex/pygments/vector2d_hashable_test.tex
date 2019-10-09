@@ -1,0 +1,19 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/vector2d\_hashable\_test.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{vector2d\PYZus{}hashable} \PY{k+kn}{import} \PY{n}{Vector2d}
+     
+\PY{n}{v}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{z} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{,} \PY{n}{Vector2d}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{5.}\PY{p}{,} \PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{,} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Check the equality}
+\PY{k}{print}\PY{p}{(}\PY{n}{v} \PY{o}{==} \PY{n}{t}\PY{p}{,} \PY{n}{v} \PY{o}{==} \PY{n}{z}\PY{p}{,} \PY{n}{t} \PY{o}{==} \PY{n}{z}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Check the hash: v and z are equal, so they will have the same hash}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{hash}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{,} \PY{n+nb}{hash}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{n+nb}{hash}\PY{p}{(}\PY{n}{z}\PY{p}{)}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} v and t have different hash, so they can be in the same set}
+\PY{k}{print}\PY{p}{(}\PY{p}{\PYZob{}}\PY{n}{v}\PY{p}{,} \PY{n}{t}\PY{p}{\PYZcb{}}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} v and z have the same hash \PYZhy{}\PYZhy{} only one will be stored in the set!}
+\PY{k}{print}\PY{p}{(}\PY{p}{\PYZob{}}\PY{n}{v}\PY{p}{,} \PY{n}{z}\PY{p}{\PYZcb{}}\PY{p}{)}
+
+[Output]
+False True False
+-3 -6 -3
+{Vector2d(-5.0, 1.0), Vector2d(3.0, -1.0)}
+{Vector2d(3.0, -1.0)}
+\end{Verbatim}

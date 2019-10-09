@@ -1,0 +1,25 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/test\_vector\_random\_access.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{vector\PYZus{}random\PYZus{}access} \PY{k+kn}{import} \PY{n}{Vector}
+
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{5.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{8.}\PY{p}{]}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{v}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{l+m+mf}{10.}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{p}{)}
+
+\PY{k}{print} \PY{p}{(}\PY{n}{v}\PY{p}{[}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} This will generate an error!}
+
+[Output]
+4
+5.0 3.0
+Vector([5.0, 10.0, -1.0, 8.0])
+Traceback (most recent call last):
+  File "snippets/test_vector_random_access.py", line 12, in <module>
+    print (v[9]) # This will generate an error!
+  File "/home/alberto/computing/cmepda/slides/latex/snippets/vector_random_access.py", line 13, in __getitem__
+    return self._components[index]
+IndexError: array index out of range
+\end{Verbatim}

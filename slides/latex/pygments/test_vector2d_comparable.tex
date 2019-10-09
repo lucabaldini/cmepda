@@ -1,0 +1,22 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/test\_vector2d\_comparable.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{vector2d\PYZus{}comparable} \PY{k+kn}{import} \PY{n}{Vector2d}
+
+\PY{n}{v}\PY{p}{,} \PY{n}{z} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{,} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{l+m+mf}{1.}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{z}\PY{p}{,} \PY{n}{v} \PY{o}{==} \PY{n}{z}\PY{p}{,} \PY{n}{v} \PY{o}{\PYZlt{}} \PY{n}{z}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} This works even if we don\PYZsq{}t define the \PYZus{}\PYZus{}gt\PYZus{}\PYZus{} method explicitly}
+\PY{k}{print}\PY{p}{(}\PY{n}{v} \PY{o}{\PYZgt{}} \PY{n}{z}\PY{p}{)}
+
+\PY{n}{vector\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{,} \PY{n}{Vector2d}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{5.}\PY{p}{,} \PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{,} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{l+m+mf}{0.}\PY{p}{)}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n}{vector\PYZus{}list}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Tho make the following line work we need to implement either \PYZus{}\PYZus{}ge\PYZus{}\PYZus{} and \PYZus{}\PYZus{}lt\PYZus{}\PYZus{}}
+\PY{c+c1}{\PYZsh{} or \PYZus{}\PYZus{}gt\PYZus{}\PYZus{} and \PYZus{}\PYZus{}le\PYZus{}\PYZus{} (we need a complementary pair of operator)}
+\PY{n}{vector\PYZus{}list}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{vector\PYZus{}list}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Note: we got the full power of timsort for free! Nice :)}
+
+[Output]
+True False False
+False
+[Vector2d(3.0, -1.0), Vector2d(-5.0, 1.0), Vector2d(3.0, 0.0)]
+[Vector2d(3.0, 0.0), Vector2d(3.0, -1.0), Vector2d(-5.0, 1.0)]
+\end{Verbatim}

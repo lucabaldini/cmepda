@@ -27,7 +27,10 @@
   \begin{itemize}
     \item Suppose we want to create a class for managing 2D vectors
     \bigskip
-    \item Let's start coding some usesful methods
+    \item That's just for learning: there are already plenty of libraries for
+          doing array operations - like numpy!
+    \bigskip
+    \item Anyway let's start coding some useful methods for it
   \end{itemize}
   
 \end{frame}
@@ -36,7 +39,7 @@
 \begin{frame}
   \frametitle{Introducing the Vector2d class}
   \framesubtitle{Naive version}
-  \input{pygments/vector2d_1}
+  \input{pygments/vector2d_naive}
 \end{frame}
 
 
@@ -53,11 +56,11 @@
     \medskip
     \item In Python there is a tool that allows you to do just that: \alert{special methods}
     \medskip
-    \item Last lesson we saw that special methods (or dunder methods) are
-          methods like \emph{\_\_init\_\_} and got a special treatment 
-          by the Python interpeter
+    \item Last lesson we saw that special methods (or dunder methods or 
+          magic methods) are methods like \emph{\_\_init\_\_} and got a special
+          treatment by the Python interpeter
     \medskip
-    \item Let's see how they work
+    \item There are a few tens of special methods in Python. Let's see how they work
   \end{itemize}
   
 \end{frame}
@@ -93,28 +96,207 @@
 \begin{frame}
   \frametitle{Vector2d}
   \framesubtitle{\emph{\_\_str\_\_} and \emph{\_\_repr\_\_}}
-  \input{pygments/vector2d_3}
+  \input{pygments/vector2d_printable}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Vector2d}
   \framesubtitle{Mathematical operations}
-  \input{pygments/vector2d_4}
+  \input{pygments/vector2d_math}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Vector2d}
   \framesubtitle{In-place operations}
-  \input{pygments/vector2d_5}
+  \input{pygments/vector2d_inplace}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Vector2d}
   \framesubtitle{Comparisons}
-  \input{pygments/vector2d_6}
+  \input{pygments/vector2d_comparable}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{Comparisons}
+  \input{pygments/test_vector2d_comparable}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An hashable Vector2d}
+  
+  \begin{itemize}
+    \item Ok now let's try to make our vector2d \emph{hashable}
+    \medskip
+    \item Hashable objects can be put in \emph{sets} and used as keys for 
+          dictionaries
+    \medskip
+    \item To make an object hashable we need to fullfill 3 requirements:
+    \smallskip
+    \begin{itemize}
+      \item It has to be immutable - otherwise you may not retrieve the correct hash
+      \smallskip
+      \item It needs to implement a \emph{\_\_eq\_\_} function, so one can compare
+            objects of this class
+      \smallskip
+      \item It needs a (reasonable) \emph{\_\_hash\_\_} function
+    \end{itemize}
+    \medskip
+    \item Rules for a good hash function:
+    \smallskip
+    \begin{itemize}
+      \item Must return the same value for objects that compare as equal
+      \smallskip
+      \item Should rarely return the same value for different objects
+      \smallskip
+      \item Should sample the result space uniformly
+    \end{itemize}
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{Hashable version}
+  \input{pygments/vector2d_hashable}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector2d}
+  \framesubtitle{Hashable version}
+  \input{pygments/vector2d_hashable_test}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A n-elements vector}
+  
+  \begin{itemize}
+    \item 2d array are boring\dots why not a N-d array?
+    \medskip
+    \item Of course we cannot store the components explicitly like before
+    \medskip
+    \item We need a contaner for that and we will use \emph{array} from the 
+          array library
+    \medskip
+    \item Question for you: why not a list or a tuple?
+    \medskip
+    \item \emph{array} uses a typecode (a single character) for picking the
+          type. 'd' is the typecode for float numbers in double precision. 
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector}
+  \framesubtitle{A n elements vector}
+  \input{pygments/vector}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A n-elements vector}
+  \framesubtitle{List-style access}
+  
+  \begin{itemize}
+    \item Now that we have an arbitrary number of components, we cannot access them like 
+          vector.x, vector.y, \dots anymore
+    \medskip
+    \item What we want is a syntax similar to that of lists: vector[0], vector[1]
+          ans so on
+    \medskip
+    \item There are two magic methods for that: \emph{\_\_getitem\_\_} for access 
+          and \emph{\_\_setitem\_\_} for modifying
+    \medskip
+    \item While we are at it, we also implement the \emph{\_\_len\_\_} method,
+          which allows us to call \emph{len(vector)}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector}
+  \framesubtitle{List-style access}
+  \input{pygments/vector_random_access}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector}
+  \framesubtitle{List-style access}
+  \input{pygments/test_vector_random_access}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An iterable vector}
+  
+  \begin{itemize}
+    \item Now our vector behave a bit like a native python list
+    \medskip
+    \item However a list has a very powerful feature we miss: it's \alert{iterable}
+    \medskip
+    \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
+          method, which returns an \alert{iterator}
+    \medskip
+    \item An \emph{iterator} is an object that implement a \emph{\_\_next\_\_} method
+          which is used to retrieve elements one at the time
+    \medskip
+    \item When there are no more elements to return, the iterator signals that with a specific
+          \alert{exception}: \emph{StopIteration()} (we will study exceptions in the advanced module)
+    \medskip
+    \item An iterator also implement an \emph{\_\_iter\_\_} method that return\dots itself.
+          So an iterator is also an iterable! (But the opposite is not true)
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A 'for' loop unpacked}
+  \input{pygments/show_iterator}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{A simple iterator}
+  \input{pygments/simple_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A simple iterator}
+  \input{pygments/test_simple_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A crazy iterator}
+  \input{pygments/crazy_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A crazy iterator}
+  \input{pygments/test_crazy_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vector iterable}
+  \input{pygments/vector_iterable}
 \end{frame}
 
 
@@ -157,6 +339,102 @@
   \end{itemize}
   
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{The power of iterables}
+  
+  \begin{itemize}
+    \item Having an iterable Vector (thanks to the \emph{\_\_iter\_\_} magic
+          method) makes all the difference in the world
+    \medskip
+    \item There are \emph{a lot} of builtin and library functions in python accepting a
+          generic iterable
+    \medskip
+    \item With duck typing we can now use any of that for our Vector class -- isn't that cool?
+    \medskip
+    \item Let's port some of the Vector2d methods for Vector in that way
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A vector that behaves like a duck}
+  \input{pygments/vector_ducked}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Let's test it}
+  \input{pygments/test_vector_ducked}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fucntion are classes}
+  
+  \begin{itemize}
+    \item Remember that in the past lesson I told you that functions are objects
+          of the 'function' class.
+    \medskip
+    \item How are they implemented?
+    \medskip
+    \item With a special method - of course: \emph{\_\_call\_\_}
+    \medskip
+    \item Every object implementing a \emph{\_\_call\_\_} method is called \alert{callable}
+    \medskip
+    \item A vector is not a good example for implementing it, let's try something
+          different!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A simple call counter}
+  \input{pygments/callable}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fit hacking}
+  \input{pygments/test_callable}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fit hacking}
+  \centering
+  \includegraphics[width=0.75\textwidth]{fit_with_custom_callable.png}
+  
+  \medskip
+  
+  \begin{itemize}
+    \item The fit works as usual
+   \end{itemize}  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Summary}
+  \begin{itemize}
+    \item Special methods can beused to greatly enhance the readibility of the code
+    \bigskip
+    \item There are tens of special methods in python, covering logical operations,
+          mathematical operations, array-style access, iterations, formatting and
+          many other things\dots
+    \bigskip
+    \item Implementing the required interface in your classes you will be able
+          to reuse a lot of code written for the standard containers thanks to
+          duck typing, which is the pythonic way to polymorphism
+   \end{itemize}  
+\end{frame}
+
+
+
+
 
 
 \end{document}

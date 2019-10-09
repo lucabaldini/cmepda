@@ -1,0 +1,21 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/callable.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{CallCounter}\PY{p}{:}
+  
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Wrap a generic function and count the number of times it is called\PYZdq{}\PYZdq{}\PYZdq{}}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{func}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} We accept as input a function and store it (privately)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}func} \PY{o}{=} \PY{n}{func}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{num\PYZus{}calls} \PY{o}{=} \PY{l+m+mi}{0}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}call\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is the method doing the trick. We use *args and **kwargs to}
+\PY{l+s+sd}{        pass all possible arguments to the function that we are wrapping\PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{c+c1}{\PYZsh{} We increment the counter}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{num\PYZus{}calls} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+        \PY{c+c1}{\PYZsh{} And here we just return whatever the wrapped function returns}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}func}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+    
+    \PY{k}{def} \PY{n+nf}{reset}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{num\PYZus{}calls} \PY{o}{=} \PY{l+m+mi}{0}
+\end{Verbatim}

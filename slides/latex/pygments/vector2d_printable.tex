@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/vector2d\_printable.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Vector2d}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class representing a Vector2d \PYZdq{}\PYZdq{}\PYZdq{}}   
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{y}\PY{p}{)}
+   
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} We don\PYZsq{}t want to hard\PYZhy{}code the class name, so we dynamically get it}
+        \PY{n}{class\PYZus{}name} \PY{o}{=} \PY{n+nb}{type}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}
+        \PY{k}{return} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}(\PYZob{}\PYZcb{}, \PYZob{}\PYZcb{})}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{class\PYZus{}name}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+        
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}str\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} We convert the coordinates to a tuple so that we can reuse the}
+\PY{l+s+sd}{        \PYZus{}\PYZus{}str\PYZus{}\PYZus{} method of tuples, which already provides a nice formatting.}
+\PY{l+s+sd}{        Notice the two parenthesis: this line is equivalent to:}
+\PY{l+s+sd}{        temp\PYZus{}tuple = (self.x, self.y)}
+\PY{l+s+sd}{        return str(temp\PYZus{}tuple)}
+\PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{return} \PY{n+nb}{str}\PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+     
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{p}{)} \PY{c+c1}{\PYZsh{} Is the same as print(str(v))}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{I got \PYZob{}\PYZcb{} with \PYZus{}\PYZus{}str\PYZus{}\PYZus{} and \PYZob{}!r\PYZcb{} with \PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{v}\PY{p}{,} \PY{n}{v}\PY{p}{)}\PY{p}{)}
+
+[Output]
+(3.0, -1.0)
+Vector2d(3.0, -1.0)
+I got (3.0, -1.0) with __str__ and Vector2d(3.0, -1.0) with __repr__
+\end{Verbatim}
