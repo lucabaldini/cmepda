@@ -1,0 +1,24 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/numpy\_functions.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+\PY{k+kn}{import} \PY{n+nn}{math}
+
+\PY{n}{a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{10.}\PY{p}{]}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{log10}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{log10}\PY{p}{(}\PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{log10}\PY{p}{(}\PY{n}{a}\PY{p}{)}\PY{p}{)}
+
+[Output]
+[-1.  0.  1.]
+[1.10517092e+00 2.71828183e+00 2.20264658e+04]
+[ 0.09983342  0.84147098 -0.54402111]
+-1.0
+Traceback (most recent call last):
+  File "snippets/numpy_functions.py", line 12, in <module>
+    print(math.log10(a))
+TypeError: only size-1 arrays can be converted to Python scalars
+\end{Verbatim}

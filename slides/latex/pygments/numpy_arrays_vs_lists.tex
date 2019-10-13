@@ -1,0 +1,19 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/numpy\_arrays\_vs\_lists.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+
+\PY{c+c1}{\PYZsh{} arrays and lists seem similar...}
+\PY{n}{l} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{]}
+\PY{n}{a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{l}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{l}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} ...but they support basic arithmetic in a different fashion}
+\PY{k}{print}\PY{p}{(}\PY{n}{l} \PY{o}{+} \PY{n}{l}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{a} \PY{o}{+} \PY{n}{a}\PY{p}{)}
+
+[Output]
+[1.0, 2.0, 3.0]
+[1. 2. 3.]
+[1.0, 2.0, 3.0, 1.0, 2.0, 3.0]
+[2. 4. 6.]
+\end{Verbatim}
