@@ -1,0 +1,22 @@
+\begin{Verbatim}[label=\makebox{\url{https://bitbucket.org/lbaldini/programming/src/tip/snippets/numpy\_masks.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+
+\PY{n}{a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mf}{0.}\PY{p}{,} \PY{l+m+mf}{10.}\PY{p}{,} \PY{l+m+mi}{11}\PY{p}{)}
+\PY{n}{mask1} \PY{o}{=} \PY{n}{a} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mf}{2.5}
+\PY{n}{mask2} \PY{o}{=} \PY{n}{a} \PY{o}{\PYZlt{}} \PY{l+m+mf}{8.5}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{mask1}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{mask2}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{n}{mask1}\PY{p}{]}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{n}{mask2}\PY{p}{]}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{a}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{logical\PYZus{}and}\PY{p}{(}\PY{n}{mask1}\PY{p}{,} \PY{n}{mask2}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+
+[Output]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10.]
+[False False False  True  True  True  True  True  True  True  True]
+[ True  True  True  True  True  True  True  True  True False False]
+[ 3.  4.  5.  6.  7.  8.  9. 10.]
+[0. 1. 2. 3. 4. 5. 6. 7. 8.]
+[3. 4. 5. 6. 7. 8.]
+\end{Verbatim}
