@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 #
 # -----------------------------------------------------------------------------
-# Copyright (C) 2019 Luca Baldini (luca.baldini@pi.infn.it)           
-#                                                                     
-# For the license terms see the file LICENCE, distributed           
-# along with this software.                                         
+# Copyright (C) 2019 Luca Baldini (luca.baldini@pi.infn.it)
+#
+# For the license terms see the file LICENCE, distributed
+# along with this software.
 # -----------------------------------------------------------------------------
 #
 # This program is free software; you can redistribute it and/or modify
@@ -32,7 +32,7 @@ PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 SNIPPET_FOLDER_PATH = os.path.join(PACKAGE_ROOT, 'snippets')
 PYGMENT_FOLDER_PATH = os.path.join(PACKAGE_ROOT, 'pygments')
 
-BITBUCKET_URL = 'https://bitbucket.org/lbaldini/programming/src/tip/'
+GITHUB_URL = 'https://github.com/lucabaldini/cmepda/tree/master/slides/latex/'
 
 PROC_KWARGS = dict(stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
@@ -70,11 +70,11 @@ def run_pygmentize(file_path, label=True):
         the path to the input snippet file.
 
     label: bool
-        if True, add a bitbucket link to the code box.
+        if True, add a github link to the code box.
 
     This is achieved through something along the lines of:
     pygmentize -f latex -O full -l python file.py
-    We do not produce the output LaTeX file directly, as we include the 
+    We do not produce the output LaTeX file directly, as we include the
     necessary pygmentize-related LaTeX macros into the preamble and we
     filter the pygmentize output to:
     1 - strip the un-necessary preamble
@@ -106,7 +106,7 @@ def run_pygmentize(file_path, label=True):
                     text = file_name.replace('_', '\_')
                     folder = os.path.dirname(file_path)
                     folder = folder.replace(PACKAGE_ROOT, '').strip('\/')
-                    text = '%s%s/%s' % (BITBUCKET_URL, folder, text)
+                    text = '%s%s/%s' % (GITHUB_URL, folder, text)
                     text = '\\makebox{\\url{%s}}' % text
                     line = line.replace('[', '[label=%s,' % text)
             # We don't want to write the \end{Verbatim} bit at the first pass,
@@ -152,4 +152,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     for target in args.targets:
         pygmentize(target)
-        
