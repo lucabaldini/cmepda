@@ -19,7 +19,7 @@ class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
         self.ppf = InterpolatedUnivariateSpline(ycdf, x)
 
     def prob(self, x1, x2):
-        """Return the probability for the random variable to be included 
+        """Return the probability for the random variable to be included
         between x1 and x2.
         """
         return self.cdf(x2) - self.cdf(x1)
@@ -28,7 +28,7 @@ class ProbabilityDensityFunction(InterpolatedUnivariateSpline):
         """Return an array of random values from the pdf.
         """
         return self.ppf(np.random.uniform(size=size))
-    
+
 
 
 
@@ -50,13 +50,14 @@ if __name__ == '__main__':
     plt.ylabel('cdf(x)')
 
     plt.figure('ppf')
-    plt.plot(x, pdf.ppf(x))
-    plt.xlabel('x')
-    plt.ylabel('ppf(x)')
+    q = np.linspace(0., 1., 250)
+    plt.plot(q, pdf.ppf(q))
+    plt.xlabel('q')
+    plt.ylabel('ppf(q)')
 
     plt.figure('Sampling')
     rnd = pdf.rnd(1000000)
     plt.hist(rnd, bins=200)
-    
+
 
     plt.show()
