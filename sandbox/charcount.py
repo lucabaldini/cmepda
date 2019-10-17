@@ -25,7 +25,7 @@ def process(file_path):
 
     # Prepare a dictionary to hold the letter frequencies, and initialize
     # all the counts to zero.
-    letters = 'abcdefghijklmnopqrstuvxyz'
+    letters = 'abcdefghijklmnopqrstuvwxyz'
     freq_dict = {}
     for ch in letters:
         freq_dict[ch] = 0
@@ -46,7 +46,7 @@ def process(file_path):
     for ch, freq in freq_dict.items():
         print('{}: {:.3f}%'.format(ch, freq * 100.))
 
-    
+
 
 
 if __name__ == '__main__':
