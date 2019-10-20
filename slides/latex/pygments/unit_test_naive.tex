@@ -1,0 +1,19 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/unit\_test\_naive.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{square}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Function returning the suare of x.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.}
+
+\PY{k}{def} \PY{n+nf}{test}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Dumb unit test\PYZhy{}\PYZhy{}\PYZhy{}make sure that the square of 2. is 4.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{assert} \PY{n}{square}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)} \PY{o}{==} \PY{l+m+mf}{4.}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Passed\PYZhy{}\PYZhy{}\PYZhy{}cool!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+
+\PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+    \PY{n}{test}\PY{p}{(}\PY{p}{)}
+
+[Output]
+Passed---cool!
+\end{Verbatim}

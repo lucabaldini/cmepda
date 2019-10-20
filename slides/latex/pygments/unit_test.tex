@@ -1,0 +1,29 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/unit\_test.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{unittest}
+
+\PY{k}{def} \PY{n+nf}{square}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Function returning the suare of x.}
+
+\PY{l+s+sd}{    In real life this would be in a differnt module!}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.}
+
+
+\PY{k}{class} \PY{n+nc}{TestSquare}\PY{p}{(}\PY{n}{unittest}\PY{o}{.}\PY{n}{TestCase}\PY{p}{)}\PY{p}{:}
+
+    \PY{k}{def} \PY{n+nf}{test}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Dumb unit test\PYZhy{}\PYZhy{}\PYZhy{}make sure that the square of 2. is 4.}
+\PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{assertAlmostEqual}\PY{p}{(}\PY{n}{square}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)}\PY{p}{,} \PY{l+m+mf}{4.}\PY{p}{)}
+
+
+\PY{k}{if} \PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZus{}\PYZus{}main\PYZus{}\PYZus{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}
+    \PY{n}{unittest}\PY{o}{.}\PY{n}{main}\PY{p}{(}\PY{p}{)}
+
+[Output]
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+\end{Verbatim}

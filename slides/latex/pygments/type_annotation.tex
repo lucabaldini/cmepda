@@ -1,0 +1,18 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/type\_annotation.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{square}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Return the square of a number.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.}
+
+\PY{k}{def} \PY{n+nf}{annotated\PYZus{}square}\PY{p}{(}\PY{n}{x}\PY{p}{:} \PY{n+nb}{float}\PY{p}{)} \PY{o}{\PYZhy{}}\PY{o}{\PYZgt{}} \PY{n+nb}{float}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Return the square of a number.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{2.}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{square}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{annotated\PYZus{}square}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)}\PY{p}{)}
+
+[Output]
+4.0
+4.0
+\end{Verbatim}
