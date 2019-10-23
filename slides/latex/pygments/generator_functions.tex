@@ -1,0 +1,24 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/generator\_functions.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{generator\PYZus{}function\PYZus{}simple}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{First call}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{k}{yield} \PY{l+m+mi}{1}\PY{o}{+}\PY{l+m+mi}{1}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Second call}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{k}{yield} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Darth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Vader}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{I am about to rise an exception...}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{n}{gen} \PY{o}{=} \PY{n}{generator\PYZus{}function\PYZus{}simple}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} A generator function returns a generator}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{next}\PY{p}{(}\PY{n}{gen}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} We stop at the first yield and get the value}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{next}\PY{p}{(}\PY{n}{gen}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Second yield}
+\PY{n+nb}{next}\PY{p}{(}\PY{n}{gen}\PY{p}{)} \PY{c+c1}{\PYZsh{} The third next() will throw StopIteration}
+
+[Output]
+First call
+2
+Second call
+['Darth', 'Vader']
+I am about to rise an exception...
+Traceback (most recent call last):
+  File "snippets/generator_functions.py", line 11, in <module>
+    next(gen) # The third next() will throw StopIteration
+StopIteration
+\end{Verbatim}

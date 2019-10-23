@@ -1,0 +1,25 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/dont\_ask\_permission.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{os}
+
+\PY{n}{file\PYZus{}path} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i\PYZus{}do\PYZus{}not\PYZus{}exists.txt}\PY{l+s+s1}{\PYZsq{}}
+
+\PY{c+c1}{\PYZsh{} Defensive version}
+\PY{k}{if} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{exists}\PY{p}{(}\PY{n}{file\PYZus{}path}\PY{p}{)}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} What if the file is deleted between these two lines? (by another process)}
+    \PY{c+c1}{\PYZsh{} What if the file exists but you don\PYZsq{}t have permission to open it?}
+    \PY{n}{data\PYZus{}file} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{file\PYZus{}path}\PY{p}{)} 
+\PY{k}{else}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Do something}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oops \PYZhy{} file }\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{ does not exist}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{file\PYZus{}path}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Pythonic way \PYZhy{} you should prefer this one!}
+\PY{k}{try}\PY{p}{:}
+    \PY{n}{data\PYZus{}file} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{file\PYZus{}path}\PY{p}{)}
+\PY{k}{except} \PY{n+ne}{OSError} \PY{k}{as} \PY{n}{e}\PY{p}{:} \PY{c+c1}{\PYZsh{} Cover more problems than FileNotFoundError}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Oops \PYZhy{} cannot read the file!}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+
+[Output]
+Oops - file 'i_do_not_exists.txt' does not exist
+Oops - cannot read the file!
+[Errno 2] No such file or directory: 'i_do_not_exists.txt'
+\end{Verbatim}

@@ -1,0 +1,28 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/fibonacci.py}},commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Generator function that provides infinte fibonacci numbers}
+\PY{k}{def} \PY{n+nf}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}
+    \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+        \PY{k}{yield} \PY{n}{a}
+        \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{n}{b}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
+
+\PY{c+c1}{\PYZsh{} We need to impose a stop condition externally to use it}
+\PY{n}{max\PYZus{}n} \PY{o}{=} \PY{l+m+mi}{7}
+\PY{n}{fib\PYZus{}numbers} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{fib} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+    \PY{k}{if} \PY{n}{i} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{max\PYZus{}n}\PY{p}{:}
+        \PY{k}{break}
+    \PY{k}{else}\PY{p}{:}
+        \PY{n}{fib\PYZus{}numbers}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{fib}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{fib\PYZus{}numbers}\PY{p}{)}
+      
+\PY{c+c1}{\PYZsh{} Another way to do that  is using \PYZsq{}islice\PYZsq{} from itertools}
+\PY{k+kn}{import} \PY{n+nn}{itertools}
+\PY{c+c1}{\PYZsh{} Generator expression \PYZhy{} note the +1 in islice}
+\PY{n}{fib\PYZus{}gen} \PY{o}{=} \PY{p}{(}\PY{n}{fib} \PY{k}{for} \PY{n}{fib} \PY{o+ow}{in} \PY{n}{itertools}\PY{o}{.}\PY{n}{islice}\PY{p}{(}\PY{n}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{max\PYZus{}n}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fib\PYZus{}gen}\PY{p}{)}\PY{p}{)}
+
+[Output]
+[0, 1, 1, 2, 3, 5, 8]
+[0, 1, 1, 2, 3, 5, 8]
+\end{Verbatim}

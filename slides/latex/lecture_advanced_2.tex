@@ -1,0 +1,390 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{figures/}} 
+
+
+\title{Advanced python features}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{A. Manfreda}
+\institute[INFN]{INFN--Pisa}
+\email{alberto.manfreda@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+
+\begin{frame}
+  \frametitle{Errors and Exceptions}
+  
+  \begin{itemize}
+    \item \alert{Error handling} is one of the most important problem to solve when designing a program
+    \item What should I do when I piece of code fails?
+    \item What does fail mean?
+    \begin {itemize}
+      \item Invalid input e.g. passing a path to a non existent file, or passing a string to a function for dividing numbers
+      \item Valid output not found, e.g searching the position of the letter 'd' in the string 'elephant'
+      \item Output cannot be find in a reasonable amount of time
+      \item Runtime resource failures: network connection down, disk space ended\dots
+    \end{itemize}
+    \item Two phylosophies (historically):
+    \begin{itemize}
+      \item Return some \alert{error flag} (in different ways) to tell the user that something went wrong
+      \item \alert{Exceptions}
+    \end{itemize}
+    \item Example: a typical convention for programs is to return 0 from the main if the execution was successful and an
+          error code (integer number) otherwise
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Error flags}
+  \input{pygments/error_flags}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Problems of error flags}
+  
+    Error codes have their use (and are fine in some cases) but they suffer from a few issues:
+    \begin{itemize}
+      \item Choosing them is often arbitrary (and sometimes is difficult to make a sensible choice)
+      \begin{itemize}
+        \item What if all the numbers can represent meaningful output of the function?
+      \end{itemize}
+      \item Are cumbersome to use
+      \begin{itemize}
+        \item Which error flag is used by a function? 0? -1? 99999999? $\rightarrow$ you have to go through the documentation for each!
+        \item If you have a deep hierarchy of functions you have to perform checks and pass the error up at every level!
+      \end{itemize}
+      \item What if the caller of a function does not check the error flag?
+      \begin{itemize}
+        \item The bug can propagate \alert{silently} through its code!
+      \end{itemize}
+    \end{itemize}
+   
+    \medskip
+   
+    We want something that:
+    \begin{itemize}
+      \item Is clearly separated from the returned output
+      \item Cannot be silently ignored by the user
+      \item Is easy to report to upper level without lots of lines of code
+    \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Enter exceptions}
+
+  \begin{itemize}
+    \item An exception is an object that can be \alert{raised} (in other languages also \textit{thrown}) by
+          a piece of code to signal that something went wrong
+    \item When an exception is raised the normal flow of the code is interrupted
+    \item The program automatically propagate the exception back in the function hierarchy
+          until it found a place where the exception is  \alert{catched} and handled
+    \item If the exception is never catched, not even in the main, the program crash \alert{with a specific error message}
+    \item Cathcing the exception is done with a \emph{try - except} block
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exceptions}
+  \input{pygments/exceptions}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The beauty of throwning stuff}
+
+  \begin{itemize}
+    \item If that was all, exceptions would only be moderately useful
+    \item The real bargain is that you can send back information together with the exception
+    \item In fact you \textit{are sending a full object}: the excetpion iteslf. Surprised?
+    \item Inside the exception you can report all kind of data useful to reconstruct the exact error,
+          which can be used by the caller for debug or to produce meaningful error messages
+    \item You can also select which exceptions you catch, leaving the others propagate up
+    \item Python provides a rich hierarchy of exception classes, which you can further customize
+          (if you want) by deriving your own subclasses
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The family tree of Python exceptions}
+  \centering\includegraphics[height=0.8\textheight]{python_exceptions}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Catching exceptions}
+  \input{pygments/try_block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Throwing exceptions}
+  \input{pygments/throwing}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Where to catch exceptions?}
+
+  \begin{itemize}
+    \item Differently from error flags, which needs to be checked as early as
+          possible, you are not in a rush with exceptions
+    \item Remeber: your goal is to provide the user a meaningful error message and
+          useful debug information.
+    \item You should catch an exception only when you have enough context to
+          do that - which sometimes means waiting a few levels in the hierarchy!
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{When to catch?}
+  \centering
+  \includegraphics[width=0.8\textwidth]{lab_file.png}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{When to catch?}
+  \input{pygments/when_to_catch}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Catch too early}
+  \input{pygments/when_to_catch_1}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Catch when needed}
+  \input{pygments/when_to_catch_2}
+\end{frame}
+
+\begin{frame}
+  \frametitle{There is no check - only try}
+
+  \begin{itemize}
+    \item In Python exceptions are the default methods for handling failures
+    \item Many functions raise an exception when something goes wrong
+    \item The common approach is: do not chech the input beforehand. Use it and
+          be ready to catch excpetions if any.
+    \item \textit{Easier to ask for forgiveness than permission.} 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Easier to ask for forgiveness}
+  \input{pygments/dont_ask_permission}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Iterators and iterables}
+  
+  \begin{itemize}
+    \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
+          method, which returns an \alert{iterator}
+    \medskip
+    \item An \emph{iterator} is an object that implement a \emph{\_\_next\_\_} method
+          which is used to retrieve elements one at the time
+    \medskip
+    \item When there are no more elements to return, the iterator signals that with a specific
+          exception: \emph{StopIteration()}
+    \medskip
+    \item An iterator also implement an \emph{\_\_iter\_\_} method that return\dots itself.
+          So an iterator is also an iterable! (But the opposite is not true)
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A 'for' loop unpacked}
+  \input{pygments/show_iterator}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{A simple iterator}
+  \input{pygments/simple_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A simple iterator}
+  \input{pygments/test_simple_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A crazy iterator}
+  \input{pygments/crazy_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A crazy iterator}
+  \input{pygments/test_crazy_iterator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Python tools for iterables}
+  \begin{itemize}
+    \item Python provides a number of functions that consume an iterable and return a single value:
+    \begin{itemize}
+      \item \emph{sum}: Sum all the elements
+      \item \emph{all}: Return true if a given condition is true for all the elements
+      \item \emph{any}: Return true if a given condition is true for at lest one element
+      \item \emph{max}: Return the max
+      \item \emph{min}: Return the minimum
+    \end{itemize}
+    \medskip
+    \item In addition, in the \alert{\emph{functools}} library there is the generic
+          \emph{reduce} function that works as follow:
+    \begin{itemize}
+      \item Apply a given function to the first two elements
+      \item Apply the function to the result of the first evaluation and the third element
+      \item Continue like that until the iterable is over, than return the result
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generators}
+  
+  \begin{itemize}
+    \item We have seen that iterators are useful to iterate over container
+    \item However that assumes a containers exists $\rightarrow$ memory usage
+    \item \alert{Generators} allow you to loop over sequences of items even when
+          they don't exist before - they itrms are just created \alert{lazily} the
+          moment they are required
+    \item For example you can write a generator to loops over the Fibonacci
+          succession. You can't create the sequence earlier, since it is not
+          finite!
+    \item Generators are created through either \alert{generator expressions} or
+          \alert{generator functions}
+    \item In real life most of the time you will simply use pre-made functions
+          that return a generator, like \emph{range()} (in Python 3)
+    \item Generator can be used to iterate in for loops, just like iterators
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generators first look}
+  \input{pygments/generators}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generator functions}
+  
+  \begin{itemize}
+    \item A \alert{generator function} is a function that contains the keyword \alert{yield} at
+          least once in his body
+    \item When you call a generator function the code is not executed - instead
+          a generator object is created and returned (even if you don't have a return statement)
+    \item Each call to \emph{next()} on the returned generator will make the function code 
+          run until it finds a yield statement
+    \item Then the execution is paused and the value of the expression on the right 
+          of yiel is returned (yielded) to the caller
+    \item A further call of next will resume the execution from where it was suspended
+          until the next yield and so on
+    \item Eventually, when the function body ends, \emph{StopIteration} is raised
+    \item Usually generators functions contain a loop - but it's not mandatory!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generator functions}
+  \input{pygments/generator_functions}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Infinite sequence generators}
+  \input{pygments/fibonacci}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Python generator functions}
+  
+  \begin{itemize}
+    \item Python provides a number of built-in functions that return a generator from an iterable, such as:
+    \begin{itemize}
+      \item \emph{enumerate}: Automatic counting of iterations
+      \item \emph{map}: Apply a function to the elements
+      \item \emph{filter}: Return only the elements passing a given condition
+      \item \emph{zip}: Return pairs of elements (requires two sequences)
+      \item \emph{reversed}: Loop in the reversed order
+    \end{itemize}
+
+    \item Countless others can be found in the \alert{\emph{itertools}} library
+    \begin{itemize}
+      \item \emph{islice}: Slice the loop with start, stop and step
+      \item \emph{takewhile}: Stop looping when a condition becomes false
+      \item \emph{accumulate}: Get the result of applying the function iteratively to pair of elements
+      \item \emph{chain}: Loop through many sequences one after another
+      \item \emph{cycle}: Loop over the sequence repeatedly, indefinitely
+      \item \emph{permutations}: Get all the permutations of a given length
+      \item And so on\dots
+    \end{itemize}
+    
+    \medskip
+    
+    \item Take a look at the documentation of each function to see how to 
+          properly call it!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Anonymous (lambda) functions}
+  \begin{itemize}
+    \item \alert{Anonymous functions}, or \alert{lambda functions} are a construct typical of \alert{functional programming}
+    \item \url{https://en.wikipedia.org/wiki/Lambda_calculus}
+    \item \url{https://en.wikipedia.org/wiki/Functional_programming}
+    \item In Python a lambda function is essentially a special sintax for creating a function
+          on the fly, without giving it a name
+    \item They are limited to \alert{a single expression}, which is returned to the user
+    \item Many of the typical uses for lambdas are already covered in python by generator expressions and comprehension,
+          so this is more like a niche feature of the language
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Lambda functions}
+  \input{pygments/lambda}
+\end{frame}
+
+
+\end{document}

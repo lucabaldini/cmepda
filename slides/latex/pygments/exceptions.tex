@@ -1,0 +1,17 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/exceptions.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{throwing\PYZus{}function}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{raise}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{This line is never executed!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{k}{try}\PY{p}{:}
+  \PY{n}{throwing\PYZus{}function}\PY{p}{(}\PY{p}{)}
+  \PY{k}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{This line is never executed as well!}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{k}{except}\PY{p}{:}
+  \PY{k}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{This line is executed only if an exception is raised in the try block}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{k}{finally}\PY{p}{:} \PY{c+c1}{\PYZsh{} optional!}
+  \PY{k}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{This line is always executed}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+[Output]
+This line is executed only if an exception is raised in the try block
+This line is always executed
+\end{Verbatim}

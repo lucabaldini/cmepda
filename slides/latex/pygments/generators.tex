@@ -1,0 +1,23 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/generators.py}},commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} range() is a function that returns a generator in Python 3. The list of }
+\PY{l+s+sd}{numbers never exists entirely, they are created ine at a time.}
+\PY{l+s+sd}{Note: In Python 2 range() does create the full list at the beginning. }
+\PY{l+s+sd}{There used to be a xrange() function for lazy generation, which is now }
+\PY{l+s+sd}{deprecated in Python 3. \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}  \PY{c+c1}{\PYZsh{} generators act like iterators in for loop}
+    \PY{k}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
+
+\PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{12}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}
+\PY{n}{square\PYZus{}data\PYZus{}generator} \PY{o}{=} \PY{p}{(}\PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{data}\PY{p}{)} \PY{c+c1}{\PYZsh{} generator expression!}
+\PY{k}{for} \PY{n}{square\PYZus{}datum} \PY{o+ow}{in} \PY{n}{square\PYZus{}data\PYZus{}generator}\PY{p}{:} \PY{c+c1}{\PYZsh{} again, }
+    \PY{k}{print}\PY{p}{(}\PY{n}{square\PYZus{}datum}\PY{p}{)}
+
+[Output]
+0
+1
+2
+3
+144
+1
+25
+\end{Verbatim}

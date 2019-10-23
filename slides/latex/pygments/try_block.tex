@@ -1,0 +1,27 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/try\_block.py}},commandchars=\\\{\}]
+\PY{k}{try}\PY{p}{:}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lab\PYZus{}measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Do some process here...}
+\PY{l+s+sd}{        ...}
+\PY{l+s+sd}{        ...}
+\PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k}{except} \PY{n}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:} \PY{c+c1}{\PYZsh{} we assign a name to the the exception }
+    \PY{k}{print}\PY{p}{(}\PY{n}{e}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{} We can be less specific by catching a parent exception}
+\PY{k}{try}\PY{p}{:}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lab\PYZus{}measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Do some process here...}
+\PY{l+s+sd}{        ...}
+\PY{l+s+sd}{        ...}
+\PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k}{except} \PY{n+ne}{OSError} \PY{k}{as} \PY{n}{e}\PY{p}{:} \PY{c+c1}{\PYZsh{} OSError is a parent class of FileNotFoundError}
+    \PY{k}{print}\PY{p}{(}\PY{n}{e}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} catching Exception will catch almost everything!}
+
+[Output]
+[Errno 2] No such file or directory: 'lab_measurements.txt'
+[Errno 2] No such file or directory: 'lab_measurements.txt'
+\end{Verbatim}
