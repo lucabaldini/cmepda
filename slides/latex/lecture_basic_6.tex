@@ -250,49 +250,12 @@
     \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
           method, which returns an \alert{iterator}
     \medskip
-    \item An \emph{iterator} is an object that implement a \emph{\_\_next\_\_} method
-          which is used to retrieve elements one at the time
-    \medskip
-    \item When there are no more elements to return, the iterator signals that with a specific
-          \alert{exception}: \emph{StopIteration()} (we will study exceptions in the advanced module)
-    \medskip
-    \item An iterator also implement an \emph{\_\_iter\_\_} method that return\dots itself.
-          So an iterator is also an iterable! (But the opposite is not true)
+    \item Iterators are discussed in the advanced module. For now we will just use
+          composition and borrow the \emph{\_\_iter\_\_} method from the 
+          underlying array
   \end{itemize}
   
 \end{frame}
-
-
-\begin{frame}
-  \frametitle{A 'for' loop unpacked}
-  \input{pygments/show_iterator}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{A simple iterator}
-  \input{pygments/simple_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{A simple iterator}
-  \input{pygments/test_simple_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{A crazy iterator}
-  \input{pygments/crazy_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{A crazy iterator}
-  \input{pygments/test_crazy_iterator}
-\end{frame}
-
 
 \begin{frame}
   \frametitle{Vector iterable}

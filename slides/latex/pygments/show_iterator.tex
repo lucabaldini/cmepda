@@ -8,11 +8,6 @@
 \PY{c+c1}{\PYZsh{} This is equivalent (but much less readible and compact)}
 \PY{n}{list\PYZus{}iterator} \PY{o}{=} \PY{n+nb}{iter}\PY{p}{(}\PY{n}{my\PYZus{}list}\PY{p}{)}
 \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
-    \PY{c+c1}{\PYZsh{} We will study try\PYZhy{}except statements in the advanced module}
-    \PY{c+c1}{\PYZsh{} For now you just need to know that the code in the try block is}
-    \PY{c+c1}{\PYZsh{} executed at each iteration until the list is over: at taht point the}
-    \PY{c+c1}{\PYZsh{} code in the except block is executed instead. In this case we use the }
-    \PY{c+c1}{\PYZsh{} except block to just exit from the while loop}
     \PY{k}{try}\PY{p}{:}
         \PY{k}{print}\PY{p}{(}\PY{n+nb}{next}\PY{p}{(}\PY{n}{list\PYZus{}iterator}\PY{p}{)}\PY{p}{)}
     \PY{k}{except} \PY{n+ne}{StopIteration}\PY{p}{:}
