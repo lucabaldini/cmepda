@@ -9,7 +9,7 @@ def parse_line(line):
         return None # We can't really return something meaningful
     return time, tension
 
-with open('measurements.txt') as lab_data_file:
+with open('fake_measurements.txt') as lab_data_file:
     for line in lab_data_file:
         if not line.startswith('#'): # skip comments
             time, tension = parse_line(line)

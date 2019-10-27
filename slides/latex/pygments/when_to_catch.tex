@@ -7,7 +7,7 @@
     \PY{n}{tension} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
     \PY{k}{return} \PY{n}{time}\PY{p}{,} \PY{n}{tension}
 
-\PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
+\PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{fake\PYZus{}measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
     \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
         \PY{k}{if} \PY{o+ow}{not} \PY{n}{line}\PY{o}{.}\PY{n}{startswith}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} skip comments}
             \PY{n}{time}\PY{p}{,} \PY{n}{tension} \PY{o}{=} \PY{n}{parse\PYZus{}line}\PY{p}{(}\PY{n}{line}\PY{p}{)}

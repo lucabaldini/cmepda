@@ -6,7 +6,7 @@ def parse_line(line):
     tension = float(values[1])
     return time, tension
 
-with open('measurements.txt') as lab_data_file:
+with open('fake_measurements.txt') as lab_data_file:
     for line_number, line in enumerate(lab_data_file): # get the line number
         if not line.startswith('#'): # skip comments
             try:

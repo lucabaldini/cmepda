@@ -6,7 +6,7 @@ def parse_line(line):
     tension = float(values[1])
     return time, tension
 
-with open('measurements.txt') as lab_data_file:
+with open('fake_measurements.txt') as lab_data_file:
     for line in lab_data_file:
         if not line.startswith('#'): # skip comments
             time, tension = parse_line(line)
