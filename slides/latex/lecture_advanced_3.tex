@@ -1,0 +1,268 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{figures/}} 
+
+
+\title{Advanced python features - part II}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{A. Manfreda}
+\institute[INFN]{INFN--Pisa}
+\email{alberto.manfreda@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+
+\begin{frame}
+  \frametitle{Functions inside functions}
+  \begin{itemize}
+    \item Function in python are \alert{first class object}
+    \item The name is a bit misleading, but what actually means is that functions
+          can be passed as argument to other functions and returned as result from
+          other functions
+    \item This shouldn't surprise you much: functions are objects of a
+          '\emph{function}' class, so they behave like any other vairable in
+          Python
+    \item Another thing you can (and sometimes want to) do is \emph{defining} a
+          function inside another.
+    \item Let's see how it works
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Functions inside functions}
+  \input{pygments/inner_outer}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Colusers and free variables}
+  \begin{itemize}
+    \item When a function is created inside another function it has access to the local variables
+          of the outer function, even after its scope ended
+    \item This is techincally possible because those varibales are kept in a special
+          space of memory, the \alert{closure} of the inner function
+    \item Such variables are called \alert{free variables}
+    \item Note: if you \emph{assign} to a free variable in the inner function, 
+          by default a new, local variable is created instead!
+    \item To avoid this you have to explictly declare that you want to access the variable in
+          the closure using the \alert{nonlocal} keyword
+    \item Remember: \emph{'Explicit is better then implicit'}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Free variables - a mistake to avoid}
+  \input{pygments/closure_wrong}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Free variables - the correct way}
+  \input{pygments/closure_right}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Wrapping functions}
+  \begin{itemize}
+    \item The typical use of defining a function inside a function is to create
+          a \alert{wrapper}
+    \item A wrapper is a function that calls another one adding a layer
+          of functionalities in between - for example it may do some pre-process
+          of the input, or change the output in some way, or measure the 
+          execution time or whatever we want
+    \item The techinque for creating a wrapper fucntion in Python is:
+    \begin{itemize}
+       \item Pass the function that we want to wrap as argument of the outer
+             function
+       \item Inside the outer function we define an inner function, which is the
+             actual wrapper
+       \item The wrapper calls the wrapped function and adds its functionalities,
+             before and/or after the call. It may return the same output or a 
+             manipulated one.
+       \item Then from the outer fucntion we return the wrapper
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Wrapper}
+  \input{pygments/wrapper}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Decorators}
+  \begin{itemize}
+    \item Often, when you wrap a function, you don't want to change
+          it's name, so you reassign the wrapped funtion to its old name
+    \item In fact, this techinque is so common that python introduced a special
+          syntax for it: decorators
+    \item A decorated function has simply the name of the wrapper added with
+          a '@' on top of its declaration
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Decorators}
+  \input{pygments/decorator}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A decorator to measure execution time}
+  \input{pygments/time_measuring_decor}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The @classmethod decorator}
+  \begin{itemize}
+    \item We have already seen a built-in Python decorator: \emph{@property}
+    \item We used that to get proper encapsulation
+    \item There is another built-in decorator one which is very useful for classes: \alert{\emph{@classmethod}}
+    \item A classmethod is like a class attribute: you don't need an instance to
+          use it
+    \item A class method can access class attributes but not instance attributes
+    \item The main use for class methods is to provide \alert{alternate constructors}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Class method}
+  \input{pygments/classmethod}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Context manager}
+  \begin{itemize}
+    \item A \alert{context manager} in Python is any class implementing the \emph{\_\_enter\_\_} and
+          \emph{\_\_exit\_\_} method
+    \item It is used with the syntax \emph{with expression [as alias]:}
+    \item We have already seen context managers at work in opening files
+    \item Their most important use is to make sure that all resources are correctly released
+          \alert{even when an excpetion is raised}
+    \item However we can do other things with them
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Measuring time with a context manager}
+  \input{pygments/context_manager}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{A recap excercise}
+  \begin{itemize}
+    \item As an exercise to recap the previous lessons, we want to write a 
+          small class for representing a sequence of measurements
+    \item In this case they are voltages taken at different times
+    \item The features that our class needs to have are summarized by the following
+          test module (not a real unittest):
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Test of functionalities}
+  \input{pygments/test_voltage_data}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{File we want to read}
+  \centering
+  \includegraphics[width=0.8\textwidth]{voltage_file.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Solution - part 1}
+  \input{pygments/voltage_data_1}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Solution - part 2}
+  \input{pygments/voltage_data_2}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Solution - part 3}
+  \input{pygments/voltage_data_3}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Output plot}
+  \centering
+  \includegraphics[width=0.8\textwidth]{voltage_vs_time.png}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Put yourself to test}
+  \begin{itemize}
+    \item Manage a third column - optional - with voltage errors
+    \item Write a proper unittest module for the class
+    \item The full current version of the class is in snippets/voltage\_data.py
+  \end{itemize}  
+  
+\end{frame}
+
+
+%\begin{frame}
+%  \frametitle{Why is that useful?}
+%  \framesubtitle{A real life example}
+%  \begin{itemize}
+%    \item Suppose you have an image where each pixel is represented by a pair
+%          of coordinates and a value z (like the charge from a pixel imaging detector)
+%    \item You want to rotate each image so that the x-axis is the principal 
+%          axis of the inertia ellipsoid of the 2-D distribution of z
+%    \item For each image you need first to calculate the direction of the principal
+%          axis, then rotate the coordinates of each pixel with the rotation matrix
+%  \end{itemize}
+%  
+%  \[
+%  M=
+%    \begin{pmatrix}
+%      \cos{(\theta)} & \sin{(\theta)} \\
+%      - \sin{(\theta)} & \cos{(\theta)}
+%    \end{pmatrix}
+%  \]
+%  
+%  \begin{itemize}
+%    \item Where $\theta$ is the angle between the principal axis and the x-axis
+%    \item Ho do you write the rotation function?
+%  \end{itemize}
+% 
+%\end{frame}
+
+
+\end{document}

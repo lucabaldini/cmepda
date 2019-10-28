@@ -1,0 +1,28 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/time\_measuring\_decor.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{time} 
+\PY{k+kn}{from} \PY{n+nn}{functools} \PY{k+kn}{import} \PY{n}{wraps}
+
+\PY{k}{def} \PY{n+nf}{clocked}\PY{p}{(}\PY{n}{func}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} We use functools.wraps to keep the original function name and docstring\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n+nd}{@wraps}\PY{p}{(}\PY{n}{func}\PY{p}{)}
+    \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{n}{tstart} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+        \PY{n}{result} \PY{o}{=} \PY{n}{func}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+        \PY{n}{exec\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{tstart}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Function \PYZob{}\PYZcb{} executed in \PYZob{}\PYZcb{} s}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{func}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{exec\PYZus{}time}\PY{p}{)}\PY{p}{)}
+        \PY{k}{return} \PY{n}{result}
+    \PY{k}{return} \PY{n}{wrapper}
+
+\PY{n+nd}{@clocked}
+\PY{k}{def} \PY{n+nf}{square\PYZus{}list}\PY{p}{(}\PY{n}{input\PYZus{}list}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Return the square of a list\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{return} \PY{p}{[}\PY{n}{item}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{item} \PY{o+ow}{in} \PY{n}{input\PYZus{}list}\PY{p}{]}
+
+\PY{c+c1}{\PYZsh{} Make sure the function name and docstring look the same}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{: \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{square\PYZus{}list}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{square\PYZus{}list}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}doc\PYZus{}\PYZus{}}\PY{p}{)}\PY{p}{)}
+\PY{n}{square\PYZus{}list}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{2000000}\PY{p}{)}\PY{p}{)}
+
+[Output]
+'square_list':  Return the square of a list
+Function square_list executed in 0.372302 s
+\end{Verbatim}

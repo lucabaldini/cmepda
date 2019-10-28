@@ -1,0 +1,23 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/closure\_wrong.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{running\PYZus{}average}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{n}{total\PYZus{}count} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{n}{num\PYZus{}elements} \PY{o}{=} \PY{l+m+mi}{0}
+    \PY{k}{def} \PY{n+nf}{accumulator}\PY{p}{(}\PY{n}{value}\PY{p}{)}\PY{p}{:}
+        \PY{n}{total\PYZus{}count} \PY{o}{+}\PY{o}{=} \PY{n}{value} \PY{c+c1}{\PYZsh{} Doesn\PYZsq{}t work! total\PYZus{}count is reassigned!}
+        \PY{n}{num\PYZus{}elements} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1} \PY{c+c1}{\PYZsh{} Doesn\PYZsq{}t work! total\PYZus{}count is reassigned!}
+        \PY{k}{return} \PY{n}{total\PYZus{}count}\PY{o}{/}\PY{n}{num\PYZus{}elements}
+    \PY{k}{return} \PY{n}{accumulator}
+    
+\PY{n}{run\PYZus{}avg} \PY{o}{=} \PY{n}{running\PYZus{}average}\PY{p}{(}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{5.}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
+
+[Output]
+Traceback (most recent call last):
+  File "snippets/closure_wrong.py", line 11, in <module>
+    print(run_avg(1.))
+  File "snippets/closure_wrong.py", line 5, in accumulator
+    total_count += value # Doesn't work! total_count is reassigned!
+UnboundLocalError: local variable 'total_count' referenced before assignment
+\end{Verbatim}

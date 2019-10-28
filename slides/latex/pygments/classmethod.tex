@@ -1,0 +1,27 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/classmethod.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy}
+
+\PY{k}{class} \PY{n+nc}{LabData}\PY{p}{:}
+  
+  \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{times}\PY{p}{,} \PY{n}{values}\PY{p}{)}\PY{p}{:}
+     \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Our usual constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{times} \PY{o}{=} \PY{n}{times}
+     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{values} \PY{o}{=} \PY{n}{values}
+
+  \PY{n+nd}{@classmethod} \PY{c+c1}{\PYZsh{} The classmethod decorator}
+  \PY{k}{def} \PY{n+nf}{from\PYZus{}file}\PY{p}{(}\PY{n+nb+bp}{cls}\PY{p}{,} \PY{n}{file\PYZus{}path}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} We get the class as first argument, not self }
+      \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Constructor from a file\PYZdq{}\PYZdq{}\PYZdq{}}
+      \PY{k}{print}\PY{p}{(}\PY{n+nb+bp}{cls}\PY{p}{)}
+      \PY{n}{times}\PY{p}{,} \PY{n}{values} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{n}{file\PYZus{}path}\PY{p}{,} \PY{n}{unpack}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+      \PY{c+c1}{\PYZsh{} We call the constructor of \PYZsq{}cls\PYZsq{} which is our LabData}
+      \PY{c+c1}{\PYZsh{} This is not a \PYZsq{}real\PYZsq{} constructor, we need to return the object!}
+      \PY{k}{return} \PY{n+nb+bp}{cls}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{values}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} We call the alternate constructor from the class itself, not from an instance!}
+\PY{n}{lab\PYZus{}data} \PY{o}{=} \PY{n}{LabData}\PY{o}{.}\PY{n}{from\PYZus{}file}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{lab\PYZus{}data}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+
+[Output]
+<class '__main__.LabData'>
+[15.2 12.4 11.7 13.2]
+\end{Verbatim}

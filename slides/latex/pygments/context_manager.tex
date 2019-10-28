@@ -1,0 +1,32 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/context\_manager.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Clocking}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Context manager for time measurment.\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}enter\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{start\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{elapsed\PYZus{}time} \PY{o}{=} \PY{l+m+mf}{0.}
+        \PY{k}{return} \PY{n+nb+bp}{self} \PY{c+c1}{\PYZsh{} What you return here is assigned to \PYZsq{}as\PYZsq{}}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}exit\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{exc\PYZus{}type}\PY{p}{,} \PY{n}{exc\PYZus{}value}\PY{p}{,} \PY{n}{traceback}\PY{p}{)}\PY{p}{:}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Exit method. It gets notice of any exception raised in the body of the}
+\PY{l+s+sd}{        with block. If no exception is raised, the arguments are all set to None \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k+kn}{import} \PY{n+nn}{time}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{elapsed\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{start\PYZus{}time} \PY{c+c1}{\PYZsh{} Update the time}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exception type: \PYZob{}\PYZcb{}, exception value: \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{exc\PYZus{}type}\PY{p}{,} \PY{n}{exc\PYZus{}value}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} If you do nothing, any exception will propagate to the rest of the code. }
+        \PY{c+c1}{\PYZsh{} To stop that from happening you have to return True \PYZhy{}\PYZhy{} though you should}
+        \PY{c+c1}{\PYZsh{} do that only if it actually make sense to manage the exception here!}
+        \PY{k}{if} \PY{n}{exc\PYZus{}type} \PY{o+ow}{is} \PY{o+ow}{not} \PY{n+nb+bp}{None}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exception handled succesfully.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{return} \PY{n+nb+bp}{True}
+        
+\PY{k}{with} \PY{n}{Clocking}\PY{p}{(}\PY{p}{)} \PY{k}{as} \PY{n}{clock}\PY{p}{:}
+    \PY{n}{squares\PYZus{}list} \PY{o}{=} \PY{p}{[}\PY{n}{n}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{1000000}\PY{p}{)}\PY{p}{]}
+    \PY{k}{raise} \PY{n+ne}{RuntimeError}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Let}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{s see what happens!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{With block runned in \PYZob{}:.8f\PYZcb{} seconds}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{clock}\PY{o}{.}\PY{n}{elapsed\PYZus{}time}\PY{p}{)}\PY{p}{)}
+
+[Output]
+Exception type: <class 'RuntimeError'>, exception value: Let's see what happens!
+Exception handled succesfully.
+With block runned in 0.19369800 seconds
+\end{Verbatim}

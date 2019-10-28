@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/test\_voltage\_data.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{voltage\PYZus{}data} \PY{k+kn}{import} \PY{n}{VoltageData}
+\PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k+kn}{import} \PY{n}{pyplot} \PY{k}{as} \PY{n}{plt}
+
+\PY{k}{def} \PY{n+nf}{run\PYZus{}tests}\PY{p}{(}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} This is not a proper unittest module!}
+    \PY{c+c1}{\PYZsh{} Test constructor from data file}
+    \PY{n}{data\PYZus{}file} \PY{o}{=} \PY{n}{VoltageData}\PY{o}{.}\PY{n}{from\PYZus{}file}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{snippets/data/sample\PYZus{}data\PYZus{}file.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{} Column access by simple name}
+    \PY{n}{t} \PY{o}{=} \PY{n}{data\PYZus{}file}\PY{o}{.}\PY{n}{timestamps}
+    \PY{n}{v} \PY{o}{=} \PY{n}{data\PYZus{}file}\PY{o}{.}\PY{n}{voltages}
+    \PY{k}{print}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+    
+    \PY{c+c1}{\PYZsh{} Iterable by row}
+    \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{data\PYZus{}file}\PY{p}{:}
+        \PY{k}{pass}
+
+    \PY{c+c1}{\PYZsh{} Proper representation and printing}
+    \PY{k}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}\PY{p}{)}
+    \PY{k}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Item access with slicing}
+    \PY{k}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Constructor from iterables (list, tuple, array)}
+    \PY{n}{data\PYZus{}file\PYZus{}2} \PY{o}{=} \PY{n}{VoltageData}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{n+nb}{tuple}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{} Check that the forst row is the same}
+    \PY{k}{assert}\PY{p}{(}\PY{p}{(}\PY{n}{data\PYZus{}file\PYZus{}2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{n}{data\PYZus{}file}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{.}\PY{n}{all}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{} Plotting}
+    \PY{n}{data\PYZus{}file\PYZus{}2}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}

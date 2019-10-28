@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/inner\_outer.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{outer}\PY{p}{(}\PY{p}{)}\PY{p}{:}   
+    \PY{k}{def} \PY{n+nf}{inner}\PY{p}{(}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} Defining the inner function inside the outer function}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Inner function}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{return} \PY{c+c1}{\PYZsh{} End of the inner function}
+    \PY{k}{return} \PY{n}{inner} \PY{c+c1}{\PYZsh{} Inner is the output of outer}
+    
+\PY{n}{my\PYZus{}func} \PY{o}{=} \PY{n}{outer}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} my\PYZus{}func is now referncing \PYZsq{}inner\PYZsq{}}
+\PY{k}{print}\PY{p}{(}\PY{n}{my\PYZus{}func}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{)}
+\PY{n}{my\PYZus{}func}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} Calling my\PYZus{}func is equal to calling \PYZsq{}inner\PYZsq{}}
+
+\PY{k}{def} \PY{n+nf}{outer2}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{n}{some\PYZus{}string} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello!}\PY{l+s+s1}{\PYZsq{}}
+    \PY{k}{def} \PY{n+nf}{inner}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} We have access to the variables in the outer function!}
+        \PY{k}{print}\PY{p}{(}\PY{n}{some\PYZus{}string}\PY{p}{)}
+    \PY{k}{return} \PY{n}{inner}
+    
+\PY{n}{my\PYZus{}other\PYZus{}func} \PY{o}{=} \PY{n}{outer2}\PY{p}{(}\PY{p}{)}
+\PY{n}{my\PYZus{}other\PYZus{}func}\PY{p}{(}\PY{p}{)}
+
+[Output]
+inner
+Inner function
+Hello!
+\end{Verbatim}

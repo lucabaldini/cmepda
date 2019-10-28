@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/decorator.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{print\PYZus{}function\PYZus{}info}\PY{p}{(}\PY{n}{func}\PY{p}{)}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Calling function }\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{func}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{)}\PY{p}{)}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Positional arguments = \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{args}\PY{p}{)}\PY{p}{)}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Keyword arguments = \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{kwargs}\PY{p}{)}\PY{p}{)}
+        \PY{k}{return} \PY{n}{func}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+    \PY{k}{return} \PY{n}{wrapper}
+
+\PY{n+nd}{@print\PYZus{}function\PYZus{}info}
+\PY{k}{def} \PY{n+nf}{some\PYZus{}function}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{a} \PY{o}{*} \PY{n}{b} \PY{o}{+} \PY{n}{c}
+
+\PY{c+c1}{\PYZsh{} This is equivalent to: some\PYZus{}function = print\PYZus{}function\PYZus{}info(some\PYZus{}function)}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{some\PYZus{}function}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{)}
+ \PY{c+c1}{\PYZsh{} Inspecting the function reveals that we are calling the wrapper}
+\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{The name of the function is }\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{some\PYZus{}function}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{)}\PY{p}{)}
+
+[Output]
+Calling function 'some_function'
+Positional arguments = (1, 2)
+Keyword arguments = {'c': 7}
+9
+The name of the function is 'wrapper'
+\end{Verbatim}
