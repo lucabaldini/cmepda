@@ -3,7 +3,7 @@ class VoltageData:
    """ Other methods here..."""
    
    def __len__(self):
-       """ Number of data points (or columns in the file, which is the same) """
+       """ Number of data points (or rows in the file, which is the same) """
        return self._data.shape[0]
    
    def __getitem__(self, index):
@@ -22,7 +22,7 @@ class VoltageData:
    
    def __str__(self):
        """ Print the full content row-by-row with a nice formatting"""
-       row_fmt = 'Row {} -> {:.3f} s, {:.1f} mV'
+       row_fmt = 'Row {} -> {:.1f} s, {:.2f} mV'
        row_str_gen = \
                (row_fmt.format(i, row[0], row[1]) for i, row in enumerate(self))
        return '\n'.join(row_str_gen)

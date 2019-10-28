@@ -4,8 +4,8 @@ class LabData:
   
   def __init__(self, times, values):
      """ Our usual constructor"""
-     self.times = times
-     self.values = values
+     self.times = numpy.array(times, dtype=numpy.float64)
+     self.values = numpy.array(values, dtype=numpy.float64)
 
   @classmethod # The classmethod decorator
   def from_file(cls, file_path): # We get the class as first argument, not self 
@@ -17,5 +17,5 @@ class LabData:
       return cls(times, values)
 
 # We call the alternate constructor from the class itself, not from an instance!
-lab_data = LabData.from_file('measurements.txt')
+lab_data = LabData.from_file('snippets/data/measurements.txt')
 print(lab_data.values)

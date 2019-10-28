@@ -5,8 +5,8 @@
   
   \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{times}\PY{p}{,} \PY{n}{values}\PY{p}{)}\PY{p}{:}
      \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Our usual constructor\PYZdq{}\PYZdq{}\PYZdq{}}
-     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{times} \PY{o}{=} \PY{n}{times}
-     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{values} \PY{o}{=} \PY{n}{values}
+     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{times} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float64}\PY{p}{)}
+     \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{values} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{values}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float64}\PY{p}{)}
 
   \PY{n+nd}{@classmethod} \PY{c+c1}{\PYZsh{} The classmethod decorator}
   \PY{k}{def} \PY{n+nf}{from\PYZus{}file}\PY{p}{(}\PY{n+nb+bp}{cls}\PY{p}{,} \PY{n}{file\PYZus{}path}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} We get the class as first argument, not self }
@@ -18,7 +18,7 @@
       \PY{k}{return} \PY{n+nb+bp}{cls}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{values}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} We call the alternate constructor from the class itself, not from an instance!}
-\PY{n}{lab\PYZus{}data} \PY{o}{=} \PY{n}{LabData}\PY{o}{.}\PY{n}{from\PYZus{}file}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{lab\PYZus{}data} \PY{o}{=} \PY{n}{LabData}\PY{o}{.}\PY{n}{from\PYZus{}file}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{snippets/data/measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{k}{print}\PY{p}{(}\PY{n}{lab\PYZus{}data}\PY{o}{.}\PY{n}{values}\PY{p}{)}
 
 [Output]

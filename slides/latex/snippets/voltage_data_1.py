@@ -6,8 +6,8 @@ class VoltageData:
    
    def __init__(self,  times, voltages):
        """ Constructor from two iterables (times and voltages)"""
-       t = numpy.array(times, dtype=numpy.float)
-       v = numpy.array(voltages, dtype=numpy.float)
+       t = numpy.array(times, dtype=numpy.float64)
+       v = numpy.array(voltages, dtype=numpy.float64)
        # Put together the arrays in a single matrix with column_stack 
        self._data = numpy.column_stack((t,v))
    

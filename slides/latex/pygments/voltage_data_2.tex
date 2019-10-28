@@ -4,7 +4,7 @@
    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Other methods here...\PYZdq{}\PYZdq{}\PYZdq{}}
    
    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}len\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-       \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Number of data points (or columns in the file, which is the same) \PYZdq{}\PYZdq{}\PYZdq{}}
+       \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Number of data points (or rows in the file, which is the same) \PYZdq{}\PYZdq{}\PYZdq{}}
        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}data}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
    
    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}getitem\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{index}\PY{p}{)}\PY{p}{:}
@@ -23,7 +23,7 @@
    
    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}str\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Print the full content row\PYZhy{}by\PYZhy{}row with a nice formatting\PYZdq{}\PYZdq{}\PYZdq{}}
-       \PY{n}{row\PYZus{}fmt} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Row \PYZob{}\PYZcb{} \PYZhy{}\PYZgt{} \PYZob{}:.3f\PYZcb{} s, \PYZob{}:.1f\PYZcb{} mV}\PY{l+s+s1}{\PYZsq{}}
+       \PY{n}{row\PYZus{}fmt} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Row \PYZob{}\PYZcb{} \PYZhy{}\PYZgt{} \PYZob{}:.1f\PYZcb{} s, \PYZob{}:.2f\PYZcb{} mV}\PY{l+s+s1}{\PYZsq{}}
        \PY{n}{row\PYZus{}str\PYZus{}gen} \PY{o}{=} \PYZbs{}
                \PY{p}{(}\PY{n}{row\PYZus{}fmt}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{row}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{row}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)} \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{row} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{)}
        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{row\PYZus{}str\PYZus{}gen}\PY{p}{)}

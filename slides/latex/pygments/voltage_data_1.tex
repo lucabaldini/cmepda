@@ -7,8 +7,8 @@
    
    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,}  \PY{n}{times}\PY{p}{,} \PY{n}{voltages}\PY{p}{)}\PY{p}{:}
        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Constructor from two iterables (times and voltages)\PYZdq{}\PYZdq{}\PYZdq{}}
-       \PY{n}{t} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float}\PY{p}{)}
-       \PY{n}{v} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{voltages}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float}\PY{p}{)}
+       \PY{n}{t} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float64}\PY{p}{)}
+       \PY{n}{v} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{voltages}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{numpy}\PY{o}{.}\PY{n}{float64}\PY{p}{)}
        \PY{c+c1}{\PYZsh{} Put together the arrays in a single matrix with column\PYZus{}stack }
        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}data} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{column\PYZus{}stack}\PY{p}{(}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{v}\PY{p}{)}\PY{p}{)}
    
