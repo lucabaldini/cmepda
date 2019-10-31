@@ -42,8 +42,45 @@ import pstats
 p = pstats.Stats('julia_profile.stats')
 p.sort_stats('cumulative')
 p.print_stats(15)
+
+Thu Oct 31 11:13:39 2019    julia_profile.stats
+
+         36221991 function calls in 7.808 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    7.808    7.808 {built-in method builtins.exec}
+        1    0.025    0.025    7.808    7.808 julia.py:5(<module>)
+        1    0.382    0.382    7.783    7.783 julia.py:42(calc_pure_python)
+        1    5.351    5.351    7.324    7.324 julia.py:28(calculate_z_serial_purepython)
+ 34219980    1.973    0.000    1.973    0.000 {built-in method builtins.abs}
+  2002000    0.074    0.000    0.074    0.000 {method 'append' of 'list' objects}
+        1    0.003    0.003    0.003    0.003 {built-in method builtins.sum}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        2    0.000    0.000    0.000    0.000 {built-in method time.time}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
 p.print_callers()
-p.print_calees()
+
+   Ordered by: cumulative time
+
+Function                                          was called by...
+                                                      ncalls  tottime  cumtime
+{built-in method builtins.exec}                   <- 
+julia.py:5(<module>)                              <-       1    0.025    7.808  {built-in method builtins.exec}
+julia.py:42(calc_pure_python)                     <-       1    0.382    7.783  julia.py:5(<module>)
+julia.py:28(calculate_z_serial_purepython)        <-       1    5.351    7.324  julia.py:42(calc_pure_python)
+{built-in method builtins.abs}                    <- 34219980    1.973    1.973  julia.py:28(calculate_z_serial_purepython)
+{method 'append' of 'list' objects}               <- 2002000    0.074    0.074  julia.py:42(calc_pure_python)
+{built-in method builtins.sum}                    <-       1    0.003    0.003  julia.py:42(calc_pure_python)
+{built-in method builtins.print}                  <-       1    0.000    0.000  julia.py:42(calc_pure_python)
+{built-in method time.time}                       <-       2    0.000    0.000  julia.py:42(calc_pure_python)
+{built-in method builtins.len}                    <-       2    0.000    0.000  julia.py:28(calculate_z_serial_purepython)
+{method 'disable' of '_lsprof.Profiler' objects}  <- 
+
 
 
 
