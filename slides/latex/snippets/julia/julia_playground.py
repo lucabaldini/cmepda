@@ -5,6 +5,7 @@ The original file can be found at:
 https://github.com/mynameisfiber/high_performance_python/blob/master/01_profiling/cpu_profiling/julia1.py"""
 
 import time
+from numba.decorators import jit
 
 
 # area of complex space to investigate
@@ -25,14 +26,16 @@ def show_greyscale(output_raw, width, height, max_iterations):
     plt.show()
 
 
+@jit
 def calculate_z_serial_purepython(maxiter, zs, cs):
     """Calculate output list using Julia update rule"""
     output = [0] * len(zs)
+    local_abs = abs
     for i in range(len(zs)):
         n = 0
         z = zs[i]
         c = cs[i]
-        while abs(z) < 2 and n < maxiter:
+        while n < maxiter and local_abs(z) < 2:
             z = z * z + c
             n += 1
         output[i] = n

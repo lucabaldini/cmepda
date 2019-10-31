@@ -1,8 +1,7 @@
-- decoratore
-
 - timeit
 python -m timeit -n 5 -r 5 -s 'import julia' 'julia.calc_pure_python(draw_output=False, desired_width=1000, max_iterations=300)'
 5 loops, best of 5: 5.03 sec per loop
+
 
 
 - /usr/bin/time 
@@ -36,6 +35,7 @@ calculate_z_serial_purepython took 4.974495887756348 seconds
 	Exit status: 0
 
 
+
 - cProfile
 python -m cProfile -s cumulative -o julia_profile.stats julia.py
 import pstats
@@ -44,6 +44,7 @@ p.sort_stats('cumulative')
 p.print_stats(15)
 p.print_callers()
 p.print_calees()
+
 
 
 -line_profiler
@@ -78,8 +79,13 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 
 
 
--memory_profiler
-python -m memory_profiler julia.py
+
+-dis
+
+import dis
+from julia import calculate_z_serial_purepython
+dis.dis(calculate_z_serial_purepython)
+
 
 
 - heapy
@@ -110,8 +116,11 @@ Partition of a set of 2102377 objects. Total size = 92271848 bytes.
      3   2003   0    48072   0  92271416 100 float
      4      1   0      432   0  92271848 100 types.FrameType
 
-  
-- perf stat -e cycles,stalled-cycles-frontend,stalled-cycles-backend,instructions,cache-references,cache-misses,branches,branch-misses,task-clock,faults,minor-faults,cs,migrations -r 3 python julia.py
+
+
+- perf 
+
+perf stat -e cycles,stalled-cycles-frontend,stalled-cycles-backend,instructions,cache-references,cache-misses,branches,branch-misses,task-clock,faults,minor-faults,cs,migrations -r 3 python julia.py
 
 Performance counter stats for 'python julia.py' (3 runs):
 
