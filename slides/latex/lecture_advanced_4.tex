@@ -1,0 +1,170 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\graphicspath{{figures/}} 
+
+
+\title{Optization and Profiling}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{A. Manfreda}
+\institute[INFN]{INFN--Pisa}
+\email{alberto.manfreda@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+\begin{frame}
+  \frametitle{Optimization and profiling}
+  \begin{itemize}
+    \item Optimization is the process of making your code more performant
+    \item Profiling is the study of the resource cost of your code (CPU,
+          RAM, Hard Disk, network $\dots$) possibly as function of 
+          time / input / execution status.
+    \medskip
+    \item Most important message from today's lesson:
+    \begin{itemize}
+      \item \alert{Premature optimization is the root of all evil}
+    \end{itemize}
+    \item The correct workflow:
+    \begin{itemize}
+      \item Write correct, redible, debugged, tested, documented code
+      \item Ignore performance at all
+      \item If the performance are ok: great, you are done!
+      \item If the performance are not ok: \alert{profile} to find the bottlenecks.
+      \item Start the optimization from the problematic lines! Everything else is
+            a waste of time.
+      \item Keep testing whenever you have a new version!
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Basic of PC architecture}
+  \begin{itemize}
+    \item \alert{Disclaimer}: This is a naive description. More on this in the future lessons!
+    \medskip
+    \item Data are processed by CPUs (or GPU)
+    \item CPUs have a small memory \emph{cache} (or more of them: L1, L2, \dots) of a few KB
+          from which it gets the data
+    \item Generally L1 is on the processor, L2 or L3 are shared among different processors,
+          but this scheme may vary
+    \item The connection between CPU and cache is called \emph{bus backside} and is very
+          fast
+    \item Your data needs to be tranferred from the RAM to the cache, which happens
+          through the \emph{frontside bus}, slower than the backend bus
+    \item Sometimes you need to retrieve data from the hard disk or the network:
+          in that case the time required to retrieve the data is even (much) larger
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{General optimization goals}
+  \begin{itemize}
+    \item As obvious as it is: do less operations! Use an optimal algorithm for doing your job
+    \item Reduce as much as possible the slow operations involving hard drives and
+          networks
+    \item Make sure that the next data required by the CPU are already in the
+          cache, and need not to be retrieved from the RAM throguh the slower
+          frontside bus
+    \item If possible use \emph{vectorization}, that is let the CPU do
+          multiple operations at once
+    \item If the system has more than one processor, as most computers nowadays,
+          try to parallelize the work on more of them - this will be covered in
+          the next lessons!
+    \item Python is a high level language and generally does not allow a
+          direct control over the memory usage, or the cache - however there 
+          are ways to improve the speed of the code, as we will see!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{What to avoid}
+  \begin{itemize}
+    \item The CPU uses algorithms of \emph{branch prediction} and \emph{pipelining}
+          in order to try to load the next instructions (and the required data) while processing the current one
+    \item Whenever that fails you will get \emph{branch misses} and/or \emph{cache misses},
+          plus usually a number of \emph{stalled cycle} on the frontside or backside bus
+    \item Using data structures that keep data contiguosly in memory is better,
+          as sparse data are more difficult to move into the cache into a single transfer
+    \item That's why a list is worse than an array or a numpy array for numerical operations
+    \item \emph{context switches} and \emph{cpu migrations} are managed by the OS, so
+          there is not much you can do about that
+    \item Memory allocations are also expensive, as the program is paused and wait for the OS
+          to find a free memeory location (this, together with I/O operations, is
+          a typical case where a context switch may happen)
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Tools that we will use today}
+  
+  \begin{itemize}
+   \item Time profiling:
+   \begin{itemize}
+     \item Simple 'print' statements
+     \item A time measuring decorator
+     \item The \emph{timeit} Python module
+     \item The Unix \emph{time} utility
+     \item \emph{cProfile}
+     \item \emph{line\_profiler}
+   \end{itemize}
+   \smallskip
+   \item Bytecode study:
+   \begin{itemize}
+     \item \emph{dis}
+   \end{itemize}
+   \smallskip
+   \item CPU efficiency:
+   \begin{itemize}
+     \item \emph{perf}
+   \end{itemize}
+   \smallskip
+   \item Memory profiling:
+   \begin{itemize}
+     \item \emph{heapy}
+   \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Introducing the Julia set}
+  \framesubtitle{Example taken from the book \emph{High Performance Python}}
+  \begin{itemize}
+   \item Fractal set named after the mathematician Gaston Julia
+   \item Take a complex function $f(z)$ and a real number $R$
+   \item Apply repeatedly $f$ to a complex number $z$. If the norm of the 
+         result is always smaller than $R$ the number belong to the set
+   \item In practice we can only test up to a number of iterations: after that
+         the number will be considered as belonging to the set
+   \item The function we will use is $f(z) = z^2 + c$, where $c$ is the constant
+         complex number $c = -0.62772 -0.42193i$      
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Julia output}
+  \centering
+  \includegraphics[width=0.6\textwidth]{julia_example_greyscale.png}
+\end{frame}
+
+
+
+
+\end{document}
