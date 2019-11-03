@@ -12,8 +12,8 @@ class TestVoltageData(unittest.TestCase):
         self.t = numpy.linspace(0., 2., self.sample_size)
         self.v = numpy.random.uniform(0.5, 1.5, self.sample_size)
         self.v_err = numpy.repeat(0.05, self.sample_size)
-        self.sample_file = 'data/sample_data_file.txt'
-        self.sample_file_with_errs = 'data/sample_data_file_with_errs.txt'
+        self.sample_file = 'sample_data_file.txt'
+        self.sample_file_with_errs = 'sample_data_file_with_errs.txt'
         
     def load_from_sample_arrays(self):
         """ Utility function: avoid to rewrite this in each test."""
