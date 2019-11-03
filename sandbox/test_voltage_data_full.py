@@ -4,16 +4,34 @@ import numpy
 from voltage_data_full import VoltageData
 
 
+def absolute_data_folder_path():
+    """Ugly hack for finding the path to the data folder. Works only if the
+    current working directory is inside the cmepda package (any of the
+    subfolder will do)"""
+    import os
+    cwd = os.getcwd()
+    idx = cwd.find('cmepda')
+    if idx == -1:
+        raise IOError('Could not locate the data folder. The test must be run\
+                      from inside the cmepda package.')
+    else:
+        cmepda_dir = cwd[:idx + len('cmepda')]
+    return os.path.join(cmepda_dir, 'sandbox')
+
+
 class TestVoltageData(unittest.TestCase):
     
     def setUp(self, sample_size=10):
         """Set up the test. """
+        import os
         self.sample_size = sample_size
         self.t = numpy.linspace(0., 2., self.sample_size)
         self.v = numpy.random.uniform(0.5, 1.5, self.sample_size)
         self.v_err = numpy.repeat(0.05, self.sample_size)
-        self.sample_file = 'sample_data_file.txt'
-        self.sample_file_with_errs = 'sample_data_file_with_errs.txt'
+        data_folder = absolute_data_folder_path()
+        self.sample_file = os.path.join(data_folder, 'sample_data_file.txt')
+        self.sample_file_with_errs = os.path.join(data_folder,
+                                              'sample_data_file_with_errs.txt')
         
     def load_from_sample_arrays(self):
         """ Utility function: avoid to rewrite this in each test."""
