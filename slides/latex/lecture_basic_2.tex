@@ -35,7 +35,7 @@
     \end{itemize}
   \item Python 3 is the future!
     \begin{itemize}
-    \item Python 2 EOL (End Of Life) is January 1, 2020
+    \item Python 2 EOL (End Of Life) \emph{was} January 1, 2020
     \item Hundreds of features introduced in Python 3 and not backported to
       Python 2
     \item All third-party modules worth mentioning support both Python 2 and
@@ -51,7 +51,7 @@
   \framesubtitle{See PEP 20, \url{https://www.python.org/dev/peps/pep-0020/}}
   \begin{Verbatim}
 [lbaldini@nbbaldini slides]$ python
-Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+Python 3.7.4 (default, Jul  9 2019, 16:32:37)
 [GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import this
@@ -96,9 +96,13 @@ Namespaces are one honking great idea -- let's do more of those!
     \item Readability counts (the zen of Python)
     \end{itemize}
   \item One-line summary: \alert{think about it but don't be obsessed by it}
+  \item The bible of coding conventions for Python is \url{https://www.python.org/dev/peps/pep-0008/}
   \item There are automatic tools out there to help you
     \begin{itemize}
-    \item https://github.com/PyCQA/pycodestyle
+      \item https://www.pylint.org/
+      \item https://pypi.org/project/pyflakes/
+      \item http://mypy-lang.org/
+      \item https://github.com/PyCQA/pycodestyle
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -168,7 +172,7 @@ Namespaces are one honking great idea -- let's do more of those!
 \begin{frame}
   \frametitle{Keyword arguments}
   \input{pygments/func_kwargs}
-  
+
   %\begin{itemize}
   %\item
   %\end{itemize}
@@ -191,7 +195,7 @@ Namespaces are one honking great idea -- let's do more of those!
   \frametitle{Challenge of the day}
   \begin{Verbatim}
 [lbaldini@nbbaldini slides]$ python
-Python 3.7.4 (default, Jul  9 2019, 16:32:37) 
+Python 3.7.4 (default, Jul  9 2019, 16:32:37)
 [GCC 9.1.1 20190503 (Red Hat 9.1.1-1)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 0.1 + 0.2 == 0.3
@@ -201,7 +205,7 @@ True
   \end{Verbatim}
 
   \bigskip
-  
+
   \begin{itemize}
   \item \alert{What the hell?}
   \end{itemize}
@@ -214,7 +218,7 @@ True
   \centering\includegraphics[width=0.7\textwidth]{float_representation}
 
   \bigskip
-  
+
   \begin{itemize}
   \item Floating-point number representation from left to right
     \begin{itemize}
@@ -251,7 +255,7 @@ True
 sign = 0b0 = 0 -> +
 exponent = 0b01111110 = 126 -> 126 - 127 = -1
 significand = 0b(1)10000000000000000000000 = 12582912 -> 0b1.1 = 1.5
-  \end{Verbatim}  
+  \end{Verbatim}
   \begin{itemize}
   \item The representation of any floating point number is equivalent to the
     ratio of two integers, where the denominator is a power of 2
@@ -295,7 +299,7 @@ significand = 0b(1)10000000000000000000000 = 12582912 -> 0b1.1 = 1.5
   \end{itemize}
 
   \bigskip
-  
+
   \centering\begin{tabular}{llll}
     \hline
     Precision & Bits & Dynamic range & Digits of precision\\
