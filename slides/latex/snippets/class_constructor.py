@@ -6,7 +6,7 @@ class Television:
         created.  We can pass arguments to the constructor, just like any 
         function."""
         print('Creating a television instance...')
-        self.model = 'Sv32X-553T' # This class member is hard-coded
+        self.model = 'Sv32X-553T' # This class attribute is hard-coded
         self.owner = owner # This is set to the value of the argument
     
     def print_info(self): # Let's see

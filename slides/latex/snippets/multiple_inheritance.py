@@ -1,8 +1,8 @@
-class AudioDevice():
+class AudioDevice:
     def play(self, channel):
         print('You are listening to channel n. {}'.format(channel))
 
-class VideoDevice():
+class VideoDevice:
     def play(self, channel):
         print('You are looking to channel n. {}'.format(channel))
 
