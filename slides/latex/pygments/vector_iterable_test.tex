@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/vector\_iterable\_test.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{vector\PYZus{}iterable} \PY{k+kn}{import} \PY{n}{Vector}
+\PY{k+kn}{from} \PY{n+nn}{itertools} \PY{k+kn}{import} \PY{n}{permutations}
+
+\PY{n}{vec} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{2.}\PY{p}{,} \PY{l+m+mf}{4.}\PY{p}{]}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Select only the elements passing a given condition}
+\PY{k}{def} \PY{n+nf}{filter\PYZus{}function}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{x} \PY{o}{\PYZgt{}} \PY{l+m+mf}{3.}
+    
+\PY{n}{filtered} \PY{o}{=} \PY{p}{[}\PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{p}{(}\PY{n+nb}{filter}\PY{p}{(}\PY{n}{filter\PYZus{}function}\PY{p}{,} \PY{n}{vec}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{c+c1}{\PYZsh{} list comprehension}
+\PY{k}{print}\PY{p}{(}\PY{n}{filtered}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Print all the permutations of two elements}
+\PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{permutations}\PY{p}{(}\PY{n}{vec}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{p}\PY{p}{)}
+
+[Output]
+[4.0]
+(1.0, 2.0)
+(1.0, 4.0)
+(2.0, 1.0)
+(2.0, 4.0)
+(4.0, 1.0)
+(4.0, 2.0)
+\end{Verbatim}

@@ -11,7 +11,8 @@ class Vector:
     def __iter__(self):
         """ We don't need to code anything... an array is already iterable!"""
         return iter(self._components)
-    
-v = Vector([5.1, 3.7, -25.])
-for component in v:
-    print(component)
+
+if __name__ == '__main__':
+  v = Vector([5.1, 3.7, -25.])
+  for component in v:
+      print(component)
