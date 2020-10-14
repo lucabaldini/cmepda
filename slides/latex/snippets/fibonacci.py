@@ -17,8 +17,6 @@ print(fib_numbers)
       
 # Another way to do that  is using 'islice' from itertools
 import itertools
-# Generator expression - note the +1 in islice
+# Generator expression
 fib_gen = (fib for fib in itertools.islice(fibonacci(), max_n))
 print(list(fib_gen))
-
-print(reversed(fibonacci()))

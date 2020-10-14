@@ -18,7 +18,7 @@
       
 \PY{c+c1}{\PYZsh{} Another way to do that  is using \PYZsq{}islice\PYZsq{} from itertools}
 \PY{k+kn}{import} \PY{n+nn}{itertools}
-\PY{c+c1}{\PYZsh{} Generator expression \PYZhy{} note the +1 in islice}
+\PY{c+c1}{\PYZsh{} Generator expression}
 \PY{n}{fib\PYZus{}gen} \PY{o}{=} \PY{p}{(}\PY{n}{fib} \PY{k}{for} \PY{n}{fib} \PY{o+ow}{in} \PY{n}{itertools}\PY{o}{.}\PY{n}{islice}\PY{p}{(}\PY{n}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{max\PYZus{}n}\PY{p}{)}\PY{p}{)}
 \PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fib\PYZus{}gen}\PY{p}{)}\PY{p}{)}
 

@@ -205,6 +205,12 @@
 
 
 \begin{frame}
+  \frametitle{}
+    \centering \Large Decorators
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Functions inside functions}
   \begin{itemize}
     \item Function in python are \alert{first class object}
@@ -333,6 +339,75 @@
 \begin{frame}
   \frametitle{Class method}
   \input{pygments/classmethod}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+  \centering \Large Generators
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Generators}
+  
+  \begin{itemize}
+    \item We know how to iterate over python built-in container or even 
+          create our custom iterables
+    \item However that assumes a containers exists $\rightarrow$ memory usage
+    \item \alert{Generators} allow you to loop over sequences of items even when
+          they don't exist before - they items are just created \alert{lazily} the
+          moment they are required
+    \item For example you can write a generator to loops over the Fibonacci
+          succession. You can't create the sequence earlier, since it is not
+          finite!
+    \item Generators are created through either \alert{generator expressions} or
+          \alert{generator functions}
+    \item In real life most of the time you will simply use pre-made functions
+          that return a generator, like \emph{range()} (in Python 3)
+    \item Generators can be used whenever an iterable is expected
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generators first look}
+  \input{pygments/generators}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generator functions}
+  
+  \begin{itemize}
+    \item A \alert{generator function} is a function that contains the keyword \alert{yield} at
+          least once in his body
+    \item When you call a generator function the code is not executed - instead
+          a generator object is created and returned (even if you don't have a return statement)
+    \item Each call to \emph{next()} on the returned generator will make the function code 
+          run until it finds a yield statement
+    \item Then the execution is paused and the value of the expression on the right 
+          of yiel is returned (yielded) to the caller
+    \item A further call of next will resume the execution from where it was suspended
+          until the next yield and so on
+    \item Eventually, when the function body ends, \emph{StopIteration} is raised
+    \item Usually generators functions contain a loop - but it's not mandatory!
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Generator functions}
+  \input{pygments/generator_functions}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Infinite sequence generators}
+  \input{pygments/fibonacci}
 \end{frame}
 
 
