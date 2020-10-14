@@ -85,6 +85,13 @@
 
 
 \begin{frame}
+  \frametitle{A different way}
+  \input{pygments/exceptions_vs_err_flags}
+\end{frame}
+
+
+
+\begin{frame}
   \frametitle{Enter exceptions}
 
   \begin{itemize}
@@ -134,8 +141,8 @@
 
 
 \begin{frame}
-  \frametitle{Throwing exceptions}
-  \input{pygments/throwing}
+  \frametitle{Raising exceptions}
+  \input{pygments/raising}
 \end{frame}
 
 
@@ -198,170 +205,134 @@
 
 
 \begin{frame}
-  \frametitle{Iterators and iterables}
-  
+  \frametitle{Functions inside functions}
   \begin{itemize}
-    \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
-          method, which returns an \alert{iterator}
-    \medskip
-    \item An \emph{iterator} is an object that implement a \emph{\_\_next\_\_} method
-          which is used to retrieve elements one at the time
-    \medskip
-    \item When there are no more elements to return, the iterator signals that with a specific
-          exception: \emph{StopIteration()}
-    \medskip
-    \item An iterator also implement an \emph{\_\_iter\_\_} method that return\dots itself.
-          So an iterator is also an iterable! (But the opposite is not true)
+    \item Function in python are \alert{first class object}
+    \item The name is a bit misleading, but what actually means is that functions
+          can be passed as argument to other functions and returned as result from
+          other functions
+    \item This shouldn't surprise you much: functions are objects of a
+          '\emph{function}' class, so they behave like any other vairable in
+          Python
+    \item Another thing you can (and sometimes want to) do is \emph{defining} a
+          function inside another.
+    \item Let's see how it works
   \end{itemize}
   
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{A 'for' loop unpacked}
-  \input{pygments/show_iterator}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{A simple iterator}
-  \input{pygments/simple_iterator}
+  \frametitle{Functions inside functions}
+  \input{pygments/inner_outer}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{A simple iterator}
-  \input{pygments/test_simple_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{A crazy iterator}
-  \input{pygments/crazy_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{A crazy iterator}
-  \input{pygments/test_crazy_iterator}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Python tools for iterables}
+  \frametitle{Colsures and free variables}
   \begin{itemize}
-    \item Python provides a number of functions that consume an iterable and return a single value:
+    \item When a function is created inside another function it has access to the local variables
+          of the outer function, even after its scope ended
+    \item This is techincally possible because those varibales are kept in a special
+          space of memory, the \alert{closure} of the inner function
+    \item Such variables are called \alert{free variables}
+    \item Note: if you \emph{assign} to a free variable in the inner function, 
+          by default a new, local variable is created instead!
+    \item To avoid this you have to explictly declare that you want to access the variable in
+          the closure using the \alert{nonlocal} keyword
+    \item Remember: \emph{'Explicit is better then implicit'}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Free variables - a mistake to avoid}
+  \input{pygments/closure_wrong}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Free variables - the correct way}
+  \input{pygments/closure_right}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Wrapping functions}
+  \begin{itemize}
+    \item The typical use of defining a function inside a function is to create
+          a \alert{wrapper}
+    \item A wrapper is a function that calls another one adding a layer
+          of functionalities in between - for example it may do some pre-process
+          of the input, or change the output in some way, or measure the 
+          execution time or whatever we want
+    \item The techinque for creating a wrapper fucntion in Python is:
     \begin{itemize}
-      \item \emph{sum}: Sum all the elements
-      \item \emph{all}: Return true if a given condition is true for all the elements
-      \item \emph{any}: Return true if a given condition is true for at lest one element
-      \item \emph{max}: Return the max
-      \item \emph{min}: Return the minimum
-    \end{itemize}
-    \medskip
-    \item In addition, in the \alert{\emph{functools}} library there is the generic
-          \emph{reduce} function that works as follow:
-    \begin{itemize}
-      \item Apply a given function to the first two elements
-      \item Apply the function to the result of the first evaluation and the third element
-      \item Continue like that until the iterable is over, than return the result
+       \item Pass the function that we want to wrap as argument of the outer
+             function
+       \item Inside the outer function we define an inner function, which is the
+             actual wrapper
+       \item The wrapper calls the wrapped function and adds its functionalities,
+             before and/or after the call. It may return the same output or a 
+             manipulated one.
+       \item Then from the outer fucntion we return the wrapper
     \end{itemize}
   \end{itemize}
+  
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Generators}
-  
+  \frametitle{Wrapper}
+  \input{pygments/wrapper}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Decorators}
   \begin{itemize}
-    \item We have seen that iterators are useful to iterate over container
-    \item However that assumes a containers exists $\rightarrow$ memory usage
-    \item \alert{Generators} allow you to loop over sequences of items even when
-          they don't exist before - they itrms are just created \alert{lazily} the
-          moment they are required
-    \item For example you can write a generator to loops over the Fibonacci
-          succession. You can't create the sequence earlier, since it is not
-          finite!
-    \item Generators are created through either \alert{generator expressions} or
-          \alert{generator functions}
-    \item In real life most of the time you will simply use pre-made functions
-          that return a generator, like \emph{range()} (in Python 3)
-    \item Generator can be used to iterate in for loops, just like iterators
+    \item Often, when you wrap a function, you don't want to change
+          it's name, so you reassign the wrapped funtion to its old name
+    \item In fact, this techinque is so common that python introduced a special
+          syntax for it: decorators
+    \item A decorated function has simply the name of the wrapper added with
+          a '@' on top of its declaration
   \end{itemize}
   
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Generators first look}
-  \input{pygments/generators}
+  \frametitle{Decorators}
+  \input{pygments/decorator}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Generator functions}
-  
+  \frametitle{A decorator to measure execution time}
+  \input{pygments/time_measuring_decor}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The @classmethod decorator}
   \begin{itemize}
-    \item A \alert{generator function} is a function that contains the keyword \alert{yield} at
-          least once in his body
-    \item When you call a generator function the code is not executed - instead
-          a generator object is created and returned (even if you don't have a return statement)
-    \item Each call to \emph{next()} on the returned generator will make the function code 
-          run until it finds a yield statement
-    \item Then the execution is paused and the value of the expression on the right 
-          of yiel is returned (yielded) to the caller
-    \item A further call of next will resume the execution from where it was suspended
-          until the next yield and so on
-    \item Eventually, when the function body ends, \emph{StopIteration} is raised
-    \item Usually generators functions contain a loop - but it's not mandatory!
+    \item We have already seen a built-in Python decorator: \emph{@property}
+    \item We used that to get proper encapsulation
+    \item There is another built-in decorator one which is very useful for classes: \alert{\emph{@classmethod}}
+    \item A classmethod is like a class attribute: you don't need an instance to
+          use it
+    \item A class method can access class attributes but not instance attributes
+    \item The main use for class methods is to provide \alert{alternate constructors}
   \end{itemize}
   
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Generator functions}
-  \input{pygments/generator_functions}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Infinite sequence generators}
-  \input{pygments/fibonacci}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Python generator functions}
-  
-  \begin{itemize}
-    \item Python provides a number of built-in functions that return a generator from an iterable, such as:
-    \begin{itemize}
-      \item \emph{enumerate}: Automatic counting of iterations
-      \item \emph{map}: Apply a function to the elements
-      \item \emph{filter}: Return only the elements passing a given condition
-      \item \emph{zip}: Return pairs of elements (requires two sequences)
-      \item \emph{reversed}: Loop in the reversed order
-    \end{itemize}
-
-    \item Countless others can be found in the \alert{\emph{itertools}} library
-    \begin{itemize}
-      \item \emph{islice}: Slice the loop with start, stop and step
-      \item \emph{takewhile}: Stop looping when a condition becomes false
-      \item \emph{accumulate}: Get the result of applying the function iteratively to pair of elements
-      \item \emph{chain}: Loop through many sequences one after another
-      \item \emph{cycle}: Loop over the sequence repeatedly, indefinitely
-      \item \emph{permutations}: Get all the permutations of a given length
-      \item And so on\dots
-    \end{itemize}
-    
-    \medskip
-    
-    \item Take a look at the documentation of each function to see how to 
-          properly call it!
-  \end{itemize}
-  
+  \frametitle{Class method}
+  \input{pygments/classmethod}
 \end{frame}
 
 

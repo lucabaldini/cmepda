@@ -1,24 +1,22 @@
-\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/error\_flags.py}},commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} The \PYZsq{}find()\PYZsq{} method for strings in python uses an error flag}
-\PY{n}{text} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{elephant}\PY{l+s+s1}{\PYZsq{}}
-\PY{k}{print}\PY{p}{(}\PY{n}{text}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{p}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} upon success returns the position of the substring}
-\PY{k}{print}\PY{p}{(}\PY{n}{text}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} returns \PYZhy{}1 if the substring is not found}
-
-\PY{c+c1}{\PYZsh{} Why is this dangerous?}
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/exceptions\_vs\_err\_flags.py}},commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} index() is the same as find(), but rise an exception in case of failure}
 \PY{k}{def} \PY{n+nf}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{p}{,} \PY{n}{substring}\PY{p}{)}\PY{p}{:}
     \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Cut a string up to two positions before that of the given substring and}
 \PY{l+s+sd}{    return it \PYZdq{}\PYZdq{}\PYZdq{}}
-    \PY{n}{pos} \PY{o}{=} \PY{n}{input\PYZus{}string}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{substring}\PY{p}{)}
+    \PY{n}{pos} \PY{o}{=} \PY{n}{input\PYZus{}string}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{substring}\PY{p}{)}
     \PY{k}{return} \PY{n}{input\PYZus{}string}\PY{p}{[}\PY{p}{:}\PY{p}{(}\PY{n}{pos}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
 
 \PY{c+c1}{\PYZsh{} If the substring exists in the string everything works fine}
 \PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-\PY{c+c1}{\PYZsh{} What will be the output here?}
+\PY{c+c1}{\PYZsh{} No silent bug here!}
 \PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 
 [Output]
-3
--1
 We all live in a
-We all live in a Yellow Submari
+Traceback (most recent call last):
+  File "snippets/exceptions_vs_err_flags.py", line 11, in <module>
+    print(cut_two_before('We all live in a Yellow Submarine', 'Red'))
+  File "snippets/exceptions_vs_err_flags.py", line 5, in cut_two_before
+    pos = input_string.index(substring)
+ValueError: substring not found
 \end{Verbatim}
