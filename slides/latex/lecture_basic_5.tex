@@ -22,6 +22,29 @@
 
 
 \begin{frame}
+  \frametitle{Smart variables}
+  
+  \begin{itemize}
+    \item Working with containers like lists or dictionaries, you may have noticed
+          that they can do many thing besides holding the data
+    \medskip
+    \begin{itemize}
+      \item You can extend a list using append() or insert()
+      \item Trying to access a non-existent index in a list triggers a specific errror (\emph{IndexError})
+      \item You can iterate on a list using the handy for-loop Python syntax
+      \item and so on\dots
+     \end{itemize}
+     \medskip
+     \item In other words, a list is a variable that, in addition to its data,
+           shows some kind of specific \emph{behaviour}.
+     \medskip
+     \item How is that implemented?
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
   \frametitle{Object Oriented Programming (OOP)}
   
   \begin{itemize}
@@ -31,13 +54,10 @@
     \item An object is a code entity that has:
     \smallskip
     \begin{itemize}
-      \item \alert{State} $\rightarrow$ data (usually called \emph{member variables} or simply \emph{members})
+      \item \alert{State} $\rightarrow$ data (usually called \emph{member variables} or \emph{attributes})
       \smallskip
       \item \alert{Behaviour} $\rightarrow$ functions (usually called \emph{member functions} or \emph{methods})
     \end{itemize}
-    \medskip
-    \item A program can be thought as the result of the interaction of many obects \\
-          (If this sounds rather abstract don't worry: we will get concrete soon!)
     \bigskip
     \item The idea is: keep together the variables and the code that manipulates them
     \bigskip
@@ -57,34 +77,7 @@
 
 
 \begin{frame}
-  \frametitle{A bit of history (pun not intended)}
-  \framesubtitle{Mostly stuff from Wikipedia you could probably have found by yourself}
-  \begin{itemize}
-    \item First (experimental) objected-oriented language was \alert{Simula 67}, created by \emph{Kristen Nygaard} and \emph{Ole-Johan Dahl}
-    \medskip
-    \item But the first real object-oriented language was \alert{Smalltalk} (1970)
-    \smallskip
-    \item The creator (\emph{Alan Kay}) also invented the expression 'object-oriented'
-    \medskip
-    \item Anyway, when we talk about OOP languages, the stars (at least historically) are:
-    \begin{itemize}
-      \item C++
-      \smallskip
-      \item Java
-    \end{itemize}
-    \smallskip
-    \item But the list of languages supporting OOP is long: Ruby, JavaScript, C\#, Delphi, Lisp, Cobol, Julia, Rust, Scala, MATLAB\dots \\
-    \tiny
-    \url{https://en.wikipedia.org/wiki/List_of_object-oriented_programming_languages}
-    \normalsize
-    \smallskip
-    \item and of course Python!
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{That's cool, but why should I care?}
+  \frametitle{Why should I care?}
   
   \begin{itemize}
     \item Object-oriented programming is one of the most widely used paradigm today
@@ -213,7 +206,7 @@
     \item How would that be represented in the code?
     \smallskip
       \begin{itemize}
-      \item The state can be represented by some member variables:
+      \item The state can be represented by some attributes (variables):
       \begin{itemize}
         \item A boolean can represent the ON/OFF state
         \item For the currently displayed channel you can use an integer
@@ -222,7 +215,7 @@
 
       \medskip
     
-      \item The behaviour will be represented by the methods:
+      \item The behaviour canb be implemented through the methods:
       \smallskip
       \begin{itemize}
         \item For example the turn\_on() and turn\_off() functions may change the value of the variable
@@ -234,7 +227,7 @@
     
     \medskip
     
-    \item Members and methods are collectively called \alert{attributes} of the class
+    \item Attributes and methods are collectively called \alert{members} of the class
     \medskip
     \item Each object of a specific class is an \alert{instance} of that class
   \end{itemize}
@@ -256,14 +249,14 @@
 
 
 \begin{frame}
-  \frametitle{Class methods}
+  \frametitle{Methods}
   \input{pygments/class_methods}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Class members}
-  \input{pygments/class_members}
+  \frametitle{Attributes}
+  \input{pygments/class_attributes_1}
 \end{frame}
 
 
@@ -272,8 +265,8 @@
   
   \begin{itemize}
     \small
-    \item Adding members like that would be crazy\dots what would happen if I forgot
-          to call the 'add\_a\_class\_member()' method in the previous example?
+    \item Adding attributes like that would be crazy\dots what would happen if I forgot
+          to call the 'add\_a\_class\_attribute()' method in the previous example?
     \medskip
     \item Luckily there is a solution for that: the class \alert{constructor}
     \medskip
@@ -290,7 +283,7 @@
     \item Class methods like \emph{\_\_init\_\_}, with the name surronded by two underscores,
           are called \alert{special} methods or \alert{dunder} methods.
     \medskip
-    \item Is is good practice to define all your class members inside the constructor!
+    \item Is is good practice to define all your class attributes inside the constructor!
 
   \end{itemize}
 
@@ -311,8 +304,7 @@
     \item 'Namespaces are one honking great idea -- let's do more of those!'
             (\emph{Tim Peters - The Zen of Python})
     \medskip
-    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one
-          associated to an object (which can be anything: a variable, a function, a class etc\dots)
+    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
     \medskip
   \end{itemize}
   
@@ -320,13 +312,13 @@
   
   \begin{itemize}
     \small
-    \item Python creates separate namespace for many things: for example each time a function is
-          called a namespace for local variables is created
+    \item Python creates separate namespaces for many things: for example, each time a function is called a namespace for local variables is created
     \medskip 
-    \item You can access objects in the local namespace (and those above -- see picture) just with their name(s);
-          for others you need  the '.' (dot) operator
+    \item You can access objects in the local namespace (and those above -- 
+          see picture) just with their name(s); for others you need
+          the '.' (dot) operator.
     \medskip
-    \item You can see what's inside a namespace using the dir() built-in function
+    \item The space of visibility of a variable is called it \alert{scope}.
   \end{itemize}
   
 \end{frame}
@@ -355,7 +347,7 @@
 \begin{frame}
   \frametitle{Class attributes}
   \framesubtitle{(And their strange behaviour)}
-  \input{pygments/class_attributes}
+  \input{pygments/class_attributes_2}
 \end{frame}
 
 
@@ -367,18 +359,18 @@
     \item Object Oriented Programming (OOP) is a widespread programming paradigm,
           supported by many programming languages (old and modern), including Python
     \medskip
-    \item An object has a state and a behaviour, represented by member variables
-          and member functions (or methods) respectively
+    \item An object has a state and a behaviour, represented by member variables (attributes)
+          and member functions (methods) respectively
     \medskip
     \item A class is a blueprint for creating objects, each object is an instance of a class
     \medskip
     \item In Python classes are defined with the 'class' keyword and instanciated with the '()' operator
     \medskip
-    \item Class members and methods (globally called attributes) are accessed through the '.' operator
+    \item Class attributes and methods (globally called members) are accessed through the '.' operator
     \medskip
     \item All the class methods get the object istance as their first argument (usually named 'self')
     \medskip
-    \item You should declare class members in the constructor a.k.a. the \emph{\_\_init\_\_} function
+    \item You should declare class attributes in the constructor a.k.a. the \emph{\_\_init\_\_} function
     \medskip
     \item Instance attributes are not shared: each instance has its own copy of the data
     \medskip
@@ -388,42 +380,27 @@
 \end{frame}
 
 
-
-
 \begin{frame}
-  \frametitle{Cool, but I still can do the same without classes...}
-  \input{pygments/non_oop_example}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{OOP vs non OOP}
+  \frametitle{Encapsulation - hidden state and interfaces}
+  \framesubtitle{Back to the TV example}
+  
+  \centering\includegraphics[width=0.2\textwidth]{television.png}
+  
+  \bigskip
   
   \begin{itemize}
-    \item Imagine that at some point you want to add the following feature: 
-          a tv can be shared bewteen multiple owners
-    \bigskip
-    \item Sure, you can still do that with a single string: \\owner = 'Alberto;VanRossum;Mickey Mouse'
-    \bigskip
-    \item But a list would be much better! (no complex parsing, easy to iterate, has len() etc\dots)
-    \bigskip
-    \item And I also want to change the name to 'owners', because it's more expressive of the fact that there can be many of them
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{OOP vs non OOP}
-  
-  \begin{itemize}
-    \item Both in OOP and non OOP case I have to change my \emph{print\_info()} function 
-    \bigskip
-    \item But in the latter the function can be anywhere!
-    \bigskip
-    \item How do I know if other functions are relying on the specific 'owner' variable? Imagine if your project has tens or hundreds of files\dots
-    \bigskip
-    \item In OOP we are in a much better situation: all the functions that I have to change are inside the class body!
+  \item Note that part of the state is hidden from the user:
+    \begin{itemize}
+    \item E.g. internal switches, transistors, etc\dots
+    \end{itemize}
+  \smallskip
+  \item You do not need to know what's going on inside the case to operate a TV!
+  \smallskip
+  \item All you need to know is how to use the \alert{interface} (the remote
+        control, the knobs, the power button, the plug\dots)
+  \smallskip
+  \item The \alert{implementation} details are hidden: only the TV producer cares about
+        them, not the user. 
   \end{itemize}
 
 \end{frame}
@@ -436,7 +413,8 @@
     \item This leads us to the concept of \alert{encapsulation} 
     \bigskip
     \begin{itemize}
-      \item \emph{The state of an object should only be accessed and altered through its own methods}
+      \item \emph{The state of an object should only be accessed and altered
+                  through its publicly exposed interface}
     \end{itemize}
     \bigskip
     \item That way it is easier to find bugs: you know that, if something is wrong
@@ -453,32 +431,6 @@
 \begin{frame}
   \frametitle{Enforcing behaviour}
   \input{pygments/class_tv_zapping}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Encapsulation - hidden state and interfaces}
-  \framesubtitle{Back to the TV example}
-  
-  \centering\includegraphics[width=0.2\textwidth]{television.png}
-  
-  \bigskip
-  
-  \begin{itemize}
-  \item Note that part of the state may be hidden from the user:
-    \begin{itemize}
-    \item E.g. internal switches, transistors, etc\dots
-    \end{itemize}
-  \smallskip
-  \item You do not need to know what's going on inside the case to operate a TV!
-  \smallskip
-  \item All you need to know is how to use the \alert{interface} (the remote
-        control, the knobs, the power button, the plug\dots)
-  \smallskip
-  \item The \alert{implementation} details are hidden: only the TV producer cares about
-        them, not the user. 
-  \end{itemize}
-
 \end{frame}
 
 
@@ -512,27 +464,10 @@
 \end{frame}
 
 
-%\begin{frame}
-%  \frametitle{Encapsulation and Abstraction}
-%  
-%  \begin{itemize}
-%    \item Some computer scientist actually like to make a conceptual distinction:
-%    \medskip
-%    \begin{itemize}
-%      \item Hiding all or part of the state is the actual \alert{Encapsulation}
-%      \medskip
-%      \item Hiding the implementation and exposing only the interface is called \alert{Abstraction}
-%    \end{itemize}
-%    \bigskip
-%    \item Naming is not really important - but knowing the language is useful (e.g. when searching online)
-%  \end{itemize}
-%\end{frame}
-
-
 \begin{frame}
   \frametitle{Challenge: how do you get \emph{real} encapsulation?}
   \begin{itemize}
-    \item At this point you may be wondering: I can read and modify any class member 
+    \item At this point you may be wondering: I can read and modify any class attribute 
           from outside the class using the '.' (dot) operator! 
           Doesn't that break encapsulation?
           
@@ -549,7 +484,7 @@
   
   \begin{itemize}
     \item In languages like C++ you can explicitly declare that some class
-          members (and methods) are \emph{private}
+          attributes (and methods) are \emph{private}
     \medskip
     \item Private attributes cannot be accessed outside the class - the compiler enforce that!
     \medskip
@@ -569,7 +504,7 @@
   \begin{itemize}
     \item In Python there is no concept of \emph{enforced} private attributes
     \medskip
-    \item However, there exists a convention that any member/method name prepended by one or two underscore(s) should be considered "private"
+    \item However, there exists a convention that any attribute/method name prepended by one or two underscore(s) should be considered "private"
     \medskip
     \item It's like a warning for the class user: you should never access that directly!
     \medskip
@@ -605,7 +540,7 @@
     \item But the awsome solution is using \alert{properties} (since Python 2.2)
     \bigskip
     \item Properties look similar to getters and setters, but with a twist: you keep
-          accessing the member variable with the dot operator
+          accessing the attribute with the dot operator
     \bigskip
     \item That is a \emph{huge} advantage: it means you can start without them, and add the code only if really needed!
     \bigskip
@@ -687,7 +622,7 @@
     \item The concept of interface does not just apply to the program as a whole:
           every significant portion of code (function, class) has its interface
     \medskip
-    \item The interface of a class in Python is made by all its "public" attributes (methods and members)
+    \item The interface of a class in Python is made by all its "public" members (methods and attributes)
           -- i.e. those without an underscore at the beginning of their name
     \medskip
     \item Changing the interface may break every other piece of code that uses it.
@@ -716,7 +651,7 @@
     \medskip
     \item Encapsulation in Python is not enforced by the language, but rather relies on conventions
     \medskip
-    \item Class attributes with an underscore at the beginning of their name are
+    \item Class members with an underscore at the beginning of their name are
           considered 'private' and should not be accessed directly oustide the class
     \smallskip
     \item You can use properties to encapsulate your data at any moment in time - never use 'getters' and 'setters'
@@ -761,8 +696,7 @@
     \small
     \item Many languages - including Python offer a solution for that: \alert{inheritance}
     \medskip
-    \item A class can inherit from another one, automatically obtaining all its functionalities (members and methods) and
-          then extending or specialyzing them
+    \item A class can inherit from another one, automatically obtaining all its functionalities (attributes and methods) and then extending or specialyzing them
     \medskip
     \item The class which we inherit from is called \emph{Base} class, \emph{Parent} class or (in Python) \emph{Superclass}
     \medskip
@@ -770,8 +704,7 @@
     \medskip
     \item In our problem we can imagine to have a base class 'Particle' and many specialized classes inheriting from it
     \medskip
-    \item Inheritance is transtive: if class C inherits from class B, and class B inherits from class A, then 
-          class C is also a child of class A (and posses all its functionalities)
+    \item Inheritance is transtive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and posses all its functionalities)
   \end{itemize}
   
 \end{frame}
@@ -836,12 +769,15 @@
   \begin{itemize}
     \item \alert{Composition} is a different technique for reusing functionalities
     \medskip
-    \item The concept is simple: just use an object of some class as the member of a different one
+    \item The concept is simple: just use an object of some class as a member of
+          a different one
     \medskip
-    \item For example we can create the classes 'Enigne' and 'Wheel' and than the class 'Car' will have
-          a member of type Engine and 4 members of type Wheel
+    \item For example we can create the classes 'Enigne' and 'Wheel' and than 
+          the class 'Car' will have a member of type Engine and 4 members of
+          type Wheel
     \medskip
-    \item A class like 'Car' in the example is sometimes called an \alert{aggregate} class
+    \item A class like 'Car' in the example is sometimes called an 
+          \alert{aggregate} class
   \end{itemize}
   
 \end{frame}
@@ -857,11 +793,14 @@
   \frametitle{Composition vs Inheritance}
     
   \begin{itemize}
-    \item Composition models a \alert{'has-a'} relation in the real world: a Car \emph{has} a Engine
+    \item Composition models a \alert{'has-a'} relation in the real world: a 
+          Car \emph{has} a Engine
     \medskip
-    \item Inheritance models a \alert{'is-a'} relation in the real world: an Electron \emph{is} a Particle
+    \item Inheritance models a \alert{'is-a'} relation in the real world: an
+          Electron \emph{is} a Particle
     \medskip
-    \item It may not always be obvious which one to use in your specific case: choose wisely!
+    \item It may not always be obvious which one to use in your specific case:
+          choose wisely!
   \end{itemize}
   
 \end{frame}

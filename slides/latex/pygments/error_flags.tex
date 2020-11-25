@@ -4,20 +4,21 @@
 \PY{k}{print}\PY{p}{(}\PY{n}{text}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{p}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} upon success returns the position of the substring}
 \PY{k}{print}\PY{p}{(}\PY{n}{text}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} returns \PYZhy{}1 if the substring is not found}
 
-\PY{k}{def} \PY{n+nf}{safe\PYZus{}division}\PY{p}{(}\PY{n}{a}\PY{p}{,} \PY{n}{b}\PY{p}{)}\PY{p}{:}
-    \PY{k}{if} \PY{n}{b} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}
-        \PY{k}{return} \PY{l+m+mi}{0} \PY{c+c1}{\PYZsh{} Is that meaningful? What can we return?}
-    \PY{k}{else}\PY{p}{:}
-        \PY{k}{return} \PY{n}{a}\PY{o}{/}\PY{n}{b}
-
 \PY{c+c1}{\PYZsh{} Why is this dangerous?}
-\PY{n}{num\PYZus{}process} \PY{o}{=} \PY{l+m+mi}{0}
-\PY{n}{num\PYZus{}cpu\PYZus{}available} \PY{o}{=} \PY{l+m+mi}{3}
-\PY{n}{average\PYZus{}cpu\PYZus{}available} \PY{o}{=} \PY{n}{safe\PYZus{}division}\PY{p}{(}\PY{n}{num\PYZus{}cpu\PYZus{}available}\PY{p}{,} \PY{n}{num\PYZus{}process}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{average\PYZus{}cpu\PYZus{}available}\PY{p}{)} \PY{c+c1}{\PYZsh{} Oops no cpu available... or not?}
+\PY{k}{def} \PY{n+nf}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{p}{,} \PY{n}{substring}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Cut a string up to two positions before that of the given substring and}
+\PY{l+s+sd}{    return it \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{pos} \PY{o}{=} \PY{n}{input\PYZus{}string}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{substring}\PY{p}{)}
+    \PY{k}{return} \PY{n}{input\PYZus{}string}\PY{p}{[}\PY{p}{:}\PY{p}{(}\PY{n}{pos}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+
+\PY{c+c1}{\PYZsh{} If the substring exists in the string everything works fine}
+\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} What will be the output here?}
+\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 
 [Output]
 3
 -1
-0
+We all live in a
+We all live in a Yellow Submari
 \end{Verbatim}

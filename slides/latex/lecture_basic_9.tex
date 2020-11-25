@@ -1,0 +1,250 @@
+\documentclass[9pt]{beamer}
+\usetheme{cmepda}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\title{numpy and scipy (1/2)}
+\subtitle{Computing Methods for Experimental Physics and Data Analysis}
+\date{Compiled on \today}
+\author{L. Baldini}
+\institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
+\email{luca.baldini@pi.infn.it}
+
+
+\begin{document}
+
+
+\titleframe
+
+\begin{frame}
+  \frametitle{Introduction}
+  \begin{itemize}
+  \item Python is notorious for coming \emph{with batteries included}\ldots
+  \item \ldots but as a data scientist numpy and and scipy will be your
+    best friends!
+  \item Among (many) other things, numpy offers:
+    \begin{itemize}
+    \item a powerful n-dimensional array object
+    \item mathematical functions that interoperate natively with arrays
+    \end{itemize}
+  \item And scipy provides:
+    \begin{itemize}
+    \item integration
+    \item optimization (a.k.a. fitting)
+    \item interpolation
+    \item signal processing
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{numpy arrays}
+  \input{pygments/numpy_arrays}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{numpy arrays vs. Python lists}
+  \input{pygments/numpy_arrays_vs_lists}
+  
+  \begin{itemize}
+  \item arrays and lists are fundamentally different objects
+    \begin{itemize}
+    \item different footprint in memory, operate at different speed
+    \item arrays are homogeneous, lists don't need to
+    \item arrays offer a much more powerful indexing/slicing
+    \item arrays interoperate with numpy mathematical functions
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Broadcasting}
+  \input{pygments/numpy_arrays_broadcasting}
+  
+  \begin{itemize}
+  \item Under certain conditions, numpy can make operations on arrays of
+    different shape
+  \item This is extremely useful when vectorizing problems 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Mathematical functions in numpy}
+  \input{pygments/numpy_functions}
+  
+  \begin{itemize}
+  \item numpy mathematical functions interoperate natively with arrays
+    \begin{itemize}
+    \item (and work on plain old numbers, too)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Arrays and masks}
+  \input{pygments/numpy_masks}
+  
+  \begin{itemize}
+  \item Masks are a powerful tool in numpy
+  \item They can replace conditional expressions in a for loop in
+    vectorization context (more on this later)
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Digression: pseudo-random number generators}
+
+  \begin{Verbatim}
+    import random
+    x = random.random()
+  \end{Verbatim}
+
+  \medskip
+  
+  \begin{itemize}
+  \item Every programming language comes with a Pseudo Random Number
+    Generator (PRNG)
+    \begin{itemize}
+    \item Python is no exception:
+      \url{https://docs.python.org/3/library/random.html}
+    \item Mersenne-Twister, 53-bit precision, period of $2^{19937} - 1$. 
+    \end{itemize}
+  \item PRNGs are an interesting (and fun) subject by themselves:
+    \begin{itemize}
+    \item Donald E. Knuth, \emph{The Art of Computer Programming, Volume 2: Seminumerical Algorithms}, 3rd Edition 
+    \item M. Matsumoto and T. Nishimura, \emph{Mersenne Twister: A 623-dimensionally equidistributed uniform pseudorandom number generator}, ACM Transactions on Modeling and Computer Simulation Vol. 8, No. 1, January pp.3--30 1998.
+    \end{itemize}
+  \item A PRNG produces random floats uniformly in $[0.0,~1.0)$.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vectorization}
+  \framesubtitle{a.k.a. avoid explicit for loops in Python whenever you can}
+  \input{pygments/vectorization}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How does vectorizaion work?}
+  \begin{itemize}
+  \item Python is know to be slooow
+    \begin{itemize}
+    \item This is the price you pay for being so beautiful and flexible
+    \end{itemize}
+  \item Does it matter? If depends\ldots
+    \begin{itemize}
+    \item If you are parsing a text file or fetching a web page probably not
+    \item If you are performing a CPU-intensive processing on a TB of data
+      probably yes
+    \end{itemize}
+  \item What's so magic in using numpy?
+  \item numpy is written in C as a Python extension
+    \begin{itemize}
+    \item Routines are highly optimized to cruch numbers
+    \item When you perform an array operation in Python you are actually
+      executing optimized C code
+    \end{itemize}
+  \item \alert{Basic message: avoid for loops in pure Python when
+    crunching numbers}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How do I throw PRN with arbitrary pdf?}
+  \framesubtitle{Hit or miss}
+  \centering\includegraphics[width=0.5\textwidth]{hitmiss}
+
+  \begin{itemize}
+  \item Hit or miss, aka acceptance/rejection method:
+    \begin{itemize}
+    \item Enclose your pdf in a rectangle
+    \item Throw a $x$ and a $y$
+    \item Accept $x$ if $y \leq f(x)$
+    \end{itemize}
+  \item \alert{This is horrible---please don't use it!}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{How do I throw PRN with arbitrary pdf?}
+  \framesubtitle{Inverse transform}
+  \begin{itemize}
+  \item Probability density function (pdf)
+    $$
+    p(x) \quad (\ge 0)
+    $$
+  \item Cumulative function (cf)
+    $$
+    F(x) = \int_{-\infty}^{x} p(x') dx'
+    $$
+  \item Percent-point function (ppf)
+    $$
+    x = F^{-1}(q)
+    $$
+  \item \alert{Awesome fact: if $q$ is uniformly distributed in $[0, 1]$,
+    then $x = F^{-1}(q)$ is distributed according to $p(x)$!}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An interesting object: splines}
+  \centering\includegraphics[width=0.60\textwidth]{spline}
+
+  \begin{itemize}
+  \item Defined piecewsise by polinomials of degree k ($k = 3$ fairly popular)
+    \begin{itemize}
+    \item Interpolating: passing through a set of pre-defined points
+    \item First $k-1$ derivatives continuos at the control points
+    \end{itemize}
+  \item Superior to polynomial interpolation or curve fitting in many cases
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Splines: construction and properties}
+  \input{pygments/spline}
+  
+  \begin{itemize}
+  \item Evaluation is fairly inexpensive
+    \begin{itemize}
+    \item If the input $x$-array is sorted can do a binary search in
+      \alert{O(log(N)) complexity}
+    \end{itemize}
+  \item Derivatives and integrals are easy
+    \begin{itemize}
+    \item Can be calculated \emph{exactly} by means of elementary
+      arithmetic operations
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{References}
+  \scriptsize
+  \begin{itemize}
+  \item \url{https://numpy.org/}
+  \item \url{https://www.scipy.org/}
+  \item \url{https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html}
+  \item \url{https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html}
+  \item \url{https://docs.scipy.org/doc/scipy/reference/interpolate.html}
+  \end{itemize}
+\end{frame}
+
+
+
+\end{document}

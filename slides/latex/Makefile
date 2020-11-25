@@ -2,7 +2,7 @@ all:
 	pdflatex template
 
 clean:
-	rm -f *.log *.out *.snm *.nav *~ *.aux *.toc *.idx snippets/*~ *.vrb
+	rm -f *.log *.out *.snm *.nav *~ *.aux *.toc *.idx snippets/*~ *.vrb, *.fls *.fdb_latexmk *.synctex.gz
 
 cleanall: clean
 	rm -f *.pdf

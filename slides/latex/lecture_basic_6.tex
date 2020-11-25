@@ -247,11 +247,15 @@
     \medskip
     \item However a list has a very powerful feature we miss: it's \alert{iterable}
     \medskip
-    \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
-          method, which returns an \alert{iterator}
+    \item An \emph{iterable} in Python is something that has a
+          \emph{\_\_iter\_\_} method, which returns an \alert{iterator}
     \medskip
-    \item Iterators are discussed in the advanced module. For now we will just use
-          composition and borrow the \emph{\_\_iter\_\_} method from the 
+    \item Technically, an iterator is an object that implements the
+          \emph{\_\_next\_\_} special method, which is used to retrieve elements
+          one at a time
+    \medskip
+    \item We will not dicuss iterator any further here: instead, we will just
+          exploit composition and borrow the \emph{\_\_iter\_\_} method from the 
           underlying array
   \end{itemize}
   
@@ -306,19 +310,39 @@
 
 \begin{frame}
   \frametitle{The power of iterables}
-  
   \begin{itemize}
     \item Having an iterable Vector (thanks to the \emph{\_\_iter\_\_} magic
           method) makes all the difference in the world
-    \medskip
+    \smallskip
     \item There are \emph{a lot} of builtin and library functions in python accepting a
-          generic iterable
-    \medskip
+          generic iterable as input:
+    \begin{itemize}
+      \item \emph{sum}: Sum all the elements
+      \item \emph{max}/\emph{min}: Return the maximum/minimum
+      \item \emph{enumerate}: Iterate with automatic counting of iterations
+      \item \emph{map}: Apply a function to the elements one by one
+      \item \emph{filter}: Iterate only on the elements passing a given condition
+      \item \emph{zip}: Iterate over pairs of elements (requires two iterables)
+    \end{itemize}
+    \smallskip
+    \item Countless others can be found in the \alert{\emph{itertools}} library
+    \begin{itemize}
+      \item \emph{islice}: Slice the loop with start, stop and step
+      \item \emph{takewhile}: Stop looping when a condition becomes false
+      \item \emph{chain}: Loop through many sequences one after another
+      \item \emph{cycle}: Loop over the sequence repeatedly, indefinitely
+      \item \emph{permutations}: Get all the permutations of a given length
+      \item And so on\dots
+    \end{itemize}
+    \smallskip
     \item With duck typing we can now use any of that for our Vector class -- isn't that cool?
-    \medskip
-    \item Let's port some of the Vector2d methods for Vector in that way
   \end{itemize}
-  
+\end{frame}
+ 
+ 
+\begin{frame}
+  \frametitle{The power of iterables}
+  \input{pygments/vector_iterable_test.tex}
 \end{frame}
 
 
