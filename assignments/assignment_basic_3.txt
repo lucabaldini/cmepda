@@ -1,26 +1,29 @@
 Module: basic Python
-Assignment #4 (October 7, 2021)
+Assignment #3 (October 4, 2021)
 
 
 --- Goal
-Create a ProbabilityDensityFunction class that is capable of throwing
-preudo-random number with an arbitrary distribution.
-
-(In practice, start with something easy, like a triangular distribution---the
-initial debug will be easier if you know exactly what to expect.)
-
+Write a class to handle a sequence of voltage measurements at different times.
 
 --- Specifications
-- the signature of the constructor should be __init__(self, x, y), where
-  x and y are two numpy arrays sampling the pdf on a grid of values, that
-  you will use to build a spline
-- [optional] add more arguments to the constructor to control the creation
-  of the spline (e.g., its order)
-- the class should be able to evaluate itself on a generic point or array of
-  points
-- the class should be able to calculate the probability for the random
-  variable to be included in a generic interval
-- the class should be able to throw random numbers according to the distribution
-  that it represents
-- [optional] how many random numbers do you have to throw to hit the
-  numerical inaccuracy of your generator?
+- the class name must be VoltgeData
+- the class must be initialized with two generic iterables of the same length
+  holding the numerical values of times and voltages
+- the class must expose two attributes: 'times' and 'voltages', each returning
+  a numpy array of type numpy.float64 of the corresponding quantity.
+- the values should be accessible with the familiar square parenthesis syntax:
+  the first index must refer to the entry, the second selects time (0) or 
+  voltage (1). Slicing must als work.
+- calling the len() function on a class instance must return the number of 
+  entries
+- the class must be iterable: at each iteration, a numpy array of two 
+  values (time and voltage) corresponding to an entry in the file must be
+  returned
+- the print() function must work on class instance. The output must show one
+  entry (time and voltage), as well as the entry index, per line.
+- the class must have a plot() method that plots data using matplotlib.
+  The plot function must accept 'ax' argument, so that the user can select
+  the axes where the plot is added (with a new figure as default). The user
+  must also be able to pass other plot options as usual.
+
+

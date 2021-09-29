@@ -1,0 +1,26 @@
+Module: basic Python
+Assignment #4 (October 7, 2021)
+
+
+--- Goal
+Create a ProbabilityDensityFunction class that is capable of throwing
+preudo-random number with an arbitrary distribution.
+
+(In practice, start with something easy, like a triangular distribution---the
+initial debug will be easier if you know exactly what to expect.)
+
+
+--- Specifications
+- the signature of the constructor should be __init__(self, x, y), where
+  x and y are two numpy arrays sampling the pdf on a grid of values, that
+  you will use to build a spline
+- [optional] add more arguments to the constructor to control the creation
+  of the spline (e.g., its order)
+- the class should be able to evaluate itself on a generic point or array of
+  points
+- the class should be able to calculate the probability for the random
+  variable to be included in a generic interval
+- the class should be able to throw random numbers according to the distribution
+  that it represents
+- [optional] how many random numbers do you have to throw to hit the
+  numerical inaccuracy of your generator?
