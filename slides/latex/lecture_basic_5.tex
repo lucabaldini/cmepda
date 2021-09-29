@@ -109,7 +109,7 @@
   
   \smallskip
   
-  \centering\includegraphics[width=0.9\textwidth]{thiobe.png}
+  \centering\includegraphics[width=0.9\textwidth]{tiobe2021.png}
   
   \smallskip
   
@@ -206,7 +206,7 @@
     \item How would that be represented in the code?
     \smallskip
       \begin{itemize}
-      \item The state can be represented by some attributes (variables):
+      \item The state can be represented by some \alert{attributes} (variables):
       \begin{itemize}
         \item A boolean can represent the ON/OFF state
         \item For the currently displayed channel you can use an integer
@@ -215,7 +215,7 @@
 
       \medskip
     
-      \item The behaviour canb be implemented through the methods:
+      \item The behaviour can be implemented through the \alert{methods}:
       \smallskip
       \begin{itemize}
         \item For example the turn\_on() and turn\_off() functions may change the value of the variable
@@ -261,6 +261,12 @@
 
 
 \begin{frame}
+  \frametitle{Attributes}
+  \input{pygments/class_attributes_2}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Constructor}
   
   \begin{itemize}
@@ -271,7 +277,7 @@
     \item Luckily there is a solution for that: the class \alert{constructor}
     \medskip
     \item The constructor is a special method that is called automatically each time
-          a class istance is created
+          a class instance is created
     \medskip
     \item A specificity of the constructor is that it cannot return anything
     \medskip
@@ -329,7 +335,7 @@
   
   \begin{itemize}
     \small
-    \item Each class has a namespace. Plus, each istance of the class get its own additional namespace
+    \item Each class has a namespace. Plus, each instance of the class get its own additional namespace
     \medskip
     \item The class namespace is automatically visible from each instance namespace, but not the opposite
     \medskip
@@ -339,6 +345,8 @@
     \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
     \medskip
     \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
+    \medskip
+    \item Class attributes are useful to set class constants, or default values, or share data among instances 
   \end{itemize}
   
 \end{frame}
@@ -347,7 +355,7 @@
 \begin{frame}
   \frametitle{Class attributes}
   \framesubtitle{(And their strange behaviour)}
-  \input{pygments/class_attributes_2}
+  \input{pygments/class_attributes_3}
 \end{frame}
 
 
@@ -368,7 +376,7 @@
     \medskip
     \item Class attributes and methods (globally called members) are accessed through the '.' operator
     \medskip
-    \item All the class methods get the object istance as their first argument (usually named 'self')
+    \item All the class methods get the object instance as their first argument (usually named 'self')
     \medskip
     \item You should declare class attributes in the constructor a.k.a. the \emph{\_\_init\_\_} function
     \medskip

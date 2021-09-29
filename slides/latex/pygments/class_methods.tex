@@ -3,18 +3,20 @@
     \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
 \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{k}{def} \PY{n+nf}{turn\PYZus{}on}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} Class method}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}All the class methods get the object istance as their first argument.}
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}All the class methods get the object instance as their first argument.}
 \PY{l+s+sd}{        It is customary to call this argument \PYZsq{}self\PYZsq{}, though is not required}
 \PY{l+s+sd}{        by the language rules (you can call it \PYZsq{}pippo\PYZsq{} and it will work }
 \PY{l+s+sd}{        just as well)}
 \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Turning on \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}} \PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{)}
         \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Showing channel \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{channel}\PY{p}{)}\PY{p}{)}
 
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} Class methods and members are accessed through the \PYZsq{}.\PYZsq{} (dot) operator}
-\PY{c+c1}{\PYZsh{} You don\PYZsq{}t have to pass manually the self argument, it is added for you!}
+\PY{c+c1}{\PYZsh{} You must not pass the \PYZsq{}self\PYZsq{} argument, it is added automatically!}
 \PY{n}{tv}\PY{o}{.}\PY{n}{turn\PYZus{}on}\PY{p}{(}\PY{n}{channel}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
 
 [Output]
+Turning on <__main__.Television object at 0x7fc718217470>
 Showing channel 3
 \end{Verbatim}

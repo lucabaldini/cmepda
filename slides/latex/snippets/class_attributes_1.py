@@ -1,23 +1,13 @@
 class Television:
     """ Class describing a televsion.
     """
-    def add_an_attribute(self):
-        """ Add a class attribute (remember the meaning of 'self') """
-        self.current_channel = 1
+    pass
 
 tv = Television()
-# Add an attribute manually from outside the class
-tv.x = 1
-# Add an attribute from inside a class method
-tv.add_an_attribute()
-
+# Add an attribute manually, with a simple assignment
 # Attributes are accessed through the '.' (dot) operator
-print (tv.current_channel)
-
-# Each instance gets its own copy of the attributes
+tv.x = 1
+print (tv.x)
+# This attribute is not shared with other instances of the class
 another_tv = Television()
-another_tv.add_an_attribute()
-# Changing the attribute for one will not affect other instances of the class
-tv.current_channel = 5
-# The following line will print 1, not 5
-print(another_tv.current_channel)
+print(another_tv.x)

@@ -2,28 +2,21 @@
 \PY{k}{class} \PY{n+nc}{Television}\PY{p}{:}
     \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
 \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
-    \PY{k}{def} \PY{n+nf}{add\PYZus{}an\PYZus{}attribute}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Add a class attribute (remember the meaning of \PYZsq{}self\PYZsq{}) \PYZdq{}\PYZdq{}\PYZdq{}}
-        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{current\PYZus{}channel} \PY{o}{=} \PY{l+m+mi}{1}
+    \PY{k}{pass}
 
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
-\PY{c+c1}{\PYZsh{} Add an attribute manually from outside the class}
-\PY{n}{tv}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{1}
-\PY{c+c1}{\PYZsh{} Add an attribute from inside a class method}
-\PY{n}{tv}\PY{o}{.}\PY{n}{add\PYZus{}an\PYZus{}attribute}\PY{p}{(}\PY{p}{)}
-
+\PY{c+c1}{\PYZsh{} Add an attribute manually, with a simple assignment}
 \PY{c+c1}{\PYZsh{} Attributes are accessed through the \PYZsq{}.\PYZsq{} (dot) operator}
-\PY{k}{print} \PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{current\PYZus{}channel}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} Each instance gets its own copy of the attributes}
+\PY{n}{tv}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{k}{print} \PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} This attribute is not shared with other instances of the class}
 \PY{n}{another\PYZus{}tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
-\PY{n}{another\PYZus{}tv}\PY{o}{.}\PY{n}{add\PYZus{}an\PYZus{}attribute}\PY{p}{(}\PY{p}{)}
-\PY{c+c1}{\PYZsh{} Changing the attribute for one will not affect other instances of the class}
-\PY{n}{tv}\PY{o}{.}\PY{n}{current\PYZus{}channel} \PY{o}{=} \PY{l+m+mi}{5}
-\PY{c+c1}{\PYZsh{} The following line will print 1, not 5}
-\PY{k}{print}\PY{p}{(}\PY{n}{another\PYZus{}tv}\PY{o}{.}\PY{n}{current\PYZus{}channel}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{another\PYZus{}tv}\PY{o}{.}\PY{n}{x}\PY{p}{)}
 
 [Output]
 1
-1
+Traceback (most recent call last):
+  File "snippets/class_attributes_1.py", line 13, in <module>
+    print(another_tv.x)
+AttributeError: 'Television' object has no attribute 'x'
 \end{Verbatim}
