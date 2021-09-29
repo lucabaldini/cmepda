@@ -492,20 +492,18 @@
   \frametitle{Pythonic encapsulation with properties}
   
   \begin{itemize}
-    \small
     \item The possibility of making variables "private" (enforced or not) is not enough of course,
           because sometimes we still want to let the user read or even modify the value of the attribute
-    \bigskip
+    \medskip
     \item The "old" solution for that is providing access functions (the infamous "getters/setters")
-    \bigskip
+    \medskip
     \item But the awsome solution is using \alert{properties} (since Python 2.2)
-    \bigskip
+    \medskip
     \item Properties look similar to getters and setters, but with a twist: you keep
           accessing the attribute with the dot operator
-    \bigskip
-    \item That is a \emph{huge} difference
-    \bigskip
-    \item Let's explain why with an example: suppose you have the following class for 2-D vectors
+    \medskip
+    \item In order to understand why this makes a \emph{huge} difference let's 
+          start with an example: suppose you have a class for 2-D vectors
   \end{itemize}
   
 \end{frame}
@@ -578,7 +576,7 @@
 
 
 \begin{frame}
-  \frametitle{Pythonic encapsulation with properties}
+  \frametitle{Properties to emulate attributes}
   \input{pygments/vector2d_property}
 \end{frame}
 
@@ -587,6 +585,23 @@
   \input{pygments/vector2d_property_setter}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Make attributes read-only using properties}
+  \input{pygments/class_tv_encapsulation_properties}
+\end{frame}
+
+\begin{frame}
+\frametitle{Final note on properties}
+  \begin{itemize}
+    \item Bottom line: when writing a class, you don't need to make attributes
+          private right from the start
+    \medskip
+    \item You can start with public attributes, and use properties later to
+          enforce access/modification rules
+    \medskip
+    \item That way you only write the code that you really need
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Interface vs implementation mindset}
