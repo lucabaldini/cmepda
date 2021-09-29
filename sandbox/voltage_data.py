@@ -65,7 +65,7 @@ class VoltageData:
 
 if __name__ == '__main__':
     """ Here we test the functionalities of our class. These are not proper
-    UnitTest - which you will se in a future lesson."""
+    UnitTest - which you will study in a future lesson."""
     # Load some data
     t, v = numpy.loadtxt('sandbox/sample_data_file.txt', unpack=True)
     # Thest the constructor
