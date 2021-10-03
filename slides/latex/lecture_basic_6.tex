@@ -25,7 +25,8 @@
   \frametitle{Introducing the Vector2d class}
   
   \begin{itemize}
-    \item Suppose we want to create a class for managing 2D vectors
+    \item Suppose we want to create a class for managing 2D vectors\footnote{%
+      The content of this lesson is vastly based on the the book '\emph{Fluent Python}' by Luciano Ramalho}
     \bigskip
     \item That's just for learning: there are already plenty of libraries for
           doing array operations - like numpy!
@@ -188,9 +189,11 @@
     \item We need a contaner for that and we will use \emph{array} from the 
           array library
     \medskip
+    \item This is an example of \alert{composition}
+    \medskip
     \item Question for you: why not a list or a tuple?
     \medskip
-    \item \emph{array} uses a typecode (a single character) for picking the
+    \item Note: \emph{array} uses a typecode (a single character) for picking the
           type. 'd' is the typecode for float numbers in double precision. 
   \end{itemize}
   
@@ -243,7 +246,7 @@
   \frametitle{An iterable vector}
   
   \begin{itemize}
-    \item Now our vector behave a bit like a native python list
+    \item Now our vector behaves a bit like a native python list
     \medskip
     \item However a list has a very powerful feature we miss: it's \alert{iterable}
     \medskip
@@ -254,7 +257,7 @@
           \emph{\_\_next\_\_} special method, which is used to retrieve elements
           one at a time
     \medskip
-    \item We will not dicuss iterator any further here: instead, we will just
+    \item We will not dicuss iterators any further here: instead, we will just
           exploit composition and borrow the \emph{\_\_iter\_\_} method from the 
           underlying array
   \end{itemize}
@@ -370,16 +373,19 @@
     \item With a special method - of course: \emph{\_\_call\_\_}
     \medskip
     \item Every object implementing a \emph{\_\_call\_\_} method is called \alert{callable}
-    \medskip
-    \item A vector is not a good example for implementing it, let's try something
-          different!
   \end{itemize}
   
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{A simple call counter}
+  \frametitle{A simple callable for a straight line}
+  \input{pygments/callable_line}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Create a call counter}
   \input{pygments/callable}
 \end{frame}
 
@@ -401,7 +407,6 @@
     \item The fit works as usual
    \end{itemize}  
 \end{frame}
-
 
 
 \begin{frame}
