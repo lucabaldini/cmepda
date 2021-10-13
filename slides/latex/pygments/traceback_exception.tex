@@ -1,0 +1,23 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/traceback\_exception.py}},commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Printing the exception with the \PYZsq{}traceback\PYZsq{} module \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k+kn}{import} \PY{n+nn}{traceback}
+\PY{k+kn}{import} \PY{n+nn}{os}
+
+\PY{k}{try}\PY{p}{:}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i\PYZus{}do\PYZus{}not\PYZus{}exist.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{myfile}\PY{p}{:}
+        \PY{k}{pass}
+\PY{k}{except} \PY{n}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} Log exception to file}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{traceback.log}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{w}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{logfile}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} This will print the full exception}
+        \PY{n}{traceback}\PY{o}{.}\PY{n}{print\PYZus{}exception}\PY{p}{(}\PY{n}{e}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{p}{,} \PY{n}{e}\PY{p}{,} \PY{n}{e}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}traceback\PYZus{}\PYZus{}}\PY{p}{,} \PY{n+nb}{file}\PY{o}{=}\PY{n}{logfile}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} Since Python 3.10 this was simplified into:}
+        \PY{c+c1}{\PYZsh{} traceback.print\PYZus{}exception(e)}
+    \PY{n}{os}\PY{o}{.}\PY{n}{system}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cat traceback.log}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+[Output]
+Traceback (most recent call last):
+  File "snippets/traceback_exception.py", line 6, in <module>
+    with open ('i_do_not_exist.txt') as myfile:
+FileNotFoundError: [Errno 2] No such file or directory: 'i_do_not_exist.txt'
+\end{Verbatim}

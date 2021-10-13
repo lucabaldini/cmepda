@@ -1,0 +1,18 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/traceback\_tb.py}},commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Printing the traceback with the \PYZsq{}traceback\PYZsq{} module \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k+kn}{import} \PY{n+nn}{traceback}
+\PY{k+kn}{import} \PY{n+nn}{sys}
+
+\PY{k}{try}\PY{p}{:}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i\PYZus{}do\PYZus{}not\PYZus{}exist.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{myfile}\PY{p}{:}
+        \PY{k}{pass}
+\PY{k}{except} \PY{n}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+    \PY{c+c1}{\PYZsh{} The tracebak is stored as an attribute of the exception}
+    \PY{c+c1}{\PYZsh{} By default print\PYZus{}tb() output is redirected to the stderr, but you can }
+    \PY{c+c1}{\PYZsh{} change that by setting the \PYZsq{}file\PYZsq{} argument}
+    \PY{n}{traceback}\PY{o}{.}\PY{n}{print\PYZus{}tb}\PY{p}{(}\PY{n}{e}\PY{o}{.}\PY{n}{\PYZus{}\PYZus{}traceback\PYZus{}\PYZus{}}\PY{p}{,} \PY{n+nb}{file}\PY{o}{=}\PY{n}{sys}\PY{o}{.}\PY{n}{stdout}\PY{p}{)}
+
+[Output]
+  File "snippets/traceback_tb.py", line 6, in <module>
+    with open ('i_do_not_exist.txt') as myfile:
+\end{Verbatim}

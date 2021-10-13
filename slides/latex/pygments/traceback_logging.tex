@@ -1,0 +1,18 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/traceback\_logging.py}},commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Showing the tracebak with logging\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k+kn}{import} \PY{n+nn}{logging}
+\PY{n}{logger} \PY{o}{=} \PY{n}{logging}\PY{o}{.}\PY{n}{Logger}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{demo}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{k}{try}\PY{p}{:}
+    \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i\PYZus{}do\PYZus{}not\PYZus{}exist.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{myfile}\PY{p}{:}
+        \PY{k}{pass}
+\PY{k}{except} \PY{n}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+    \PY{n}{logger}\PY{o}{.}\PY{n}{exception}\PY{p}{(}\PY{n}{e}\PY{p}{)}
+
+[Output]
+[Errno 2] No such file or directory: 'i_do_not_exist.txt'
+Traceback (most recent call last):
+  File "snippets/traceback_logging.py", line 6, in <module>
+    with open ('i_do_not_exist.txt') as myfile:
+FileNotFoundError: [Errno 2] No such file or directory: 'i_do_not_exist.txt'
+\end{Verbatim}
