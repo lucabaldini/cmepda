@@ -2,7 +2,6 @@
 \PY{k}{def} \PY{n+nf}{parse\PYZus{}line}\PY{p}{(}\PY{n}{line}\PY{p}{)}\PY{p}{:}
     \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Parse a line of the file and return the values as float\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{values} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-    \PY{c+c1}{\PYZsh{} the following two lines may generate exceptions if they fails!}
     \PY{n}{time} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
     \PY{n}{tension} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
     \PY{k}{return} \PY{n}{time}\PY{p}{,} \PY{n}{tension}

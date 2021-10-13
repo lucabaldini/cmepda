@@ -15,7 +15,7 @@ for i, fib in enumerate(fibonacci()):
         fib_numbers.append(fib)
 print(fib_numbers)
       
-# Another way to do that  is using 'islice' from itertools
+# Another way of doing that is using 'islice' from itertools
 import itertools
 # Generator expression
 fib_gen = (fib for fib in itertools.islice(fibonacci(), max_n))

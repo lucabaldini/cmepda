@@ -16,7 +16,7 @@
         \PY{n}{fib\PYZus{}numbers}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{fib}\PY{p}{)}
 \PY{k}{print}\PY{p}{(}\PY{n}{fib\PYZus{}numbers}\PY{p}{)}
       
-\PY{c+c1}{\PYZsh{} Another way to do that  is using \PYZsq{}islice\PYZsq{} from itertools}
+\PY{c+c1}{\PYZsh{} Another way of doing that is using \PYZsq{}islice\PYZsq{} from itertools}
 \PY{k+kn}{import} \PY{n+nn}{itertools}
 \PY{c+c1}{\PYZsh{} Generator expression}
 \PY{n}{fib\PYZus{}gen} \PY{o}{=} \PY{p}{(}\PY{n}{fib} \PY{k}{for} \PY{n}{fib} \PY{o+ow}{in} \PY{n}{itertools}\PY{o}{.}\PY{n}{islice}\PY{p}{(}\PY{n}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{max\PYZus{}n}\PY{p}{)}\PY{p}{)}

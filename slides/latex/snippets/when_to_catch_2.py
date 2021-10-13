@@ -1,7 +1,6 @@
 def parse_line(line):
     """ Parse a line of the file and return the values as float"""
     values = line.strip('\n').split(' ')
-    # the following two lines may generate exceptions if they fails!
     time = float(values[0])
     tension = float(values[1])
     return time, tension

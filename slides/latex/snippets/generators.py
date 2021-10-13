@@ -8,5 +8,5 @@ for i in range(4):  # generators act like iterators in for loop
 
 data = [12, -1, 5]
 square_data_generator = (x**2 for x in data) # generator expression!
-for square_datum in square_data_generator: # again, 
+for square_datum in square_data_generator: # again, works like an iterator
     print(square_datum)
