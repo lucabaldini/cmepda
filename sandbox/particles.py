@@ -12,9 +12,9 @@ class Particle:
             - charge (in e)
             - momentum [optional] in (MeV/c)
         """
-        self.name = name
-        self.mass = mass
-        self.charge = charge
+        self._name = name
+        self._mass = mass
+        self._charge = charge
         self.momentum = momentum
 
     def print_info(self):
@@ -22,6 +22,18 @@ class Particle:
         message = 'Particle "{}": mass = {:.3f} MeV/c^2, charge = {} e, '\
                   'momentum = {:.3f} MeV/c'
         print(message.format(self.name, self.mass, self.charge, self.momentum))
+
+    @property
+    def name(self):
+        return self._name
+    
+    @property
+    def mass(self):
+        return self._mass
+        
+    @property
+    def charge(self):
+        return self._charge
 
     @property
     def momentum(self):
