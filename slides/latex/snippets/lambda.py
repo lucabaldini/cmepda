@@ -3,7 +3,7 @@ multiply = lambda x, y: x * y
 # Use it
 print(multiply(5, -1))
 
-# Typical use is inside generator functions
+# Typical use is inside generator expressions
 numbers = range(10)
 squares = list(map(lambda n: n**2, numbers))
 print(squares)
