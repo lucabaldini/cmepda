@@ -8,88 +8,79 @@ class VoltageData:
     times."""
 
     def __init__(self, times, voltages):
-        """ times and voltages are two iterables of the same length."""
+        """ Constructor from two iterables of the same length."""
         t = numpy.array(times, dtype=numpy.float64)
         v = numpy.array(voltages, dtype=numpy.float64)
+        # Put together the arrays in a single matrix with column_stack
         self._data = numpy.column_stack([t, v])
         self.spline = interpolate.InterpolatedUnivariateSpline(self.timestamps,
                                                                self.voltages,
                                                                k=3)
+    @classmethod
+    def from_file(cls, file_path):
+        """ Alternate constructor from a data file, exploiting load_txt()"""
+        t, v = numpy.loadtxt(file_path, unpack=True)
+        return cls(t, v) 
+
 
     @property
     def timestamps(self):
+        # Use the slice syntax to select the first column
         return self._data[:, 0]
 
     @property
     def voltages(self):
+        # Use the slice syntax to select the second column
         return self._data[:, 1]
 
     def __len__(self):
-        """ Return the number of entries (measurements)."""
+        """ Number of measurements (or rows in the file, which is the same) """
         return len(self._data)
 
     def __getitem__(self, index):
-        """Random access"""
+        """Random access. We use composition and simply call 
+        __getitem__ from _data. """
         return self._data[index]
 
     def __iter__(self):
-        return iter(self._data)
+        """Return the values row by row.
+        We use a generator expression here. The syntax is very readible!"""
+        for i in range(len(self)):
+            yield self._data[i, :]
+        # Also works: return iter(data)
 
-    def __str__(self):
+    def __repr__(self):
         """ Print values row-by-row."""
         row_fmt = '{:d}) {:.1f} {:.2f}'
-        output_rows = []
-        for i, entry in enumerate(self):
-            row = row_fmt.format(i, entry[0], entry[1])
-            output_rows.append(row)
-        return '\n'.join(output_rows)
-        #return '\n'.join([row_fmt.format(i, entry[0], entry[1]) \
-        #                  for i, entry in enumerate(self)])
+        # Use a generator expression
+        return '\n'.join(row_fmt.format(i, entry[0], entry[1]) \
+                         for i, entry in enumerate(self))
 
-    def plot(self, ax=None, fmt='bo--', **kwargs):
-        """ Plot the data using matplotlib.pyplot."""
-        if ax is not None:
-            plt.sca(ax)
-        else:
-            plt.figure('voltages vs times')
-        plt.plot(self.timestamps, self.voltages, fmt, **kwargs)
-        plt.xlabel('Time [s]')
-        plt.ylabel('Voltage [mV]')
-        plt.grid(True)
-        return plt.gca()
+    def __repr__(self):
+        """ Print the full content row by row """
+        return '\n'.join('{} {}'.format(row[0], row[1]) for row in self)
+    
+    def __str__(self):
+        """ Print the full content row-by-row with a nice formatting"""
+        row_fmt = 'Row {} -> {:.1f} s, {:.2f} mV'
+        return '\n'.join(row_fmt.format(i, entry[0], entry[1]) \
+                         for i, entry in enumerate(self))
 
     def __call__(self, t):
         """ Return the voltage value interpolated at time t"""
         return self.spline(t)
 
-
-if __name__ == '__main__':
-    """ Here we test the functionalities of our class. These are not proper
-    UnitTest - which you will study in a future lesson."""
-    # Load some data
-    t, v = numpy.loadtxt('sandbox/sample_data_file.txt', unpack=True)
-    # Thest the constructor
-    v_data = VoltageData(t, v)
-    # Test len()
-    assert len(v_data) == len(t)
-    # Test the timestamps attribute
-    assert numpy.all(v_data.voltages == v)
-    # Test the voltages attribute
-    assert numpy.all(v_data.timestamps == t)
-    # Test square parenthesis
-    assert v_data[3, 1] == v[3]
-    assert v_data[-1, 0] == t[-1]
-    # Test slicing
-    assert numpy.all(v_data[1:5, 1] == v[1:5])
-    # Test iteration
-    for i, entry in enumerate(v_data):
-        assert entry[0] == t[i]
-        assert entry[1] == v[i]
-    # Test printing
-    print(v_data)
-    # Test plotting
-    v_data.plot(fmt='ko', markersize=5, label='normal voltage')
-    x_grid = numpy.linspace(min(t), max(t), 200)
-    plt.plot(x_grid, v_data(x_grid), 'r-', label='spline')
-    plt.legend()
-    plt.show()
+    def plot(self, ax=None, fmt='bo', **plot_options):
+       """ Draw the data points using matplotlib.pyplot."""
+       from matplotlib import pyplot as plt
+       # The user can provide an existing figure to add the plot, otherwise we
+       # create a new one.
+       if ax is not None:
+           plt.sca(ax) # sca (Set Current Axes) selects the given figure
+       else:
+           ax = plt.figure('voltage_vs_time')
+       plt.plot(self.timestamps, self.voltages, fmt, **plot_options)
+       plt.xlabel('Time [s]')
+       plt.ylabel('Voltage [mV]')
+       plt.grid(True)
+       return ax # We return the axes, just in case 
