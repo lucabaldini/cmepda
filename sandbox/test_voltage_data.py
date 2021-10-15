@@ -1,3 +1,5 @@
+import numpy
+from matplotlib import pyplot as plt
 from voltage_data import VoltageData
 
 def run_tests():
