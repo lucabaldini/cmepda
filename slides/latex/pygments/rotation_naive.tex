@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/rotation\_naive.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{numpy}
+
+\PY{k}{def} \PY{n+nf}{rotate}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{theta}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Naive implementation. This works, but is inefficient \PYZhy{} we have to}
+\PY{l+s+sd}{    calculate cos(theta) and sin(theta) for each pair (x,y)! \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{c} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
+    \PY{n}{s} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
+    \PY{n}{x\PYZus{}rot} \PY{o}{=} \PY{n}{c} \PY{o}{*} \PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{s} \PY{o}{*} \PY{n}{y}
+    \PY{n}{y\PYZus{}rot} \PY{o}{=} \PY{n}{s} \PY{o}{*} \PY{n}{x} \PY{o}{+} \PY{n}{c} \PY{o}{*} \PY{n}{y}
+    \PY{k}{return} \PY{n}{x\PYZus{}rot}\PY{p}{,} \PY{n}{y\PYZus{}rot}
+
+\PY{n}{x}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{0.}
+\PY{n}{theta} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{4}
+\PY{k}{print}\PY{p}{(}\PY{n}{rotate}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{theta}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Rotation of pi/2}
+    
+\PY{k}{def} \PY{n+nf}{efficient\PYZus{}rotate}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c\PYZus{}theta}\PY{p}{,} \PY{n}{s\PYZus{}theta}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Efficient rotation. The user gives cos and sin, so they are not}
+\PY{l+s+sd}{    calculated for each pixel \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{x\PYZus{}rot} \PY{o}{=} \PY{n}{c} \PY{o}{*} \PY{n}{x} \PY{o}{\PYZhy{}} \PY{n}{s} \PY{o}{*} \PY{n}{y}
+    \PY{n}{y\PYZus{}rot} \PY{o}{=} \PY{n}{s} \PY{o}{*} \PY{n}{x} \PY{o}{+} \PY{n}{c} \PY{o}{*} \PY{n}{y}
+    \PY{k}{return} \PY{n}{x\PYZus{}rot}\PY{p}{,} \PY{n}{y\PYZus{}rot}
+    
+\PY{n}{c} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
+\PY{n}{s} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{efficient\PYZus{}rotate}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c}\PY{p}{,} \PY{n}{s}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} The syntax is very ugly!}
+
+[Output]
+(0.7071067811865476, 0.7071067811865475)
+(0.7071067811865476, 0.7071067811865475)
+\end{Verbatim}

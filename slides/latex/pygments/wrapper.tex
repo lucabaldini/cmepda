@@ -8,7 +8,7 @@
     
     \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:} 
        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}We passs the arguments as *arg, **kwargs, because this is the most}
-\PY{l+s+sd}{       general form in Python: we can collect any comination of arguments like}
+\PY{l+s+sd}{       general form in Python: we can collect any combination of arguments like}
 \PY{l+s+sd}{       that. Note that we have access to both \PYZsq{}func\PYZsq{} and \PYZsq{}n\PYZsq{}, as they are stored}
 \PY{l+s+sd}{       in the closure of \PYZsq{}wrapper\PYZsq{}\PYZdq{}\PYZdq{}\PYZdq{}}
        \PY{n}{result} \PY{o}{=} \PY{n}{func}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)} \PY{c+c1}{\PYZsh{} Pass the arguments to the wrapped fucntion}

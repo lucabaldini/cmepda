@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/decorator\_repeat.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{functools} \PY{k+kn}{import} \PY{n}{wraps}
+
+\PY{k}{def} \PY{n+nf}{repeat}\PY{p}{(}\PY{n}{num\PYZus{}times}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Repeat a function call a given number of times\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf}{decorator}\PY{p}{(}\PY{n}{function}\PY{p}{)}\PY{p}{:}
+        \PY{n+nd}{@wraps}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+        \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+            \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}times}\PY{p}{)}\PY{p}{:}
+                \PY{n}{function}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+        \PY{k}{return} \PY{n}{wrapper}
+    \PY{k}{return} \PY{n}{decorator}
+
+\PY{c+c1}{\PYZsh{} usage}
+\PY{n+nd}{@repeat}\PY{p}{(}\PY{n}{num\PYZus{}times}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+\PY{k}{def} \PY{n+nf}{greet}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{n}{greet}\PY{p}{(}\PY{p}{)}
+
+[Output]
+Hello!
+Hello!
+Hello!
+Hello!
+\end{Verbatim}
