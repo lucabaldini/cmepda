@@ -50,14 +50,8 @@ class VoltageData:
         # Also works: return iter(data)
 
     def __repr__(self):
-        """ Print values row-by-row."""
-        row_fmt = '{:d}) {:.1f} {:.2f}'
-        # Use a generator expression
-        return '\n'.join(row_fmt.format(i, entry[0], entry[1]) \
-                         for i, entry in enumerate(self))
-
-    def __repr__(self):
         """ Print the full content row by row """
+        # Use a generator expression
         return '\n'.join('{} {}'.format(row[0], row[1]) for row in self)
     
     def __str__(self):
