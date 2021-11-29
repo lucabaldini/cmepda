@@ -1,5 +1,5 @@
 def raising_function():
-    # You can pass useful message to the exceptions you raise
+    # You can pass an useful message to the exceptions you raise
     raise RuntimeError('this is a useful debug message') 
 
 try:

@@ -10,15 +10,15 @@ class Vector2d:
     def module(self):
         return math.sqrt(self.x**2 + self.y**2)
        
-    def nice_print(self):
+    def info(self):
         print ('Vector2d({}, {})'.format(self.x, self.y))
-   
+         
     def add(self, other):
         return Vector2d(self.x + other.x, self.y + other.y)
        
 v = Vector2d(3., -1.)
-v.nice_print()
+v.info()
 print(v.module())
 z = Vector2d(1., 1.5)
 t = v.add(z)
-t.nice_print()
+t.info()

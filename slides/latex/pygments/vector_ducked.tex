@@ -19,7 +19,7 @@
         \PY{k}{return} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{tuple}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} tuple() accept an iterable}
     
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}abs\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{sum}\PY{p}{(}\PY{n}{x} \PY{o}{*} \PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} generator expression}
+        \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{hypot}\PY{p}{(}\PY{o}{*}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
     
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}add\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} zip returns a sequence of pairs from two iterables\PYZdq{}\PYZdq{}\PYZdq{}}

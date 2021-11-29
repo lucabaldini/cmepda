@@ -109,7 +109,7 @@
   
   \smallskip
   
-  \centering\includegraphics[width=0.9\textwidth]{thiobe.png}
+  \centering\includegraphics[width=0.9\textwidth]{tiobe2021.png}
   
   \smallskip
   
@@ -206,7 +206,7 @@
     \item How would that be represented in the code?
     \smallskip
       \begin{itemize}
-      \item The state can be represented by some attributes (variables):
+      \item The state can be represented by some \alert{attributes} (variables):
       \begin{itemize}
         \item A boolean can represent the ON/OFF state
         \item For the currently displayed channel you can use an integer
@@ -215,7 +215,7 @@
 
       \medskip
     
-      \item The behaviour canb be implemented through the methods:
+      \item The behaviour can be implemented through the \alert{methods}:
       \smallskip
       \begin{itemize}
         \item For example the turn\_on() and turn\_off() functions may change the value of the variable
@@ -261,6 +261,12 @@
 
 
 \begin{frame}
+  \frametitle{Attributes}
+  \input{pygments/class_attributes_2}
+\end{frame}
+
+
+\begin{frame}
   \frametitle{Constructor}
   
   \begin{itemize}
@@ -271,7 +277,7 @@
     \item Luckily there is a solution for that: the class \alert{constructor}
     \medskip
     \item The constructor is a special method that is called automatically each time
-          a class istance is created
+          a class instance is created
     \medskip
     \item A specificity of the constructor is that it cannot return anything
     \medskip
@@ -329,7 +335,7 @@
   
   \begin{itemize}
     \small
-    \item Each class has a namespace. Plus, each istance of the class get its own additional namespace
+    \item Each class has a namespace. Plus, each instance of the class get its own additional namespace
     \medskip
     \item The class namespace is automatically visible from each instance namespace, but not the opposite
     \medskip
@@ -339,6 +345,8 @@
     \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
     \medskip
     \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
+    \medskip
+    \item Class attributes are useful to set class constants, or default values, or share data among instances 
   \end{itemize}
   
 \end{frame}
@@ -347,7 +355,7 @@
 \begin{frame}
   \frametitle{Class attributes}
   \framesubtitle{(And their strange behaviour)}
-  \input{pygments/class_attributes_2}
+  \input{pygments/class_attributes_3}
 \end{frame}
 
 
@@ -368,7 +376,7 @@
     \medskip
     \item Class attributes and methods (globally called members) are accessed through the '.' operator
     \medskip
-    \item All the class methods get the object istance as their first argument (usually named 'self')
+    \item All the class methods get the object instance as their first argument (usually named 'self')
     \medskip
     \item You should declare class attributes in the constructor a.k.a. the \emph{\_\_init\_\_} function
     \medskip
@@ -435,36 +443,6 @@
 
 
 \begin{frame}
-  \frametitle{Advantages of encapsulation}
-  
-  \begin{itemize}
-    \item This is a good idea for several reasons:
-    
-    \medskip
-    
-    \begin{itemize}
-      \item The development of a part (e.g. `the television') is clearly separated
-            from the rest of the project (e.g. `the dvd reader')
-      \medskip
-      \item An object can be reused in different contexts: you can easily connect
-            the same TV to the dvd reader, the game consol or the VHS, 
-            provided that the required interface (port + cable) is the same
-      \medskip
-      \item You can even change your object, for example buy a new model,
-            and, as long as the interfaces are the same, you will still be able 
-            to use it in the same way!
-    \end{itemize}
-    
-    \medskip
-  
-    \item These advantages may be extremely important for large-scale project!
-
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
   \frametitle{Challenge: how do you get \emph{real} encapsulation?}
   \begin{itemize}
     \item At this point you may be wondering: I can read and modify any class attribute 
@@ -479,40 +457,23 @@
 
 
 \begin{frame}
-  \frametitle{How do you get \emph{real} encapsulation?}
-  \framesubtitle{Digression - the boring languages}
+  \frametitle{Pythonic encapsulation}
   
   \begin{itemize}
     \item In languages like C++ you can explicitly declare that some class
           attributes (and methods) are \emph{private}
-    \medskip
-    \item Private attributes cannot be accessed outside the class - the compiler enforce that!
-    \medskip
-    \item There is this sort of common wisdom that dictates that \emph{all} class data should be private
-    \medskip
-    \item If you really want to provide access to some of them, you can use the infamous 'getters' and 'setters' methods
-    \medskip
-    \item That's a lot of code to write - plus, it's not the pythonic way!
-  \end{itemize}
-  
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Pythonic encapsulation}
-  
-  \begin{itemize}
+    \smallskip
     \item In Python there is no concept of \emph{enforced} private attributes
-    \medskip
+    \smallskip
     \item However, there exists a convention that any attribute/method name prepended by one or two underscore(s) should be considered "private"
-    \medskip
+    \smallskip
     \item It's like a warning for the class user: you should never access that directly!
-    \medskip
+    \smallskip
     \item In the case of two underscores Python will actually do a subtle thing to help keeping the data private -- it will 
           prepend \_\emph{classname} to the actual attribute name (see next example)
-    \medskip
+    \smallskip
     \item However, not everyone in the Python community loves that
-    \medskip
+    \smallskip
     \item "Never, ever use two leading underscore. This is annoyngly private"\\
            \vspace{0.02\textheight}
            \footnotesize [\emph{Alex Martelli}, member of the Python Software Foundation, author of 'Python in a Nutshell' and co-author of 'The Python cookbook']
@@ -528,52 +489,119 @@
 
 
 \begin{frame}
-  \frametitle{Pythonic encapsulation}
+  \frametitle{Pythonic encapsulation with properties}
   
   \begin{itemize}
-    \small
     \item The possibility of making variables "private" (enforced or not) is not enough of course,
           because sometimes we still want to let the user read or even modify the value of the attribute
-    \bigskip
-    \item The "old" solution for that is providing getters/setters
-    \bigskip
+    \medskip
+    \item The "old" solution for that is providing access functions (the infamous "getters/setters")
+    \medskip
     \item But the awsome solution is using \alert{properties} (since Python 2.2)
-    \bigskip
+    \medskip
     \item Properties look similar to getters and setters, but with a twist: you keep
           accessing the attribute with the dot operator
-    \bigskip
-    \item That is a \emph{huge} advantage: it means you can start without them, and add the code only if really needed!
-    \bigskip
-    \item Let's compare the two methods in the following example
+    \medskip
+    \item In order to understand why this makes a \emph{huge} difference let's 
+          start with an example: suppose you have a class for 2-D vectors
   \end{itemize}
   
 \end{frame}
 
-
 \begin{frame}
   \frametitle{Example of a class without encapsulation}
-  \input{pygments/class_tv_encapsulation_none}
+  \input{pygments/vector2d_xy}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Changing your class}
+  \begin{itemize}
+    \item Suppose you later realize that you use your Vector2d a lot for performing rotations
+    \medskip
+    \item It would be much faster to store the angle and the module, instead of x and y,
+          as the rotation would reduce to a simple addition of the angles
+    \medskip
+    \item You may think of rewriting your class in that way\dots
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Changing your class}
+  \input{pygments/vector2d_rtheta}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The problem}
+  \begin{itemize}
+    \item \dots now, however, you have a big problem: your old code is broken!
+    \medskip
+    \item In every place where your were calling \emph{v.x} or \emph{v.module()}
+          now you get an error that needs to be fixed
+    \medskip
+    \item If other people use your code that is even worse, because you are breaking \emph{their} code
+    \medskip
+    \item Without properties the solution would have been to design the class from
+          the start with private attributes and access functions
+  \end{itemize}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Old-style encapsulation: never do that!}
-  \input{pygments/class_tv_encapsulation_old}
+  \input{pygments/vector2d_old_enc}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enter properties}
+  \begin{itemize}
+    \item The class data are now "encapsulated", but that is still not ideal:
+    \medskip
+    \begin{enumerate}
+    \item You have written a lot of code just to provide access to a bunch of
+          variables
+    \medskip
+    \item You will have to write even more methods if you want to let the user
+          modify that variables as well (e.g. \emph{set\_x(), set\_y()} and so on)
+    \medskip
+    \item You have to write all this code right from the start, even if you 
+          never need it, otherwise you run the risk of getting screwed later
+    \end{enumerate}
+    \medskip
+    \item \alert{properties} solve the problem by \emph{emulating attributes}
+  \end{itemize}
 \end{frame}
 
 
-
 \begin{frame}
-  \frametitle{Pythonic encapsulation with properties}
-  \input{pygments/class_tv_encapsulation_properties_verbose}
+  \frametitle{Properties to emulate attributes}
+  \input{pygments/vector2d_property}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Setter properties}
+  \input{pygments/vector2d_property_setter}
+\end{frame}
 
 \begin{frame}
-  \frametitle{Even more pythonic encapsulation}
+  \frametitle{Make attributes read-only using properties}
   \input{pygments/class_tv_encapsulation_properties}
 \end{frame}
 
+\begin{frame}
+\frametitle{Final note on properties}
+  \begin{itemize}
+    \item Bottom line: when writing a class, you don't need to make attributes
+          private right from the start
+    \medskip
+    \item You can start with public attributes, and use properties later to
+          enforce access/modification rules
+    \medskip
+    \item That way you only write the code that you really need
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
   \frametitle{Interface vs implementation mindset}

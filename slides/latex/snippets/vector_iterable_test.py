@@ -7,7 +7,7 @@ vec = Vector([1., 2., 4.])
 def filter_function(x):
     return x > 3.
     
-filtered = [x for x in (filter(filter_function, vec))] # list comprehension
+filtered = [x for x in filter(filter_function, vec)] # list comprehension
 print(filtered)
 
 # Print all the permutations of two elements

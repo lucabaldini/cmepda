@@ -1,0 +1,29 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/vector2d\_old\_enc.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{math}
+
+\PY{k}{class} \PY{n+nc}{Vector2d}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class representing a Vector2d. Old\PYZhy{}style encapsulation.\PYZdq{}\PYZdq{}\PYZdq{}}   
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{y}\PY{p}{)}
+   
+    \PY{k}{def} \PY{n+nf}{x}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x}
+       
+    \PY{k}{def} \PY{n+nf}{y}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y}
+   
+    \PY{k}{def} \PY{n+nf}{module}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+       
+    \PY{k}{def} \PY{n+nf}{angle}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{atan2}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x}\PY{p}{)}
+  
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{.}\PY{n}{x}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{v}\PY{o}{.}\PY{n}{y}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{.}\PY{n}{module}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{v}\PY{o}{.}\PY{n}{angle}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+
+[Output]
+3.0 -1.0
+3.1622776601683795 -0.3217505543966422
+\end{Verbatim}

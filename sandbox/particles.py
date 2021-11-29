@@ -12,21 +12,25 @@ class Particle:
             - charge (in e)
             - momentum [optional] in (MeV/c)
         """
-        self.name = name
+        self._name = name
         self._mass = mass
         self._charge = charge
         self.momentum = momentum
 
     def print_info(self):
         """ Print particle info in a nice, formatted way"""
-        message = 'Particle "{}": '
-        message += 'mass = {:.3f} MeV/c^2, charge = {} e, momentum = {:.3f} MeV/c'
+        message = 'Particle "{}": mass = {:.3f} MeV/c^2, charge = {} e, '\
+                  'momentum = {:.3f} MeV/c'
         print(message.format(self.name, self.mass, self.charge, self.momentum))
 
     @property
+    def name(self):
+        return self._name
+    
+    @property
     def mass(self):
         return self._mass
-
+        
     @property
     def charge(self):
         return self._charge
@@ -38,8 +42,8 @@ class Particle:
     @momentum.setter
     def momentum(self, value):
         if (value < 0):
-            print('Cannot set the momentum to a value inferior to zero.')
-            print('The momentum will be set to zero!')
+            print('Cannot set the momentum to a negative number!')
+            print('The momentum will be set to zero.')
             self._momentum = 0.
         else:
             self._momentum = value

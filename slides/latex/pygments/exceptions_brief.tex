@@ -1,0 +1,17 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/exceptions\_brief.py}},commandchars=\\\{\}]
+\PY{k}{def} \PY{n+nf}{cut\PYZus{}before}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{p}{,} \PY{n}{substring}\PY{p}{)}\PY{p}{:}
+    \PY{k}{try}\PY{p}{:}
+        \PY{n}{result} \PY{o}{=} \PY{n}{input\PYZus{}string}\PY{p}{[}\PY{p}{:}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{n}{substring}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This line is not executed if an exception is raised in the try block}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{return} \PY{n}{result}
+    \PY{c+c1}{\PYZsh{} Catch the correct exception type with \PYZsq{}except\PYZsq{}}
+    \PY{k}{except} \PY{n+ne}{ValueError}\PY{p}{:}
+        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This line is executed only if a ValueError is raised in the try block}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{n}{cut\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{cut\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+[Output]
+This line is not executed if an exception is raised in the try block
+This line is executed only if a ValueError is raised in the try block
+\end{Verbatim}

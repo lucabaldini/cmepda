@@ -18,7 +18,7 @@ class Vector:
         return str(tuple(self)) # tuple() accept an iterable
     
     def __abs__(self):
-        return math.sqrt(sum(x * x for x in self)) # generator expression
+        return math.hypot(*self._components)
     
     def __add__(self, other):
         """ zip returns a sequence of pairs from two iterables"""

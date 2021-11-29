@@ -7,7 +7,7 @@ def add_n_wrapper(func, n): # We take the wrapped function as argument
     
     def wrapper(*args, **kwargs): 
        """We passs the arguments as *arg, **kwargs, because this is the most
-       general form in Python: we can collect any comination of arguments like
+       general form in Python: we can collect any combination of arguments like
        that. Note that we have access to both 'func' and 'n', as they are stored
        in the closure of 'wrapper'"""
        result = func(*args, **kwargs) # Pass the arguments to the wrapped fucntion

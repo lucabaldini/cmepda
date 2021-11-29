@@ -5,20 +5,20 @@
 \PY{k}{print}\PY{p}{(}\PY{n}{text}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} returns \PYZhy{}1 if the substring is not found}
 
 \PY{c+c1}{\PYZsh{} Why is this dangerous?}
-\PY{k}{def} \PY{n+nf}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{p}{,} \PY{n}{substring}\PY{p}{)}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Cut a string up to two positions before that of the given substring and}
-\PY{l+s+sd}{    return it \PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k}{def} \PY{n+nf}{cut\PYZus{}before}\PY{p}{(}\PY{n}{input\PYZus{}string}\PY{p}{,} \PY{n}{substring}\PY{p}{)}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Cut a string from the beginning up to the position before that of}
+\PY{l+s+sd}{    the given substring, then return it \PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{pos} \PY{o}{=} \PY{n}{input\PYZus{}string}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{n}{substring}\PY{p}{)}
-    \PY{k}{return} \PY{n}{input\PYZus{}string}\PY{p}{[}\PY{p}{:}\PY{p}{(}\PY{n}{pos}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}
+    \PY{k}{return} \PY{n}{input\PYZus{}string}\PY{p}{[}\PY{p}{:}\PY{p}{(}\PY{n}{pos}\PY{p}{)}\PY{p}{]}
 
 \PY{c+c1}{\PYZsh{} If the substring exists in the string everything works fine}
-\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} What will be the output here?}
-\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}two\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{cut\PYZus{}before}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{We all live in a Yellow Submarine}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
 
 [Output]
 3
 -1
-We all live in a
-We all live in a Yellow Submari
+We all live in a 
+We all live in a Yellow Submarin
 \end{Verbatim}

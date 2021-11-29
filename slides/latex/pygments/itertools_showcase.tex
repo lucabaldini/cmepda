@@ -1,0 +1,31 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/itertools\_showcase.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{itertools} \PY{k+kn}{import} \PY{n}{accumulate}\PY{p}{,} \PY{n}{product}\PY{p}{,} \PY{n}{chain}\PY{p}{,} \PY{n}{groupby}\PY{p}{,} \PY{n}{permutations}\PY{p}{,} \PY{n}{combinations}
+\PY{k+kn}{import} \PY{n+nn}{operator}
+
+\PY{n}{l1} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{accumulate}\PY{p}{(}\PY{n}{l1}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{accumulate}\PY{p}{(}\PY{n}{l1}\PY{p}{,} \PY{n}{func}\PY{o}{=}\PY{n}{operator}\PY{o}{.}\PY{n}{mul}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{combinations}\PY{p}{(}\PY{n}{l1}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{l2} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{]}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{permutations}\PY{p}{(}\PY{n}{l2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{product}\PY{p}{(}\PY{n}{l1}\PY{p}{,} \PY{n}{l2}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{is\PYZus{}even}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{n} \PY{o}{\PYZpc{}} \PY{l+m+mi}{2} \PY{o}{==} \PY{l+m+mi}{0}
+
+\PY{n}{l3} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{chain}\PY{p}{(}\PY{n}{l1}\PY{p}{,} \PY{n}{l2}\PY{p}{)}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} groupby expect the list to be sorted by the grouping function}
+\PY{n}{l3}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{n}{key}\PY{o}{=}\PY{n}{is\PYZus{}even}\PY{p}{)}
+\PY{k}{for} \PY{n}{k}\PY{p}{,} \PY{n}{g} \PY{o+ow}{in} \PY{n}{groupby}\PY{p}{(}\PY{n}{l3}\PY{p}{,} \PY{n}{key}\PY{o}{=}\PY{n}{is\PYZus{}even}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n+nb}{list}\PY{p}{(}\PY{n}{g}\PY{p}{)}\PY{p}{)}
+
+[Output]
+[1, 3, 6, 10]
+[1, 2, 6, 24]
+[(1, 2, 3), (1, 2, 4), (1, 3, 4), (2, 3, 4)]
+[(5, 6), (6, 5)]
+[(1, 5), (1, 6), (2, 5), (2, 6), (3, 5), (3, 6), (4, 5), (4, 6)]
+False [1, 3, 5]
+True [2, 4, 6]
+\end{Verbatim}

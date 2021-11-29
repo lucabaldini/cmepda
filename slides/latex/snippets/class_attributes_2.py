@@ -1,19 +1,19 @@
 class Television:
     """ Class describing a televsion.
     """
-    NUMBER_OF_CHANNELS = 999 # This is a class attribute   
-    
-# We don't need an instance to access class attributes
-print(Television.NUMBER_OF_CHANNELS)
-# But we can also access it through instances
-tv = Television()
-print(tv.NUMBER_OF_CHANNELS)
+    def add_an_attribute(self):
+        """ Add a class attribute (remember the meaning of 'self') """
+        self.current_channel = 1
 
-# Changing the attribute in the class namespace will change it for every instance
+tv = Television()
+# Add an attribute from inside a class method
+tv.add_an_attribute()
+print (tv.current_channel)
+
+# Again, attributes are not shared
 another_tv = Television()
-Television.NUMBER_OF_CHANNELS = 998
-print(another_tv.NUMBER_OF_CHANNELS)
-# But assigning to that attribute in an instance namespace will create a copy!
-# Result: the other instances won't be affected!
-tv.NUMBER_OF_CHANNELS = 997
-print(another_tv.NUMBER_OF_CHANNELS)
+another_tv.add_an_attribute()
+# Changing the attribute for one will not affect other instances of the class
+tv.current_channel = 5
+# The following line will print 1, not 5
+print(another_tv.current_channel)

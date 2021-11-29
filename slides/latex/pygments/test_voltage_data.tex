@@ -8,18 +8,18 @@
     \PY{c+c1}{\PYZsh{} Column access by simple name}
     \PY{n}{t} \PY{o}{=} \PY{n}{data\PYZus{}file}\PY{o}{.}\PY{n}{timestamps}
     \PY{n}{v} \PY{o}{=} \PY{n}{data\PYZus{}file}\PY{o}{.}\PY{n}{voltages}
-    \PY{k}{print}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{v}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
     
     \PY{c+c1}{\PYZsh{} Iterable by row}
     \PY{k}{for} \PY{n}{row} \PY{o+ow}{in} \PY{n}{data\PYZus{}file}\PY{p}{:}
         \PY{k}{pass}
 
     \PY{c+c1}{\PYZsh{} Proper representation and printing}
-    \PY{k}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}\PY{p}{)}
-    \PY{k}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{)}
 
     \PY{c+c1}{\PYZsh{} Item access with slicing}
-    \PY{k}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{data\PYZus{}file}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{5}\PY{p}{,} \PY{p}{:}\PY{p}{]}\PY{p}{)}
 
     \PY{c+c1}{\PYZsh{} Constructor from iterables (list, tuple, array)}
     \PY{n}{data\PYZus{}file\PYZus{}2} \PY{o}{=} \PY{n}{VoltageData}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{n+nb}{tuple}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}

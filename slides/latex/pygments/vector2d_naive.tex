@@ -11,18 +11,18 @@
     \PY{k}{def} \PY{n+nf}{module}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
        
-    \PY{k}{def} \PY{n+nf}{nice\PYZus{}print}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf}{info}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{k}{print} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Vector2d(\PYZob{}\PYZcb{}, \PYZob{}\PYZcb{})}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{)}
-   
+         
     \PY{k}{def} \PY{n+nf}{add}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{n}{Vector2d}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x} \PY{o}{+} \PY{n}{other}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y} \PY{o}{+} \PY{n}{other}\PY{o}{.}\PY{n}{y}\PY{p}{)}
        
 \PY{n}{v} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{)}
-\PY{n}{v}\PY{o}{.}\PY{n}{nice\PYZus{}print}\PY{p}{(}\PY{p}{)}
+\PY{n}{v}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
 \PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{.}\PY{n}{module}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 \PY{n}{z} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{)}
 \PY{n}{t} \PY{o}{=} \PY{n}{v}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{z}\PY{p}{)}
-\PY{n}{t}\PY{o}{.}\PY{n}{nice\PYZus{}print}\PY{p}{(}\PY{p}{)}
+\PY{n}{t}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
 
 [Output]
 Vector2d(3.0, -1.0)

@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/vector2d\_property.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{math}
+
+\PY{k}{class} \PY{n+nc}{Vector2d}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class representing a Vector2d \PYZhy{} storing module and angle.\PYZdq{}\PYZdq{}\PYZdq{}}   
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{module}\PY{p}{,} \PY{n}{angle}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{module} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{module}\PY{p}{)}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{angle} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{angle}\PY{p}{)}
+   
+    \PY{n+nd}{@property}
+    \PY{k}{def} \PY{n+nf}{x}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{module} \PY{o}{*} \PY{n}{math}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{angle}\PY{p}{)}
+    
+    \PY{n+nd}{@property}
+    \PY{k}{def} \PY{n+nf}{y}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{module} \PY{o}{*} \PY{n}{math}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{angle}\PY{p}{)}
+  
+\PY{n}{v} \PY{o}{=} \PY{n}{Vector2d}\PY{p}{(}\PY{l+m+mf}{3.1622776601683795}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.3217505543966422}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{.}\PY{n}{module}\PY{p}{,} \PY{n}{v}\PY{o}{.}\PY{n}{angle}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} We don\PYZsq{}t need to call v.x() anymore \PYZhy{} we can simply use v.x!}
+\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n}{v}\PY{o}{.}\PY{n}{y}\PY{p}{)}
+
+[Output]
+3.1622776601683795 -0.3217505543966422
+3.0 -1.0
+\end{Verbatim}

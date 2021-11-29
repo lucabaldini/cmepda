@@ -1,0 +1,24 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/staticmethod.py}},commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{math} 
+
+\PY{k}{class} \PY{n+nc}{Angle}\PY{p}{:}
+    
+    \PY{c+c1}{\PYZsh{} A bunch of useful methods....}
+    
+    \PY{n+nd}{@staticmethod}
+    \PY{k}{def} \PY{n+nf}{rad2deg}\PY{p}{(}\PY{n}{rad}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} No self argument here}
+        \PY{k}{return} \PY{n}{rad} \PY{o}{*} \PY{l+m+mf}{180.}\PY{o}{/}\PY{n}{math}\PY{o}{.}\PY{n}{pi}
+    
+    \PY{n+nd}{@staticmethod}
+    \PY{k}{def} \PY{n+nf}{deg2rad}\PY{p}{(}\PY{n}{deg}\PY{p}{)}\PY{p}{:}
+        \PY{c+c1}{\PYZsh{} No self argument here}
+        \PY{k}{return} \PY{n}{deg} \PY{o}{*} \PY{n}{math}\PY{o}{.}\PY{n}{pi} \PY{o}{/} \PY{l+m+mf}{180.}
+        
+\PY{k}{print}\PY{p}{(}\PY{n}{Angle}\PY{o}{.}\PY{n}{rad2deg}\PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{Angle}\PY{o}{.}\PY{n}{deg2rad}\PY{p}{(}\PY{l+m+mf}{45.}\PY{p}{)}\PY{p}{)}
+
+[Output]
+90.0
+0.7853981633974483
+\end{Verbatim}

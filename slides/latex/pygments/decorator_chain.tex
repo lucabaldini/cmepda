@@ -1,0 +1,25 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/decorator\_chain.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{decorator\PYZus{}samples} \PY{k+kn}{import} \PY{n}{clocked}\PY{p}{,} \PY{n}{repeat}\PY{p}{,} \PY{n}{print\PYZus{}function\PYZus{}info}
+
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} To chain the effect of more than one decorator just stack them above the }
+\PY{l+s+sd}{function definition \PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{n+nd}{@print\PYZus{}function\PYZus{}info}
+\PY{n+nd}{@repeat}\PY{p}{(}\PY{n}{num\PYZus{}times}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+\PY{n+nd}{@clocked}
+\PY{k}{def} \PY{n+nf}{greet}\PY{p}{(}\PY{n}{name}\PY{p}{)}\PY{p}{:}
+    \PY{k}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Hello \PYZob{}name\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    
+\PY{n}{greet}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Bob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+[Output]
+Calling function 'greet'
+Positional arguments = ('Bob',)
+Keyword arguments = {}
+Hello Bob
+Function greet executed in 4.000000000000531e-06 s
+Hello Bob
+Function greet executed in 2.000000000002e-06 s
+Hello Bob
+Function greet executed in 2.000000000002e-06 s
+\end{Verbatim}

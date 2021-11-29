@@ -24,8 +24,8 @@
 \begin{frame}
   \frametitle{Functions inside functions}
   \begin{itemize}
-    \item Function in python are \alert{first class object}
-    \item The name is a bit misleading, but what actually means is that functions
+    \item Functions in python are \alert{first class object}
+    \item The name is a bit misleading, but what it actually means is that functions
           can be passed as argument to other functions and returned as result from
           other functions
     \item This shouldn't surprise you much: functions are objects of a
@@ -46,21 +46,52 @@
 
 
 \begin{frame}
-  \frametitle{Colusers and free variables}
+  \frametitle{Colsures and free variables}
   \begin{itemize}
-    \item When a function is created inside another function it has access to the local variables
-          of the outer function, even after its scope ended
+    \item When a function is created inside another function it has access to
+          the local variables of the outer function, even after its scope ended
+    \smallskip
     \item This is techincally possible because those varibales are kept in a special
           space of memory, the \alert{closure} of the inner function
+    \smallskip
     \item Such variables are called \alert{free variables}
+    \smallskip
+    \item In this way, a function can mantain a \alert{state} within its closure
+    \smallskip
+    \item This makes possible the use of functions for tasks that in other
+          languages are reserved to classes
+    \smallskip
+    \item Let's take a look at the following example
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An inefficient rotation}
+  \input{pygments/rotation_naive}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An efficient rotation}
+  \input{pygments/rotator}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{A caveat about free variables}
+  \begin{itemize}  
     \item Note: if you \emph{assign} to a free variable in the inner function, 
           by default a new, local variable is created instead!
+    \medskip
     \item To avoid this you have to explictly declare that you want to access the variable in
           the closure using the \alert{nonlocal} keyword
+    \medskip
     \item Remember: \emph{'Explicit is better then implicit'}
   \end{itemize}
-  
 \end{frame}
+
 
 
 \begin{frame}
@@ -110,7 +141,7 @@
   \frametitle{Decorators}
   \begin{itemize}
     \item Often, when you wrap a function, you don't want to change
-          it's name, so you reassign the wrapped funtion to its old name
+          it's name, so you reassign the wrapped function to its old name
     \item In fact, this techinque is so common that python introduced a special
           syntax for it: decorators
     \item A decorated function has simply the name of the wrapper added with
@@ -143,7 +174,6 @@
     \item A class method can access class attributes but not instance attributes
     \item The main use for class methods is to provide \alert{alternate constructors}
   \end{itemize}
-  
 \end{frame}
 
 
@@ -154,115 +184,68 @@
 
 
 \begin{frame}
-  \frametitle{Context manager}
+  \frametitle{The @staticmethod decorator}
   \begin{itemize}
-    \item A \alert{context manager} in Python is any class implementing the \emph{\_\_enter\_\_} and
-          \emph{\_\_exit\_\_} method
-    \item It is used with the syntax \emph{with expression [as alias]:}
-    \item We have already seen context managers at work in opening files
-    \item Their most important use is to make sure that all resources are correctly released
-          \alert{even when an excpetion is raised}
-    \item However we can do other things with them
+    \item Another built-in decorator (though less used than \emph{@classmethod})
+          is \alert{\emph{@staticmethod}}
+    \smallskip
+    \item A static method is a method that does not receive the class or instance
+          as first argument
+    \smallskip
+    \item Because of that, a static method does not alter the state of the class
+    \smallskip
+    \item In some sense a static method is only loosely coupled to the class - 
+          it is defined inside the class body just for convenience (maybe for
+          semantical proximity) but it could be defined outside the class as well
   \end{itemize}
-  
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Measuring time with a context manager}
-  \input{pygments/context_manager}
+  \frametitle{Static method}
+  \input{pygments/staticmethod}
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{A recap excercise}
+  \frametitle{Passing arguments to a decorator}
   \begin{itemize}
-    \item As an exercise to recap the previous lessons, we want to write a 
-          small class for representing a sequence of measurements
-    \item In this case they are voltages taken at different times
-    \item The features that our class needs to have are summarized by the following
-          test module (not a real unittest):
+    \item Making a decorator that accepts arguments is somewhat more complex
+    \smallskip
+    \item The basic idea is that you need to add yet another level: a 
+          \emph{decorator factory} function
+    \smallskip
+    \item So you now end up with three levels:
+    \smallskip
+    \begin{itemize}
+      \item The decorator factory that takes the parameters for the decorators, creates it and retruns it
+      \item The decorator that takes as input a function and returns the wrapper
+      \item The wrapper that implements the actual additional functionalities;
+            usually takes as input the same parameters as the decorated/wrapped
+            function and returns its results (if any)
+    \end{itemize}
   \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Decorception}
+  \input{pygments/decorator_factory}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Repeat}
+  \input{pygments/decorator_repeat}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Chaining decorators}
+  \input{pygments/decorator_chain}
+\end{frame} 
   
 \end{frame}
-
-
-\begin{frame}
-  \frametitle{Test of functionalities}
-  \input{pygments/test_voltage_data}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{File we want to read}
-  \centering
-  \includegraphics[width=0.8\textwidth]{voltage_file.png}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Solution - part 1}
-  \input{pygments/voltage_data_1}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Solution - part 2}
-  \input{pygments/voltage_data_2}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Solution - part 3}
-  \input{pygments/voltage_data_3}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Output plot}
-  \centering
-  \includegraphics[width=0.8\textwidth]{voltage_vs_time.png}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Put yourself to test}
-  \begin{itemize}
-    \item Manage a third column - optional - with voltage errors
-    \item Write a proper unittest module for the class
-    \item The full current version of the class is in snippets/voltage\_data.py
-  \end{itemize}  
-  
-\end{frame}
-
-
-%\begin{frame}
-%  \frametitle{Why is that useful?}
-%  \framesubtitle{A real life example}
-%  \begin{itemize}
-%    \item Suppose you have an image where each pixel is represented by a pair
-%          of coordinates and a value z (like the charge from a pixel imaging detector)
-%    \item You want to rotate each image so that the x-axis is the principal 
-%          axis of the inertia ellipsoid of the 2-D distribution of z
-%    \item For each image you need first to calculate the direction of the principal
-%          axis, then rotate the coordinates of each pixel with the rotation matrix
-%  \end{itemize}
-%  
-%  \[
-%  M=
-%    \begin{pmatrix}
-%      \cos{(\theta)} & \sin{(\theta)} \\
-%      - \sin{(\theta)} & \cos{(\theta)}
-%    \end{pmatrix}
-%  \]
-%  
-%  \begin{itemize}
-%    \item Where $\theta$ is the angle between the principal axis and the x-axis
-%    \item Ho do you write the rotation function?
-%  \end{itemize}
-% 
-%\end{frame}
 
 
 \end{document}

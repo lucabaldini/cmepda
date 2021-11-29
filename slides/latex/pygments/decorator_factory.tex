@@ -1,0 +1,27 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/decorator\_factory.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{functools} \PY{k+kn}{import} \PY{n}{wraps}
+
+\PY{c+c1}{\PYZsh{} This is how a generic decorator with arguments looks like}
+
+\PY{k}{def} \PY{n+nf}{decorator\PYZus{}factory}\PY{p}{(}\PY{o}{*}\PY{n}{params}\PY{p}{)}\PY{p}{:} \PY{c+c1}{\PYZsh{} The signature can be anything}
+    \PY{k}{def} \PY{n+nf}{decorator}\PY{p}{(}\PY{n}{function}\PY{p}{)}\PY{p}{:}
+        \PY{n+nd}{@wraps}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+        \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Decorator arguments: \PYZob{}params\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} some preprocess here}
+            \PY{n}{result} \PY{o}{=} \PY{n}{function}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} some post\PYZhy{}process here}
+            \PY{k}{return} \PY{n}{result}
+        \PY{k}{return} \PY{n}{wrapper}
+    \PY{k}{return} \PY{n}{decorator}
+
+\PY{c+c1}{\PYZsh{} usage}
+\PY{n+nd}{@decorator\PYZus{}factory}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}
+\PY{k}{def} \PY{n+nf}{f}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{x}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+
+\PY{n}{f}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+
+[Output]
+Decorator arguments: (1, 2, 3)
+\end{Verbatim}

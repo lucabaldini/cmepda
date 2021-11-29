@@ -1,0 +1,26 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/callable\_line.py}},commandchars=\\\{\}]
+\PY{k}{class} \PY{n+nc}{Line}\PY{p}{:}
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}Class representing a straight line\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{slope}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,} \PY{n}{intercept}\PY{o}{=}\PY{l+m+mf}{0.}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope} \PY{o}{=} \PY{n}{slope}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept} \PY{o}{=} \PY{n}{intercept}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}call\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope} \PY{o}{*} \PY{n}{x} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}
+        
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}str\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ x + }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{p}{)}
+    
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Slope = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{, Intercept = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{p}{)}
+
+\PY{n}{line} \PY{o}{=} \PY{n}{Line}\PY{p}{(}\PY{n}{slope}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{p}{,} \PY{n}{intercept}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{line}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{line}\PY{p}{(}\PY{l+m+mf}{2.}\PY{p}{)}\PY{p}{)}
+
+[Output]
+y = -2.0 x + 1.0
+Slope = -2.0, Intercept = 1.0
+-3.0
+\end{Verbatim}

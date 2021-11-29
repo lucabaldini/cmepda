@@ -38,4 +38,4 @@ splrand
 - the package should have continuus integration
 - the package should have adequate documentation
 - the documentation should be on readthedocs
-- [optional] add a rudimentary release manager to atomate the tagging process
+- [optional] add a rudimentary release manager to automate the tagging process

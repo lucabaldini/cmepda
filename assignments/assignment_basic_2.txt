@@ -1,29 +1,17 @@
 Module: basic Python
-Assignment #2 (October 12, 2020)
-
+Assignment #2 (Set 30, 2021)
 
 --- Goal
-Write a class to handle a sequence of voltage measurements at different times.
+Write a program to explore the properties of a few elementary Particles.
+The program must contain a Base class Particle and two Child classes, Proton and Alpha, that inherit from it.
 
 --- Specifications
-- the class name must be VoltgeData
-- the class must be initialized with two generic iterables of the same length
-  holding the numerical values of times and voltages
-- the class must expose two attributes: 'times' and 'voltages', each returning
-  a numpy array of type numpy.float64 of the corresponding quantity.
-- the values should be accessible with the familiar square parenthesis syntax:
-  the first index must refer to the entry, the second selects time (0) or 
-  voltage (1). Slicing must als work.
-- calling the len() function on a class instance must return the number of 
-  entries
-- the class must be iterable: at each iteration, a numpy array of two 
-  values (time and voltage) corresponding to an entry in the file must be
-  returned
-- the print() function must work on class instance. The output must show one
-  entry (time and voltage), as well as the entry index, per line.
-- the class must have a plot() method that plots data using matplotlib.
-  The plot function must accept 'ax' argument, so that the user can select
-  the axes where the plot is added (with a new figure as default). The user
-  must also be able to pass other plot options as usual.
-
-
+- instances of the class Particle must be initialized with their mass, charge, and name
+- the class constructor must also accept (optionally) and store one and only one of the following quantities: energy, momentum, beta or gamma
+- whatever the choice, the user should be able to read and set any of the
+  above mentioned quantites using just the '.' (dot) operator e.g.
+  print(my_particle.energy), my_particle.beta = 0.5
+- attempts to set non physical values should be rejected
+- the Particle class must have a method to print the Particle information in
+  a formatted way
+- the child classes Alpha and Protons must use class attributes to store their mass, charge and name
