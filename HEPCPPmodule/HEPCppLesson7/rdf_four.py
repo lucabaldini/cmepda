@@ -1,4 +1,5 @@
 import ROOT
+ROOT.gInterpreter.ProcessLine('#include "../HEPCppLesson1/Assignment2/fourvector.h"')
 rdf = ROOT.RDataFrame("Events",
                       "root://eospublic.cern.ch//eos/root-eos/cms_opendata_2012_nanoaod/Run2012B_DoubleMuParked.root");
 
@@ -22,7 +23,10 @@ float mass(float pt1, float eta1, float phi1, float pt2,float eta2, float phi2)
 ROOT.gInterpreter.ProcessLine(cppcode)
 
 #add mass
-mass=sel2.Define("Dimuon_mass","mass(Muon_pt[0],Muon_eta[0],Muon_phi[0],Muon_pt[1],Muon_eta[1],Muon_phi[1])")
+#mu4=sel2.Define("Muon_p4","ROOT::VecOps::Construct<ROOT::Math::PtEtaPhiMVector>(Muon_pt,Muon_eta,Muon_phi,Muon_mass)")
+mu4=sel2.Define("Muon_p4","ROOT::VecOps::Construct<VectorPtEtaPhiMass<float>>(Muon_pt,Muon_eta,Muon_phi,Muon_mass)")
+#ass=sel2.Define("Dimuon_mass","mass(Muon_pt[0],Muon_eta[0],Muon_phi[0],Muon_pt[1],Muon_eta[1],Muon_phi[1])")
+mass=mu4.Define("Dimuon_mass","(Muon_p4[0]+Muon_p4[1]).m()")
 
 outCols=ROOT.vector("std::string")() #this creates a c++ std::vector<std::string> and wrap it in python
 outCols.push_back("Dimuon_mass") 
