@@ -30,7 +30,7 @@
     \medskip
     \begin{itemize}
       \item You can extend a list using append() or insert()
-      \item Trying to access a non-existent index in a list triggers a specific errror (\emph{IndexError})
+      \item Trying to access a non-existent index in a list triggers a specific error (\emph{IndexError})
       \item You can iterate on a list using the handy for-loop Python syntax
       \item and so on\dots
      \end{itemize}
@@ -61,7 +61,7 @@
     \bigskip
     \item The idea is: keep together the variables and the code that manipulates them
     \bigskip
-    \item As the name suggests, OOP is very often adopted for modelling systems that are naturally
+    \item As the name suggests, OOP is very often adopted for modeling systems that are naturally
           described in terms of objects  
     \begin{itemize}
       \smallskip
@@ -129,10 +129,10 @@
   \frametitle{OOP: Classes and Objects}
   
   \begin{itemize}
-  \item Basic defnitions:
+  \item Basic definitions:
     \begin{itemize}
     \item A \alert{class} is a blueprint for creating objects
-    \item An \alert{object} is a concrete relization of a class
+    \item An \alert{object} is a concrete realization of a class
     \end{itemize}
 
   \smallskip
@@ -148,7 +148,7 @@
   
   \item The relationship is similar to the one between types and variables:
     \begin{itemize} 
-    \item A type is an abstract concept, describing how a varibale is
+    \item A type is an abstract concept, describing how a variable is
           represented in memory
     \item A variable is a concrete realization of it
     \item You can have several variables of the same type (like several integers
@@ -188,7 +188,7 @@
       \smallskip
       \begin{itemize}
       \item Pressing the `power' button will turn ON/OFF
-      \item Rotating the volume knob will increase/decrease the volumne
+      \item Rotating the volume knob will increase/decrease the volume
       \item Using the buttons on the remote control will change displayed 
             channel, brightness, contrast etc\dots
       \item And don't forget you need to plug-in before use!
@@ -310,7 +310,7 @@
     \item 'Namespaces are one honking great idea -- let's do more of those!'
             (\emph{Tim Peters - The Zen of Python})
     \medskip
-    \item A \alert{namespace} in Python is a essentially a ditcionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
+    \item A \alert{namespace} in Python is a essentially a dictionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
     \medskip
   \end{itemize}
   
@@ -339,7 +339,7 @@
     \medskip
     \item The class namespace is automatically visible from each instance namespace, but not the opposite
     \medskip
-    \item An attribute in an instance namesespace is an \alert{instance attribute}, and cannot be seen or modified
+    \item An attribute in an instance namespace is an \alert{instance attribute}, and cannot be seen or modified
           by other instances of the class
     \medskip
     \item An attribute in the class namespace is a \alert{class attribute} and is shared among all the instances
@@ -372,7 +372,7 @@
     \medskip
     \item A class is a blueprint for creating objects, each object is an instance of a class
     \medskip
-    \item In Python classes are defined with the 'class' keyword and instanciated with the '()' operator
+    \item In Python classes are defined with the 'class' keyword and instantiated with the '()' operator
     \medskip
     \item Class attributes and methods (globally called members) are accessed through the '.' operator
     \medskip
@@ -497,7 +497,7 @@
     \medskip
     \item The "old" solution for that is providing access functions (the infamous "getters/setters")
     \medskip
-    \item But the awsome solution is using \alert{properties} (since Python 2.2)
+    \item But the awesome solution is using \alert{properties} (since Python 2.2)
     \medskip
     \item Properties look similar to getters and setters, but with a twist: you keep
           accessing the attribute with the dot operator
@@ -680,7 +680,7 @@
     \item Encapsulation in Python is not enforced by the language, but rather relies on conventions
     \medskip
     \item Class members with an underscore at the beginning of their name are
-          considered 'private' and should not be accessed directly oustide the class
+          considered 'private' and should not be accessed directly outside the class
     \smallskip
     \item You can use properties to encapsulate your data at any moment in time - never use 'getters' and 'setters'
     \medskip
@@ -691,7 +691,7 @@
 
 
 \begin{frame}
-  \frametitle{Inerithance}
+  \frametitle{Inheritance}
   \framesubtitle{What and Why}
     
   \begin{itemize}
@@ -706,7 +706,7 @@
     \medskip
     \item If you think about it, these classes will have a lot of code in common
     \medskip
-    \item For example they all need to store their mass, charge, position, velocitiy (or momentum), possibly spin etc\dots
+    \item For example they all need to store their mass, charge, position, velocity (or momentum), possibly spin etc\dots
     \medskip
     \item They may also have similar behaviour, though that is less obvious
     \medskip
@@ -724,7 +724,7 @@
     \small
     \item Many languages - including Python offer a solution for that: \alert{inheritance}
     \medskip
-    \item A class can inherit from another one, automatically obtaining all its functionalities (attributes and methods) and then extending or specialyzing them
+    \item A class can inherit from another one, automatically obtaining all its functionalities (attributes and methods) and then extending or specializing them
     \medskip
     \item The class which we inherit from is called \emph{Base} class, \emph{Parent} class or (in Python) \emph{Superclass}
     \medskip
@@ -732,7 +732,7 @@
     \medskip
     \item In our problem we can imagine to have a base class 'Particle' and many specialized classes inheriting from it
     \medskip
-    \item Inheritance is transtive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and posses all its functionalities)
+    \item Inheritance is transitive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and posses all its functionalities)
   \end{itemize}
   
 \end{frame}
@@ -776,7 +776,7 @@
 
 
 \begin{frame}
-  \frametitle{Inerithance}
+  \frametitle{Inherithance}
   \framesubtitle{A real case example}
   
   \centering
@@ -800,7 +800,7 @@
     \item The concept is simple: just use an object of some class as a member of
           a different one
     \medskip
-    \item For example we can create the classes 'Enigne' and 'Wheel' and than 
+    \item For example we can create the classes 'Engine' and 'Wheel' and than 
           the class 'Car' will have a member of type Engine and 4 members of
           type Wheel
     \medskip
@@ -864,7 +864,7 @@
   \frametitle{Short summary (3)}
     
   \begin{itemize}
-    \item A class can inherit funcionalities from one or more other classes (Inheritance)
+    \item A class can inherit functionalities from one or more other classes (Inheritance)
     \medskip
     \item The class that inherits is call Derived (or Child) class the inherited one is the Base (or Parent) class
     \medskip

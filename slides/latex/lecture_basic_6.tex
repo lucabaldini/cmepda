@@ -186,7 +186,7 @@
     \medskip
     \item Of course we cannot store the components explicitly like before
     \medskip
-    \item We need a contaner for that and we will use \emph{array} from the 
+    \item We need a container for that and we will use \emph{array} from the 
           array library
     \medskip
     \item This is an example of \alert{composition}
@@ -257,7 +257,7 @@
           \emph{\_\_next\_\_} special method, which is used to retrieve elements
           one at a time
     \medskip
-    \item We will not dicuss iterators any further here: instead, we will just
+    \item We will not discuss iterators any further here: instead, we will just
           exploit composition and borrow the \emph{\_\_iter\_\_} method from the 
           underlying array
   \end{itemize}
@@ -296,15 +296,15 @@
   \begin{itemize}
     \item Reuse the same code for different things
     \medskip
-    \item In statically typed languages this is tipically done with inheritance,
+    \item In statically typed languages this is typically done with inheritance,
           e.g. we make Duck and Goose inherits from a base class QuackingBird()
           or something like that
     \medskip
     \item Python is dynamical, so we can use duck typing for that.
-          We just need to implment the quack() method for both Ducks() and Goose() 
+          We just need to implement the quack() method for both Ducks() and Goose() 
           and we are done
     \medskip
-    \item In other words we obtain polymorphism just by satsisfying the required \alert{interface}
+    \item In other words we obtain polymorphism just by satisfying the required \alert{interface}
           (in this case the quack() function)
   \end{itemize}
   
@@ -412,7 +412,7 @@
 \begin{frame}
   \frametitle{Summary}
   \begin{itemize}
-    \item Special methods can beused to greatly enhance the readibility of the code
+    \item Special methods can be used to greatly enhance the readability of the code
     \bigskip
     \item There are tens of special methods in python, covering logical operations,
           mathematical operations, array-style access, iterations, formatting and

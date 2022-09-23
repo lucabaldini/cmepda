@@ -97,9 +97,9 @@
           a piece of code to signal that something went wrong
     \item When an exception is raised the normal flow of the code is interrupted
     \item The program automatically propagate the exception back in the function hierarchy
-          until it found a place where the exception is  \alert{catched} and handled
-    \item If the exception is never catched, not even in the main, the program crash \alert{with a specific error message}
-    \item Cathcing the exception is done with a \emph{try - except} block
+          until it found a place where the exception is  \alert{caught} and handled
+    \item If the exception is never caught, not even in the main, the program crash \alert{with a specific error message}
+    \item Catching the exception is done with a \emph{try - except} block
   \end{itemize}
 \end{frame}
 
@@ -140,7 +140,7 @@
   \begin{itemize}
     \item If that was all, exceptions would only be moderately useful
     \item The real bargain is that you can send back information together with the exception
-    \item In fact you \textit{are sending a full object}: the excetpion iteslf. Surprised?
+    \item In fact you \textit{are sending a full object}: the exception itself. Surprised?
     \item Inside the exception you can report all kind of data useful to reconstruct the exact error,
           which can be used by the caller for debug or to produce meaningful error messages
     \item You can also select which exceptions you catch, leaving the others propagate up
@@ -189,7 +189,7 @@
     \smallskip
     \item Many functions raise an exception when something goes wrong
     \smallskip
-    \item The common approach is: do not chech the input beforehand. Use it and
+    \item The common approach is: do not check the input beforehand. Use it and
           be ready to catch exceptions if any.
     \smallskip
     \item \textit{Easier to ask for forgiveness than permission.} 
@@ -267,13 +267,13 @@
 \begin{frame}
   \frametitle{Custom exceptions}
   \begin{itemize}
-    \item Beside the built-in exceptions provided by Python, you can add your
+    \item Beside the builtin exceptions provided by Python, you can add your
           own custom exceptions by inheriting from the \emph{Exception} class
     \medskip
     \item This serves two purposes:
     \begin{itemize}
       \item Make the exception handling code more specific, and hence more
-            readible
+            readable
       \item Allows you to pass additional data with your exception - in the
             form of attributes of the class - which can be used for debug
             or any other purpose
@@ -299,7 +299,7 @@
   \begin{itemize}
     \item Differently from error flags, which need to be checked as early as
           possible, you are not in a rush with exceptions
-    \item Remeber: your goal is to provide the user a meaningful error message and
+    \item Remember: your goal is to provide the user a meaningful error message and
           useful debug information.
     \item You should catch an exception only when you have enough context to
           do that - which sometimes means waiting a few levels in the hierarchy!
@@ -526,7 +526,7 @@
     \item \alert{Anonymous functions}, or \alert{lambda functions} are a construct typical of \alert{functional programming}
     \item \url{https://en.wikipedia.org/wiki/Lambda_calculus}
     \item \url{https://en.wikipedia.org/wiki/Functional_programming}
-    \item In Python a lambda function is essentially a special sintax for creating a function
+    \item In Python a lambda function is essentially a special syntax for creating a function
           on the fly, without giving it a name
     \item They are limited to \alert{a single expression}, which is returned to the user
     \item Many of the typical uses for lambdas are already covered in python by generator expressions and comprehension,

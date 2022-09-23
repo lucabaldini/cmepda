@@ -46,17 +46,17 @@
 
 
 \begin{frame}
-  \frametitle{Colsures and free variables}
+  \frametitle{Closures and free variables}
   \begin{itemize}
     \item When a function is created inside another function it has access to
           the local variables of the outer function, even after its scope ended
     \smallskip
-    \item This is techincally possible because those varibales are kept in a special
+    \item This is technically possible because those variables are kept in a special
           space of memory, the \alert{closure} of the inner function
     \smallskip
     \item Such variables are called \alert{free variables}
     \smallskip
-    \item In this way, a function can mantain a \alert{state} within its closure
+    \item In this way, a function can maintain a \alert{state} within its closure
     \smallskip
     \item This makes possible the use of functions for tasks that in other
           languages are reserved to classes
@@ -85,7 +85,7 @@
     \item Note: if you \emph{assign} to a free variable in the inner function, 
           by default a new, local variable is created instead!
     \medskip
-    \item To avoid this you have to explictly declare that you want to access the variable in
+    \item To avoid this you have to explicitly declare that you want to access the variable in
           the closure using the \alert{nonlocal} keyword
     \medskip
     \item Remember: \emph{'Explicit is better then implicit'}
@@ -115,7 +115,7 @@
           of functionalities in between - for example it may do some pre-process
           of the input, or change the output in some way, or measure the 
           execution time or whatever we want
-    \item The techinque for creating a wrapper fucntion in Python is:
+    \item The technique for creating a wrapper function in Python is:
     \begin{itemize}
        \item Pass the function that we want to wrap as argument of the outer
              function
@@ -124,7 +124,7 @@
        \item The wrapper calls the wrapped function and adds its functionalities,
              before and/or after the call. It may return the same output or a 
              manipulated one.
-       \item Then from the outer fucntion we return the wrapper
+       \item Then from the outer function we return the wrapper
     \end{itemize}
   \end{itemize}
   
@@ -142,7 +142,7 @@
   \begin{itemize}
     \item Often, when you wrap a function, you don't want to change
           it's name, so you reassign the wrapped function to its old name
-    \item In fact, this techinque is so common that python introduced a special
+    \item In fact, this technique is so common that python introduced a special
           syntax for it: decorators
     \item A decorated function has simply the name of the wrapper added with
           a '@' on top of its declaration
@@ -244,8 +244,6 @@
   \frametitle{Chaining decorators}
   \input{pygments/decorator_chain}
 \end{frame} 
-  
-\end{frame}
 
 
 \end{document}
