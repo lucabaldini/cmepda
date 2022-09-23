@@ -58,7 +58,7 @@ dnnOptions.Append(trainingStrategyString)
 
 # Booking Methods
 # Standard implementation, no dependencies.
-stdOptions =  dnnOptions + ":Architecture=STANDARD"
+stdOptions =  dnnOptions + ":Architecture=CPU"
 factory.BookMethod(loader, TMVA.Types.kDNN, "DNN", stdOptions)
 
 
