@@ -30,7 +30,7 @@ def calculate_z_serial_numpy(maxiter, zs, cs):
     """Calculate output list using Julia update rule"""
     # Initialize the output with zeroes
     output = numpy.zeros(len(zs))
-    # Create an array of indices fo the output array. We will use these indices
+    # Create an array of indices for the output array. We will use these indices
     # to know whic values to increment in the loop
     idx = numpy.arange(len(output))
     for _ in range(maxiter):
