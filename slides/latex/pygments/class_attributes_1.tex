@@ -7,16 +7,16 @@
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} Add an attribute manually, with a simple assignment}
 \PY{c+c1}{\PYZsh{} Attributes are accessed through the \PYZsq{}.\PYZsq{} (dot) operator}
-\PY{n}{tv}\PY{o}{.}\PY{n}{x} \PY{o}{=} \PY{l+m+mi}{1}
-\PY{k}{print} \PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+\PY{n}{tv}\PY{o}{.}\PY{n}{channel} \PY{o}{=} \PY{l+m+mi}{1}
+\PY{n+nb}{print} \PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{channel}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} This attribute is not shared with other instances of the class}
 \PY{n}{another\PYZus{}tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{another\PYZus{}tv}\PY{o}{.}\PY{n}{x}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{another\PYZus{}tv}\PY{o}{.}\PY{n}{channel}\PY{p}{)}
 
 [Output]
 1
 Traceback (most recent call last):
-  File "snippets/class_attributes_1.py", line 13, in <module>
-    print(another_tv.x)
-AttributeError: 'Television' object has no attribute 'x'
+  File "/home/alberto/computing/cmepda/slides/latex/snippets/class_attributes_1.py", line 13, in <module>
+    print(another_tv.channel)
+AttributeError: 'Television' object has no attribute 'channel'
 \end{Verbatim}

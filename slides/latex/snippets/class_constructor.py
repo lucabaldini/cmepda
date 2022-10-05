@@ -9,7 +9,7 @@ class Television:
         self.model = 'Sv32X-553T' # This class attribute is hard-coded
         self.owner = owner # This is set to the value of the argument
     
-    def print_info(self): # Let's see
+    def print_info(self):
         """ Print the model and owner"""
         message = 'This is television model {}, owned by {}'
         print(message.format(self.model, self.owner))
