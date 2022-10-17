@@ -6,7 +6,7 @@ def run_tests():
     """ Here we test the functionalities of our class. These are not proper
     UnitTests."""
     # Load some data
-    t, v = numpy.loadtxt('sandbox/sample_data_file.txt', unpack=True)
+    t, v = numpy.loadtxt('sample_data_file.txt', unpack=True)
     # Test the constructor
     v_data = VoltageData(t, v)
       
@@ -27,7 +27,7 @@ def run_tests():
     assert numpy.all(v_data[1:5, 1] == v[1:5])
 
     # Test constructor from data file
-    v_data_2 = VoltageData.from_file('sandbox/sample_data_file.txt') 
+    v_data_2 = VoltageData.from_file('sample_data_file.txt') 
     # Check that the first row is the same
     assert (v_data_2[0] == v_data[0]).all()    
 

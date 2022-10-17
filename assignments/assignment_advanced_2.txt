@@ -6,7 +6,7 @@ Assignment #5 (October 18, 2021)
 Write a class to handle a sequence of voltage measurements at different times.
 
 --- Specifications
-- the class name must be VoltgeData
+- the class name must be VoltageData
 - the class must be initialized with two generic iterables of the same length
   holding the numerical values of times and voltages
 - alternatively the class can be initialized from a text file
@@ -30,6 +30,7 @@ Write a class to handle a sequence of voltage measurements at different times.
   The plot function must accept an 'ax' argument, so that the user can select
   the axes where the plot is added (with a new figure as default). The user
   must also be able to pass other plot options as usual
+- [optional] support a third optional column for the voltage errors
 - [optional] rewrite the run_tests() function in sandbox/test_voltage_data.py
   as a sequence of proper UnitTests
-- [optional] support a third optional column for the voltage errors
+

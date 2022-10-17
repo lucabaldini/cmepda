@@ -37,7 +37,7 @@ class VoltageData:
     @property
     def voltage_errs(self):
         """ Return the voltage errors as a numpy array."""
-        # If there is no errror column, numpy will raise a IndexError exception.
+        # If there is no error column, numpy will raise a IndexError exception.
         # This is not very explicative for the user: instead we want to raise
         # an AttributeError, which is what you usually get when you call obj.x 
         # and x doesn't exist. So we catch the exception and raise another one.
@@ -86,7 +86,7 @@ class VoltageData:
         # Add the third field only when appropriate
         if self.num_columns() == 3:
             row_fmt += ' {:.2f}'
-        # Generator expression for substituing the {} in the format string with
+        # Generator expression for substituting the {} in the format string with
         # the actual values (lazy evaluation - no loop on the next line).
         row_fmt_gen = (row_fmt.format(i, *row) for i, row in enumerate(self))
         # Eventually join the string with a newline. Note that this is the only
@@ -102,7 +102,7 @@ class VoltageData:
             plt.sca(ax) # sca (set current axes) selects the given figure
         else:
             ax = plt.figure('voltage_vs_time')
-        # It's easier to ask forgivness than permission!
+        # It's easier to ask forgiveness than permission!
         try:
             plt.errorbar(self.timestamps, self.voltages, self.voltage_errs, 
                          fmt=fmt)
