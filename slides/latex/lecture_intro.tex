@@ -8,7 +8,7 @@
 \title{\scriptsize Computing Methods for Experimental Physics and Data Analysis}
 \subtitle{Introduction}
 \date{\today}
-\author{L. Baldini, G. Lamanna, A. Manfreda, A. Retico, A. Rizzi}
+\author{L. Baldini, L. Bianchini, G. Lamanna, A. Retico, A. Rizzi}
 \institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
 \email{luca.baldini@pi.infn.it}
 
@@ -37,13 +37,12 @@
     \item No, but hopefully you'll be able to poke around and find the right
       tool for the job at hand
     \end{itemize}
-  \item What do I need to know in advance?
+  \item Pre-requisites
     \begin{itemize}
     \item Have a vague idea of how a computer operates
     \item If you have ever programmed before that would be
       great!
     \end{itemize}
-  \item \alert{This is our first round: we will adjust along the way}
   \end{itemize}
 \end{frame}
 
@@ -55,16 +54,16 @@
     \pgfmathsetmacro{\dy}{0.25}
     \pgfmathsetmacro{\mw}{90pt}
     \node[cmepdadiagblock, name=basic, minimum width=\mw] at (0.5, \y) {
-      Basic module\\[2pt](Sep. 18--Oct. 19)
+      Basic module\\[2pt](Sep. 16--Oct. 14)
     };
     \node[cmepdadiagblock, name=advanced, minimum width=\mw] at (0.5, \y-\dy) {
-      Advanced module\\[2pt](Oct. 23--Nov. 20)
+      Advanced module\\[2pt](Oct. 15--Nov. 12)
     };
     \node[cmepdadiagblock, name=hep, minimum width=\mw] at (0.25, \y-2*\dy) {
-      Fundamental Interactions\\[2pt](Nov. 21--Dec. 19)
+      Fundamental Interactions\\[2pt](Nov. 18--Dec. 10)
     };
     \node[cmepdadiagblock, name=med, minimum width=\mw] at (0.75, \y-2*\dy) {
-      Medical Physics\\[2pt](Nov. 20--Dec. 18)
+      Medical Physics\\[2pt](Nov. 18--Dec. 10)
     };
     \draw[arrow] (basic.south) to (advanced.north);
     \draw[arrow, out=-90, in=90] (advanced.south) to (hep.north);
@@ -87,7 +86,7 @@
 
 \begin{frame}
   \frametitle{Basic module}
-  \framesubtitle{L. Baldini and A. Manfreda}
+  \framesubtitle{L. Baldini}
   \begin{itemize}
   \item Collaborative tools
     \begin{itemize}
@@ -122,7 +121,7 @@
 
 \begin{frame}
   \frametitle{Advanced module}
-  \framesubtitle{L. Baldini, G. Lamanna, A. Manfreda, A. Rizzi}
+  \framesubtitle{G. Lamanna, A. Rizzi}
   \begin{itemize}
   \item Advanced code development
     \begin{itemize}
@@ -152,7 +151,7 @@
 
 \begin{frame}
   \frametitle{Fundamental Interactions}
-  \framesubtitle{G. Lamanna, A. Rizzi}
+  \framesubtitle{L. Bianchini, G. Lamanna, A. Rizzi}
   \begin{itemize}
   \item Introduction to C++
     \begin{itemize}
@@ -208,22 +207,43 @@
   \frametitle{Logistics}
   \framesubtitle{Timetable and final exam}
   \begin{itemize}
-  \item Timetable: 6 hours a week
+  \item Timetable: $5 + 1$ hours a week
     \begin{itemize}
-    \item Monday, 08:30--10:30 (room G1)
-    \item Monday, 14:30--15:30 (room M-Lab)
-    \item Thursday, 08:30--11:30 (room M-Lab)
+    \item Monday, 16:30--19:30 (room A1)
+      \begin{itemize}
+        \item If everybody agrees: start at 16:30 sharp(-ish), one 15-minutes break,
+          try and be done by 7:00;
+        \item \alert{Last hour (18:30--19:30) typically for practical applications;
+          we might skip it on specific weeks;}
+      \end{itemize}
+    \item Tuesday, 08:30--11:30 (room M-Lab)
     \end{itemize}
-  \item \alert{Lectures are in person!}
-  \item And, of course, the final exam
+  \item Final exam
     \begin{itemize}
-    \item Development of a specific, reasonable-size software project
-      (related to the topics covered in the course)
+    \item Development of a specific, reasonable-sized software project
+    \begin{itemize}
+      \item Related to the topics covered in the course
+      \item We have a list of suggestions, but encourage everybody to come up with
+        original projects---\alert{if you do so reach out to us well in advance to make
+        sure the project is appropriate}
+      \item Projects can be done individually or in pairs
+    \end{itemize}
     \item Two-page description of the project and source code made
-      available in advance
-    \item Oral exam (starting from a presentation of the project)
-    \item \alert{A few questions on the course material from a pre-compiled list}
+      available $\sim 1$~week in advance
+      \begin{itemize}
+        \item We expect a well-structure repository
+        \item \alert{Under no circumstance you should send code by email}
+      \end{itemize}
+    \item Oral exam starts with a presentation of the project
+    \begin{itemize}
+      \item Aim at 10 slides for 15--20 minutes
     \end{itemize}
+    \item \alert{A few questions on the course material from a pre-compiled list}
+    \begin{itemize}
+      \item We expect the answers to the questions to be thorough and in-depth
+    \end{itemize}
+    \end{itemize}
+    \item \alert{List of projects/questions to be updated over the next two weeks}
   \end{itemize}
 \end{frame}
 
