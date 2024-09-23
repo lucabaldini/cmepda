@@ -4,7 +4,7 @@ class Television:
     def __init__(self, owner):
        """ Class constructor"""
        self._owner = owner # owner is private
-    
+
     @property
     def owner(self):
         return self._owner
@@ -12,9 +12,9 @@ class Television:
     @owner.setter
     def owner(self, new_owner):
        """ Make the attribute read-only by acting on the setter"""
-       print('Nope {}. Do you want to steal my tv?'.format(new_owner))
- 
+       print(f'Nope {new_owner}. Do you want to steal my tv?')
+
 tv = Television('Batman')
-print('This tv belongs to {}'.format(tv.owner)) 
+print(f'This tv belongs to {tv.owner}')
 tv.owner = 'Joker'
-print('This tv belongs to {}'.format(tv.owner))
+print(f'This tv belongs to {tv.owner}')

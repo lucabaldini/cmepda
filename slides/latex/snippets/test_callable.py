@@ -13,7 +13,7 @@ y = line(x, 2., 10.) + numpy.random.normal(0, 0.1, len(x))
 # Fit
 counting_func = CallCounter(line)
 popt, pcov = curve_fit(counting_func, x, y, p0=[-1., -100.]) # p0 is mandatory here
-print('Fitted with {} function calls'.format(counting_func.num_calls))
+print(f'Fitted with {counting_func.num_calls} function call(s).')
 
 # Show the results
 m, q = popt

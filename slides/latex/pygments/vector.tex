@@ -3,27 +3,26 @@
 \PY{k+kn}{from} \PY{n+nn}{array} \PY{k+kn}{import} \PY{n}{array}
 
 \PY{k}{class} \PY{n+nc}{Vector}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}    
-    \PY{n}{typecode} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}} \PY{c+c1}{\PYZsh{}We use a class attribute to save the code required for array}
-    
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{TYPE\PYZus{}CODE} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}} \PY{c+c1}{\PYZsh{}We use a class attribute to save the code required for array}
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{components}\PY{p}{)}\PY{p}{:}
-        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{typecode}\PY{p}{,} \PY{n}{components}\PY{p}{)}
-        
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{TYPE\PYZus{}CODE}\PY{p}{,} \PY{n}{components}\PY{p}{)}
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Calling str() of an array produces a string like }
-\PY{l+s+sd}{        array(\PYZsq{}d\PYZsq{}, [1., 2., 3., ...]). We remove everything outside the }
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Calling str() of an array produces a string like}
+\PY{l+s+sd}{        array(\PYZsq{}d\PYZsq{}, [1., 2., 3., ...]). We remove everything outside the}
 \PY{l+s+sd}{        square parenthesis and add our class name at the beginning.\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n}{components} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
         \PY{n}{components} \PY{o}{=}  \PY{n}{components}\PY{p}{[}\PY{n}{components}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
-        \PY{n}{class\PYZus{}name} \PY{o}{=} \PY{n+nb}{type}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}
-        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}(\PYZob{}\PYZcb{})}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{class\PYZus{}name}\PY{p}{,} \PY{n}{components}\PY{p}{)}
+        \PY{k}{return} \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{(}\PY{l+s+si}{\PYZob{}}\PY{n}{components}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}
 
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}str\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
          \PY{k}{return} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{tuple}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Using str() of tuples as before}
-        
+
 \PY{n}{v} \PY{o}{=} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{5.}\PY{p}{,} \PY{l+m+mf}{3.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{8.}\PY{p}{]}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{v}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{v}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{repr}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{)}
 
 [Output]
 (5.0, 3.0, -1.0, 8.0)

@@ -3,27 +3,26 @@
 \PY{k+kn}{from} \PY{n+nn}{array} \PY{k+kn}{import} \PY{n}{array}
 
 \PY{k}{class} \PY{n+nc}{Vector}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}    
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{typecode} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{components}\PY{p}{)}\PY{p}{:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{typecode}\PY{p}{,} \PY{n}{components}\PY{p}{)}
-        
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}getitem\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{index}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} That\PYZsq{}s super easy, as we get to reuse the \PYZus{}\PYZus{}getitem\PYZus{}\PYZus{} of array!\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{[}\PY{n}{index}\PY{p}{]}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}setitem\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{index}\PY{p}{,} \PY{n}{new\PYZus{}value}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Same as \PYZus{}\PYZus{}getitem\PYZus{}\PYZus{}, we just delegate to the \PYZus{}\PYZus{}setitem\PYZus{}\PYZus{} of array\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{o}{=} \PY{n}{new\PYZus{}value}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}len\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Did I just write that we like to delegate? \PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb}{len}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{n}{components} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
         \PY{n}{components} \PY{o}{=}  \PY{n}{components}\PY{p}{[}\PY{n}{components}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
-        \PY{n}{class\PYZus{}name} \PY{o}{=} \PY{n+nb}{type}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}
-        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}(\PYZob{}\PYZcb{})}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{class\PYZus{}name}\PY{p}{,} \PY{n}{components}\PY{p}{)}
+        \PY{k}{return} \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{(}\PY{l+s+si}{\PYZob{}}\PY{n}{components}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}
 \end{Verbatim}

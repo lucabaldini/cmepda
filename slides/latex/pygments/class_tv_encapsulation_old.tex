@@ -16,13 +16,13 @@
     \PY{k}{def} \PY{n+nf}{set\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style setter to control access \PYZhy{} in this case preventing the }
 \PY{l+s+sd}{        attribute from being changed.\PYZdq{}\PYZdq{}\PYZdq{}}
-        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope \PYZob{}\PYZcb{}. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{)}
     
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Batman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} In the following lines we had to change the code!}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 \PY{n}{tv}\PY{o}{.}\PY{n}{set\PYZus{}owner}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Joker}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{get\PYZus{}owner}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 
 [Output]
 This tv belongs to Batman

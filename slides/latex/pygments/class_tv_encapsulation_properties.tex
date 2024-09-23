@@ -5,20 +5,20 @@
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{owner}\PY{p}{)}\PY{p}{:}
        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner} \PY{o}{=} \PY{n}{owner} \PY{c+c1}{\PYZsh{} owner is private}
-    
+
     \PY{n+nd}{@property}
     \PY{k}{def} \PY{n+nf}{owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner}
 
-    \PY{n+nd}{@owner.setter}
+    \PY{n+nd}{@owner}\PY{o}{.}\PY{n}{setter}
     \PY{k}{def} \PY{n+nf}{owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{:}
        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Make the attribute read\PYZhy{}only by acting on the setter\PYZdq{}\PYZdq{}\PYZdq{}}
-       \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope \PYZob{}\PYZcb{}. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{)}
- 
+       \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope }\PY{l+s+si}{\PYZob{}}\PY{n}{new\PYZus{}owner}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Batman}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{owner}\PY{p}{)}\PY{p}{)} 
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to }\PY{l+s+si}{\PYZob{}}\PY{n}{tv}\PY{o}{.}\PY{n}{owner}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{tv}\PY{o}{.}\PY{n}{owner} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Joker}\PY{l+s+s1}{\PYZsq{}}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{tv}\PY{o}{.}\PY{n}{owner}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{This tv belongs to }\PY{l+s+si}{\PYZob{}}\PY{n}{tv}\PY{o}{.}\PY{n}{owner}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 [Output]
 This tv belongs to Batman

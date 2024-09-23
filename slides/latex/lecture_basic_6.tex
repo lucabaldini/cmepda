@@ -4,13 +4,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\graphicspath{{figures/}} 
+\graphicspath{{figures/}}
 
 
 \title{OOP introduction (2/2)}
 \subtitle{Computing Methods for Experimental Physics and Data Analysis}
 \date{Compiled on \today}
-\author{A. Manfreda}
+\author{L. Baldini and A. Manfreda}
 \institute[INFN]{INFN--Pisa}
 \email{alberto.manfreda@pi.infn.it}
 
@@ -23,7 +23,7 @@
 
 \begin{frame}
   \frametitle{Introducing the Vector2d class}
-  
+
   \begin{itemize}
     \item Suppose we want to create a class for managing 2D vectors\footnote{%
       The content of this lesson is vastly based on the the book '\emph{Fluent Python}' by Luciano Ramalho}
@@ -33,7 +33,7 @@
     \bigskip
     \item Anyway let's start coding some useful methods for it
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -46,7 +46,7 @@
 
 \begin{frame}
   \frametitle{The vector problem}
-  
+
   \begin{itemize}
     \item This kind of works but\dots... isn't that ugly?
     \medskip
@@ -57,16 +57,16 @@
     \medskip
     \item In Python there is a tool that allows you to do just that: \alert{special methods}
     \medskip
-    \item Last lesson we saw that special methods (or dunder methods or 
+    \item Last lesson we saw that special methods (or dunder methods or
           magic methods) are methods like \emph{\_\_init\_\_} and got a special
           treatment by the Python interpeter
     \medskip
     \item There are a few tens of special methods in Python. Let's see how they work
   \end{itemize}
-  
+
 \end{frame}
 
-  
+
 \begin{frame}
   \frametitle{Vector2d}
   \framesubtitle{A first look at special methods}
@@ -76,7 +76,7 @@
 
 \begin{frame}
   \frametitle{More on special methods}
-  
+
   \begin{itemize}
     \item And what about \emph{print()}?
     \item There are actually two special methods used for that: \emph{\_\_str\_\_} and \emph{\_\_repr\_\_}
@@ -90,7 +90,7 @@
     \item If there isn't one, it searches for \emph{\_\_repr\_\_}. A defealut \emph{\_\_repr\_\_}
           is automatically generated for you, if you haven't defined one
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -131,11 +131,11 @@
 
 \begin{frame}
   \frametitle{An hashable Vector2d}
-  
+
   \begin{itemize}
     \item Ok now let's try to make our vector2d \emph{hashable}
     \medskip
-    \item Hashable objects can be put in \emph{sets} and used as keys for 
+    \item Hashable objects can be put in \emph{sets} and used as keys for
           dictionaries
     \medskip
     \item To make an object hashable we need to fullfill 3 requirements:
@@ -158,9 +158,9 @@
       \smallskip
       \item Should sample the result space uniformly
     \end{itemize}
-    
+
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -180,13 +180,13 @@
 
 \begin{frame}
   \frametitle{A n-elements vector}
-  
+
   \begin{itemize}
     \item 2d array are boring\dots why not a N-d array?
     \medskip
     \item Of course we cannot store the components explicitly like before
     \medskip
-    \item We need a container for that and we will use \emph{array} from the 
+    \item We need a container for that and we will use \emph{array} from the
           array library
     \medskip
     \item This is an example of \alert{composition}
@@ -194,9 +194,9 @@
     \item Question for you: why not a list or a tuple?
     \medskip
     \item Note: \emph{array} uses a typecode (a single character) for picking the
-          type. 'd' is the typecode for float numbers in double precision. 
+          type. 'd' is the typecode for float numbers in double precision.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -210,21 +210,21 @@
 \begin{frame}
   \frametitle{A n-elements vector}
   \framesubtitle{List-style access}
-  
+
   \begin{itemize}
-    \item Now that we have an arbitrary number of components, we cannot access them like 
+    \item Now that we have an arbitrary number of components, we cannot access them like
           vector.x, vector.y, \dots anymore
     \medskip
     \item What we want is a syntax similar to that of lists: vector[0], vector[1]
           ans so on
     \medskip
-    \item There are two magic methods for that: \emph{\_\_getitem\_\_} for access 
+    \item There are two magic methods for that: \emph{\_\_getitem\_\_} for access
           and \emph{\_\_setitem\_\_} for modifying
     \medskip
     \item While we are at it, we also implement the \emph{\_\_len\_\_} method,
           which allows us to call \emph{len(vector)}
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -244,7 +244,7 @@
 
 \begin{frame}
   \frametitle{An iterable vector}
-  
+
   \begin{itemize}
     \item Now our vector behaves a bit like a native python list
     \medskip
@@ -258,10 +258,10 @@
           one at a time
     \medskip
     \item We will not discuss iterators any further here: instead, we will just
-          exploit composition and borrow the \emph{\_\_iter\_\_} method from the 
+          exploit composition and borrow the \emph{\_\_iter\_\_} method from the
           underlying array
   \end{itemize}
-  
+
 \end{frame}
 
 \begin{frame}
@@ -272,15 +272,15 @@
 
 \begin{frame}
   \frametitle{Duck typing}
-  
+
   \centering
-  \includegraphics[width=0.7\textwidth]{quack.png}  
-  
+  \includegraphics[width=0.7\textwidth]{quack.png}
+
   \bigskip
-  
+
   \centering
   "If it looks like a duck and quacks like a duck, it must be a duck."
-  
+
 \end{frame}
 
 
@@ -292,7 +292,7 @@
 
 \begin{frame}
   \frametitle{Polymorphism}
-  
+
   \begin{itemize}
     \item Reuse the same code for different things
     \medskip
@@ -301,13 +301,13 @@
           or something like that
     \medskip
     \item Python is dynamical, so we can use duck typing for that.
-          We just need to implement the quack() method for both Ducks() and Goose() 
+          We just need to implement the quack() method for both Ducks() and Goose()
           and we are done
     \medskip
     \item In other words we obtain polymorphism just by satisfying the required \alert{interface}
           (in this case the quack() function)
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -341,8 +341,8 @@
     \item With duck typing we can now use any of that for our Vector class -- isn't that cool?
   \end{itemize}
 \end{frame}
- 
- 
+
+
 \begin{frame}
   \frametitle{The power of iterables}
   \input{pygments/vector_iterable_test.tex}
@@ -363,7 +363,7 @@
 
 \begin{frame}
   \frametitle{Fucntion are classes}
-  
+
   \begin{itemize}
     \item Remember that in the past lesson I told you that functions are objects
           of the 'function' class.
@@ -374,7 +374,7 @@
     \medskip
     \item Every object implementing a \emph{\_\_call\_\_} method is called \alert{callable}
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -400,12 +400,12 @@
   \frametitle{Fit hacking}
   \centering
   \includegraphics[width=0.75\textwidth]{fit_with_custom_callable.png}
-  
+
   \medskip
-  
+
   \begin{itemize}
     \item The fit works as usual
-   \end{itemize}  
+   \end{itemize}
 \end{frame}
 
 
@@ -421,7 +421,7 @@
     \item Implementing the required interface in your classes you will be able
           to reuse a lot of code written for the standard containers thanks to
           duck typing, which is the pythonic way to polymorphism
-   \end{itemize}  
+   \end{itemize}
 \end{frame}
 
 

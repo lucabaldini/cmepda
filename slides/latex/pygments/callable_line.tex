@@ -4,15 +4,15 @@
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{slope}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,} \PY{n}{intercept}\PY{o}{=}\PY{l+m+mf}{0.}\PY{p}{)}\PY{p}{:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope} \PY{o}{=} \PY{n}{slope}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept} \PY{o}{=} \PY{n}{intercept}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}call\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope} \PY{o}{*} \PY{n}{x} \PY{o}{+} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}
-        
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}str\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ x + }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{p}{)}
-    
+        \PY{k}{return} \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y = }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ x + }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Slope = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{, Intercept = }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{p}{)}
+        \PY{k}{return} \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Slope = }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{slope}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{, Intercept = }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{intercept}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}
 
 \PY{n}{line} \PY{o}{=} \PY{n}{Line}\PY{p}{(}\PY{n}{slope}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{p}{,} \PY{n}{intercept}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{line}\PY{p}{)}

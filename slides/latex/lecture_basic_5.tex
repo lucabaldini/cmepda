@@ -4,13 +4,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-\graphicspath{{figures/}} 
+\graphicspath{{figures/}}
 
 
 \title{OOP introduction (1/2)}
 \subtitle{Computing Methods for Experimental Physics and Data Analysis}
 \date{Compiled on \today}
-\author{A. Manfreda}
+\author{L. Baldini and A. Manfreda}
 \institute[INFN]{INFN--Pisa}
 \email{alberto.manfreda@pi.infn.it}
 
@@ -23,7 +23,7 @@
 
 \begin{frame}
   \frametitle{Smart variables}
-  
+
   \begin{itemize}
     \item Working with containers like lists or dictionaries, you may have noticed
           that they can do many thing besides holding the data
@@ -46,7 +46,7 @@
 
 \begin{frame}
   \frametitle{Object Oriented Programming (OOP)}
-  
+
   \begin{itemize}
     \small
     \item Programming paradigm based on \emph{objects}
@@ -62,14 +62,14 @@
     \item The idea is: keep together the variables and the code that manipulates them
     \bigskip
     \item As the name suggests, OOP is very often adopted for modeling systems that are naturally
-          described in terms of objects  
+          described in terms of objects
     \begin{itemize}
       \smallskip
       \item Physical simulations
       \smallskip
       \item Graphical engines
       \smallskip
-      \item Graphical User Interfaces (GUI) 
+      \item Graphical User Interfaces (GUI)
     \end{itemize}
 
   \end{itemize}
@@ -78,7 +78,7 @@
 
 \begin{frame}
   \frametitle{Why should I care?}
-  
+
   \begin{itemize}
     \item Object-oriented programming is one of the most widely used paradigm today
     \smallskip
@@ -87,14 +87,14 @@
     \url{https://en.wikipedia.org/wiki/Object-oriented_programming\#Criticism}
     \normalsize
     \smallskip
-        
+
     \item There is a number of famous programmers which really dislike it (e.g. \emph{Linus Torvalds})
     \medskip
     \item Still, it is something you definitely want in your toolbox
     \medskip
     \item And there is a fairly good chance that you will have to interact with some OOP
           code in your life
-    \smallskip   
+    \smallskip
   \end{itemize}
 
 \end{frame}
@@ -102,32 +102,32 @@
 
 \begin{frame}
   \frametitle{A good reason for learning OOP}
-  
+
   \begin{itemize}
     \item (Almost) every popular languages nowadays is OO
   \end{itemize}
-  
+
   \smallskip
-  
+
   \centering\includegraphics[width=0.9\textwidth]{tiobe2021.png}
-  
+
   \smallskip
-  
+
   \tiny \url{https://www.tiobe.com/tiobe-index/} \normalsize
-  
+
   \smallskip
-  
+
   \begin{itemize}
     \item Besides C of course!
   \end{itemize}
-  
+
 \end{frame}
 
 
 
 \begin{frame}
   \frametitle{OOP: Classes and Objects}
-  
+
   \begin{itemize}
   \item Basic definitions:
     \begin{itemize}
@@ -136,27 +136,27 @@
     \end{itemize}
 
   \smallskip
-  
+
   \item You can imagine a class like a project, which is used to
         describe how objects are built and how they works
 
   \smallskip
 
   \item You can have multiple objects of the same class
-  
+
   \smallskip
-  
+
   \item The relationship is similar to the one between types and variables:
-    \begin{itemize} 
+    \begin{itemize}
     \item A type is an abstract concept, describing how a variable is
           represented in memory
     \item A variable is a concrete realization of it
     \item You can have several variables of the same type (like several integers
           or several strings)
     \end{itemize}
-  
+
   \smallskip
-  
+
   \item Indeed, to some extent, a class is the generalization of the concept of
         type. It specifies not only how an object \emph{is made} but also how \emph{it behaves}.
   \end{itemize}
@@ -167,9 +167,9 @@
 \begin{frame}
   \frametitle{OOP: an example}
   \centering\includegraphics[width=0.2\textwidth]{television.png}
-  
+
   \medskip
-  
+
   \begin{itemize}
   \item Let's consider a familiar object, like a television. It has:
     \smallskip
@@ -183,13 +183,13 @@
       \end{itemize}
 
     \medskip
-    
+
     \item A behaviour
       \smallskip
       \begin{itemize}
       \item Pressing the `power' button will turn ON/OFF
       \item Rotating the volume knob will increase/decrease the volume
-      \item Using the buttons on the remote control will change displayed 
+      \item Using the buttons on the remote control will change displayed
             channel, brightness, contrast etc\dots
       \item And don't forget you need to plug-in before use!
       \end{itemize}
@@ -201,7 +201,7 @@
 
 \begin{frame}
   \frametitle{OOP: an example}
- 
+
   \begin{itemize}
     \item How would that be represented in the code?
     \smallskip
@@ -214,19 +214,19 @@
       \end{itemize}
 
       \medskip
-    
+
       \item The behaviour can be implemented through the \alert{methods}:
       \smallskip
       \begin{itemize}
         \item For example the turn\_on() and turn\_off() functions may change the value of the variable
-              and also produce all the related changes (i.e. start/stop video and audio) 
+              and also produce all the related changes (i.e. start/stop video and audio)
         \item You will probably have the netx\_channel() and previous\_channel() functions for zapping and so on\dots
         \item Of course it can be much more complex than that!
       \end{itemize}
     \end{itemize}
-    
+
     \medskip
-    
+
     \item Attributes and methods are collectively called \alert{members} of the class
     \medskip
     \item Each object of a specific class is an \alert{instance} of that class
@@ -254,27 +254,24 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Attributes}
-  \input{pygments/class_attributes_1}
-\end{frame}
+%\begin{frame}
+%  \frametitle{Attributes}
+%  \input{pygments/class_attributes_1}
+%\end{frame}
+
+
+%\begin{frame}
+%  \frametitle{Attributes}
+%  \input{pygments/class_attributes_2}
+%\end{frame}
 
 
 \begin{frame}
-  \frametitle{Attributes}
-  \input{pygments/class_attributes_2}
-\end{frame}
+  \frametitle{Attributes: the constructor}
 
-
-\begin{frame}
-  \frametitle{Constructor}
-  
   \begin{itemize}
     \small
-    \item Adding attributes like that would be crazy\dots what would happen if I forgot
-          to call the 'add\_a\_class\_attribute()' method in the previous example?
-    \medskip
-    \item Luckily there is a solution for that: the class \alert{constructor}
+    \item Attributes are typically added via the class \alert{constructor}
     \medskip
     \item The constructor is a special method that is called automatically each time
           a class instance is created
@@ -282,9 +279,9 @@
     \item A specificity of the constructor is that it cannot return anything
     \medskip
     \item In Python the constructor is the \emph{\_\_init\_\_} method%
-          \footnote{Actually the real constructor -- that is the function responsible for 
+          \footnote{Actually the real constructor -- that is the function responsible for
                     creating the class instances -- is the \emph{\_\_new\_\_} operator, but 99\% of the time you don't need
-                    to define that, as all classes have a default one which does the job for you}           
+                    to define that, as all classes have a default one which does the job for you}
     \medskip
     \item Class methods like \emph{\_\_init\_\_}, with the name surronded by two underscores,
           are called \alert{special} methods or \alert{dunder} methods.
@@ -304,7 +301,7 @@
 
 \begin{frame}
   \frametitle{Digression - namespaces}
-  
+
   \begin{itemize}
     \small
     \item 'Namespaces are one honking great idea -- let's do more of those!'
@@ -313,26 +310,26 @@
     \item A \alert{namespace} in Python is a essentially a dictionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
     \medskip
   \end{itemize}
-  
+
   \centering\includegraphics[width=0.25\textwidth]{types_namespace.png}
-  
+
   \begin{itemize}
     \small
     \item Python creates separate namespaces for many things: for example, each time a function is called a namespace for local variables is created
-    \medskip 
-    \item You can access objects in the local namespace (and those above -- 
+    \medskip
+    \item You can access objects in the local namespace (and those above --
           see picture) just with their name(s); for others you need
           the '.' (dot) operator.
     \medskip
     \item The space of visibility of a variable is called it \alert{scope}.
   \end{itemize}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Instance attributes vs class attributes}
-  
+
   \begin{itemize}
     \small
     \item Each class has a namespace. Plus, each instance of the class get its own additional namespace
@@ -346,9 +343,9 @@
     \medskip
     \item Since class attributes are not related to a specific instance, they can be accessed without creating one!
     \medskip
-    \item Class attributes are useful to set class constants, or default values, or share data among instances 
+    \item Class attributes are useful to set class constants, or default values, or share data among instances
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -361,7 +358,7 @@
 
 \begin{frame}
   \frametitle{Short summary}
-  
+
   \begin{itemize}
     \footnotesize
     \item Object Oriented Programming (OOP) is a widespread programming paradigm,
@@ -384,18 +381,18 @@
     \medskip
     \item Class attributes are declared outside methods and are shared among all the instances of a class
   \end{itemize}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Encapsulation - hidden state and interfaces}
   \framesubtitle{Back to the TV example}
-  
+
   \centering\includegraphics[width=0.2\textwidth]{television.png}
-  
+
   \bigskip
-  
+
   \begin{itemize}
   \item Note that part of the state is hidden from the user:
     \begin{itemize}
@@ -408,7 +405,7 @@
         control, the knobs, the power button, the plug\dots)
   \smallskip
   \item The \alert{implementation} details are hidden: only the TV producer cares about
-        them, not the user. 
+        them, not the user.
   \end{itemize}
 
 \end{frame}
@@ -416,9 +413,9 @@
 
 \begin{frame}
   \frametitle{Encapsulation}
-  
+
   \begin{itemize}
-    \item This leads us to the concept of \alert{encapsulation} 
+    \item This leads us to the concept of \alert{encapsulation}
     \bigskip
     \begin{itemize}
       \item \emph{The state of an object should only be accessed and altered
@@ -430,7 +427,7 @@
     \bigskip
     \item That way you can also \emph{enforce behaviour}: for example you can
           prevent from changing the channel if the TV is off
-    
+
   \end{itemize}
 
 \end{frame}
@@ -445,12 +442,12 @@
 \begin{frame}
   \frametitle{Challenge: how do you get \emph{real} encapsulation?}
   \begin{itemize}
-    \item At this point you may be wondering: I can read and modify any class attribute 
-          from outside the class using the '.' (dot) operator! 
+    \item At this point you may be wondering: I can read and modify any class attribute
+          from outside the class using the '.' (dot) operator!
           Doesn't that break encapsulation?
-          
+
     \bigskip
-    
+
     \item Answer: Yes it does - but there are ways to fix it!
   \end{itemize}
 \end{frame}
@@ -458,7 +455,7 @@
 
 \begin{frame}
   \frametitle{Pythonic encapsulation}
-  
+
   \begin{itemize}
     \item In languages like C++ you can explicitly declare that some class
           attributes (and methods) are \emph{private}
@@ -469,7 +466,7 @@
     \smallskip
     \item It's like a warning for the class user: you should never access that directly!
     \smallskip
-    \item In the case of two underscores Python will actually do a subtle thing to help keeping the data private -- it will 
+    \item In the case of two underscores Python will actually do a subtle thing to help keeping the data private -- it will
           prepend \_\emph{classname} to the actual attribute name (see next example)
     \smallskip
     \item However, not everyone in the Python community loves that
@@ -478,7 +475,7 @@
            \vspace{0.02\textheight}
            \footnotesize [\emph{Ian Bicking}, creator of pip, virtualenv, and many others]
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -490,7 +487,7 @@
 
 \begin{frame}
   \frametitle{Pythonic encapsulation with properties}
-  
+
   \begin{itemize}
     \item The possibility of making variables "private" (enforced or not) is not enough of course,
           because sometimes we still want to let the user read or even modify the value of the attribute
@@ -502,10 +499,10 @@
     \item Properties look similar to getters and setters, but with a twist: you keep
           accessing the attribute with the dot operator
     \medskip
-    \item In order to understand why this makes a \emph{huge} difference let's 
+    \item In order to understand why this makes a \emph{huge} difference let's
           start with an example: suppose you have a class for 2-D vectors
   \end{itemize}
-  
+
 \end{frame}
 
 \begin{frame}
@@ -566,7 +563,7 @@
     \item You will have to write even more methods if you want to let the user
           modify that variables as well (e.g. \emph{set\_x(), set\_y()} and so on)
     \medskip
-    \item You have to write all this code right from the start, even if you 
+    \item You have to write all this code right from the start, even if you
           never need it, otherwise you run the risk of getting screwed later
     \end{enumerate}
     \medskip
@@ -606,29 +603,29 @@
 \begin{frame}
   \frametitle{Interface vs implementation mindset}
   \framesubtitle{physicists vs programmers}
-  
+
   \begin{itemize}
-    
+
     \item A physicist thinks:
-        
+
     \medskip
-      
+
     \begin{itemize}
       \item "I have this super-cool algorithm to solve the problem I am working on:
-             I will code it carefully, than put together quickly some basic 
+             I will code it carefully, than put together quickly some basic
              interface to pass data to it and write results to screen / file.
-             I need the results quickly for my paper; I can always improve the 
+             I need the results quickly for my paper; I can always improve the
              interface later, right?"
     \end{itemize}
     \medskip
-      
+
     \item A programmer thinks:
-    
+
     \medskip
-    
+
     \begin{itemize}
       \item "I will create a nice interface for the user to handle input/output
-             in different formats and I will try to keep it as stable as 
+             in different formats and I will try to keep it as stable as
              possible in the future.
              I will start with no algorithm at all -- I will just use random
              numbers to test the interface. I can always implement the
@@ -638,11 +635,11 @@
   \end{itemize}
 
 \end{frame}
- 
- 
+
+
 \begin{frame}
   \frametitle{Interfaces}
-    
+
   \begin{itemize}
     \item You don't need to think like a programmer - doing physics is your goal - but
           remember that \alert{interfaces are important}
@@ -658,7 +655,7 @@
     \medskip
     \item You should not access "private" members directly - even if you can. Always
           pass through the interface
-    
+
   \end{itemize}
 
 \end{frame}
@@ -666,16 +663,16 @@
 
 \begin{frame}
   \frametitle{Short summary (2)}
-    
+
   \begin{itemize}
     \small
-    \item Encapsulation is the technique of hiding part or all the class state to the user; 
+    \item Encapsulation is the technique of hiding part or all the class state to the user;
           he can only access and modify that through the class methods
     \medskip
     \item Encapsulation helps debugging by limiting the number of places in the code
           that can mutate the state of an object
     \medskip
-    \item It can also be useful to enforce behaviour  
+    \item It can also be useful to enforce behaviour
     \medskip
     \item Encapsulation in Python is not enforced by the language, but rather relies on conventions
     \medskip
@@ -686,14 +683,14 @@
     \medskip
     \item Interfaces should not change frequently!
   \end{itemize}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Inheritance}
   \framesubtitle{What and Why}
-    
+
   \begin{itemize}
     \small
     \item Suppose for a moment that you are coding the Monte Carlo for a physics experiment
@@ -712,14 +709,14 @@
     \medskip
     \item We know that duplicate code is evil (DRY): how do we avoid that?
   \end{itemize}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Inerithance}
   \framesubtitle{What and Why}
-    
+
   \begin{itemize}
     \small
     \item Many languages - including Python offer a solution for that: \alert{inheritance}
@@ -734,7 +731,7 @@
     \medskip
     \item Inheritance is transitive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and posses all its functionalities)
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -759,31 +756,31 @@
 \begin{frame}
   \frametitle{Inerithance}
   \framesubtitle{Infernus Linnaei}
-  
+
   \centering
   \includegraphics[width=0.40\textwidth]{linneo.jpg}~\quad%
   \includegraphics[width=0.55\textwidth]{tassonomy.jpg}
-  
+
   \bigskip
-    
+
   \begin{itemize}
     \item Don't abuse inheritance!
     \medskip
     \item Though bringing order to the World may look appealing\dots
   \end{itemize}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Inherithance}
   \framesubtitle{A real case example}
-  
+
   \centering
   \includegraphics[width=0.8\textwidth]{tk-widgets.png}
-   
+
   \tiny \url{https://wiki.python.org/moin/TkInter} \normalsize
-    
+
   \smallskip
   \begin{itemize}
     \item {\dots}the result may be more complicated than you expect!
@@ -793,21 +790,21 @@
 
 \begin{frame}
   \frametitle{Composition}
-    
+
   \begin{itemize}
     \item \alert{Composition} is a different technique for reusing functionalities
     \medskip
     \item The concept is simple: just use an object of some class as a member of
           a different one
     \medskip
-    \item For example we can create the classes 'Engine' and 'Wheel' and than 
+    \item For example we can create the classes 'Engine' and 'Wheel' and than
           the class 'Car' will have a member of type Engine and 4 members of
           type Wheel
     \medskip
-    \item A class like 'Car' in the example is sometimes called an 
+    \item A class like 'Car' in the example is sometimes called an
           \alert{aggregate} class
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -819,9 +816,9 @@
 
 \begin{frame}
   \frametitle{Composition vs Inheritance}
-    
+
   \begin{itemize}
-    \item Composition models a \alert{'has-a'} relation in the real world: a 
+    \item Composition models a \alert{'has-a'} relation in the real world: a
           Car \emph{has} a Engine
     \medskip
     \item Inheritance models a \alert{'is-a'} relation in the real world: an
@@ -830,39 +827,39 @@
     \item It may not always be obvious which one to use in your specific case:
           choose wisely!
   \end{itemize}
-  
+
 \end{frame}
 
 
 
 \begin{frame}
   \frametitle{Pitfalls of Inerithance}
-    
+
   \begin{itemize}
     \item Inheritance is a wild beast. There are entire libraries written about how and when (not) to use it
-    
+
     \bigskip
-    
+
     \item Question for you: should a Square inherits from a Rectangle?
     \item Seems legit: a Square \emph{is} a specialized Rectangle
     \item But what happens if the Rectangle class has a changeHeight() method?
     \bigskip
-    
+
     \bigskip
-    
+
     \item \alert{Liskov Substitution Principle}: you should always be able to use
           a derived class instead of a base class in your code
     \item In other words: a derived class should always extend or specialize
           the functionalities of the base class, never restrict them!
    \end{itemize}
-  
+
 \end{frame}
 
 
 
 \begin{frame}
   \frametitle{Short summary (3)}
-    
+
   \begin{itemize}
     \item A class can inherit functionalities from one or more other classes (Inheritance)
     \medskip
@@ -876,7 +873,7 @@
     \medskip
     \item Inheritance is tricky: use it with care!
    \end{itemize}
-  
+
 \end{frame}
 
 

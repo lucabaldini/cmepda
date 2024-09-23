@@ -1,18 +1,18 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/multiple\_inheritance.py}},commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{AudioDevice}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{play}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{p}{)}\PY{p}{:}
-        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{You are listening to channel n. \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{channel}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{You are listening to channel n. }\PY{l+s+si}{\PYZob{}}\PY{n}{channel}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{k}{class} \PY{n+nc}{VideoDevice}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{play}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{p}{)}\PY{p}{:}
-        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{You are looking to channel n. \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{channel}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{You are looking to channel n. }\PY{l+s+si}{\PYZob{}}\PY{n}{channel}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Multiple inheritance!}
 \PY{k}{class} \PY{n+nc}{Television}\PY{p}{(}\PY{n}{AudioDevice}\PY{p}{,} \PY{n}{VideoDevice}\PY{p}{)}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{show}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{p}{)}\PY{p}{:}
         \PY{n}{AudioDevice}\PY{o}{.}\PY{n}{play}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{p}{)}
         \PY{n}{VideoDevice}\PY{o}{.}\PY{n}{play}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{channel}\PY{p}{)}
-    
+
 \PY{n}{tv} \PY{o}{=} \PY{n}{Television}\PY{p}{(}\PY{p}{)}
 \PY{n}{tv}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} Is this a good idea?}

@@ -1,31 +1,30 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/vector2d\_hashable.py}},commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{Vector2d}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class representing a Vector2d \PYZdq{}\PYZdq{}\PYZdq{}}   
+    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class representing a Vector2d \PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}\PYZdq{} We tell the user that x and y are private\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{x}\PY{p}{)}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{y}\PY{p}{)}
-    
+
     \PY{n+nd}{@property}
     \PY{k}{def} \PY{n+nf}{x}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Provides read only access to x \PYZhy{} since there is no setter\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}x}
-        
+
     \PY{n+nd}{@property}
     \PY{k}{def} \PY{n+nf}{y}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Provides read only access to y \PYZhy{} since there is no setter\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}y}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}eq\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
         \PY{k}{return} \PY{p}{(}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)} \PY{o}{==} \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n}{other}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{)}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}hash\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} As hash value we provide the logical XOR of the hash of the two }
+        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} As hash value we provide the logical XOR of the hash of the two}
 \PY{l+s+sd}{        coordinates \PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb}{hash}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{)} \PY{o}{\PYZca{}} \PY{n+nb}{hash}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)}
-    
+
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
         \PY{c+c1}{\PYZsh{} Again we neeed \PYZus{}\PYZus{}repr\PYZus{}\PYZus{} to display the results nicely}
-        \PY{n}{class\PYZus{}name} \PY{o}{=} \PY{n+nb}{type}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}
-        \PY{k}{return} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}(\PYZob{}\PYZcb{}, \PYZob{}\PYZcb{})}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{class\PYZus{}name}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{)}
+        \PY{k}{return} \PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{(}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{x}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{, }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{y}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}

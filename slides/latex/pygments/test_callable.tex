@@ -1,7 +1,7 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/test\_callable.py}},commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{numpy}
-\PY{k+kn}{from} \PY{n+nn}{scipy.optimize} \PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
-\PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+\PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{optimize} \PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+\PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
 \PY{k+kn}{from} \PY{n+nn}{callable} \PY{k+kn}{import} \PY{n}{CallCounter}
 
 \PY{k}{def} \PY{n+nf}{line}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{m}\PY{p}{,} \PY{n}{q}\PY{p}{)}\PY{p}{:}
@@ -14,7 +14,7 @@
 \PY{c+c1}{\PYZsh{} Fit}
 \PY{n}{counting\PYZus{}func} \PY{o}{=} \PY{n}{CallCounter}\PY{p}{(}\PY{n}{line}\PY{p}{)}
 \PY{n}{popt}\PY{p}{,} \PY{n}{pcov} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{counting\PYZus{}func}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{p0}\PY{o}{=}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1.}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{100.}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} p0 is mandatory here}
-\PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitted with \PYZob{}\PYZcb{} function calls}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{counting\PYZus{}func}\PY{o}{.}\PY{n}{num\PYZus{}calls}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fitted with }\PY{l+s+si}{\PYZob{}}\PY{n}{counting\PYZus{}func}\PY{o}{.}\PY{n}{num\PYZus{}calls}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ function call(s).}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{c+c1}{\PYZsh{} Show the results}
 \PY{n}{m}\PY{p}{,} \PY{n}{q} \PY{o}{=} \PY{n}{popt}
@@ -24,5 +24,5 @@
 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 
 [Output]
-Fitted with 9 function calls
+Fitted with 9 function call(s).
 \end{Verbatim}
