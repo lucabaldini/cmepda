@@ -36,6 +36,10 @@
     \item interpolation
     \item signal processing
     \end{itemize}
+  \item And pandas!
+    \begin{itemize}
+      \item If you want to interoperate your code with excel, this is a must!
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -49,7 +53,7 @@
 \begin{frame}
   \frametitle{numpy arrays vs. Python lists}
   \input{pygments/numpy_arrays_vs_lists}
-  
+
   \begin{itemize}
   \item arrays and lists are fundamentally different objects
     \begin{itemize}
@@ -65,11 +69,11 @@
 \begin{frame}
   \frametitle{Broadcasting}
   \input{pygments/numpy_arrays_broadcasting}
-  
+
   \begin{itemize}
   \item Under certain conditions, numpy can make operations on arrays of
     different shape
-  \item This is extremely useful when vectorizing problems 
+  \item This is extremely useful when vectorizing problems
   \end{itemize}
 \end{frame}
 
@@ -77,7 +81,7 @@
 \begin{frame}
   \frametitle{Mathematical functions in numpy}
   \input{pygments/numpy_functions}
-  
+
   \begin{itemize}
   \item numpy mathematical functions interoperate natively with arrays
     \begin{itemize}
@@ -90,7 +94,7 @@
 \begin{frame}
   \frametitle{Arrays and masks}
   \input{pygments/numpy_masks}
-  
+
   \begin{itemize}
   \item Masks are a powerful tool in numpy
   \item They can replace conditional expressions in a for loop in
@@ -108,18 +112,18 @@
   \end{Verbatim}
 
   \medskip
-  
+
   \begin{itemize}
   \item Every programming language comes with a Pseudo Random Number
     Generator (PRNG)
     \begin{itemize}
     \item Python is no exception:
       \url{https://docs.python.org/3/library/random.html}
-    \item Mersenne-Twister, 53-bit precision, period of $2^{19937} - 1$. 
+    \item Mersenne-Twister, 53-bit precision, period of $2^{19937} - 1$.
     \end{itemize}
   \item PRNGs are an interesting (and fun) subject by themselves:
     \begin{itemize}
-    \item Donald E. Knuth, \emph{The Art of Computer Programming, Volume 2: Seminumerical Algorithms}, 3rd Edition 
+    \item Donald E. Knuth, \emph{The Art of Computer Programming, Volume 2: Seminumerical Algorithms}, 3rd Edition
     \item M. Matsumoto and T. Nishimura, \emph{Mersenne Twister: A 623-dimensionally equidistributed uniform pseudorandom number generator}, ACM Transactions on Modeling and Computer Simulation Vol. 8, No. 1, January pp.3--30 1998.
     \end{itemize}
   \item A PRNG produces random floats uniformly in $[0.0,~1.0)$.
@@ -135,7 +139,7 @@
 
 
 \begin{frame}
-  \frametitle{How does vectorizaion work?}
+  \frametitle{How does vectorization work?}
   \begin{itemize}
   \item Python is know to be slooow
     \begin{itemize}
@@ -217,7 +221,7 @@
 \begin{frame}
   \frametitle{Splines: construction and properties}
   \input{pygments/spline}
-  
+
   \begin{itemize}
   \item Evaluation is fairly inexpensive
     \begin{itemize}
@@ -239,6 +243,7 @@
   \begin{itemize}
   \item \url{https://numpy.org/}
   \item \url{https://www.scipy.org/}
+  \item \url{https://pandas.pydata.org/}
   \item \url{https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html}
   \item \url{https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html}
   \item \url{https://docs.scipy.org/doc/scipy/reference/interpolate.html}
