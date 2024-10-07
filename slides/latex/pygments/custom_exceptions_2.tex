@@ -2,15 +2,14 @@
 \PY{k}{class} \PY{n+nc}{ValueTooLargeError}\PY{p}{(}\PY{n+ne}{ValueError}\PY{p}{)}\PY{p}{:}
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{value}\PY{p}{)}\PY{p}{:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{value} \PY{o}{=} \PY{n}{value}
-        \PY{n+nb}{super}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZob{}\PYZcb{}: \PYZob{}\PYZcb{} is too large}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{p}{,}
-                                                      \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{value}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{super}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{: }\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{value}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{ is too large}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{n}{value} \PY{o}{=} \PY{l+m+mi}{100}
 \PY{k}{try}\PY{p}{:}
   \PY{k}{if} \PY{n}{value} \PY{o}{\PYZgt{}} \PY{l+m+mi}{10}\PY{p}{:}
       \PY{k}{raise} \PY{n}{ValueTooLargeError}\PY{p}{(}\PY{n}{value}\PY{p}{)}
 \PY{k}{except} \PY{n+ne}{ValueError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
-    \PY{k}{print}\PY{p}{(}\PY{n}{e}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{e}\PY{p}{)}
 
 [Output]
 ValueTooLargeError: 100 is too large

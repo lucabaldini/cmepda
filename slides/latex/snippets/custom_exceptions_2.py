@@ -1,8 +1,7 @@
 class ValueTooLargeError(ValueError):
     def __init__(self, value):
         self.value = value
-        super().__init__('{}: {} is too large'.format(self.__class__.__name__,
-                                                      self.value))
+        super().__init__(f'{self.__class__.__name__}: {self.value} is too large')
 
 value = 100
 try:

@@ -7,13 +7,13 @@
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment in the beamer class.
 
-\graphicspath{{figures/}} 
+\graphicspath{{figures/}}
 
 
 \title{Advanced python features}
 \subtitle{Computing Methods for Experimental Physics and Data Analysis}
 \date{Compiled on \today}
-\author{A. Manfreda}
+\author{A. Manfreda and L. Baldini}
 \institute[INFN]{INFN--Pisa}
 \email{alberto.manfreda@pi.infn.it}
 
@@ -75,7 +75,7 @@
       \item Is clearly separated from the returned output
       \item Cannot be silently ignored by the user
       \item Is easy to report to upper level without lots of lines of code
-    \end{itemize}  
+    \end{itemize}
 \end{frame}
 
 
@@ -192,7 +192,7 @@
     \item The common approach is: do not check the input beforehand. Use it and
           be ready to catch exceptions if any.
     \smallskip
-    \item \textit{Easier to ask for forgiveness than permission.} 
+    \item \textit{Easier to ask for forgiveness than permission.}
   \end{itemize}
 \end{frame}
 
@@ -210,7 +210,7 @@
           function calls at a specific point in the code
     \smallskip
     \item An exception always stores the traceback at the failure point, since
-          it contains crucial debug information 
+          it contains crucial debug information
     \smallskip
     \item In Python a traceback is read from the bottom up:
     \begin{itemize}
@@ -340,7 +340,7 @@
 
 \begin{frame}
   \frametitle{Iterators and iterables}
-  
+
   \begin{itemize}
     \item An \emph{iterable} in Python is something that has a \emph{\_\_iter\_\_}
           method, which returns an \alert{iterator}
@@ -357,7 +357,7 @@
           own, so you always need a 'real' iterable to actually iterate}%
           ! (But the opposite is not true)
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -415,7 +415,7 @@
 
 \begin{frame}
   \frametitle{Generators}
-  
+
   \begin{itemize}
     \item We have seen that iterators are useful to iterate over container
     \item However that assumes a containers exists $\rightarrow$ memory usage
@@ -431,7 +431,7 @@
           that return a generator, like \emph{range()} (in Python 3)
     \item Generator can be used to iterate in for loops, just like iterators
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -443,22 +443,22 @@
 
 \begin{frame}
   \frametitle{Generator functions}
-  
+
   \begin{itemize}
     \item A \alert{generator function} is a function that contains the keyword \alert{yield} at
           least once in his body
     \item When you call a generator function the code is not executed - instead
           a generator object is created and returned (even if you don't have a return statement)
-    \item Each call to \emph{next()} on the returned generator will make the function code 
+    \item Each call to \emph{next()} on the returned generator will make the function code
           run until it finds a \emph{yield} statement
-    \item Then the execution is paused and the value of the expression on the right 
+    \item Then the execution is paused and the value of the expression on the right
           of \emph{yield} is returned (yielded) to the caller
     \item A further call of next will resume the execution from where it was suspended
           until the next \emph{yield} and so on
     \item Eventually, when the function body ends, \emph{StopIteration} is raised
     \item Usually generators functions contain a loop - but it's not mandatory!
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -476,7 +476,7 @@
 
 \begin{frame}
   \frametitle{Python generator functions}
-  
+
   \begin{itemize}
     \item Python provides a number of built-in functions that return a generator from an iterable, such as:
     \begin{itemize}
@@ -496,15 +496,15 @@
       \item \emph{cycle}: Loop over the sequence repeatedly, indefinitely
       \item \emph{permutations}: Get all the permutations of a given length
       \item \emph{product}: Compute the cartesian product of iterables
-      \item \emph{groupby}: Group by value of some key (function)     
+      \item \emph{groupby}: Group by value of some key (function)
       \item And so on\dots
     \end{itemize}
-    
+
     \medskip
-    
-    \item Take a look at the documentation of each function to see how to 
+
+    \item Take a look at the documentation of each function to see how to
           properly call it!
-  \end{itemize}  
+  \end{itemize}
 \end{frame}
 
 
@@ -532,7 +532,7 @@
     \item Many of the typical uses for lambdas are already covered in python by generator expressions and comprehension,
           so this is more like a niche feature of the language
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -560,4 +560,3 @@
 \end{frame}
 
 \end{document}
-
