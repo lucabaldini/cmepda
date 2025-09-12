@@ -8,7 +8,7 @@
 \title{\scriptsize Computing Methods for Experimental Physics and Data Analysis}
 \subtitle{Introduction}
 \date{\today}
-\author{L. Baldini, L. Bianchini, G. Lamanna, A. Retico, A. Rizzi}
+\author{L.~Baldini, F.~A.~Di Bello, G.~Lamanna, F.~Lizzi, A.~Manfreda, A.~Retico, A.~Rizzi}
 \institute[UNIPI and INFN]{Universit\`a and INFN--Pisa}
 \email{luca.baldini@pi.infn.it}
 
@@ -23,9 +23,8 @@
   \begin{itemize}
   \item What is this all about?
     \begin{itemize}
-    \item Automating repetitive tasks
-    \item Python basics, standard library and scientific ecosystem
     \item Collaborative code development and best practices
+    \item Python basics, standard library and scientific ecosystem
     \item Algorithms and data structures
     \item Machine learning
     \item Specific tools for high-energy physics or medical physics
@@ -40,8 +39,9 @@
   \item Pre-requisites
     \begin{itemize}
     \item Have a vague idea of how a computer operates
-    \item If you have ever programmed before that would be
-      great!
+    \item If you have ever programmed before that would be great!
+    \item \alert{We shall ask you to fill a form next week to gauge your
+      background and expectations}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -51,32 +51,47 @@
   \frametitle{Basic structure of the course}
   \begin{cmepdapicture}
     \pgfmathsetmacro{\y}{0.90}
-    \pgfmathsetmacro{\dy}{0.25}
+    \pgfmathsetmacro{\dy}{0.15}
     \pgfmathsetmacro{\mw}{90pt}
     \node[cmepdadiagblock, name=basic, minimum width=\mw] at (0.5, \y) {
-      Basic module\\[2pt](Sep. 16--Oct. 14)
+      Basic module\\[2pt] 5~weeks: Sep~16--Oct~21
     };
     \node[cmepdadiagblock, name=advanced, minimum width=\mw] at (0.5, \y-\dy) {
-      Advanced module\\[2pt](Oct. 15--Nov. 12)
+      Advanced module\\[2pt] 5~weeks: Oct~24--Nov~25
     };
-    \node[cmepdadiagblock, name=hep, minimum width=\mw] at (0.25, \y-2*\dy) {
-      Fundamental Interactions\\[2pt](Nov. 18--Dec. 10)
+
+    \node[draw, fit=(basic)(advanced), inner sep=10pt, rounded corners,
+      style=dashed, line width=0.6pt] (base) {};
+    \node [right=0pt of base.east, anchor=west] {6~CFU (mandatory)};
+
+    \node[cmepdadiagblock, name=ml, minimum width=\mw] at (0.15, \y-2.75*\dy) {
+      Machine Learning\\[2pt] 5~weeks: Nov 28--Mar~2026
     };
-    \node[cmepdadiagblock, name=med, minimum width=\mw] at (0.75, \y-2*\dy) {
-      Medical Physics\\[2pt](Nov. 18--Dec. 10)
+
+    \node[cmepdadiagblock, name=hep, minimum width=\mw] at (0.5, \y-3.5*\dy) {
+      High-Energy Physics\\[2pt] 5~weeks: Mar--Apr~2026
+    };
+    \node[cmepdadiagblock, name=med, minimum width=\mw] at (0.85, \y-3.5*\dy) {
+      Medical Physics\\[2pt] 5~weeks: Mar--Apr~2026
     };
     \draw[arrow] (basic.south) to (advanced.north);
+    \draw[arrow, out=-90, in=90] (advanced.south) to (ml.north);
     \draw[arrow, out=-90, in=90] (advanced.south) to (hep.north);
     \draw[arrow, out=-90, in=90] (advanced.south) to (med.north);
 
+    \node[draw, fit=(ml)(hep)(med), inner sep=10pt, rounded corners,
+      style=dashed, line width=0.6pt] (extra) {};
+    \node [left=50pt of extra.north east, anchor=south] {3~extra CFU (optional)};
+
     \cmepdaminipagenode[anchor=north]{0.5, 0.20}{\textwidth}{
       \begin{itemize}
-      \item Modularity and standard paths:
+      \item Changes with respect to previous years:
         \begin{itemize}
-        \item Each module is worth 3 credits
-        \item 6 credits: basic + advanced
-        \item 9 credits: basic + advanced + fundamental interactions
-        \item 9 credits: basic + advanced + medical physics
+        \item \alert{5 hours/week} instead of 6 (and a much more favorable timetable)
+        \item Course is \emph{decompressed} in \alert{$\sim 1.5$~semesters}
+         (ending in mid April)
+        \item 9~CFU refactored into \alert{three optional modules (ML, HEP, Medical)}
+        \item Note HEP and Medical run in parallel
         \end{itemize}
       \end{itemize}
     }
@@ -86,11 +101,12 @@
 
 \begin{frame}
   \frametitle{Basic module}
-  \framesubtitle{L. Baldini}
+  \framesubtitle{L.~Baldini, A.~Manfreda}
   \begin{itemize}
   \item Collaborative tools
     \begin{itemize}
-    \item Version control, development workflow, development platforms
+    \item Version control, development workflow
+    \item Unit testing, continuous integration, static analysis, documentation
     \end{itemize}
   \item Python basics
     \begin{itemize}
@@ -107,13 +123,12 @@
     \begin{itemize}
     \item Classes, inheritance, composition
     \item Operator overload and emulation of Python builtin types
+    \item Errors, exceptions, iterators and generators, decorators
     \end{itemize}
   \item The Python computing ecosystem
     \begin{itemize}
-    \item numpy: arrays, functions, broadasting
-    \item Vectorization
-    \item Scipy: plotting and fitting
-    \item Pandas
+    \item numpy: arrays, functions, broadcasting, vectorization
+    \item scipy and pandas
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -121,17 +136,9 @@
 
 \begin{frame}
   \frametitle{Advanced module}
-  \framesubtitle{G. Lamanna, A. Rizzi}
+  \framesubtitle{F.~A.~Di Bello, G.~Lamanna, F.~Lizzi, A.~Rizzi}
   \begin{itemize}
-  \item Advanced code development
-    \begin{itemize}
-    \item Unit testing, continuous integration, static analysis, documentation
-    \end{itemize}
-  \item Advanced Python
-    \begin{itemize}
-    \item Errors, exceptions, iterators and generators, decorators
-    \item Profiling and optimization
-    \end{itemize}
+  \item Advanced numpy
   \item Parallel computing
     \begin{itemize}
     \item Computer architectures, memory, scaling laws, CPUs and GPUs
@@ -150,8 +157,17 @@
 
 
 \begin{frame}
-  \frametitle{Fundamental Interactions}
-  \framesubtitle{L. Bianchini, G. Lamanna, A. Rizzi}
+  \frametitle{Machine Learning}
+  \framesubtitle{F.~A.~Di Bello, F.~Lizzi, A.~Rizzi}
+  \begin{itemize}
+    \item
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{High-Energy Physics}
+  \framesubtitle{A. Rizzi}
   \begin{itemize}
   \item Introduction to C++
     \begin{itemize}
@@ -207,32 +223,26 @@
   \frametitle{Logistics}
   \framesubtitle{Timetable and final exam}
   \begin{itemize}
-  \item Timetable: $5 + 1$ hours a week
+  \item e-learning: {\scriptsize \url{https://elearning.df.unipi.it/course/view.php?id=344}}
+  \item Timetable: 5 hours a week
     \begin{itemize}
-    \item Monday, 16:30--19:30 (room A1)
-      \begin{itemize}
-        \item If everybody agrees: start at 16:30 sharp(-ish), one 15-minutes break,
-          try and be done by 7:00;
-        \item \alert{Last hour (18:30--19:30) typically for practical applications;
-          we might skip it on specific weeks;}
-      \end{itemize}
-    \item Tuesday, 08:30--11:30 (room M-Lab)
+    \item \alert{Tuesday, 08:30--11:30, Friday, 14:30--16:30 (room I-Lab)}
+    \item If everybody agrees: start at *:30 sharp(-ish), one 15-minutes break,
+      finish 15~minutes early
     \end{itemize}
   \item Final exam
     \begin{itemize}
-    \item Development of a specific, reasonable-sized software project
+    \item Development of a specific, reasonable-sized \alert{software project}
     \begin{itemize}
-      \item Related to the topics covered in the course
-      \item We have a list of suggestions, but encourage everybody to come up with
-        original projects---\alert{if you do so reach out to us well in advance to make
-        sure the project is appropriate}
-      \item Projects can be done individually or in pairs
+      \item We have a list of suggestions on e-learning, but encourage everybody
+        to come up with original projects---\alert{if you do so reach out to us
+        well in advance to make sure the project is appropriate}
+      \item Projects can be done \alert{individually or in groups of two}
     \end{itemize}
     \item Two-page description of the project and source code made
       available $\sim 1$~week in advance
       \begin{itemize}
         \item We expect a well-structure repository
-        \item \alert{Under no circumstance you should send code by email}
       \end{itemize}
     \item Oral exam starts with a presentation of the project
     \begin{itemize}
@@ -240,10 +250,10 @@
     \end{itemize}
     \item \alert{A few questions on the course material from a pre-compiled list}
     \begin{itemize}
+      \item List from last year on e-learning, to be updated
       \item We expect the answers to the questions to be thorough and in-depth
     \end{itemize}
     \end{itemize}
-    \item \alert{List of projects/questions to be updated over the next two weeks}
   \end{itemize}
 \end{frame}
 
