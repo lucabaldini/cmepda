@@ -51,7 +51,7 @@
   \frametitle{Basic structure of the course}
   \begin{cmepdapicture}
     \pgfmathsetmacro{\y}{0.90}
-    \pgfmathsetmacro{\dy}{0.15}
+    \pgfmathsetmacro{\dy}{0.135}
     \pgfmathsetmacro{\mw}{90pt}
     \node[cmepdadiagblock, name=basic, minimum width=\mw] at (0.5, \y) {
       Basic module\\[2pt] 5~weeks: Sep~16--Oct~21
@@ -62,7 +62,7 @@
 
     \node[draw, fit=(basic)(advanced), inner sep=10pt, rounded corners,
       style=dashed, line width=0.6pt] (base) {};
-    \node [right=0pt of base.east, anchor=west] {6~CFU (mandatory)};
+    \node [right=0pt of base.east, anchor=west] {6~CFU (mandatory for MS)};
 
     \node[cmepdadiagblock, name=ml, minimum width=\mw] at (0.15, \y-2.75*\dy) {
       Machine Learning\\[2pt] 5~weeks: Nov 28--Mar~2026
@@ -83,7 +83,7 @@
       style=dashed, line width=0.6pt] (extra) {};
     \node [left=50pt of extra.north east, anchor=south] {3~extra CFU (optional)};
 
-    \cmepdaminipagenode[anchor=north]{0.5, 0.20}{\textwidth}{
+    \cmepdaminipagenode[anchor=north]{0.5, 0.26}{\textwidth}{
       \begin{itemize}
       \item Changes with respect to previous years:
         \begin{itemize}
@@ -92,6 +92,8 @@
          (ending in mid April)
         \item 9~CFU refactored into \alert{three optional modules (ML, HEP, Medical)}
         \item Note HEP and Medical run in parallel
+        \item For PhD students we suggest to start from the second part of the
+          Advanced module (more info on e-learning)
         \end{itemize}
       \end{itemize}
     }
@@ -144,13 +146,13 @@
     \item Computer architectures, memory, scaling laws, CPUs and GPUs
     \item Parallel programming: concurrency and parallelism, threading in Python
     \end{itemize}
-  \item Machine learning
+  \item Introduction to machine learning
     \begin{itemize}
     \item Classification and regression: boosted decision trees and
       multilayer perceptrons
     \item Deep learning: neural networks, the keras library
     \item Supervised and unsupervised training, reinforcement learning
-    \item Tensorflow
+    \item Feed Forward and Convolutional architectures
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -160,7 +162,11 @@
   \frametitle{Machine Learning}
   \framesubtitle{F.~A.~Di Bello, F.~Lizzi, A.~Rizzi}
   \begin{itemize}
-    \item
+    \item Modern Deep Networks architectures
+    \item The PyTorch library
+    \item Generative Models
+    \item Graph Networks
+    \item Attention and Transformers
   \end{itemize}
 \end{frame}
 
@@ -255,6 +261,12 @@
     \end{itemize}
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Schedule: 2025}
+  \centering\includegraphics[width=0.8\textwidth]{figures/calendar_2025}
 \end{frame}
 
 \end{document}
