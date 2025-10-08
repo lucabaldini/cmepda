@@ -15,7 +15,7 @@ class Vector2d:
         return self.module * math.sin(self.angle)
     
     @x.setter
-    def x(self, x): # this function must be called as the property
+    def x(self, x): # this function must have the same name as the property
         """ Here we actually need to update module and angle"""
         self.module, self.angle = math.sqrt(x**2 + self.y**2),\
                                   math.atan2(self.y, x)

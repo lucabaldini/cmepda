@@ -2,7 +2,7 @@ class Television:
     """ Class describing a televsion.
     """
     def __init__(self, owner):
-        """ The special method __init__ is called each time a class istance is
+        """ The special method __init__ is called each time a class instance is
         created.  We can pass arguments to the constructor, just like any
         function."""
         print('Creating a television instance...')
