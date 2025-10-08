@@ -26,7 +26,7 @@
 
   \begin{itemize}
     \item Working with containers like lists or dictionaries, you may have noticed
-          that they can do many thing besides holding the data
+          that they can do many things besides holding the data
     \medskip
     \begin{itemize}
       \item You can extend a list using append() or insert()
@@ -50,7 +50,7 @@
   \begin{itemize}
     \small
     \item Programming paradigm based on \emph{objects}
-    \bigskip
+    \medskip
     \item An object is a code entity that has:
     \smallskip
     \begin{itemize}
@@ -58,20 +58,21 @@
       \smallskip
       \item \alert{Behaviour} $\rightarrow$ functions (usually called \emph{member functions} or \emph{methods})
     \end{itemize}
-    \bigskip
+    \medskip
     \item The idea is: keep together the variables and the code that manipulates them
-    \bigskip
-    \item As the name suggests, OOP is very often adopted for modeling systems that are naturally
+    \medskip
+    \item As the name suggests, OOP is often adopted for modeling systems that are naturally
           described in terms of objects
     \begin{itemize}
       \smallskip
-      \item Physical simulations
+      \item Physical simulations: Geant4 (C++), SimPy (Python)
       \smallskip
-      \item Graphical engines
+      \item Graphics engines and game development: Unity (C\#), Unreal Engine (C++)
       \smallskip
-      \item Graphical User Interfaces (GUI)
+      \item Graphical User Interfaces (GUI): Qt / PySide (C++/Python), JavaFX (Java), .NET WinForms (C\#)
     \end{itemize}
-
+    \medskip
+    \item But also used in Enterprise applications, Web frameworks, Compilers, OS, Robotics, Embedded Systems and so on.
   \end{itemize}
 \end{frame}
 
@@ -82,13 +83,13 @@
   \begin{itemize}
     \item Object-oriented programming is one of the most widely used paradigm today
     \smallskip
-    \item That doesn't necessarily mean it is the best one -- nor the right tool for any job \\
+    \item That does not necessarily mean it is the best one -- nor the right tool for any job \\
     \tiny
     \url{https://en.wikipedia.org/wiki/Object-oriented_programming\#Criticism}
     \normalsize
     \smallskip
 
-    \item There is a number of famous programmers which really dislike it (e.g. \emph{Linus Torvalds})
+    \item There is a number of famous programmers who really dislike it (e.g. \emph{Linus Torvalds})
     \medskip
     \item Still, it is something you definitely want in your toolbox
     \medskip
@@ -109,17 +110,11 @@
 
   \smallskip
 
-  \centering\includegraphics[width=0.9\textwidth]{tiobe2021.png}
+  \centering\includegraphics[width=0.7\textwidth]{tiobe2025.png}
 
   \smallskip
 
   \tiny \url{https://www.tiobe.com/tiobe-index/} \normalsize
-
-  \smallskip
-
-  \begin{itemize}
-    \item Besides C of course!
-  \end{itemize}
 
 \end{frame}
 
@@ -138,7 +133,7 @@
   \smallskip
 
   \item You can imagine a class like a project, which is used to
-        describe how objects are built and how they works
+        describe how objects are built and how they work
 
   \smallskip
 
@@ -191,7 +186,7 @@
       \item Rotating the volume knob will increase/decrease the volume
       \item Using the buttons on the remote control will change displayed
             channel, brightness, contrast etc\dots
-      \item And don't forget you need to plug-in before use!
+      \item And don't forget you need to plug it in before use!
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -220,7 +215,7 @@
       \begin{itemize}
         \item For example the turn\_on() and turn\_off() functions may change the value of the variable
               and also produce all the related changes (i.e. start/stop video and audio)
-        \item You will probably have the netx\_channel() and previous\_channel() functions for zapping and so on\dots
+        \item You will probably have the next\_channel() and previous\_channel() functions for zapping and so on\dots
         \item Of course it can be much more complex than that!
       \end{itemize}
     \end{itemize}
@@ -279,14 +274,14 @@
     \item A specificity of the constructor is that it cannot return anything
     \medskip
     \item In Python the constructor is the \emph{\_\_init\_\_} method%
-          \footnote{Actually the real constructor -- that is the function responsible for
+          \footnote{Actually the real constructor -- the function responsible for
                     creating the class instances -- is the \emph{\_\_new\_\_} operator, but 99\% of the time you don't need
                     to define that, as all classes have a default one which does the job for you}
     \medskip
-    \item Class methods like \emph{\_\_init\_\_}, with the name surronded by two underscores,
+    \item Class methods like \emph{\_\_init\_\_}, with the name surrounded by two underscores,
           are called \alert{special} methods or \alert{dunder} methods.
     \medskip
-    \item It is good practice to define all your class attributes inside the constructor!
+    \item Good practice: \textbf{define all your class attributes inside the constructor!}
 
   \end{itemize}
 
@@ -307,7 +302,7 @@
     \item 'Namespaces are one honking great idea -- let's do more of those!'
             (\emph{Tim Peters - The Zen of Python})
     \medskip
-    \item A \alert{namespace} in Python is a essentially a dictionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
+    \item A \alert{namespace} in Python is essentially a dictionary of \emph{unique} names, each one associated to an object (which can be anything: a variable, a function, a class etc\dots)
     \medskip
   \end{itemize}
 
@@ -321,7 +316,7 @@
           see picture) just with their name(s); for others you need
           the '.' (dot) operator.
     \medskip
-    \item The space of visibility of a variable is called it \alert{scope}.
+    \item The space of visibility of a variable is called its \alert{scope}.
   \end{itemize}
 
 \end{frame}
@@ -332,7 +327,7 @@
 
   \begin{itemize}
     \small
-    \item Each class has a namespace. Plus, each instance of the class get its own additional namespace
+    \item Each class has a namespace. Plus, each instance of the class gets its own additional namespace
     \medskip
     \item The class namespace is automatically visible from each instance namespace, but not the opposite
     \medskip
@@ -356,33 +351,35 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Short summary}
-
-  \begin{itemize}
-    \footnotesize
-    \item Object Oriented Programming (OOP) is a widespread programming paradigm,
-          supported by many programming languages (old and modern), including Python
-    \medskip
-    \item An object has a state and a behaviour, represented by member variables (attributes)
-          and member functions (methods) respectively
-    \medskip
-    \item A class is a blueprint for creating objects, each object is an instance of a class
-    \medskip
-    \item In Python classes are defined with the 'class' keyword and instantiated with the '()' operator
-    \medskip
-    \item Class attributes and methods (globally called members) are accessed through the '.' operator
-    \medskip
-    \item All the class methods get the object instance as their first argument (usually named 'self')
-    \medskip
-    \item You should declare class attributes in the constructor a.k.a. the \emph{\_\_init\_\_} function
-    \medskip
-    \item Instance attributes are not shared: each instance has its own copy of the data
-    \medskip
-    \item Class attributes are declared outside methods and are shared among all the instances of a class
-  \end{itemize}
-
+\begin{frame}{Short summary (OOP basics)}
+\begin{itemize}
+  \item \textbf{Object-Oriented Programming (OOP)} is a widely used paradigm, 
+  	supported by most modern languages (including Python).  
+  \smallskip
+  \item An \textbf{object} has:
+    \begin{itemize}
+      \item \textbf{State} $\rightarrow$ stored in attributes (variables).  
+      \item \textbf{Behavior} $\rightarrow$ defined by methods (functions).  
+    \end{itemize}
+  \smallskip
+  \item A \textbf{class} is a blueprint for creating objects; each object is an
+  	\textbf{instance} of a class. 
+  \smallskip
+  \item In Python:
+    \begin{itemize}
+      \item Define with \texttt{class} and instantiate with \texttt{()}.  
+      \item Access members with the dot \texttt{.} operator.  
+      \item Methods always take the instance as the first argument (\texttt{self}).  
+    \end{itemize}
+  \smallskip
+  \item Define attributes inside the \textbf{constructor} (\texttt{\_\_init\_\_}).  
+  \smallskip
+  \item \textbf{Instance attributes} $\rightarrow$ unique to each object.  
+  \smallskip
+  \item \textbf{Class attributes} $\rightarrow$ shared across all instances.  
+\end{itemize}
 \end{frame}
+
 
 
 \begin{frame}
@@ -423,7 +420,7 @@
     \end{itemize}
     \bigskip
     \item That way it is easier to find bugs: you know that, if something is wrong
-          with an object, the problem lays inside the class code
+          with an object, the problem lies inside the class code
     \bigskip
     \item That way you can also \emph{enforce behaviour}: for example you can
           prevent from changing the channel if the TV is off
@@ -612,7 +609,7 @@
 
     \begin{itemize}
       \item "I have this super-cool algorithm to solve the problem I am working on:
-             I will code it carefully, than put together quickly some basic
+             I will code it carefully, then put quickly together some basic
              interface to pass data to it and write results to screen / file.
              I need the results quickly for my paper; I can always improve the
              interface later, right?"
@@ -651,7 +648,7 @@
           -- i.e. those without an underscore at the beginning of their name
     \medskip
     \item Changing the interface may break every other piece of code that uses it.
-          You want to do that \emph{as less as possible}
+          You want to do that \emph{as little as possible}
     \medskip
     \item You should not access "private" members directly - even if you can. Always
           pass through the interface
@@ -697,7 +694,7 @@
     \medskip
     \item You want to simulate interactions of charged particles in some detector using OOP paradigm
     \medskip
-    \item You may have a class Detetctor and a class for each particle that you need to simulate
+    \item You may have a class Detector and a class for each particle that you need to simulate
     \medskip
     \item Let's say you have a class Electron, a class Positron, a class Proton and a class Alpha
     \medskip
@@ -729,7 +726,7 @@
     \medskip
     \item In our problem we can imagine to have a base class 'Particle' and many specialized classes inheriting from it
     \medskip
-    \item Inheritance is transitive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and posses all its functionalities)
+    \item Inheritance is transitive: if class C inherits from class B, and class B inherits from class A, then class C is also a child of class A (and possess all its functionalities)
   \end{itemize}
 
 \end{frame}
