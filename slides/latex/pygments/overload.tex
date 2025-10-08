@@ -1,16 +1,16 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/overload.py}},commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{Animal}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{sound}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{return} \PY{n+nb+bp}{None}
+        \PY{k}{return} \PY{k+kc}{None}
 
 \PY{k}{class} \PY{n+nc}{Dog}\PY{p}{(}\PY{n}{Animal}\PY{p}{)}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{sound}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This will shadow the method in the base class\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This will shadow the method in the base class\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Woof!}\PY{l+s+s1}{\PYZsq{}}
         
 \PY{k}{class} \PY{n+nc}{Cat}\PY{p}{(}\PY{n}{Animal}\PY{p}{)}\PY{p}{:}
     \PY{k}{def} \PY{n+nf}{sound}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This will shadow the method in the base class\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This will shadow the method in the base class\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Meow!}\PY{l+s+s1}{\PYZsq{}}
 
 \PY{k}{class} \PY{n+nc}{SilentAnimal}\PY{p}{(}\PY{n}{Animal}\PY{p}{)}\PY{p}{:}
@@ -18,7 +18,7 @@
      
 \PY{n}{animals} \PY{o}{=} \PY{p}{[}\PY{n}{Animal}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Cat}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Dog}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{SilentAnimal}\PY{p}{(}\PY{p}{)}\PY{p}{]}
 \PY{k}{for} \PY{n}{animal} \PY{o+ow}{in} \PY{n}{animals}\PY{p}{:}
-    \PY{k}{print}\PY{p}{(}\PY{n}{animal}\PY{o}{.}\PY{n}{sound}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{animal}\PY{o}{.}\PY{n}{sound}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 
 [Output]
 None

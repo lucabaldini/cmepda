@@ -1,6 +1,6 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/import2.py}},commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{math} \PY{k+kn}{import} \PY{o}{*}
-\PY{k+kn}{import} \PY{n+nn}{logging} \PY{k+kn}{as} \PY{n+nn}{log}
+\PY{k+kn}{import} \PY{n+nn}{logging} \PY{k}{as} \PY{n+nn}{log}
 
 \PY{c+c1}{\PYZsh{} ... 1000 lines of code in the middle}
 
@@ -8,7 +8,8 @@
 
 [Output]
 Traceback (most recent call last):
-  File "snippets/import2.py", line 6, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/import2.py", line 6, in <module>
     x = log(2.)
+        ^^^^^^^
 TypeError: 'module' object is not callable
 \end{Verbatim}

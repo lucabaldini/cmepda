@@ -4,7 +4,7 @@
     \PY{n}{num\PYZus{}elements} \PY{o}{=} \PY{l+m+mi}{0}
     \PY{k}{def} \PY{n+nf}{accumulator}\PY{p}{(}\PY{n}{value}\PY{p}{)}\PY{p}{:}
         \PY{c+c1}{\PYZsh{} We declare the relevant variables as nonlocal}
-        \PY{n}{nonlocal} \PY{n}{total\PYZus{}count}\PY{p}{,} \PY{n}{num\PYZus{}elements}
+        \PY{k}{nonlocal} \PY{n}{total\PYZus{}count}\PY{p}{,} \PY{n}{num\PYZus{}elements}
         \PY{c+c1}{\PYZsh{} Now we can assign to them \PYZhy{} the variables in the closure will be}
         \PY{c+c1}{\PYZsh{} modified, as we want!}
         \PY{n}{total\PYZus{}count} \PY{o}{+}\PY{o}{=} \PY{n}{value}
@@ -13,9 +13,9 @@
     \PY{k}{return} \PY{n}{accumulator}
     
 \PY{n}{run\PYZus{}avg} \PY{o}{=} \PY{n}{running\PYZus{}average}\PY{p}{(}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{5.}\PY{p}{)}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{5.}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
 
 [Output]
 1.0

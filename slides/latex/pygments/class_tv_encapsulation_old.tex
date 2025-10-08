@@ -3,18 +3,18 @@
 \PY{l+s+sd}{encapsulation, with setters and getters\PYZdq{}\PYZdq{}\PYZdq{}}
 
 \PY{k}{class} \PY{n+nc}{Television}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
 \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{owner}\PY{p}{)}\PY{p}{:}
-       \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{       }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner} \PY{o}{=} \PY{n}{owner}
     
     \PY{k}{def} \PY{n+nf}{get\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style getter.\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style getter.\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner}
         
     \PY{k}{def} \PY{n+nf}{set\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style setter to control access \PYZhy{} in this case preventing the }
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Old\PYZhy{}style setter to control access \PYZhy{} in this case preventing the }
 \PY{l+s+sd}{        attribute from being changed.\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{)}
     

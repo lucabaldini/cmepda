@@ -1,18 +1,18 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/duck\_typing.py}},commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{Duck}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a duck \PYZhy{} it quacks\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a duck \PYZhy{} it quacks\PYZdq{}\PYZdq{}\PYZdq{}}
     
     \PY{k}{def} \PY{n+nf}{quack}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
         
 \PY{k}{class} \PY{n+nc}{Goose}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a goose \PYZhy{} it quacks too\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a goose \PYZhy{} it quacks too\PYZdq{}\PYZdq{}\PYZdq{}}
     
     \PY{k}{def} \PY{n+nf}{quack}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Quack!}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
 \PY{k}{class} \PY{n+nc}{Penguin}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a penguin \PYZhy{}\PYZhy{} He doesn\PYZsq{}t quack!\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} This is a penguin \PYZhy{}\PYZhy{} He doesn\PYZsq{}t quack!\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{k}{pass} 
 
 \PY{n}{birds} \PY{o}{=} \PY{p}{[}\PY{n}{Duck}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Goose}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{Penguin}\PY{p}{(}\PY{p}{)}\PY{p}{]}
@@ -24,7 +24,8 @@
 Quack!
 Quack!
 Traceback (most recent call last):
-  File "snippets/duck_typing.py", line 20, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/duck_typing.py", line 20, in <module>
     bird.quack()
+    ^^^^^^^^^^
 AttributeError: 'Penguin' object has no attribute 'quack'
 \end{Verbatim}

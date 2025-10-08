@@ -2,7 +2,7 @@
 \PY{c+c1}{\PYZsh{} Generator function that provides infinte fibonacci numbers}
 \PY{k}{def} \PY{n+nf}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{:}
     \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}
-    \PY{k}{while} \PY{n+nb+bp}{True}\PY{p}{:}
+    \PY{k}{while} \PY{k+kc}{True}\PY{p}{:}
         \PY{k}{yield} \PY{n}{a}
         \PY{n}{a}\PY{p}{,} \PY{n}{b} \PY{o}{=} \PY{n}{b}\PY{p}{,} \PY{n}{a} \PY{o}{+} \PY{n}{b}
 
@@ -14,13 +14,13 @@
         \PY{k}{break}
     \PY{k}{else}\PY{p}{:}
         \PY{n}{fib\PYZus{}numbers}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{fib}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{fib\PYZus{}numbers}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{fib\PYZus{}numbers}\PY{p}{)}
       
 \PY{c+c1}{\PYZsh{} Another way of doing that is using \PYZsq{}islice\PYZsq{} from itertools}
 \PY{k+kn}{import} \PY{n+nn}{itertools}
 \PY{c+c1}{\PYZsh{} Generator expression}
 \PY{n}{fib\PYZus{}gen} \PY{o}{=} \PY{p}{(}\PY{n}{fib} \PY{k}{for} \PY{n}{fib} \PY{o+ow}{in} \PY{n}{itertools}\PY{o}{.}\PY{n}{islice}\PY{p}{(}\PY{n}{fibonacci}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{max\PYZus{}n}\PY{p}{)}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fib\PYZus{}gen}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fib\PYZus{}gen}\PY{p}{)}\PY{p}{)}
 
 [Output]
 [0, 1, 1, 2, 3, 5, 8]

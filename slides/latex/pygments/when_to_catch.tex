@@ -1,6 +1,6 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/when\_to\_catch.py}},commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{parse\PYZus{}line}\PY{p}{(}\PY{n}{line}\PY{p}{)}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Parse a line of the file and return the values as float\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Parse a line of the file and return the values as float\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{values} \PY{o}{=} \PY{n}{line}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
     \PY{c+c1}{\PYZsh{} the following two lines may generate exceptions if they fail!}
     \PY{n}{time} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
@@ -17,9 +17,11 @@
 0.1 15.2
 0.2 12.4
 Traceback (most recent call last):
-  File "/home/data/work/teaching/cmepda/slides/latex/snippets/when_to_catch.py", line 12, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/when_to_catch.py", line 12, in <module>
     time, voltage = parse_line(line)
-  File "/home/data/work/teaching/cmepda/slides/latex/snippets/when_to_catch.py", line 6, in parse_line
+                    ^^^^^^^^^^^^^^^^
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/when_to_catch.py", line 6, in parse_line
     voltage = float(values[1])
+              ^^^^^^^^^^^^^^^^
 ValueError: could not convert string to float: 'pippo'
 \end{Verbatim}

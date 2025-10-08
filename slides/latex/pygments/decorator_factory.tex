@@ -7,7 +7,7 @@
     \PY{k}{def} \PY{n+nf}{decorator}\PY{p}{(}\PY{n}{function}\PY{p}{)}\PY{p}{:}
         \PY{n+nd}{@wraps}\PY{p}{(}\PY{n}{function}\PY{p}{)}
         \PY{k}{def} \PY{n+nf}{wrapper}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
-            \PY{k}{print}\PY{p}{(}\PY{n}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Decorator arguments: \PYZob{}params\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Decorator arguments: }\PY{l+s+si}{\PYZob{}}\PY{n}{params}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
             \PY{c+c1}{\PYZsh{} some preprocess here}
             \PY{n}{result} \PY{o}{=} \PY{n}{function}\PY{p}{(}\PY{o}{*}\PY{n}{args}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
             \PY{c+c1}{\PYZsh{} some post\PYZhy{}process here}

@@ -103,9 +103,9 @@ def run_pygmentize(file_path, label=True):
             if line.startswith('\\begin{Verbatim}'):
                 do_write = True
                 if label:
-                    text = file_name.replace('_', '\_')
+                    text = file_name.replace('_', '\\_')
                     folder = os.path.dirname(file_path)
-                    folder = folder.replace(PACKAGE_ROOT, '').strip('\/')
+                    folder = folder.replace(PACKAGE_ROOT, '').strip('\\/')
                     text = '%s%s/%s' % (GITHUB_URL, folder, text)
                     text = '\\makebox{\\url{%s}}' % text
                     line = line.replace('[', '[label=%s,' % text)

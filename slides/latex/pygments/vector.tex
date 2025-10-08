@@ -3,14 +3,14 @@
 \PY{k+kn}{from} \PY{n+nn}{array} \PY{k+kn}{import} \PY{n}{array}
 
 \PY{k}{class} \PY{n+nc}{Vector}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{TYPE\PYZus{}CODE} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}} \PY{c+c1}{\PYZsh{}We use a class attribute to save the code required for array}
 
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{components}\PY{p}{)}\PY{p}{:}
         \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{TYPE\PYZus{}CODE}\PY{p}{,} \PY{n}{components}\PY{p}{)}
 
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Calling str() of an array produces a string like}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Calling str() of an array produces a string like}
 \PY{l+s+sd}{        array(\PYZsq{}d\PYZsq{}, [1., 2., 3., ...]). We remove everything outside the}
 \PY{l+s+sd}{        square parenthesis and add our class name at the beginning.\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n}{components} \PY{o}{=} \PY{n+nb}{str}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}

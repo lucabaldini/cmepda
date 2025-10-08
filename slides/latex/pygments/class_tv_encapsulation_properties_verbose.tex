@@ -1,17 +1,17 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/class\_tv\_encapsulation\_properties\_verbose.py}},commandchars=\\\{\}]
 \PY{k}{class} \PY{n+nc}{Television}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class describing a televsion.}
 \PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{owner}\PY{p}{)}\PY{p}{:}
-       \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{       }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Class constructor\PYZdq{}\PYZdq{}\PYZdq{}}
        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner} \PY{o}{=} \PY{n}{owner}
 
     \PY{k}{def} \PY{n+nf}{get\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Same as the getter\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Same as the getter\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}owner}
 
     \PY{k}{def} \PY{n+nf}{set\PYZus{}owner}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{new\PYZus{}owner}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Same as the setter\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Same as the setter\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nope }\PY{l+s+si}{\PYZob{}}\PY{n}{new\PYZus{}owner}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{. Do you want to steal my tv?}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
     \PY{c+c1}{\PYZsh{} This is where we do the property trick!}

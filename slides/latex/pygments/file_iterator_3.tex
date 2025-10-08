@@ -13,13 +13,13 @@
                 \PY{n}{time} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
                 \PY{n}{tension} \PY{o}{=} \PY{n+nb}{float}\PY{p}{(}\PY{n}{values}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
             \PY{k}{except} \PY{n+ne}{ValueError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
-                \PY{k}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Line \PYZob{}\PYZcb{} error: \PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{e}\PY{p}{)}\PY{p}{)}
+                \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Line }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ error: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{e}\PY{p}{)}\PY{p}{)}
                 \PY{k}{continue}
             \PY{k}{yield} \PY{n}{time}\PY{p}{,} \PY{n}{tension}
 
 \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{snippets/data/fake\PYZus{}measurements.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{:}
     \PY{k}{for} \PY{n}{time}\PY{p}{,} \PY{n}{tension} \PY{o+ow}{in} \PY{n}{LabFile}\PY{p}{(}\PY{n}{lab\PYZus{}data\PYZus{}file}\PY{p}{)}\PY{p}{:}
-        \PY{k}{print}\PY{p}{(}\PY{n}{time}\PY{p}{,} \PY{n}{tension}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{time}\PY{p}{,} \PY{n}{tension}\PY{p}{)}
 
 [Output]
 0.1 15.2

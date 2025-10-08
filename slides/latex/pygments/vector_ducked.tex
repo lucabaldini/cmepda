@@ -3,7 +3,7 @@
 \PY{k+kn}{from} \PY{n+nn}{array} \PY{k+kn}{import} \PY{n}{array}
 
 \PY{k}{class} \PY{n+nc}{Vector}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}    
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Classs representing a multidimensional vector\PYZdq{}\PYZdq{}\PYZdq{}}    
     \PY{n}{typecode} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{d}\PY{l+s+s1}{\PYZsq{}}
     
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{components}\PY{p}{)}\PY{p}{:}
@@ -22,7 +22,7 @@
         \PY{k}{return} \PY{n}{math}\PY{o}{.}\PY{n}{hypot}\PY{p}{(}\PY{o}{*}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}components}\PY{p}{)}
     
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}add\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
-        \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} zip returns a sequence of pairs from two iterables\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{+w}{        }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} zip returns a sequence of pairs from two iterables\PYZdq{}\PYZdq{}\PYZdq{}}
         \PY{k}{return} \PY{n}{Vector}\PY{p}{(}\PY{p}{[}\PY{n}{x} \PY{o}{+} \PY{n}{y} \PY{k}{for} \PY{n}{x}\PY{p}{,} \PY{n}{y} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{]}\PY{p}{)}
     
     \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}eq\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}

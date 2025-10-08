@@ -9,15 +9,17 @@
     \PY{k}{return} \PY{n}{accumulator}
     
 \PY{n}{run\PYZus{}avg} \PY{o}{=} \PY{n}{running\PYZus{}average}\PY{p}{(}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{5.}\PY{p}{)}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{1.}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{5.}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{run\PYZus{}avg}\PY{p}{(}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
 
 [Output]
 Traceback (most recent call last):
-  File "snippets/closure_wrong.py", line 11, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/closure_wrong.py", line 11, in <module>
     print(run_avg(1.))
-  File "snippets/closure_wrong.py", line 5, in accumulator
+          ^^^^^^^^^^^
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/closure_wrong.py", line 5, in accumulator
     total_count += value # Doesn't work! total_count is reassigned!
-UnboundLocalError: local variable 'total_count' referenced before assignment
+    ^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'total_count' where it is not associated with a value
 \end{Verbatim}

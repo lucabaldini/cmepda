@@ -2,7 +2,7 @@
 \PY{k+kn}{import} \PY{n+nn}{numpy}
 
 \PY{k}{def} \PY{n+nf}{create\PYZus{}rotator}\PY{p}{(}\PY{n}{theta}\PY{p}{)}\PY{p}{:}
-    \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Efficient rotation. Cosinus and sinus values are saved in the closure,}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Efficient rotation. Cosinus and sinus values are saved in the closure,}
 \PY{l+s+sd}{    so that they are computed exactly once.\PYZdq{}\PYZdq{}\PYZdq{}}
     \PY{n}{c} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{cos}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
     \PY{n}{s} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
@@ -15,8 +15,8 @@
 \PY{n}{x}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{l+m+mf}{1.}\PY{p}{,} \PY{l+m+mf}{0.}
 \PY{n}{theta} \PY{o}{=} \PY{n}{numpy}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{4}
 \PY{n}{rotate\PYZus{}by\PYZus{}theta} \PY{o}{=} \PY{n}{create\PYZus{}rotator}\PY{p}{(}\PY{n}{theta}\PY{p}{)}
-\PY{k}{print}\PY{p}{(}\PY{n}{rotate\PYZus{}by\PYZus{}theta}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{rotate\PYZus{}by\PYZus{}theta}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}\PY{p}{)}
 
 [Output]
-(0.7071067811865476, 0.7071067811865475)
+(np.float64(0.7071067811865476), np.float64(0.7071067811865475))
 \end{Verbatim}

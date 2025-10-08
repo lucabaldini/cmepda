@@ -6,13 +6,14 @@
 \PY{k}{try}\PY{p}{:}
     \PY{k}{with} \PY{n+nb}{open} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{i\PYZus{}do\PYZus{}not\PYZus{}exist.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{as} \PY{n}{myfile}\PY{p}{:}
         \PY{k}{pass}
-\PY{k}{except} \PY{n}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
+\PY{k}{except} \PY{n+ne}{FileNotFoundError} \PY{k}{as} \PY{n}{e}\PY{p}{:}
     \PY{n}{logger}\PY{o}{.}\PY{n}{exception}\PY{p}{(}\PY{n}{e}\PY{p}{)}
 
 [Output]
 [Errno 2] No such file or directory: 'i_do_not_exist.txt'
 Traceback (most recent call last):
-  File "snippets/traceback_logging.py", line 6, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/traceback_logging.py", line 6, in <module>
     with open ('i_do_not_exist.txt') as myfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'i_do_not_exist.txt'
 \end{Verbatim}
