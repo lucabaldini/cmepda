@@ -105,10 +105,20 @@ class Alpha(Particle):
 
 
 if __name__ == '__main__':
-    proton = Proton(200.)
+    muon = Particle(mass=105.6, charge=-1, name='Muon')
+    muon.print_info()
+    muon.energy = 200
+    print(f'Muon energy: {muon.energy:.2f} MeV, '\
+          f'momentum: {muon.momentum:.2f} MeV, '\
+          f'beta: {muon.beta:.5f}')
+    muon.momentum = 20
+    print(f'Muon energy: {muon.energy:.2f} MeV, '\
+          f'momentum: {muon.momentum:.2f} MeV, '\
+          f'beta: {muon.beta:.5f}')
+    proton = Proton(momentum=200.)
     proton.print_info()
     proton.beta = 0.8
     proton.print_info()
-    alpha = Alpha(20.)
+    alpha = Alpha(momentum=20.)
     alpha.energy = 10000.
     alpha.print_info()
