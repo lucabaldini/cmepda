@@ -15,9 +15,9 @@ def clocked(func):
     """ Measure execution time"""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        tstart = time.clock()
+        tstart = time.perf_counter()
         result = func(*args, **kwargs)
-        exec_time = time.clock() - tstart
+        exec_time = time.perf_counter() - tstart
         print('Function {} executed in {} s'.format(func.__name__, exec_time))
         return result
     return wrapper
