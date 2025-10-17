@@ -1,5 +1,9 @@
 from dataclasses import dataclass
-
+"""
+You can control what methods are added to your dataclass through a number of
+flags: init, repr, eq, order, unnsafe_hash, frozen...
+see https://docs.python.org/3/library/dataclasses.html\#dataclasses.dataclass 
+"""
 @dataclass(order=True, frozen=True)
 class Person:
     name: str

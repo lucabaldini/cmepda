@@ -210,19 +210,14 @@
 \begin{frame}
   \frametitle{The @dataclass decorator}
   \begin{itemize}
-    \item A very useful decorator is \alert{\emph{@dataclass}}
-    \smallskip
-    \item A \emph{dataclass} is a class that is designed to only (or mostly)
+    \item Another useful decorator is \emph{@dataclass}
+    \medskip
+    \item A \alert{\emph{dataclass}} is a class that is designed to only (or mostly)
           hold data values.
-    \smallskip
+    \medskip
     \item A dataclass is defined by declaring the name and type of its attributes. 
     You do not have to type any other code, the interpreter will automatically 
     generate the \_\_init\_\_, \_\_eq\_\_ and \_\_repr\_\_ special methods for you.  
-    \smallskip
-    \item You can customize what methods are added to your dataclass through a
-          number of flags: \emph{init}, \emph{repr}, \emph{eq}, \emph{order},
-          \emph{unsafe\_hash}, \emph{frozen} ...
-          (see the full list at \url{https://docs.python.org/3/library/dataclasses.html\#dataclasses.dataclass}) 
   \end{itemize}
 \end{frame}
 

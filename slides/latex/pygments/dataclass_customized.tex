@@ -1,6 +1,10 @@
 \begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/dataclass\_customized.py}},commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{dataclasses} \PY{k+kn}{import} \PY{n}{dataclass}
-
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{You can control what methods are added to your dataclass through a number of}
+\PY{l+s+sd}{flags: init, repr, eq, order, unnsafe\PYZus{}hash, frozen...}
+\PY{l+s+sd}{see https://docs.python.org/3/library/dataclasses.html\PYZbs{}\PYZsh{}dataclasses.dataclass }
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
 \PY{n+nd}{@dataclass}\PY{p}{(}\PY{n}{order}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{frozen}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
 \PY{k}{class} \PY{n+nc}{Person}\PY{p}{:}
     \PY{n}{name}\PY{p}{:} \PY{n+nb}{str}
@@ -14,8 +18,10 @@
 
 [Output]
 False
+/home/alberto/teaching/computing/cmepda/slides/latex/snippets/dataclass_customized.py:2: SyntaxWarning: invalid escape sequence '\#'
+  """
 Traceback (most recent call last):
-  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/dataclass_customized.py", line 12, in <module>
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/dataclass_customized.py", line 16, in <module>
     Joe.age = 33
     ^^^^^^^
   File "<string>", line 4, in __setattr__
