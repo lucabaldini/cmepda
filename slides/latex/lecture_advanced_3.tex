@@ -196,7 +196,7 @@
     \smallskip
     \item In some sense a static method is only loosely coupled to the class - 
           it is defined inside the class body just for convenience (maybe for
-          semantical proximity) but it could be defined outside the class as well
+          semantic proximity) but it could be defined outside the class as well
   \end{itemize}
 \end{frame}
 
@@ -204,6 +204,32 @@
 \begin{frame}
   \frametitle{Static method}
   \input{pygments/staticmethod}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{The @dataclass decorator}
+  \begin{itemize}
+    \item A very useful decorator is \alert{\emph{@dataclass}}
+    \smallskip
+    \item A \emph{dataclass} is a class that is designed to only (or mostly)
+          hold data values.
+    \smallskip
+    \item A dataclass is defined by declaring the name and type of its attributes. 
+    You do not have to type any other code, the interpreter will automatically 
+    generate the \_\_init\_\_, \_\_eq\_\_ and \_\_repr\_\_ special methods for you.  
+    \smallskip
+    \item You can customize what methods are added to your dataclass through a
+          number of flags: \emph{init}, \emph{repr}, \emph{eq}, \emph{order},
+          \emph{unsafe\_hash}, \emph{frozen} ...
+          (see the full list at \url{https://docs.python.org/3/library/dataclasses.html\#dataclasses.dataclass}) 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dataclass}
+  \input{pygments/dataclass}
 \end{frame}
 
 
@@ -237,6 +263,12 @@
 \begin{frame}
   \frametitle{Repeat}
   \input{pygments/decorator_repeat}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Customizing dataclass methods}
+  \input{pygments/dataclass_customized}
 \end{frame}
 
 

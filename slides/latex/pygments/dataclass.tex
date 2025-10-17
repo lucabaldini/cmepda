@@ -1,0 +1,32 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/dataclass.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{dataclasses} \PY{k+kn}{import} \PY{n}{dataclass}
+
+\PY{c+c1}{\PYZsh{} Traditional way}
+\PY{k}{class} \PY{n+nc}{PersonOldStyle}\PY{p}{:}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{name}\PY{p}{,} \PY{n}{age}\PY{p}{,} \PY{n}{height}\PY{p}{)}\PY{p}{:}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{n}{name}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{age} \PY{o}{=} \PY{n}{age}
+        \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{height} \PY{o}{=} \PY{n}{height}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}repr\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}class\PYZus{}\PYZus{}}\PY{o}{.}\PY{n+nv+vm}{\PYZus{}\PYZus{}name\PYZus{}\PYZus{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{(name=}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{, age=}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{age}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{, }\PY{l+s+s1}{\PYZsq{}}\PYZbs{}
+               \PY{l+s+sa}{f}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{height=}\PY{l+s+si}{\PYZob{}}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{height}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}
+    \PY{k}{def} \PY{n+nf+fm}{\PYZus{}\PYZus{}eq\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{other}\PY{p}{)}\PY{p}{:}
+        \PY{k}{return} \PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{name}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{age}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{height}\PY{p}{)} \PY{o}{==} \PYZbs{}
+               \PY{p}{(}\PY{n}{other}\PY{o}{.}\PY{n}{name}\PY{p}{,} \PY{n}{other}\PY{o}{.}\PY{n}{age}\PY{p}{,} \PY{n}{other}\PY{o}{.}\PY{n}{height}\PY{p}{)} 
+
+\PY{c+c1}{\PYZsh{} With dataclass}
+\PY{n+nd}{@dataclass}
+\PY{k}{class} \PY{n+nc}{PersonDataclass}\PY{p}{:}
+    \PY{n}{name} \PY{p}{:} \PY{n+nb}{str} \PY{c+c1}{\PYZsh{} Notice the type hint (which is mandatory but not enforced)}
+    \PY{n}{age} \PY{p}{:} \PY{n+nb}{int}
+    \PY{n}{height} \PY{p}{:} \PY{n+nb}{float}
+
+\PY{n}{Joe} \PY{o}{=} \PY{n}{PersonOldStyle}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Joe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{35}\PY{p}{,} \PY{l+m+mf}{1.84}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{Joe}\PY{p}{)}
+\PY{n}{Mary} \PY{o}{=} \PY{n}{PersonDataclass}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Mary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{28}\PY{p}{,} \PY{l+m+mf}{1.62}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{Mary}\PY{p}{)}
+
+[Output]
+PersonOldStyle(name='Joe', age=35, height=1.84)
+PersonDataclass(name='Mary', age=28, height=1.62)
+\end{Verbatim}

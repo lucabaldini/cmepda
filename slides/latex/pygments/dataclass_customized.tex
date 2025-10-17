@@ -1,0 +1,23 @@
+\begin{Verbatim}[label=\makebox{\url{https://github.com/lucabaldini/cmepda/tree/master/slides/latex/snippets/dataclass\_customized.py}},commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{dataclasses} \PY{k+kn}{import} \PY{n}{dataclass}
+
+\PY{n+nd}{@dataclass}\PY{p}{(}\PY{n}{order}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{frozen}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\PY{k}{class} \PY{n+nc}{Person}\PY{p}{:}
+    \PY{n}{name}\PY{p}{:} \PY{n+nb}{str}
+    \PY{n}{age}\PY{p}{:} \PY{n+nb}{int}
+    \PY{n}{height}\PY{p}{:} \PY{n+nb}{float}
+
+\PY{n}{Joe} \PY{o}{=} \PY{n}{Person}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Joe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mf}{1.84}\PY{p}{)}
+\PY{n}{Mary} \PY{o}{=} \PY{n}{Person}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Mary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{25}\PY{p}{,} \PY{l+m+mf}{1.62}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{Joe} \PY{o}{\PYZgt{}} \PY{n}{Mary}\PY{p}{)}
+\PY{n}{Joe}\PY{o}{.}\PY{n}{age} \PY{o}{=} \PY{l+m+mi}{33}
+
+[Output]
+False
+Traceback (most recent call last):
+  File "/home/alberto/teaching/computing/cmepda/slides/latex/snippets/dataclass_customized.py", line 12, in <module>
+    Joe.age = 33
+    ^^^^^^^
+  File "<string>", line 4, in __setattr__
+dataclasses.FrozenInstanceError: cannot assign to field 'age'
+\end{Verbatim}
