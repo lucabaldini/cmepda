@@ -10,7 +10,7 @@ Write a class to handle a sequence of voltage measurements at different times.
 - the class must be initialized with two generic iterables of the same length
   holding the numerical values of times and voltages
 - alternatively the class can be initialized from a text file
-- the class must expose two attributes: 'times' and 'voltages', each returning
+- the class must expose two attributes: 'timestamps' and 'voltages', each returning
   a numpy array of type numpy.float64 of the corresponding quantity.
 - the values should be accessible with the familiar square parenthesis syntax:
   the first index must refer to the entry, the second selects time (0) or 

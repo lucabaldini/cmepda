@@ -13,10 +13,10 @@ def run_tests():
     # Test len()
     assert len(v_data) == len(t)
     
-    # Test the timestamps attribute
+    # Test the voltages attribute
     assert numpy.all(v_data.voltages == v)
     
-    # Test the voltages attribute
+    # Test the timestamps attribute
     assert numpy.all(v_data.timestamps == t)
     
     # Test square parenthesis
